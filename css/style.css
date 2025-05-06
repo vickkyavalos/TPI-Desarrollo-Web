@@ -372,14 +372,14 @@ header {
 /*fin seccion - temática*/
 
 /*-----tercera seccion - catálogo------*/
-.container{
+.container-catalogo{
     width: 100%;
     display: flex;
     max-width: 1500px;
     margin: 40px auto;
 }
 
-.card{
+.carta{
     width: 300px;
     margin: 20px;
     border-radius: 6px;
@@ -389,28 +389,28 @@ header {
     cursor: default;
     transition:  all 0.2s ease;
 }
-.card:hover{
+.carta:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
 }
 
-.card img{
+.carta img{
     width: 100%;
     height: 210px;
 }
-.card .contenido{
+.carta .contenido{
     padding: 20px;
     font-family: var(--letra-divertida);
     text-align: center;
 }
 
-.card .contenido p{
+.carta .contenido p{
     font-family: var(--letra-divertida);
     line-height: 1.5;
     color: black;
 }
 
-.card .contenido{
+.carta .contenido{
     font-weight:  400;
 }
 .flecha{
