@@ -7,9 +7,25 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <!--------------------------header -------------------------->
     <header>
-
+        <div id="logo-container">
+            <img id="logo" src="./assets/icons/logo.svg" alt="imagen del logo">
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./templates/quienes-somos.html">Nosotros</a></li>
+                <li><a href="./templates/contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        <!-- Contenedor para el icono User -->
+        <div id="icon-container">
+            <a href=""><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
+        </div>
     </header>
+
+    <!--------------------------portada -------------------------->
     <main>
         <section class="container-portada">
             <div class="texto-portada figura-geometrica">
@@ -21,48 +37,169 @@
             </div>
             <img src="./assets/img/imagen-de-portada.png" alt="imagen de portada">
         </section>
+        <!--------------------------secciones eventos, tematicas, catalogo -------------------------->
         <section class="container-espacio-secciones">
             <section class="container-seccion linea-top" id="seccion-1-evento">
                 <div class="titulo-seccion linea-titulo" id="titulo-evento">
                 <h2>Eventos</h2>
                 </div>
-                <div class="texto-seccion">
+                <div class="texto-seccion" id="texto-seccion-evento">
                     <div id="subtitulo-seccion-evento">
                         <h3 class="subtitulo">Organiza tu fiesta</h3>
                         <span class="subtitulo">sin preocupaciones</span>
                     </div>
                     <p class="parrafo"> Descubre salones y servicios, compara opciones y obtén presupuestos al instante. Fácil, rápido y visualmente atractivo. 🎉 Si necesitas ajustes, dime y lo adaptamos</p>
+                
+                    
                 </div>
-                <div class="container-img">
-                    <img class="imagen-seccion" id="img-salon-globos" src="./assets/img/img-collage-eventos.png" alt="salon con globos">
-                </div>
+                <div class="contenedor-img">
+                    <img class="imagen img1" src="./assets/img/nina-pelotas.webp" alt="niña">
+                    <img class="imagen img2" src="./assets/img/salon.webp" alt="salon">
+                    <img class="imagen img3" src="./assets/img/fiesta.webp" alt="fiesta">
+                </div> 
             </section>
+
+            <!-- tematica -->
             <section class="container-seccion linea-top" id="seccion-2-tematica">
                 <div class="titulo-seccion linea-titulo" id="titulo-tematica">
-                <h2>Temática</h2>
-                </div>
-                <div class="texto-seccion">
-                    <h3 class="subtitulo"></h3>
-                    <p class="parrafo"></p>
-                </div>
-                <div class="imagen-seccion"></div>            
+                    <h2>Temática</h2>
+                    </div>
+                    <div class="texto-seccion" id="texto-seccion-tematica">
+                        <div id="subtitulo-seccion-tematica">
+                            <h3 class="subtitulo">Eventos
+                            <span class="subtitulo">Infantiles</span></h3>
+                        </div>
+                        <p class="parrafo">Desde fiestas mágicas con princesas y superhéroes hasta aventuras espaciales. Elige la que más te guste y crea una experiencia única llena de diversión y sorpresas
+                        </p>
+                    </div>    
+                    <div class="container-img">
+                        <img class="imagen-seccion" id="img-super" src="/assets/img/ninios-superheroes.png" alt="temática de niños superheroes">
+                    </div> 
+                
+                    <!-- catalogo -->      
             </section>
             <section class="container-seccion linea-top" id="seccion-3-catalogo">
                 <div class="titulo-seccion linea-titulo" id="titulo-catalogo">
                 <h2>catalogo</h2>
                 </div>
-                <div class="texto-seccion">
-                    <h3 class="subtitulo"></h3>
-                    <p class="parrafo"></p>
+                <!-- cards de catalogo -->
+
+                <div class="container">
+                    <a href="#"><img class="flecha" src="./assets/img/arrow.png" alt=""></a>
+                    <div class="card">
+                        <img img src="./assets/img/burbuja-kid.jpg" alt="persona">
+                        <div class="contenido">
+                            <h3>Pequeños Gigantes</h3>
+                            <p>Salón con inflables, pelotero y espacio al aire libre.</p>
+                            <p><strong>Dirección:</strong> Sarmiento 1234</p>
+                            <p><strong>Precio:</strong> $105.000</p>
+                            <p>🟢 Disponible</p>
+                            <button class="btn-mas">Ver más</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img img src="./assets/img/salon2.jpg" alt="persona">
+                        <div class="contenido">
+                            <h3>Mundo Mágico</h3>
+                            <p>Salón con juegos interactivos, castillo inflable y sector para meriendas.</p>
+                            <p><strong>Dirección:</strong> Av. Belgrano 5678</p>
+                            <p><strong>Precio:</strong> $98.000</p>
+                            <p>🟢 Disponible</p>
+                            <button class="btn-mas">Ver más</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img img src="./assets/img/evento3.jpg" alt="persona">
+                        <div class="contenido">
+                            <h3>Fiesta en el Bosque</h3>
+                            <p>Lugar temático con decoración natural, inflables y gran parque al aire libre.</p>
+                            <p><strong>Dirección:</strong>Las Heras 345</p>
+                            <p><strong>Precio:</strong> $120.000</p>
+                            <p>🔴 No disponible</p>
+                            <button class="btn-mas">Ver más</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img img src="./assets/img/pelotas-colores.jpg" alt="persona">
+                        <div class="contenido">
+                            <h3>Diversión Total</h3>
+                            <p>Salón amplio con inflables, show de títeres y patio con arenero.</p>
+                            <p><strong>Dirección:</strong>Mitre 2020</p>
+                            <p><strong>Precio:</strong> $112.000</p>
+                            <p>🟠 Consultar disponibilidad</p>
+                            <button class="btn-mas">Ver más</button>
+                        </div>
+                    </div>
+            
+                    <div class="card">
+                        <img src="./assets/img/salon.jpg" alt="persona">
+                        <div class="contenido">
+                            <h3>La Casita de Jueguitos</h3>
+                            <p>Espacio cubierto con pelotero, metegol y zona creativa para pintar.</p>
+                            <p><strong>Dirección:</strong>Rivadavia 4321</p>
+                            <p><strong>Precio:</strong> $100.000</p>
+                            <p>🟢 Disponible</p>
+                            <button class="btn-mas">Ver más</button>
+                        </div>
+                    </div>
+                    <a href=""><img class="flecha" src="./assets/img/right-arrow.png" alt=""></a>
                 </div>
-                <div class="imagen-seccion"></div>            
+
             </section>
-
-
+        </section>
+     <!--------------------------seccion cupcake -------------------------->
+        <section class="container-cupcake">
+            <div class="cupcake">
+                <a href="#"><img id="imgCupcake" src="./assets/img/cupcake.png" alt="imagen de un cupcake"></a>
+            </div>
         </section>
     </main>
-    <footer>
+     
+    <!--------------------------footer -------------------------->
+    <footer> 
+        
+        <!-- contactanos -->
+            <div class="contactanos">
+                <div class="textf">
+                    <p class="textoI">Contactanos</p>
+                <br>
+                </div> 
+                <div class="logo">
+                    <img class="redesL" src="./assets/icons/email.svg" alt="logo de email">
+                    <p class="textoI">idwaS_A2025@gmail.com</p>
+                </div>
+                <div class="logo">
+                    <img class="redesL" src="./assets/icons/phone.svg" alt="logo">
+                    <p class="textoI">1122565213</p>
+                </div>
+                <div class="logo">
+                    <img class="redesL" src="./assets/icons/whatsapp.svg" alt="logo de whatsapp">
+                    <p class="textoI">345154321</p>
+                </div>
+            </div>
 
+            <div class="textoFinal">
+                <p id="fin">© 2025 IDW S.A</p>
+            </div>
+
+            <!-- redes sociales -->
+            <div class="redes">
+                <div class="textf">
+                    <p class="textoI">Nuestras Redes</p>
+                    <br>
+
+                <div class="logosR">
+                    <a href=""><img class="redesL" src="./assets/icons/facebook.svg" alt="logo de facebook"></a>
+                </div>
+                <div class="logosR">
+                    <a href=""><img class="redesL" src="./assets/icons/instagram.svg" alt="logo de instagram"></a>
+                </div>
+                <div class="logosR">
+                    <a href=""><img class="redesL" src="./assets/icons/twitter.svg" alt="logo de twitter"></a>
+                </div>
+            </div> 
+       </div>
     </footer>
+    
 </body>
 </html>

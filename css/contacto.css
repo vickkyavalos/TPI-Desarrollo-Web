@@ -1,0 +1,343 @@
+/*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+
+
+:root{
+    --color-fondo: rgb(249, 238, 234);
+    --color-lineas: rgb(0, 0, 0, 0.66);
+    --color-linea-invisible:rgb(0, 0, 0, 0);
+    --color-primero:rgb(182, 226, 211);
+    --color-segundo: rgb(196, 220, 253);
+    --color-tercero: rgb(235, 203, 222);
+    --color-cuarto:rgb(246, 241, 147);
+    --color-quinto:rgb(163, 255, 172);
+    --color-sexto:rgb(255, 119, 183);
+    --color-septimo: rgb(89, 86, 116);
+    --color-letra:rgb(0, 0, 0, 0.88);
+    --letra-titulo: "Viga", sans-serif;
+    --letra-subtitulo: "Montserrat", sans-serif;
+    --letra-texto: "Montserrat", sans-serif;
+    --letra-divertida: "Atma", system-ui;
+}
+/*Eliminacion de margenes y padding predefinidos*/
+*{
+    margin: 0;
+    padding:0;
+}
+/*body*/
+body{
+    background-color: var(--color-fondo);
+    color: var(--color-letra);
+}
+
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+#logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin: 10px;
+}
+/* imagen logo */
+#logo{
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
+
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+/****************************fin del header*******************************/
+/*EMPIEZA MAIN */
+/* formulario */
+
+.container-formulario {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--letra-titulo);
+    gap: 15px;
+    
+    
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-self: center ;
+    height: 600px;
+    width: 800px;
+    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+    border: 4px dashed #000; 
+    border-radius: 20px;
+    padding: 40px 20px;
+    background: linear-gradient(145deg, #e8f0ff, #ffd6f5); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    
+}
+.formulario-h2{
+    display: flex;
+    height: fit-content;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    position:relative;
+    
+}
+.formulario-titulo{
+    padding: 20px 20px 20px 20px; 
+    font-size: 2rem;
+    font-family: var(--letra-titulo);
+    font-weight: 300;
+    font-style: normal;
+    height: fit-content;
+    align-self: center;
+
+}
+
+
+.formulario-subtitulos {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 200;
+    font-style: normal;
+    padding-bottom: 20px;
+
+}
+
+/* color cosito */
+#titulo-evento{
+    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+}
+
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+/* forma de input y text area */
+input {
+    display: flex;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+textarea {
+    display: flex;
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: inline-block; 
+    margin: 0;             
+}
+
+.checkbox label {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.enviar {
+    background: var(--color-septimo);
+    border-style: outset;
+    height: 50px;
+    width: 100px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: normal;
+
+    font-family: var(--letra-divertida);
+    text-shadow: none;
+        
+}
+/* fin de formulario */
+
+.horarios {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--letra-divertida);
+    font-size: 1rem;
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* contacto */
+.container-contacto {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.container-contacto div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--letra-titulo);
+    font-size: 0.9rem;
+    color: var(--color-letra);
+}
+
+.container-contacto img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.container-contacto p {
+    margin: 0;
+    font-family: var(--letra-titulo);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.contactanos, .textoFinal, .redes {
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+    padding: 20px 5px 5px 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px; 
+}
+  
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+.logosR {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 45px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+  
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+ 
+.textoI {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+  }
+
+
+
+
+
