@@ -288,6 +288,8 @@ header {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
 
+  }
+
 .imagen:hover{
     transform: scale(1.2);
 }
@@ -525,7 +527,3 @@ footer{
     margin-top: 110px;
     font-size: 1rem;
   }
-
-
-
-
