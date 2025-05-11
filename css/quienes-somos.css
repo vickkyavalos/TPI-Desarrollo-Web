@@ -149,45 +149,87 @@ header {
   height: 350px;
 }
 
-/* se agrega box 1 para configurar bordes personalizados */
-.box1 {
+/* ################# mision valor y vision/Box################*/
+/* Contenedor de los boxes */
+
+.boxInicio {
   background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-  border-radius: 16px;
   padding: 30px;
-  margin: 0px 150px 5px;
+  margin: 0px 100px 50px; /* Ajustado para que el margen sea solo vertical */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: "Atma", cursive;
-  /*se agrega borde lineas */
-  border: 3px dashed black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 
-/* se crea box 2 para achicar margenes*/
+.boxFinal {
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 10px;
+  margin: 50px 100px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.boxFrase {
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 20px;
+  margin: 10px 100px 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* box2 */
 .box2 {
   background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-  border-radius: 16px;
   padding: 30px;
-  margin: 5px 330px 20px;
+  margin: 10px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: "Atma", cursive;
-  /*borde lineas*/
-  border: 3px dashed black;
-}
-/*box en historia de quienes somos, se modifico margin */
-.box {
-  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-  border-radius: 16px;
-  padding: 30px;
-  margin: 0px 100px 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-family: "Atma", cursive;
-  /*se agrega borde lineas */
-  border: 3px dashed black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 
-/*contenedor de imagen de organigrama*/
+/* Contenedor de los elementos izquierda y derecha */
+
+.grupo-mvv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.mvv-izq {
+  align-self: flex-start; /* Alinea a la izquierda */
+}
+.mvv-der {
+  align-self: flex-end; /* Alinea a la derecha */
+}
+.mvv-der,
+.mvv-izq {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/*#################contenedor de imagen de organigrama###########*/
 
 .container {
   width: 100%;
@@ -234,7 +276,7 @@ header {
   font-weight: 400;
 }
 
-/* posicion y tamaño de nubecita.png */
+/*  posicion y tamaño de nubecita.png *
 .nube {
   position: relative;
   top: 75px;
@@ -270,28 +312,9 @@ header {
 .fondo-nube {
   background-image: url("../assets/img/nubecita.png");
   background-position: right;
-}
+}*/
 
 /* estilo para organizar misión, visión y valores en fila */
-.grupo-mvv {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* izquierda */
-.mvv-izq {
-  align-self: flex-start;
-  margin-left: 170px;
-  margin-right: auto;
-}
-
-/*derecha */
-.mvv-der {
-  align-self: flex-end;
-  margin-right: 175px;
-  margin-left: auto;
-}
 
 /********************************** footer **********************************/
 footer {
