@@ -280,20 +280,19 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
   }
   
   /* izquierda */
   .mvv-izq {
     align-self: flex-start;
-    margin-left: 170px; /* mismo margen que .box1 */
+    margin-left: 170px; 
     margin-right: auto;
   }
   
   /*derecha */
   .mvv-der {
     align-self: flex-end;
-    margin-right: 175px; /* mismo que tenés en .box2 */
+    margin-right: 175px; 
     margin-left: auto;
   }
   
