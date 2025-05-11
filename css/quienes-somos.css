@@ -111,6 +111,18 @@ header {
   height: 422px;
   padding: 40px 0 100px 0px;
 }
+/* efecto pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .texto-portada {
   gap: 50px;
@@ -134,11 +146,13 @@ header {
   position: relative;
   right: 20px;
 }
+/* se agrega efecto pulso a caja de pregunta */
 .cajapregunta {
   padding-bottom: 60px;
   align-self: center;
   width: 350px;
   height: 350px;
+  animation: pulse 1.5s infinite;
 }
 /* ################# mision valor y vision/Box################*/
 /* Contenedor de los boxes */
@@ -227,11 +241,6 @@ header {
   margin-right: 40px;
   border: 2px solid transparent; /* Sin borde sólido visible */
   box-shadow: 0 0 5px 3px rgb(235, 203, 222);
-}
-.boxInicio,
-.boxFinal {
-  border: 2px solid transparent; /* Sin borde sólido visible */
-  box-shadow: 0 0 5px 3px var(--color-segundo);
 }
 
 /*#################contenedor de imagen de organigrama###########*/
