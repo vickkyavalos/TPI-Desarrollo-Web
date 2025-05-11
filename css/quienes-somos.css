@@ -160,7 +160,7 @@ header {
 .boxInicio {
   background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
   padding: 30px;
-  margin: 0px 100px 50px; /* Ajustado para que el margen sea solo vertical */
+  margin: 0px 100px 50px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: "Atma", cursive;
@@ -169,6 +169,7 @@ header {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+  z-index: 2; 
 }
 
 .boxFinal {
@@ -183,6 +184,7 @@ header {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+  z-index: 2;
 }
 
 .boxFrase {
@@ -197,6 +199,7 @@ header {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+  z-index: 2;
 }
 .box2 {
   background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
@@ -210,6 +213,7 @@ header {
   justify-content: center;
   align-items: center;
   min-height: 200px;
+  z-index: 2;
 }
 .boxFinal p {
   margin: 0;
@@ -228,20 +232,108 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  z-index: 2;
 }
 .mvv-izq {
-  align-self: flex-start; /* Alinea a la izquierda */
+  align-self: flex-start; /
+/* * Alinea a la izquierda */ 
 }
 .mvv-der {
-  align-self: flex-end; /* Alinea a la derecha */
+  align-self:flex-end;
+   /* Alinea a la derecha */
 }
+
+
 .mvv-der,
 .mvv-izq {
   margin-left: 40px;
   margin-right: 40px;
   border: 2px solid transparent; /* Sin borde sólido visible */
   box-shadow: 0 0 5px 3px rgb(235, 203, 222);
+ 
 }
+.boxInicio,
+.boxFinal,
+.boxFrase,
+.box2 {
+  z-index: 2;
+  position: relative; 
+}
+
+/* nubecita */
+/* Contenedor para las nubes */
+.contenedor-nube {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* Estilo para las nubes */
+.nube {
+  position: absolute;
+  z-index: 1; 
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+/* Posiciones manuales para las nubes */
+.nube1 {
+  top: 20%;
+  left: 70%;
+  width: 560px;
+  animation: flotar 6s ease-in-out infinite, moverDerecha 4s ease-in-out infinite;
+}
+
+.nube2 {
+  top: 45%;
+  left: 10%;
+  width: 450px;
+  animation: flotar 6s ease-in-out infinite, moverIzquierda 3s ease-in-out infinite;
+ 
+}
+
+.nube3 {
+  
+  left: 80%;
+  bottom: 20%;
+  animation: flotar 4s ease-in-out infinite;
+  width: 500px;
+}
+
+
+/* efecto flotar */
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -8px);
+  }
+}
+
+/* Animación para moverse hacia la derecha */
+@keyframes moverDerecha {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Animación para moverse hacia la izquierda */
+@keyframes moverIzquierda {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
 
 /*#################contenedor de imagen de organigrama###########*/
 
@@ -291,43 +383,6 @@ header {
 }
 
 /* posicion y tamaño de nubecita.png  */
-.nube {
-  position: relative;
-  top: 75px;
-  right: -25px;
-  width: -50px;
-}
-.nube1 {
-  position: relative;
-  top: 65px;
-  left: 1000px;
-  width: 250px;
-}
-.nube2 {
-  position: relative;
-  top: 30px;
-  right: 280px;
-  width: 300px;
-}
-.nube3 {
-  position: relative;
-  top: -85px;
-  left: -50px;
-  width: 350px;
-}
-
-.nube4 {
-  position: relative;
-  top: 0px;
-  left: 1000px;
-  width: 310px;
-}
-
-.fondo-nube {
-  background-image: url("../assets/img/nubecita.png");
-  background-position: right;
-}
-*/
 
 /* estilo para organizar misión, visión y valores en fila */
 
