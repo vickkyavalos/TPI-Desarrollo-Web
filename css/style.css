@@ -514,16 +514,17 @@ footer{
   }
 
 
+/* mobile */
+@media (max-width: 600px){
 /********** revisar ************/
-@media only screen and (max-width: 992px) {
-    .container-seccion {
+ .container-seccion {
         flex-direction: column;
         height: auto;
         padding: 20px;
     }
     .texto-seccion {
         width: 100%;
-        align-items: center !important;
+        align-items: center;
         text-align: center;
         margin: 20px 0;
     }
@@ -535,9 +536,57 @@ footer{
 
     .card{
         display: flex;
+        width: 150px
+;
         justify-content: center;
         align-items: center;
-        padding: 20px 0;
+        padding: 5px 0;
+    }
+    .container-cupcake, footer{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 100px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+}
+
+/********** tablet ************/
+@media  (min-width: 601px) and (max-width: 1000px) {
+    .container-seccion {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .texto-seccion {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .titulo-seccion {
+        position: static;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .card{
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:20px 0;
     }
     .container-cupcake{
         width: 100%;
@@ -548,7 +597,7 @@ footer{
     text-align: center;
     }
     #imgCupcake{
-        width: 100px; 
+        width: 130px; 
         height: auto;
         display: flex; 
         margin: 0 auto; 
