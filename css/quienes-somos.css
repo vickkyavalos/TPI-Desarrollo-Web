@@ -28,7 +28,11 @@
 body{
     background-color: var(--color-fondo);
     color: var(--color-letra);
-}
+    /*background-image: url(../assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;       /* Ajusta la imagen para cubrir todo el fondo */
+    /*background-position: center; */
+} 
 /****************************header*******************************/
 header {
     display: flex;
