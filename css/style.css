@@ -407,8 +407,6 @@ header {
 }
 
 .card a{
-    width: 100;
-    height: 40px;
     font-family: var(--letra-titulo);
     font-size: 1rem;
     background-color: var(--color-sexto);
@@ -516,27 +514,49 @@ footer{
   }
 
 
-/* media querys para responsive */
-@media ((max-width: 600px)) {
-    
-    .card{
-        width: 200px;
-        height: 80px;
-
+/********** revisar ************/
+@media only screen and (max-width: 992px) {
+    .container-seccion {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
     }
-    
-    #carouselSalonesMobile {
-    display: none !important;
-    } 
+    .texto-seccion {
+        width: 100%;
+        align-items: center !important;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .titulo-seccion {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .container-cupcake{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
     #imgCupcake{
-        width: 80px; 
+        width: 100px; 
         height: auto;
         display: flex; 
         margin: 0 auto; 
         transition: transform 0.3s ease;
-        }
-        #imgCupcake:hover {
-        transform: scale(1.1); 
-        }
     }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+
+    
+}
