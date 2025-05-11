@@ -1,140 +1,138 @@
 /*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
-@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap");
 
-
-:root{
-    --color-fondo: rgb(249, 238, 234);
-    --color-lineas: rgb(0, 0, 0, 0.66);
-    --color-linea-invisible:rgb(0, 0, 0, 0);
-    --color-primero:rgb(182, 226, 211);
-    --color-segundo: rgb(196, 220, 253);
-    --color-tercero: rgb(235, 203, 222);
-    --color-cuarto:rgb(246, 241, 147);
-    --color-quinto:rgb(163, 255, 172);
-    --color-sexto:rgb(255, 119, 183);
-    --color-septimo: rgb(89, 86, 116);
-    --color-letra:rgb(0, 0, 0, 0.88);
-    --letra-titulo: "Viga", sans-serif;
-    --letra-subtitulo: "Montserrat", sans-serif;
-    --letra-texto: "Montserrat", sans-serif;
-    --letra-divertida: "Atma", system-ui;
+:root {
+  --color-fondo: rgb(249, 238, 234);
+  --color-lineas: rgb(0, 0, 0, 0.66);
+  --color-linea-invisible: rgb(0, 0, 0, 0);
+  --color-primero: rgb(182, 226, 211);
+  --color-segundo: rgb(196, 220, 253);
+  --color-tercero: rgb(235, 203, 222);
+  --color-cuarto: rgb(246, 241, 147);
+  --color-quinto: rgb(163, 255, 172);
+  --color-sexto: rgb(255, 119, 183);
+  --color-septimo: rgb(89, 86, 116);
+  --color-letra: rgb(0, 0, 0, 0.88);
+  --letra-titulo: "Viga", sans-serif;
+  --letra-subtitulo: "Montserrat", sans-serif;
+  --letra-texto: "Montserrat", sans-serif;
+  --letra-divertida: "Atma", system-ui;
 }
 /*Eliminacion de margenes y padding predefinidos*/
-*{
-    margin: 0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 /*body*/
-body{
-    background-color: var(--color-fondo);
-    color: var(--color-letra);
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-letra);
 }
 /****************************header*******************************/
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    background-color: var(--color-segundo);
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-segundo);
+  padding: 10px;
 }
-#logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 10px;
+#logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  margin: 10px;
 }
 /* imagen logo */
-#logo{
-    width: 80px;
-    height: auto;
-    margin-top: 10px;
-    background: none;
+#logo {
+  width: 80px;
+  height: auto;
+  margin-top: 10px;
+  background: none;
 }
 /* barra de navegacion */
-.navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
 }
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    margin: 10px;
-    padding: 0;
-    background: none;
+  list-style-type: none;
+  display: flex;
+  margin: 10px;
+  padding: 0;
+  background: none;
 }
 
 .navbar li a {
-    margin-right: 25px;
-    margin-top: 10px;
-    text-decoration: none;
-    text-decoration-style: solid;
-    background: none;
-    font-weight: 550;
-    font-size: 18px;
-    font-family: var(--letra-texto);
-    color: var(--color-letra);
+  margin-right: 25px;
+  margin-top: 10px;
+  text-decoration: none;
+  text-decoration-style: solid;
+  background: none;
+  font-weight: 550;
+  font-size: 18px;
+  font-family: var(--letra-texto);
+  color: var(--color-letra);
 }
-.navbar li a:hover{
-    background-color: var(--color-fondo);
-    border-radius: 5px;
-    width: 100%;
+.navbar li a:hover {
+  background-color: var(--color-fondo);
+  border-radius: 5px;
+  width: 100%;
 }
 /* icono user y su contenedor */
 #icon-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: none;
 }
 
 #icono {
-    width: 40px; 
-    height: auto;
-    margin-left: 10px;
-    background-color: var(--color2);
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+  background-color: var(--color2);
 }
 /****************************fin del header*******************************/
 
 /* se usa configuracion de portada de index, para poder centrar imagenes */
-.container-portada{
-    display: flex;
-    justify-content: space-around;
-    margin: 60px 0px 60px 0px;
+.container-portada {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0px 60px 0px;
 }
 
-.figura-geometrica{
-    background-image: url("../assets/img/circulo-triangulo.png");
-    background-repeat: no-repeat;
-    width: 529px;
-    height: 422px;
-    padding: 40px 0 100px 0px ;
-    
+.figura-geometrica {
+  background-image: url("../assets/img/circulo-triangulo.png");
+  background-repeat: no-repeat;
+  width: 529px;
+  height: 422px;
+  padding: 40px 0 100px 0px;
 }
 
-.texto-portada{
-    gap: 50px;
+.texto-portada {
+  gap: 50px;
 }
 
-.container-portada h1{
-    font-family: var(--letra-titulo);
-    font-size: 6rem;
-    font-weight: 500;
+.container-portada h1 {
+  font-family: var(--letra-titulo);
+  font-size: 6rem;
+  font-weight: 500;
 }
 
-.container-portada span{
-    padding-left: 150px;
+.container-portada span {
+  padding-left: 150px;
 }
 
-.container-portada p{
-    font-family: var(--letra-divertida);
-    font-weight: 300;
-    font-style: normal;
-    font-size: 2.5rem;
-    position: relative;
-    right:20px;
+.container-portada p {
+  font-family: var(--letra-divertida);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2.5rem;
+  position: relative;
+  right: 20px;
 }
 
 /*.container-portada img{
@@ -144,288 +142,277 @@ header {
     height: 345px;
 }*/
 
-.cajapregunta{
-    padding-bottom: 60px;
-    align-self: center;
-    width: 350px;
-    height: 350px;
+.cajapregunta {
+  padding-bottom: 60px;
+  align-self: center;
+  width: 350px;
+  height: 350px;
 }
 
 /* se agrega box 1 para configurar bordes personalizados */
 .box1 {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 150px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-/*se agrega borde lineas */
-    border: 3px dashed black ;
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 0px 150px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  /*se agrega borde lineas */
+  border: 3px dashed black;
 }
 
 /* se crea box 2 para achicar margenes*/
 .box2 {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 330px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-    /*borde lineas*/
-    border: 3px dashed black ;
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 5px 330px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  /*borde lineas*/
+  border: 3px dashed black;
 }
 /*box en historia de quienes somos, se modifico margin */
 .box {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 156px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-/*se agrega borde lineas */
-    border: 3px dashed black ;
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 0px 100px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  /*se agrega borde lineas */
+  border: 3px dashed black;
 }
 
 /*contenedor de imagen de organigrama*/
 
-.container{
-    width: 100%;
-    display: flex;
-    max-width: 1100px;
-    /*se agrega margin para centrar*/
-    margin: 40px auto;
+.container {
+  width: 100%;
+  display: flex;
+  max-width: 1100px;
+  /*se agrega margin para centrar*/
+  margin: 40px auto;
 }
 
-.card{
-    width: 100%;
-    margin: 20px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    cursor: default;
-    transition:  all 0.2s ease;
+.card {
+  width: 100%;
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 0.2s ease;
 }
-.card:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateY(-3%);
-}
-
-.card img{
-    width: 100%;
-    height: 210px;
-}
-.card .contenido{
-    padding: 20px;
-    font-family: var(--letra-divertida);
-    text-align: center;
-    /* se prueba resaltado */
-    text-shadow:0px 1px 5px #964e96;
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%);
 }
 
-.card .contenido p{
-    font-family: var(--letra-divertida);
-    line-height: 1.5;
-    color: black;
+.card img {
+  width: 100%;
+  height: 210px;
+}
+.card .contenido {
+  padding: 20px;
+  font-family: var(--letra-divertida);
+  text-align: center;
+  /* se prueba resaltado */
+  text-shadow: 0px 1px 5px #964e96;
 }
 
-.card .contenido{
-    font-weight:  400;
+.card .contenido p {
+  font-family: var(--letra-divertida);
+  line-height: 1.5;
+  color: black;
+}
+
+.card .contenido {
+  font-weight: 400;
 }
 
 /* posicion y tamaño de nubecita.png */
 .nube {
-        position: relative;
-        top: 75px;
-        right: -25px;
-        width: -50px;
-    }
+  position: relative;
+  top: 75px;
+  right: -25px;
+  width: -50px;
+}
 .nube1 {
-        position: relative;
-        top: 65px;
-        left: 1000px;
-        width: 250px;
-    }
+  position: relative;
+  top: 65px;
+  left: 1000px;
+  width: 250px;
+}
 .nube2 {
-        position: relative;
-        top: 30px;
-        right: 280px;
-        width: 300px;
-    }
+  position: relative;
+  top: 30px;
+  right: 280px;
+  width: 300px;
+}
 .nube3 {
-        position: relative;
-        top: -85px;
-        left: -50px;
-        width: 350px;
-    }
- 
-.nube4 {
-        position: relative;
-        top:0px;
-        left: 1000px;
-        width: 310px;
-    }
+  position: relative;
+  top: -85px;
+  left: -50px;
+  width: 350px;
+}
 
-.fondo-nube{
-    background-image: url("../assets/img/nubecita.png");
-    background-position: right;
+.nube4 {
+  position: relative;
+  top: 0px;
+  left: 1000px;
+  width: 310px;
+}
+
+.fondo-nube {
+  background-image: url("../assets/img/nubecita.png");
+  background-position: right;
 }
 
 /* estilo para organizar misión, visión y valores en fila */
 .grupo-mvv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  /* izquierda */
-  .mvv-izq {
-    align-self: flex-start;
-    margin-left: 170px; 
-    margin-right: auto;
-  }
-  
-  /*derecha */
-  .mvv-der {
-    align-self: flex-end;
-    margin-right: 175px; 
-    margin-left: auto;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* izquierda */
+.mvv-izq {
+  align-self: flex-start;
+  margin-left: 170px;
+  margin-right: auto;
+}
+
+/*derecha */
+.mvv-der {
+  align-self: flex-end;
+  margin-right: 175px;
+  margin-left: auto;
+}
 
 /********************************** footer **********************************/
-footer{
-    background-image: url("../assets/img/wave-celeste.svg");;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top; 
-    padding: 3px; 
-    text-align: center;
-    margin-top: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+footer {
+  background-image: url("../assets/img/wave-celeste.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 3px;
+  text-align: center;
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
+
+.contactanos,
+.textoFinal,
+.redes {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  padding: 20px 5px 5px 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
 }
-  
+
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
 
 .logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 45px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+
 .redesL {
-    width: 24px;
-    height: 24px;
-  }
-  
- 
+  width: 24px;
+  height: 24px;
+}
+
 .textoI {
-    font-family: var(--letra-texto);
-    text-align: left;
-    margin: 0;
-  }
-  
-  
+  font-family: var(--letra-texto);
+  text-align: left;
+  margin: 0;
+}
+
 #fin {
-    font-family: var(--letra-texto);
-    text-align: center;
-    margin-top: 110px;
-    font-size: 1rem;
-  }
-
-
+  font-family: var(--letra-texto);
+  text-align: center;
+  margin-top: 110px;
+  font-size: 1rem;
+}
 
 /********************************** footer **********************************/
-footer{
-    background-image: url("../assets/img/wave-celeste.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top; 
-    padding: 3px; 
-    text-align: center;
-    margin-top: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+footer {
+  background-image: url("../assets/img/wave-celeste.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 3px;
+  text-align: center;
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
+
+.contactanos,
+.textoFinal,
+.redes {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  padding: 20px 5px 5px 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
 }
-  
+
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
 
 .logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 45px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+
 .redesL {
-    width: 24px;
-    height: 24px;
-  }
-  
- 
+  width: 24px;
+  height: 24px;
+}
+
 .textoI {
-    font-family: var(--letra-texto);
-    text-align: left;
-    margin: 0;
-  }
-  
-  
+  font-family: var(--letra-texto);
+  text-align: left;
+  margin: 0;
+}
+
 #fin {
-    font-family: var(--letra-texto);
-    text-align: center;
-    margin-top: 110px;
-    font-size: 1rem;
-  }
-
-
-
-
-
-
-
+  font-family: var(--letra-texto);
+  text-align: center;
+  margin-top: 110px;
+  font-size: 1rem;
+}
