@@ -286,18 +286,12 @@ header {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
+    transition: transform 0.3s ease;}
 
 .imagen:hover{
     transform: scale(1.2);
 }
 
-  .img2 {
-    top: 100;
-    right: 150px;
-    z-index: 2;
-}
 
  .img1 {
     top: 110px;
@@ -378,14 +372,14 @@ header {
 /*fin seccion - temática*/
 
 /*-----tercera seccion - catálogo------*/
-.container{
+.container-catalogo{
     width: 100%;
     display: flex;
     max-width: 1500px;
     margin: 40px auto;
 }
 
-.card{
+.carta{
     width: 300px;
     margin: 20px;
     border-radius: 6px;
@@ -395,28 +389,28 @@ header {
     cursor: default;
     transition:  all 0.2s ease;
 }
-.card:hover{
+.carta:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
 }
 
-.card img{
+.carta img{
     width: 100%;
     height: 210px;
 }
-.card .contenido{
+.carta .contenido{
     padding: 20px;
     font-family: var(--letra-divertida);
     text-align: center;
 }
 
-.card .contenido p{
+.carta .contenido p{
     font-family: var(--letra-divertida);
     line-height: 1.5;
     color: black;
 }
 
-.card .contenido{
+.carta .contenido{
     font-weight:  400;
 }
 .flecha{
