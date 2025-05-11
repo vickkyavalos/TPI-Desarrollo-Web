@@ -134,21 +134,12 @@ header {
   position: relative;
   right: 20px;
 }
-
-/*.container-portada img{
-    padding-bottom: 60px;
-    align-self: center;
-    width: 287px;
-    height: 345px;
-}*/
-
 .cajapregunta {
   padding-bottom: 60px;
   align-self: center;
   width: 350px;
   height: 350px;
 }
-
 /* ################# mision valor y vision/Box################*/
 /* Contenedor de los boxes */
 
@@ -193,8 +184,6 @@ header {
   align-items: center;
   min-height: 200px;
 }
-
-/* box2 */
 .box2 {
   background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
   padding: 30px;
@@ -208,6 +197,15 @@ header {
   align-items: center;
   min-height: 200px;
 }
+.boxFinal p {
+  margin: 0;
+  padding: 0;
+}
+
+.boxFrase strong {
+  margin: 0;
+  padding: 0;
+}
 
 /* Contenedor de los elementos izquierda y derecha */
 
@@ -215,7 +213,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 .mvv-izq {
   align-self: flex-start; /* Alinea a la izquierda */
@@ -227,6 +225,13 @@ header {
 .mvv-izq {
   margin-left: 40px;
   margin-right: 40px;
+  border: 2px solid transparent; /* Sin borde sólido visible */
+  box-shadow: 0 0 5px 3px rgb(235, 203, 222);
+}
+.boxInicio,
+.boxFinal {
+  border: 2px solid transparent; /* Sin borde sólido visible */
+  box-shadow: 0 0 5px 3px var(--color-segundo);
 }
 
 /*#################contenedor de imagen de organigrama###########*/
@@ -276,7 +281,7 @@ header {
   font-weight: 400;
 }
 
-/*  posicion y tamaño de nubecita.png *
+/* posicion y tamaño de nubecita.png  */
 .nube {
   position: relative;
   top: 75px;
@@ -312,7 +317,8 @@ header {
 .fondo-nube {
   background-image: url("../assets/img/nubecita.png");
   background-position: right;
-}*/
+}
+*/
 
 /* estilo para organizar misión, visión y valores en fila */
 
