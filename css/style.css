@@ -280,18 +280,23 @@ header {
     background-color: #555; /* Solo para referencia */
   }
 
-  .imagen {
+.imagen {
     position: absolute;
     width: 250px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
-
-  }
+}
 
 .imagen:hover{
     transform: scale(1.2);
+}
+
+  .img2 {
+    top: 100;
+    right: 150px;
+    z-index: 2;
 }
 
  .img1 {
@@ -527,3 +532,7 @@ footer{
     margin-top: 110px;
     font-size: 1rem;
   }
+
+
+
+

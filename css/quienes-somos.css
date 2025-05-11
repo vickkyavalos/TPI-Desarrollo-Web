@@ -29,13 +29,80 @@ body{
     background-color: var(--color-fondo);
     color: var(--color-letra);
 }
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+#logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin: 10px;
+}
+/* imagen logo */
+#logo{
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
 
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+/****************************fin del header*******************************/
 
 /* se usa configuracion de portada de index, para poder centrar imagenes */
 .container-portada{
     display: flex;
     justify-content: space-around;
-    margin: 80px 0px 80px 0px;
+    margin: 60px 0px 60px 0px;
 }
 
 .figura-geometrica{
@@ -115,6 +182,7 @@ body{
     border-radius: 16px; 
     padding: 30px;
     margin: 0% 156px;
+    margin-bottom: 30px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
     font-family: 'Atma',cursive;
@@ -212,23 +280,152 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
   }
   
   /* izquierda */
   .mvv-izq {
     align-self: flex-start;
-    margin-left: 170px; /* mismo margen que .box1 */
+    margin-left: 170px; 
     margin-right: auto;
   }
   
   /*derecha */
   .mvv-der {
     align-self: flex-end;
-    margin-right: 175px; /* mismo que tenés en .box2 */
+    margin-right: 175px; 
     margin-left: auto;
   }
   
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.contactanos, .textoFinal, .redes {
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+    padding: 20px 5px 5px 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px; 
+}
+  
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+.logosR {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 45px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+  
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+ 
+.textoI {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+  }
+
+
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.contactanos, .textoFinal, .redes {
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+    padding: 20px 5px 5px 5px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px; 
+}
+  
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+.logosR {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 45px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+  
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+ 
+.textoI {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+  }
+
+
+
+
 
 
 
