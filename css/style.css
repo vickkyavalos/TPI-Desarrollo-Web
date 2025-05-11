@@ -465,7 +465,7 @@ footer{
     align-items: center;
 }
   
-.contactanos, .textoFinal, .redes {
+/* .contactanos, .textoFinal, .redes {
     display: inline-block;
     vertical-align: top;
     width: 350px;
@@ -475,7 +475,7 @@ footer{
     text-align: center;
     margin-top: 20px; 
 }
-  
+*/
 .logo {
     display: flex;
     align-items: center;
@@ -560,7 +560,11 @@ footer{
     #imgCupcake:hover {
         transform: scale(1.1); 
     }
+    .textoI{
+        display: none;
+    }
 }
+
 
 /********** tablet ************/
 @media  (min-width: 601px) and (max-width: 1000px) {
