@@ -32,26 +32,28 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   background-color: var(--color-segundo);
   padding: 10px;
 }
-#logo-container {
+#logo-container{
   display: flex;
   justify-content: center;
   align-items: center;
   background: none;
   margin: 10px;
 }
+
 /* imagen logo */
-#logo {
+#logo{
   width: 80px;
   height: auto;
   margin-top: 10px;
   background: none;
 }
+
 /* barra de navegacion */
-.navbar {
+.navbar{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +78,7 @@ header {
   font-family: var(--letra-texto);
   color: var(--color-letra);
 }
-.navbar li a:hover {
+.navbar li a:hover{
   background-color: var(--color-fondo);
   border-radius: 5px;
   width: 100%;
@@ -90,7 +92,7 @@ header {
 }
 
 #icono {
-  width: 40px;
+  width: 40px; 
   height: auto;
   margin-left: 10px;
   background-color: var(--color2);
