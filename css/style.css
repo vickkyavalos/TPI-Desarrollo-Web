@@ -526,11 +526,10 @@ footer{
 @media (max-width: 600px){
     
     .card{
-        
         justify-content: center;
         align-items: center;
         padding: 5px 0;
-
+        width: 240px;
     }
     
 
