@@ -39,17 +39,10 @@ header {
     background-color: var(--color-segundo);
     padding: 10px;
 }
-#logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 10px;
-}
 
 /* imagen logo */
-#logo{
-    width: 80px;
+#logoHeader{
+    width: 70px;
     height: auto;
     margin-top: 10px;
     background: none;
@@ -399,7 +392,7 @@ footer{
   }
   
 
-.textoI {
+.textoI, .textoInfo {
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
@@ -411,12 +404,11 @@ footer{
     text-align: center;
     margin-top: 110px;
     font-size: 1rem;
+    margin-bottom: 0;
   }
 
 
 @media (max-width:780px){
-
-
     html{
         font-size: 14px;
     }
@@ -456,7 +448,6 @@ footer{
         align-items: center;
         text-align: center;
     };
-
     
     #texto-seccion-evento{
     align-items: center;
@@ -465,8 +456,6 @@ footer{
     gap: 0;
     text-align: center;
 }
-
-
 
     #titulo-tematica{
         
@@ -478,7 +467,6 @@ footer{
 } 
 
 @media (max-width:410px){
-
     html{
         font-size: 10px;
     }
@@ -489,7 +477,6 @@ footer{
 
 /********** tablet ************/
 @media  (min-width: 601px) and (max-width: 991px) {
-
     .card{
         display: flex;
         justify-content: center;
@@ -497,8 +484,6 @@ footer{
         padding:20px 0;
         width: 240px;
     }
-
-
 
     .container-cupcake{
         width: 100%;
@@ -518,21 +503,29 @@ footer{
     #imgCupcake:hover {
         transform: scale(1.1); 
     }
-
-    
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
 }
 
 /* mobile */
-@media (max-width: 600px){
-    
+@media (max-width: 600px){ 
     .card{
         justify-content: center;
         align-items: center;
         padding: 5px 0;
         width: 240px;
     }
-    
-
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
     .container-cupcake, footer{
         width: 100%;
         display: flex;
