@@ -202,3 +202,11 @@ footer{
         display: none;
     }
 }
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
+    }
+}
