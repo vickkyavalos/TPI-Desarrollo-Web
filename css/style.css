@@ -460,12 +460,11 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
-/* .contactanos, .textoFinal, .redes {
+/* 
+.contactanos, .textoFinal, .redes {
     display: inline-block;
     vertical-align: top;
     width: 350px;
@@ -474,31 +473,25 @@ footer{
     font-size: 16px;
     text-align: center;
     margin-top: 20px; 
-}
-*/
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
+}*/
 
-.logosR {
-    display: flex;
-    align-items: center;
+/* .logo {
+
     gap: 5px;
-    margin-left: 45px;
     margin-bottom: 10px;
     justify-content: flex-start;
-  }
-  
+  } */
+
+/* #redesF {
+    gap: 5px;
+  } 
+   */
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
+
 .textoI {
     font-family: var(--letra-texto);
     text-align: left;
@@ -516,7 +509,7 @@ footer{
 
 /* mobile */
 @media (max-width: 600px){
-/********** revisar ************/
+/********** revisar ***********
  .container-seccion {
         flex-direction: column;
         height: auto;
@@ -533,11 +526,10 @@ footer{
         text-align: center;
         margin-bottom: 20px;
     }
-
+*/
     .card{
         display: flex;
-        width: 150px
-;
+        width: 150px;
         justify-content: center;
         align-items: center;
         padding: 5px 0;
@@ -568,6 +560,7 @@ footer{
 
 /********** tablet ************/
 @media  (min-width: 601px) and (max-width: 1000px) {
+/********** revisar ***********
     .container-seccion {
         flex-direction: column;
         height: auto;
@@ -584,7 +577,7 @@ footer{
         text-align: center;
         margin-bottom: 25px;
     }
-
+*/
     .card{
         width: 350px;
         display: flex;
