@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <!-- link bootstrap -->
@@ -11,57 +11,42 @@
 </head>
 <body>
     <!--------------------------header -------------------------->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#"></a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./index.html"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./templates/catalogo.html"
-                  >Catalogo</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./templates/quienes-somos.html"
-                  >Nosotros</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./templates/contacto.html"
-                  >Contacto</a
-                >
-              </li>
-            </ul>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid position-relative d-flex align-items-center justify-content-between py-2">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#"></a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./templates/catalogo.html">Catalogo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./templates/quienes-somos.html">Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./templates/contacto.html">Contacto</a>
+                  </li>
+    
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!-- logo -->
+          <div id="logoHeader" class="position-absolute top-50 start-50 translate-middle">
+              <img src="./assets/icons/logo.svg" alt="logo de la empresa" class="logo">
           </div>
+          
+        <!-- Contenedor para el icono User -->
+        <div id="icon-container">
+            <a href=""><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
         </div>
-      </nav>
-      <!-- Contenedor para el icono User -->
-      <div id="icon-container">
-        <a href=""
-          ><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"
-        /></a>
-      </div>
-    </header>
+    </header> 
 
     <!--------------------------portada -------------------------->
     <main class="d-flex flex-column">
@@ -132,8 +117,6 @@
                 </div>
                 <!-- cards de catalogo -->
 
-
-      
               <div class="container d-none d-md-none d-lg-block mt-4">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                   <div class="col">
@@ -276,151 +259,40 @@
             <div class="cupcake">
                 <a href="/templates/catalogo.html "><img id="imgCupcake" src="./assets/img/cupcake.png" alt="imagen de un cupcake"></a>
             </div>
-            <p class="parrafo">
-              Desde fiestas mágicas con princesas y superhéroes hasta aventuras
-              espaciales. Elige la que más te guste y crea una experiencia única
-              llena de diversión y sorpresas
-            </p>
-          </div>
-          <div class="container-img">
-            <img
-              class="imagen-seccion"
-              id="img-super"
-              src="/assets/img/ninios-superheroes.png"
-              alt="temática de niños superheroes"
-            />
-          </div>
-
-          <!-- catalogo -->
         </section>
-        <section class="container-seccion linea-top" id="seccion-3-catalogo">
-          <div class="titulo-seccion linea-titulo" id="titulo-catalogo">
-            <h2>catalogo</h2>
-          </div>
-          <!-- cards de catalogo -->
-
-          <div class="container-catalogo">
-            <a href="#"
-              ><img class="flecha" src="./assets/img/arrow.png" alt=""
-            /></a>
-            <!--  modificar con bootstrap -->
-            <div class="carta">
-              <img img src="./assets/img/burbuja-kid.jpg" alt="persona" />
-              <div class="contenido">
-                <h3>Pequeños Gigantes</h3>
-                <p>Salón con inflables, pelotero y espacio al aire libre.</p>
-                <p><strong>Dirección:</strong> Sarmiento 1234</p>
-                <p><strong>Precio:</strong> $105.000</p>
-                <p>🟢 Disponible</p>
-                <button class="btn-mas">Ver más</button>
-              </div>
-            </div>
-            <div class="carta">
-              <img img src="./assets/img/salon2.jpg" alt="persona" />
-              <div class="contenido">
-                <h3>Mundo Mágico</h3>
-                <p>
-                  Salón con juegos interactivos, castillo inflable y sector para
-                  meriendas.
-                </p>
-                <p><strong>Dirección:</strong> Av. Belgrano 5678</p>
-                <p><strong>Precio:</strong> $98.000</p>
-                <p>🟢 Disponible</p>
-                <button class="btn-mas">Ver más</button>
-              </div>
-            </div>
-            <div class="carta">
-              <img img src="./assets/img/evento3.jpg" alt="persona" />
-              <div class="contenido">
-                <h3>Fiesta en el Bosque</h3>
-                <p>
-                  Lugar temático con decoración natural, inflables y gran parque
-                  al aire libre.
-                </p>
-                <p><strong>Dirección:</strong>Las Heras 345</p>
-                <p><strong>Precio:</strong> $120.000</p>
-                <p>🔴 No disponible</p>
-                <button class="btn-mas">Ver más</button>
-              </div>
-            </div>
-            <div class="carta">
-              <img img src="./assets/img/pelotas-colores.jpg" alt="persona" />
-              <div class="contenido">
-                <h3>Diversión Total</h3>
-                <p>
-                  Salón amplio con inflables, show de títeres y patio con
-                  arenero.
-                </p>
-                <p><strong>Dirección:</strong>Mitre 2020</p>
-                <p><strong>Precio:</strong> $112.000</p>
-                <p>🟠 Consultar disponibilidad</p>
-                <button class="btn-mas">Ver más</button>
-              </div>
-            </div>
-
-            <div class="carta">
-              <img src="./assets/img/salon.jpg" alt="persona" />
-              <div class="contenido">
-                <h3>La Casita de Jueguitos</h3>
-                <p>
-                  Espacio cubierto con pelotero, metegol y zona creativa para
-                  pintar.
-                </p>
-                <p><strong>Dirección:</strong>Rivadavia 4321</p>
-                <p><strong>Precio:</strong> $100.000</p>
-                <p>🟢 Disponible</p>
-                <button class="btn-mas">Ver más</button>
-              </div>
-            </div>
-            <a href=""
-              ><img class="flecha" src="./assets/img/right-arrow.png" alt=""
-            /></a>
-          </div>
-        </section>
-      </section>
-      <!--------------------------seccion cupcake -------------------------->
-      <section class="container-cupcake">
-        <div class="cupcake">
-          <a href="#"
-            ><img
-              id="imgCupcake"
-              src="./assets/img/cupcake.png"
-              alt="imagen de un cupcake"
-          /></a>
-        </div>
-      </section>
     </main>
-
+     
     <!--------------------------footer -------------------------->
-    <footer class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-around"> 
-    <!-- contacto -->
-              <div class="d-flex flex-column">
+
+    <footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
+     <!-- contacto  -->
+              <div class="d-flex flex-column align-items-center align-items-md-start">
                 <div class="textf">
-                    <p class="textoI">Contactanos</p>
+                    <p class="textoInfo">Contactanos</p>
                 <br>
                 </div> 
-                <div class="logo d-flex justify-content-start mb-3">
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
                     <a href=""><img class="redesL" src="./assets/icons/email.svg" alt="logo de email"></a>
                     <p class="textoI">idwaS_A2025@gmail.com</p>
                 </div>
-                <div class="logo d-flex justify-content-start mb-3">
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
                     <a href=""><img class="redesL" src="./assets/icons/phone.svg" alt="logo"></a>
                     <p class="textoI">1122565213</p>
                 </div>
-                <div class="logo d-flex justify-content-start mb-3">
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
                     <a href=""></a><img class="redesL" src="./assets/icons/whatsapp.svg" alt="logo de whatsapp"></a>
                     <p class="textoI">345154321</p>
                 </div>
             </div>
             </div>
-
-              <div class="d-flex flex-column ">
+      <!-- texto  -->
+              <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">
                 <p id="fin">© 2025 IDW S.A</p>
             </div>
 
-      <!-- redes sociales -->
-            <div class="d-flex flex-column " id="redesF">
-                <p class="textoI">Nuestras Redes</p>
+      <!-- redes sociales  -->
+            <div class="d-flex flex-column align-items-center align-items-md-start" id="redesF">
+                <p class="textoInfo">Nuestras Redes</p>
                 <br>
                 <div class="logosR d-flex justify-content-center mb-3">
                     <a href=""><img class="redesL" src="./assets/icons/facebook.svg" alt="logo de facebook"></a>
@@ -431,9 +303,7 @@
                 <div class="logosR d-flex justify-content-center mb-3">
                   <a href=""><img class="redesL" src="./assets/icons/twitter.svg" alt="logo de twitter"></a>
                 </div>
-            </div>
-  
-       
+            </div> 
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
