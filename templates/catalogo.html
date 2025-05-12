@@ -4,84 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/quienes-somos.css">
+    <link rel="stylesheet" href="../css/catalogo.css">
     <link href="https://fonts.googleapis.com/css2?family=Atma:wght@400;600&display=swap" rel="stylesheet">
-    
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
  <!--------------------------header -------------------------->
-    <header>
-        <div id="logo-container">
-            <img id="logo" src="../assets/icons/logo.svg" alt="imagen del logo">
-        </div>
-        <div class="navbar">
-            <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="../templates/catalogo.html">Catalogo</a></li>
-                <li><a href="../templates/quienes-somos.html">Nosotros</a></li>
-                <li><a href="../templates/contacto.html">Contacto</a></li>
-            </ul>
-        </div>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid position-relative d-flex align-items-center justify-content-between py-2">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#"></a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../templates/catalogo.html">Catalogo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../templates/quienes-somos.html">Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../templates/contacto.html">Contacto</a>
+                  </li>
+    
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!-- logo -->
+          <div id="logoHeader" class="position-absolute top-50 start-50 translate-middle">
+              <img src="../assets/icons/logo.svg" alt="logo de la empresa" class="logo">
+          </div>
+          
         <!-- Contenedor para el icono User -->
         <div id="icon-container">
-            <a href=""><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
+            <a href=""><img id="icono" src="../assets/icons/person-fill.svg" alt="Icono"></a>
         </div>
-    </header>
-<!-- se agrega estilo de portada de quienes somos -->
+    </header> 
+
+      <!----MAIN - VAN LAS CARDS-->
     <main>
-        <section class="container-portada">
-            <div class="texto-portada figura-geometrica">
-                <h1>QUIENES <br> 
-                    <span>SOMOS</span><br>
-                </h1>
+        <div class="container text-center">
+            <div class="row row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <div class="col mt-2">
+                    <div class="card h-100 ">
+                      <img class="card-img-top" src="../assets/img/burbuja-kid.jpg" alt="persona">
+                      <div class="card-body">
+                        <h5 class="card-title">Pequeños Gigantes</h5>
+                        <p class="card-text">Salón con inflables, pelotero y espacio al aire libre</p>
+                        <p class="card-text"><strong>Dirección:</strong> Sarmiento 1234</p>
+                        <p class="card-text"><strong>Precio:</strong> $105.000</p>
+                        <p class="card-text">🟢 Disponible</p>
+                        <a href="#" class="btn btn-custom">Ver más</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col  mt-2">
+                    <div class="card h-100">
+                      <img class="card-img-top " src="../assets/img/evento3.jpg" alt="fiesta al aire libre">
+                      <div class="card-body">
+                        <h5 class="card-title">Fiesta en el Bosque</h5>
+                        <p class="card-text">Lugar temático con decoración natural y gran parque al aire libre.</p>
+                        <p class="card-text"><strong>Dirección:</strong> Las Heras 345</p>
+                        <p class="card-text"><strong>Precio:</strong> $120.000</p>
+                        <p class="card-text">🔴 No disponible</p>
+                        <a href="#" class="btn btn-custom">Ver más</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col mt-2">
+                     <div class="card h-100">
+                      <img class="card-img-top" src="../assets/img/pelotas-colores.jpg" alt="salón de juegos">
+                      <div class="card-body">
+                        <h5 class="card-title">Diversión Total</h5>
+                        <p class="card-text">Salón amplio con inflables, show de títeres y patio con arenero.</p>
+                        <p class="card-text"><strong>Dirección:</strong> Mitre 2020</p>
+                        <p class="card-text"><strong>Precio:</strong> $112.000</p>
+                        <p class="card-text">🟠 Consultar disponibilidad</p>
+                        <a href="#" class="btn btn-custom">Ver más</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col mt-2">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="../assets/img/salon.jpg" alt="salon de fiestas Infantiles">
+                      <div class="card-body">
+                        <h5 class="card-title">La Casita de Jueguitos</h5>
+                        <p class="card-text">Espacio cubierto con pelotero, metegol y zona creativa para pintar.</p>
+                        <p class="card-text"><strong>Dirección:</strong> Rivadavia 4321</p>
+                        <p class="card-text"><strong>Precio:</strong> $100.000</p>
+                        <p class="card-text">🟢 Disponible</p>
+                        <a href="#" class="btn btn-custom">Ver más</a>
+                      </div>
+                    </div>
+                </div>
+            <div class="col mt-2">
+                 <div class="card h-100">
+                    <img class="card-img-top" src="../assets/img/ninios-superheroes.png" alt="castillo inflable">
+                    <div class="card-body">
+                    <h5 class="card-title">Castillo Mágico</h5>
+                    <p class="card-text">Espacio cubierto con castillo inflable gigante, luces LED y área de arte.</p>
+                    <p class="card-text"><strong>Dirección:</strong> San Martín 1350</p>
+                    <p class="card-text"><strong>Precio:</strong> $98.500</p>
+                    <p class="card-text">🟢 Disponible para reservas</p>
+                    <a href="#" class="btn btn-custom">Ver más</a>
+                    </div>
+                </div>
             </div>
-            <img class="cajapregunta" src="../assets/img/caja de pregunta.png" alt="Caja- de- preguntas">
-        </section>
-  </main>   
+
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top" src="../assets/img/evento3.jpg" alt="zona de juegos">
+                    <div class="card-body">
+                    <h5 class="card-title">Peque Mundo</h5>
+                    <p class="card-text">Zona de juegos blandos, rincón de lectura y mini cine para los chicos.</p>
+                    <p class="card-text"><strong>Dirección:</strong> Belgrano 890</p>
+                    <p class="card-text"><strong>Precio:</strong> $105.000</p>
+                    <p class="card-text">🔴 Sin disponibilidad por ahora</p>
+                    <a href="#" class="btn btn-custom">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mt-2">
+                <div class="card h-100">
+                    <img class="card-img-top" src="../assets/img/burbuja-kid.jpg" alt="salón de eventos">
+                    <div class="card-body">
+                    <h5 class="card-title">Fiesta Kids</h5>
+                    <p class="card-text">Salón temático con animadores, pista de baile y catering incluido.</p>
+                    <p class="card-text"><strong>Dirección:</strong> Lavalle 300</p>
+                    <p class="card-text"><strong>Precio:</strong> $120.000</p>
+                    <p class="card-text">🟠 Consultar disponibilidad</p>
+                    <a href="#" class="btn btn-custom">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mt-2">
+                 <div class="card h-100">
+                    <img class="card-img-top" src="../assets/img/pelotas-colores.jpg" alt="área recreativa">
+                    <div class="card-body">
+                    <h5 class="card-title">Rincón Feliz</h5>
+                    <p class="card-text">Espacio con juegos interactivos, plaza blanda y sector de merienda.</p>
+                    <p class="card-text"><strong>Dirección:</strong> Entre Ríos 740</p>
+                    <p class="card-text"><strong>Precio:</strong> $99.900</p>
+                    <p class="card-text">🟢 Disponible para reservas</p>
+                    <a href="#" class="btn btn-custom">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>   
 <!--------------------------footer -------------------------->
-<footer> 
-        
-    <!-- contactanos -->
-        <div class="contactanos">
-            <div class="textf">
-                <p class="textoI">Contactanos</p>
-            <br>
-            </div> 
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/email.svg" alt="logo de email">
-                <p class="textoI">idwaS_A2025@gmail.com</p>
-            </div>
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/phone.svg" alt="logo">
-                <p class="textoI">1122565213</p>
-            </div>
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/whatsapp.svg" alt="logo de whatsapp">
-                <p class="textoI">345154321</p>
-            </div>
-        </div>
-
-        <div class="textoFinal">
-            <p id="fin">© 2025 IDW S.A</p>
-        </div>
-
-        <!-- redes sociales -->
-        <div class="redes">
-            <div class="textf">
-                <p class="textoI">Nuestras Redes</p>
+<footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
+     <!-- contacto  -->
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="textf">
+                    <p class="textoInfo">Contactanos</p>
                 <br>
+                </div> 
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/email.svg" alt="logo de email"></a>
+                    <p class="textoI">idwaS_A2025@gmail.com</p>
+                </div>
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/phone.svg" alt="logo"></a>
+                    <p class="textoI">1122565213</p>
+                </div>
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""></a><img class="redesL" src="../assets/icons/whatsapp.svg" alt="logo de whatsapp"></a>
+                    <p class="textoI">345154321</p>
+                </div>
+            </div>
+            </div>
+      <!-- texto  -->
+              <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">
+                <p id="fin">© 2025 IDW S.A</p>
+            </div>
 
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/facebook.svg" alt="logo de facebook"></a>
-            </div>
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/instagram.svg" alt="logo de instagram"></a>
-            </div>
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/twitter.svg" alt="logo de twitter"></a>
-            </div>
-        </div> 
-   </div>
-</footer>
+      <!-- redes sociales  -->
+            <div class="d-flex flex-column align-items-center align-items-md-start" id="redesF">
+                <p class="textoInfo">Nuestras Redes</p>
+                <br>
+                <div class="logosR d-flex justify-content-center mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/facebook.svg" alt="logo de facebook"></a>
+                </div>
+                <div class="logosR d-flex justify-content-center mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/instagram.svg" alt="logo de instagram"></a>
+                </div>
+                <div class="logosR d-flex justify-content-center mb-3">
+                  <a href=""><img class="redesL" src="../assets/icons/twitter.svg" alt="logo de twitter"></a>
+                </div>
+            </div> 
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
