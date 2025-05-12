@@ -147,15 +147,7 @@ main{
     margin-top: 30px;
 }
 
-/*container secciones (eventos-tematica-catalogo-)*/
-/* ya pasado a bootstrap 
-.container-seccion{
-    display: flex;
-    position: relative;
-    align-items: center;
-    align-content: center;
-    
-} */
+
 /*Titulos (h2)sobresalientes de las secciones afectando de manera general(eventos-tematica-catalogo)*/
 .titulo-seccion h2{
     font-size: 2.6rem;
@@ -176,13 +168,7 @@ main{
 }
 /*posicionamiento de texto en cada seccion de manera general(evento-tematica-catalogo) */
 
-/*texto pasado a bootstrap
-.texto-seccion{ 
-    -->align-items se maneja de manera particular por id>
-    width: 620px;
-    
-}
-*/
+
 /* tipografía Subtitulos(h3) de cada seccion*/
 .subtitulo{
     font-family: var(--letra-subtitulo);
@@ -243,62 +229,17 @@ main{
     background-color: var(--color-primero);
     top:-30;
 }
-/*pasado a bootstrap
- #texto-seccion-evento{
-    align-items: start;
-    margin-left: 40px;
-    margin-bottom: 55px; 
-    gap: 40px;
-    text-align: start;
-} */
+
 
 #subtitulo-seccion-evento h3, span{
     width: fit-content;
     background-color: var(--color-sexto);
 }
-/* pasado a bootstrap 
-#subtitulo-seccion-evento  span{
-    color: #FFFFFF;
-} */
 
 #seccion-1-evento div p{
     margin-top: 40px;
     width: auto;
 }
-/*  desde aca se cambio la imagenes sueltas de eventos
-.contenedor-img {
-    position: relative;
-    margin: 0 auto; 
-  }
-
-.imagen {
-    position: absolute;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;}
-
-.imagen:hover{
-    transform: scale(1.2);
-}
-
-
- .img1 {
-    bottom: 30px;
-    right: -10px;
-    z-index: 1;
-  }
-
-  .img2 {
-    top:-40px;
-    right: 160px;
-    z-index: 2;
-  }
-
-  .img3 {
-    bottom: -60px;
-    right: 70px;
-    z-index: 3;
-  } */
 
   
 /*fin seccion - evento*/
@@ -358,13 +299,10 @@ main{
 }
 
 /*fin seccion - temática*/
-
 /*-----tercera seccion - catálogo------*/
 
-
-.carta{
-    width: 300px;
-    margin: 20px;
+.card{
+    margin: 6px;
     border-radius: 6px;
     overflow: hidden;
     background: #fff;
@@ -372,38 +310,32 @@ main{
     cursor: default;
     transition:  all 0.2s ease;
 }
-.carta:hover{
+.card:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
 }
 
-.carta img{
+.card img{
     width: 100%;
-    height: 210px;
+    height: 10rem;
 }
-.carta .contenido{
-    padding: 20px;
+.card .card-title{
+    padding: 5x;
     font-family: var(--letra-divertida);
     text-align: center;
 }
 
-.carta .contenido p{
+.card .card-text{
     font-family: var(--letra-divertida);
     line-height: 1.5;
     color: black;
 }
 
-.carta .contenido{
+.card .contenido{
     font-weight:  400;
 }
-.flecha{
-    width: 50px;
-    height: auto;
-    margin-top: 250px;
-}
-.btn-mas{
-    width: 80px;
-    height: 40px;
+
+.card a{
     font-family: var(--letra-titulo);
     font-size: 1rem;
     background-color: var(--color-sexto);
@@ -421,6 +353,7 @@ main{
     left: 500px;
 }
 
+
 /*fin seccion - catálogo*/
 
 /*********************************** seccion cupcake **********************************/
@@ -434,8 +367,7 @@ main{
 
 .cupcake{
     padding: 20px;
-    margin: 5px;
-    
+    margin: 5px; 
 }
 #imgCupcake{
     width: 250px; 
@@ -457,45 +389,16 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
 
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
+
 .textoI {
     font-family: var(--letra-texto);
     text-align: left;
@@ -511,8 +414,8 @@ footer{
   }
 
 
-
 @media (max-width:780px){
+
 
     html{
         font-size: 14px;
@@ -583,3 +486,73 @@ footer{
     margin-right: 0px;
 }
 } 
+
+/********** tablet ************/
+@media  (min-width: 601px) and (max-width: 991px) {
+
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:20px 0;
+        width: 240px;
+    }
+
+
+
+    .container-cupcake{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 130px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+
+    
+}
+
+/* mobile */
+@media (max-width: 600px){
+    
+    .card{
+        
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+
+    }
+    
+
+    .container-cupcake, footer{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 100px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+    .textoI{
+        display: none;
+    }
+}
