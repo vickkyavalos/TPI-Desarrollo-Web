@@ -294,3 +294,28 @@ footer{
   }
 
 
+/* media query */
+
+@media (max-width: 576px) {
+    .horarios h2 {
+        font-size: 1rem;
+    }
+
+    .container-contacto {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-contacto div {
+        font-size: 0.9rem;
+    }
+
+    .container-contacto img {
+        width: 30px;
+    }
+
+    .container-contacto p {
+        font-size: 0.9rem;
+    }
+}
