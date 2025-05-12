@@ -477,6 +477,9 @@ footer{
 
 /********** tablet ************/
 @media  (min-width: 601px) and (max-width: 991px) {
+    #fin{
+        margin: 2px;
+    }
     .card{
         display: flex;
         justify-content: center;
@@ -513,6 +516,9 @@ footer{
 
 /* mobile */
 @media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
     .card{
         justify-content: center;
         align-items: center;
