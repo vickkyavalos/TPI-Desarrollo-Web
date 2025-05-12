@@ -131,7 +131,7 @@ main{
 }
 
 .portada-img {
-    width: 22vw;
+    width: 25vw;
     height: auto;
     object-fit: cover;
 }
@@ -148,14 +148,14 @@ main{
 }
 
 /*container secciones (eventos-tematica-catalogo-)*/
+/* ya pasado a bootstrap 
 .container-seccion{
     display: flex;
-
     position: relative;
     align-items: center;
     align-content: center;
     
-}
+} */
 /*Titulos (h2)sobresalientes de las secciones afectando de manera general(eventos-tematica-catalogo)*/
 .titulo-seccion h2{
     font-size: 2.6rem;
@@ -219,8 +219,8 @@ main{
 }
 
 .container-img{
-   width: 100%;
-   max-width: 400px;
+   width: 95%;
+   max-width: 450px;
 }
 
 .imagen-seccion{
@@ -341,20 +341,17 @@ main{
 #subtitulo-seccion-tematica h3{
     display: flex;
     flex-direction: row;
-    width: 504px; 
-    height: 148px;
-    text-align: end;
+    height: 12vh;
     margin-bottom: 30px;
 }
 #subtitulo-seccion-tematica span{
     align-content: end;
-    border-radius: 20px;
-    width: 297px;
-    height: auto;
+    width: 8em;
+    height: 4em;
     text-align: start;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    margin-left: 10px;
+    padding-bottom: 1.2rem;
+    padding-left: 0.625rem;
+    margin-left: 0.625rem;
     font-weight: 300;
     background-color: var(--color-cuarto);
     
@@ -363,12 +360,7 @@ main{
 /*fin seccion - temática*/
 
 /*-----tercera seccion - catálogo------*/
-.container-catalogo{
-    width: 100%;
-    display: flex;
-    max-width: 1500px;
-    margin: 40px auto;
-}
+
 
 .carta{
     width: 300px;
@@ -587,4 +579,7 @@ footer{
     html{
         font-size: 10px;
     }
+    #texto-seccion-tematica p{
+    margin-right: 0px;
+}
 } 
