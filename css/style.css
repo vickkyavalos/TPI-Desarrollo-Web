@@ -370,18 +370,10 @@ header {
 }
 
 /*fin seccion - temática*/
-
 /*-----tercera seccion - catálogo------*/
-.container-catalogo{
-    width: 100%;
-    display: flex;
-    max-width: 1500px;
-    margin: 40px auto;
-}
 
-.carta{
-    width: 300px;
-    margin: 20px;
+.card{
+    margin: 6px;
     border-radius: 6px;
     overflow: hidden;
     background: #fff;
@@ -389,38 +381,32 @@ header {
     cursor: default;
     transition:  all 0.2s ease;
 }
-.carta:hover{
+.card:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
 }
 
-.carta img{
+.card img{
     width: 100%;
-    height: 210px;
+    height: 180px;
 }
-.carta .contenido{
-    padding: 20px;
+.card .card-title{
+    padding: 5x;
     font-family: var(--letra-divertida);
     text-align: center;
 }
 
-.carta .contenido p{
+.card .card-text{
     font-family: var(--letra-divertida);
     line-height: 1.5;
     color: black;
 }
 
-.carta .contenido{
+.card .contenido{
     font-weight:  400;
 }
-.flecha{
-    width: 50px;
-    height: auto;
-    margin-top: 250px;
-}
-.btn-mas{
-    width: 80px;
-    height: 40px;
+
+.card a{
     font-family: var(--letra-titulo);
     font-size: 1rem;
     background-color: var(--color-sexto);
@@ -438,6 +424,7 @@ header {
     left: 500px;
 }
 
+
 /*fin seccion - catálogo*/
 
 /*********************************** seccion cupcake **********************************/
@@ -451,8 +438,7 @@ header {
 
 .cupcake{
     padding: 20px;
-    margin: 5px;
-    
+    margin: 5px; 
 }
 #imgCupcake{
     width: 250px; 
@@ -474,11 +460,10 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
+/* 
 .contactanos, .textoFinal, .redes {
     display: inline-block;
     vertical-align: top;
@@ -488,31 +473,25 @@ footer{
     font-size: 16px;
     text-align: center;
     margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
+}*/
 
-.logosR {
-    display: flex;
-    align-items: center;
+/* .logo {
+
     gap: 5px;
-    margin-left: 45px;
     margin-bottom: 10px;
     justify-content: flex-start;
-  }
-  
+  } */
+
+/* #redesF {
+    gap: 5px;
+  } 
+   */
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
+
 .textoI {
     font-family: var(--letra-texto);
     text-align: left;
@@ -528,5 +507,102 @@ footer{
   }
 
 
+/* mobile */
+@media (max-width: 600px){
+/********** revisar ***********
+ .container-seccion {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .texto-seccion {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .titulo-seccion {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+*/
+    .card{
+        display: flex;
+        width: 150px;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+    }
+    .container-cupcake, footer{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 100px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+    .textoI{
+        display: none;
+    }
+}
 
 
+/********** tablet ************/
+@media  (min-width: 601px) and (max-width: 1000px) {
+/********** revisar ***********
+    .container-seccion {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .texto-seccion {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .titulo-seccion {
+        position: static;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+*/
+    .card{
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:20px 0;
+    }
+    .container-cupcake{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 130px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+
+    
+}
