@@ -451,48 +451,18 @@ footer {
 }
 
 /********************************** footer **********************************/
-footer {
-  background-image: url("../assets/img/wave-celeste.svg");
+footer{
+  background-image: url("../assets/img/wave-celeste.svg");;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
-  padding: 3px;
+  background-position: top; 
+  padding: 3px; 
   text-align: center;
   margin-top: 0px;
-  display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.contactanos,
-.textoFinal,
-.redes {
-  display: inline-block;
-  vertical-align: top;
-  width: 350px;
-  padding: 20px 5px 5px 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 10px;
-  justify-content: flex-start;
-}
-
-.logosR {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 45px;
-  margin-bottom: 10px;
-  justify-content: flex-start;
-}
 
 .redesL {
   width: 24px;
@@ -521,8 +491,8 @@ footer {
   }
 }
 
-/* Tablets (entre 768px y 1024px) */
-@media (max-width: 1024px) and (min-width: 768px) {
+/* Tablets (entre 601px y 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
   .container-portada {
     flex-direction: column;
     align-items: center;
@@ -561,8 +531,8 @@ footer {
   }
 }
 
-/* Celulares (hasta 767px) */
-@media (max-width: 767px) {
+/* Celulares (hasta 780px) */
+@media (max-width: 780px) {
   header {
     flex-direction: column;
     align-items: center;
@@ -620,19 +590,7 @@ footer {
     width: 90%; 
     margin: 10px 0; 
   }
-  footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .contactanos,
-  .redes {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .textoI {
-    font-size: 14px;
-  }
+  .textoI{
+    display: none;
+}
 }
