@@ -232,62 +232,37 @@ footer{
     background-image: url("../assets/img/wave-celeste.svg");;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
-    padding: 3px;
+    background-position: top; 
+    padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
 
 .redesL {
     width: 24px;
     height: 24px;
   }
+  
 
-
-.textoI {
+.textoI, .textoInfo {
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
   }
-
-
+  
+  
 #fin {
     font-family: var(--letra-texto);
     text-align: center;
     margin-top: 110px;
     font-size: 1rem;
+    margin-bottom: 0;
   }
+
+
+
 
 
 /* media query */
@@ -313,5 +288,38 @@ footer{
 
     .container-contacto p {
         font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* media query footer */
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
     }
 }
