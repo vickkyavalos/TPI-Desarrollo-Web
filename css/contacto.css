@@ -248,7 +248,7 @@ footer{
 
 .textoI, .textoInfo {
     font-family: var(--letra-texto);
-    /* text-align: left; */
+    text-align: left;
     margin: 0;
 
   }
