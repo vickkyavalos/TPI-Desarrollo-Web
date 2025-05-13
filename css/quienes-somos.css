@@ -1,302 +1,391 @@
 /*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
-@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap");
 
-
-:root{
-    --color-fondo: rgb(249, 238, 234);
-    --color-lineas: rgb(0, 0, 0, 0.66);
-    --color-linea-invisible:rgb(0, 0, 0, 0);
-    --color-primero:rgb(182, 226, 211);
-    --color-segundo: rgb(196, 220, 253);
-    --color-tercero: rgb(235, 203, 222);
-    --color-cuarto:rgb(246, 241, 147);
-    --color-quinto:rgb(163, 255, 172);
-    --color-sexto:rgb(255, 119, 183);
-    --color-septimo: rgb(89, 86, 116);
-    --color-letra:rgb(0, 0, 0, 0.88);
-    --letra-titulo: "Viga", sans-serif;
-    --letra-subtitulo: "Montserrat", sans-serif;
-    --letra-texto: "Montserrat", sans-serif;
-    --letra-divertida: "Atma", system-ui;
+:root {
+  --color-fondo: rgb(249, 238, 234);
+  --color-lineas: rgb(0, 0, 0, 0.66);
+  --color-linea-invisible: rgb(0, 0, 0, 0);
+  --color-primero: rgb(182, 226, 211);
+  --color-segundo: rgb(196, 220, 253);
+  --color-tercero: rgb(235, 203, 222);
+  --color-cuarto: rgb(246, 241, 147);
+  --color-quinto: rgb(163, 255, 172);
+  --color-sexto: rgb(255, 119, 183);
+  --color-septimo: rgb(89, 86, 116);
+  --color-letra: rgb(0, 0, 0, 0.88);
+  --letra-titulo: "Viga", sans-serif;
+  --letra-subtitulo: "Montserrat", sans-serif;
+  --letra-texto: "Montserrat", sans-serif;
+  --letra-divertida: "Atma", system-ui;
 }
 /*Eliminacion de margenes y padding predefinidos*/
-*{
-    margin: 0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 /*body*/
-body{
-    background-color: var(--color-fondo);
-    color: var(--color-letra);
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-letra);
 }
+
 /****************************header*******************************/
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    background-color: var(--color-segundo);
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: var(--color-segundo);
+  padding: 10px;
 }
-#logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 10px;
-}
-/* imagen logo */
-#logo{
-    width: 80px;
+
+
+* imagen logo */
+#logoHeader{
+    width: 70px;
     height: auto;
     margin-top: 10px;
     background: none;
+
 }
+
 /* barra de navegacion */
 .navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
 }
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    margin: 10px;
-    padding: 0;
-    background: none;
+  list-style-type: none;
+  display: flex;
+  margin: 10px;
+  padding: 0;
+  background: none;
 }
 
 .navbar li a {
-    margin-right: 25px;
-    margin-top: 10px;
-    text-decoration: none;
-    text-decoration-style: solid;
-    background: none;
-    font-weight: 550;
-    font-size: 18px;
-    font-family: var(--letra-texto);
-    color: var(--color-letra);
+  margin-right: 25px;
+  margin-top: 10px;
+  text-decoration: none;
+  text-decoration-style: solid;
+  background: none;
+  font-weight: 550;
+  font-size: 18px;
+  font-family: var(--letra-texto);
+  color: var(--color-letra);
 }
 .navbar li a:hover{
-    background-color: var(--color-fondo);
-    border-radius: 5px;
-    width: 100%;
+  background-color: var(--color-fondo);
+  border-radius: 5px;
+  width: 100%;
 }
 /* icono user y su contenedor */
 #icon-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: none;
 }
 
 #icono {
-    width: 40px; 
-    height: auto;
-    margin-left: 10px;
-    background-color: var(--color2);
+  width: 40px; 
+  height: auto;
+  margin-left: 10px;
+  background-color: var(--color2);
 }
+
 /****************************fin del header*******************************/
-
 /* se usa configuracion de portada de index, para poder centrar imagenes */
-.container-portada{
-    display: flex;
-    justify-content: space-around;
-    margin: 60px 0px 60px 0px;
+.container-portada {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0px 60px 0px;
 }
 
-.figura-geometrica{
-    background-image: url("../assets/img/circulo-triangulo.png");
-    background-repeat: no-repeat;
-    width: 529px;
-    height: 422px;
-    padding: 40px 0 100px 0px ;
-    
+.figura-geometrica {
+  background-image: url("../assets/img/circulo-triangulo.png");
+  background-repeat: no-repeat;
+  width: 529px;
+  height: 422px;
+  padding: 40px 0 100px 0px;
+}
+/* efecto pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.texto-portada{
-    gap: 50px;
+.texto-portada {
+  gap: 50px;
 }
 
-.container-portada h1{
-    font-family: var(--letra-titulo);
-    font-size: 6rem;
-    font-weight: 500;
+.container-portada h1 {
+  font-family: var(--letra-titulo);
+  font-size: 6rem;
+  font-weight: 500;
 }
 
-.container-portada span{
-    padding-left: 150px;
+.container-portada span {
+  padding-left: 150px;
 }
 
-.container-portada p{
-    font-family: var(--letra-divertida);
-    font-weight: 300;
-    font-style: normal;
-    font-size: 2.5rem;
-    position: relative;
-    right:20px;
+.container-portada p {
+  font-family: var(--letra-divertida);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2.5rem;
+  position: relative;
+  right: 20px;
+}
+/* se agrega efecto pulso a caja de pregunta */
+.cajapregunta {
+  padding-bottom: 60px;
+  align-self: center;
+  width: 350px;
+  height: 350px;
+  animation: pulse 1.5s infinite;
+}
+/* ################# mision valor y vision/Box################*/
+/* Contenedor de los boxes */
+
+.boxInicio {
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 30px;
+  margin: 0px 100px 50px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  z-index: 2; 
 }
 
-/*.container-portada img{
-    padding-bottom: 60px;
-    align-self: center;
-    width: 287px;
-    height: 345px;
-}*/
-
-.cajapregunta{
-    padding-bottom: 60px;
-    align-self: center;
-    width: 350px;
-    height: 350px;
+.boxFinal {
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 10px;
+  margin: 50px 100px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  z-index: 2;
 }
 
-/* se agrega box 1 para configurar bordes personalizados */
-.box1 {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 150px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-/*se agrega borde lineas */
-    border: 3px dashed black ;
+.boxFrase {
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 20px;
+  margin: 10px 100px 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  z-index: 2;
 }
-
-/* se crea box 2 para achicar margenes*/
 .box2 {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 330px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-    /*borde lineas*/
-    border: 3px dashed black ;
+  background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+  padding: 30px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Atma", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  z-index: 2;
 }
-/*box en historia de quienes somos, se modifico margin */
-.box {
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border-radius: 16px; 
-    padding: 30px;
-    margin: 0% 156px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Atma',cursive;
-/*se agrega borde lineas */
-    border: 3px dashed black ;
+.boxFinal p {
+  margin: 0;
+  padding: 0;
 }
 
-/*contenedor de imagen de organigrama*/
-
-.container{
-    width: 100%;
-    display: flex;
-    max-width: 1100px;
-    /*se agrega margin para centrar*/
-    margin: 40px auto;
+.boxFrase strong {
+  margin: 0;
+  padding: 0;
 }
 
-.card{
-    width: 100%;
-    margin: 20px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    cursor: default;
-    transition:  all 0.2s ease;
+/* Contenedor de los elementos izquierda y derecha */
+
+.grupo-mvv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
 }
-.card:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateY(-3%);
+.mvv-izq {
+  align-self: flex-start; /
+/* * Alinea a la izquierda */ 
+}
+.mvv-der {
+  align-self:flex-end;
+   /* Alinea a la derecha */
 }
 
-.card img{
-    width: 100%;
-    height: 210px;
-}
-.card .contenido{
-    padding: 20px;
-    font-family: var(--letra-divertida);
-    text-align: center;
-    /* se prueba resaltado */
-    text-shadow:0px 1px 5px #964e96;
-}
 
-.card .contenido p{
-    font-family: var(--letra-divertida);
-    line-height: 1.5;
-    color: black;
-}
-
-.card .contenido{
-    font-weight:  400;
-}
-
-/* posicion y tamaño de nubecita.png */
-.nube {
-        position: relative;
-        top: 75px;
-        right: -25px;
-        width: -50px;
-    }
-.nube1 {
-        position: relative;
-        top: 65px;
-        left: 1000px;
-        width: 250px;
-    }
-.nube2 {
-        position: relative;
-        top: 30px;
-        right: 280px;
-        width: 300px;
-    }
-.nube3 {
-        position: relative;
-        top: -85px;
-        left: -50px;
-        width: 350px;
-    }
+.mvv-der,
+.mvv-izq {
+  margin-left: 40px;
+  margin-right: 40px;
+  border: 2px solid transparent; 
+  box-shadow: 0 0 5px 3px rgb(235, 203, 222);
  
-.nube4 {
-        position: relative;
-        top:0px;
-        left: 1000px;
-        width: 310px;
-    }
-
-.fondo-nube{
-    background-image: url("../assets/img/nubecita.png");
-    background-position: right;
 }
+.boxInicio,
+.boxFinal,
+.boxFrase,
+.box2 {
+  z-index: 2;
+  position: relative; 
+}
+
+/* nubecita */
+/* Contenedor para las nubes */
+.contenedor-nube {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* Estilo para las nubes */
+.nube {
+  position: absolute;
+  z-index: 1; 
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+/* Posiciones manuales para las nubes */
+.nube1 {
+  top: 20%;
+  left: 70%;
+  width: 560px;
+  animation: flotar 6s ease-in-out infinite, moverDerecha 4s ease-in-out infinite;
+}
+
+.nube2 {
+  top: 45%;
+  left: 10%;
+  width: 450px;
+  animation: flotar 6s ease-in-out infinite, moverIzquierda 3s ease-in-out infinite;
+ 
+}
+
+.nube3 {
+  
+  left: 80%;
+  bottom: 20%;
+  animation: flotar 4s ease-in-out infinite;
+  width: 500px;
+}
+
+
+/* efecto flotar */
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -8px);
+  }
+}
+
+/* Animación para moverse hacia la derecha */
+@keyframes moverDerecha {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Animación para moverse hacia la izquierda */
+@keyframes moverIzquierda {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+
+/*#################contenedor de imagen de organigrama###########*/
+
+.container {
+  width: 100%;
+  display: flex;
+  max-width: 1100px;
+  /*se agrega margin para centrar*/
+  margin: 40px auto;
+}
+
+.card {
+  width: 100%;
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%);
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+}
+.card .contenido {
+  padding: 20px;
+  font-family: var(--letra-divertida);
+  text-align: center;
+  /* se prueba resaltado */
+  text-shadow: 0px 1px 5px #964e96;
+}
+
+.card .contenido p {
+  font-family: var(--letra-divertida);
+  line-height: 1.5;
+  color: black;
+}
+
+.card .contenido {
+  font-weight: 400;
+}
+
+/* posicion y tamaño de nubecita.png  */
 
 /* estilo para organizar misión, visión y valores en fila */
-.grupo-mvv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  
-  /* izquierda */
-  .mvv-izq {
-    align-self: flex-start;
-    margin-left: 170px; /* mismo margen que .box1 */
-    margin-right: auto;
-  }
-  
-  /*derecha */
-  .mvv-der {
-    align-self: flex-end;
-    margin-right: 175px; /* mismo que tenés en .box2 */
-    margin-left: auto;
-  }
-  
+
+/********************************** footer **********************************/
 
 /********************************** footer **********************************/
 footer{
@@ -307,126 +396,168 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
 
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
-.textoI {
+
+.textoI, .textoInfo {
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
-  }
-  
-  
-#fin {
-    font-family: var(--letra-texto);
-    text-align: center;
-    margin-top: 110px;
-    font-size: 1rem;
-  }
 
 
 
-/********************************** footer **********************************/
-footer{
-    background-image: url("../assets/img/wave-celeste.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top; 
-    padding: 3px; 
-    text-align: center;
-    margin-top: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
-.redesL {
-    width: 24px;
-    height: 24px;
-  }
-  
  
-.textoI {
-    font-family: var(--letra-texto);
-    text-align: left;
-    margin: 0;
+
+/* responsive */
+/* Escritorio (mayor a 1024px) */
+@media (min-width: 1025px) {
+
+  .nube {
+    display: block; /* Muestra la nubecita en pantallas grandes (PC) */
   }
-  
-  
-#fin {
-    font-family: var(--letra-texto);
+}
+
+/* Tablets (entre 601px y 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .container-portada {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .figura-geometrica {
+    width: 90%;
+    background-size: contain;
+    padding: 30px 0;
+  }
+
+  .cajapregunta {
+    width: 250px;
+    height: 250px;
+  }
+
+  .grupo-mvv {
+    gap: 10px;
+  }
+
+  .box2 {
+    margin: 10px 20px;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 45%;
+    margin: 10px;
+  }
+  .nube {
+    display: none; /* Oculta la nubecita  */
+  }
+}
+
+/* Celulares (hasta 780px) */
+@media (max-width: 780px) {
+  header {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-top: 110px;
-    font-size: 1rem;
+  }
+  .nube {
+    display: none; /* Oculta la nubecita  */
   }
 
 
 
 
+  }
+
+  .container-portada {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .figura-geometrica {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .container-portada h1 {
+    font-size: 3rem;
+  }
 
 
+  .container-portada span {
+    padding-left: 0;
+  }
+
+  .cajapregunta {
+    width: 200px;
+    height: 200px;
+  }
+
+  .boxInicio,
+  .boxFinal,
+  .boxFrase,
+  .box2 {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .card {
+    width: 90%; 
+    margin: 10px 0; 
+  }
+  
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
+    }
+}
 
