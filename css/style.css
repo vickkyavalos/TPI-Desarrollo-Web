@@ -18,11 +18,13 @@
     --letra-texto: "Montserrat", sans-serif;
     --letra-divertida: "Atma", system-ui;
 }
+
 /*Eliminacion de margenes y padding predefinidos*/
 *{
     margin: 0;
     padding:0;
 }
+
 /*body*/
 body{
     background-color: var(--color-fondo);
@@ -37,20 +39,15 @@ header {
     background-color: var(--color-segundo);
     padding: 10px;
 }
-#logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 10px;
-}
+
 /* imagen logo */
-#logo{
-    width: 80px;
+#logoHeader{
+    width: 70px;
     height: auto;
     margin-top: 10px;
     background: none;
 }
+
 /* barra de navegacion */
 .navbar{
     display: flex;
@@ -98,49 +95,38 @@ header {
 }
 /****************************fin del header*******************************/
 /*---Comienza Main----*/
-
-/*---Seccion Portada de inicio---*/
-.container-portada{
+main{
     display: flex;
-    justify-content: space-around;
-    margin: 80px 0px 80px 0px;
+    flex-direction: column;
 }
+/*---Seccion Portada de inicio---*/
 
-.figura-geometrica{
+
+.figura-geometrica {
     background-image: url("../assets/img/cuadrado-y-circulo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 529px;
-    height: 422px;
-    padding: 86px 0 100px 60px ;
-    
+    width: 30em;
+    height: auto;
+    padding: 20px 0 0px 50px;
 }
 
-.texto-portada{
-    gap: 50px;
-}
-
-.container-portada h1{
-    font-family: var(--letra-titulo);
-    font-weight: 400;
-    font-size: 4rem;
-}
-
-.container-portada p{
+.texto-portada p {
+    position: relative;
+    right: 10%;
     font-family: var(--letra-divertida);
     font-weight: 300;
-    font-style: normal;
     font-size: 2.3rem;
-    position: relative;
-    right:10%;
-    
 }
 
-.container-portada img{
+.texto-portada h1 {
+    font-family: var(--letra-titulo);
+}
 
-    align-self: center;
-    width: 287px;
-    height: 345px;
+.portada-img {
+    width: 25vw;
+    height: auto;
+    object-fit: cover;
 }
 
 /*FIN PORTADA INICIO*/
@@ -154,18 +140,10 @@ header {
     margin-top: 30px;
 }
 
-/*container seccion (eventos-tematica-catalogo-)*/
-.container-seccion{
-    display: flex;
-    height: 659px;
-    position: relative;
-    align-items: center;
-    align-content: center;
-    
-}
+
 /*Titulos (h2)sobresalientes de las secciones afectando de manera general(eventos-tematica-catalogo)*/
 .titulo-seccion h2{
-    font-size: 3.20rem;
+    font-size: 2.6rem;
     font-family: var(--letra-subtitulo);
     font-weight: 400;
     font-style: normal;
@@ -176,28 +154,21 @@ header {
     position: absolute;
     top: -80px;
     left: 10px;
-    padding: 20px 20px 20px 20px; 
-    border-radius: 30px 30px 0 0;
+    padding: 1.25em 1.25em 0.25em 0.25em; 
+    border-radius: 2em 2em 0 0;
     
     
 }
 /*posicionamiento de texto en cada seccion de manera general(evento-tematica-catalogo) */
-.texto-seccion{
-    display: flex; 
-    flex-direction: column;
-    align-self: center;
-    justify-content: center; 
-    /*align-items se maneja de manera particular por id*/
-    width: 620px;
-    
-}
+
+
 /* tipografía Subtitulos(h3) de cada seccion*/
 .subtitulo{
     font-family: var(--letra-subtitulo);
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 /*tipografía parrafo de cada seccion*/
 .parrafo{
@@ -227,8 +198,8 @@ header {
 }
 
 .container-img{
-   width: 100%;
-   max-width: 500px;
+   width: 95%;
+   max-width: 450px;
 }
 
 .imagen-seccion{
@@ -243,74 +214,28 @@ header {
 
 #seccion-1-evento{
    background-color: var(--color-primero);
-   justify-content: space-around;
-   gap: 15px;
+   
+   gap: 30px;
 }
 
 #titulo-evento{
     background-color: var(--color-primero);
+    top:-30;
+}
 
-}
-#texto-seccion-evento{
-    align-items: start;
-    margin-left: 40px;
-    margin-bottom: 55px; 
-    gap: 40px;
-    text-align: start;
-}
 
 #subtitulo-seccion-evento h3, span{
     width: fit-content;
     background-color: var(--color-sexto);
 }
-#subtitulo-seccion-evento  span{
-    color: #FFFFFF;
-}
 
 #seccion-1-evento div p{
     margin-top: 40px;
-    width: 600px;
+    width: auto;
 }
 
-.contenedor-imagen {
-    position: relative;
-    width: 500px;
-    height: 350px;
-    margin: 0 auto;
-    background-color: #555; /* Solo para referencia */
-  }
-
-.imagen {
-    position: absolute;
-    width: 250px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;}
-
-.imagen:hover{
-    transform: scale(1.2);
-}
-
-
- .img1 {
-    top: 110px;
-    right: 0;
-    z-index: 1;
-  }
-
-  .img2 {
-    top: 100;
-    right: 150px;
-    z-index: 2;
-  }
-
-  .img3 {
-    top: 180px;
-    right:80px;
-    z-index: 3;
-  }
-/*fin seccion - catálogo*/
+  
+/*fin seccion - evento*/
 
 /*-----segunda seccion - temática-----*/
 
@@ -350,38 +275,27 @@ header {
 #subtitulo-seccion-tematica h3{
     display: flex;
     flex-direction: row;
-    width: 504px; 
-    height: 148px;
-    text-align: end;
+    height: 12vh;
     margin-bottom: 30px;
 }
 #subtitulo-seccion-tematica span{
     align-content: end;
-    border-radius: 20px;
-    width: 297px;
-    height: auto;
+    width: 8em;
+    height: 4em;
     text-align: start;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    margin-left: 10px;
+    padding-bottom: 1.2rem;
+    padding-left: 0.625rem;
+    margin-left: 0.625rem;
     font-weight: 300;
     background-color: var(--color-cuarto);
     
 }
 
 /*fin seccion - temática*/
-
 /*-----tercera seccion - catálogo------*/
-.container{
-    width: 100%;
-    display: flex;
-    max-width: 1500px;
-    margin: 40px auto;
-}
 
 .card{
-    width: 300px;
-    margin: 20px;
+    margin: 6px;
     border-radius: 6px;
     overflow: hidden;
     background: #fff;
@@ -396,15 +310,15 @@ header {
 
 .card img{
     width: 100%;
-    height: 210px;
+    height: 10rem;
 }
-.card .contenido{
-    padding: 20px;
+.card .card-title{
+    padding: 5x;
     font-family: var(--letra-divertida);
     text-align: center;
 }
 
-.card .contenido p{
+.card .card-text{
     font-family: var(--letra-divertida);
     line-height: 1.5;
     color: black;
@@ -413,14 +327,8 @@ header {
 .card .contenido{
     font-weight:  400;
 }
-.flecha{
-    width: 50px;
-    height: auto;
-    margin-top: 250px;
-}
-.btn-mas{
-    width: 80px;
-    height: 40px;
+
+.card a{
     font-family: var(--letra-titulo);
     font-size: 1rem;
     background-color: var(--color-sexto);
@@ -438,6 +346,7 @@ header {
     left: 500px;
 }
 
+
 /*fin seccion - catálogo*/
 
 /*********************************** seccion cupcake **********************************/
@@ -451,8 +360,7 @@ header {
 
 .cupcake{
     padding: 20px;
-    margin: 5px;
-    
+    margin: 5px; 
 }
 #imgCupcake{
     width: 250px; 
@@ -474,46 +382,17 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
 
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
-.textoI {
+
+.textoI, .textoInfo {
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
@@ -525,8 +404,153 @@ footer{
     text-align: center;
     margin-top: 110px;
     font-size: 1rem;
+    margin-bottom: 0;
   }
 
 
+@media (max-width:780px){
+    html{
+        font-size: 14px;
+    }
 
+    .figura-geometrica {
+    background-image: url("../assets/img/cuadrado-y-circulo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: auto;
+    padding: 10px 0 10px 10px;
+    }   
+    
+    .texto-portada p {
+        right: 0%;
+        
+    }
+    
+    .titulo-seccion{
+    top: -60px;
+    left: 10px;
+    padding: 20px 20px 20px 20px; 
+    border-radius: 30px 30px 0 0;  
+    } 
+    
+    .texto-seccion{
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+       
+        text-align: center;
+    
+    };
 
+    #subtitulo-seccion-evento{
+        align-items: center;
+        text-align: center;
+    };
+    
+    #texto-seccion-evento{
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 0; 
+    gap: 0;
+    text-align: center;
+}
+
+    #titulo-tematica{
+        
+        left: 10px;
+    }
+    #titulo-catalogo{
+        left: 10px;
+    }
+} 
+
+@media (max-width:410px){
+    html{
+        font-size: 10px;
+    }
+    #texto-seccion-tematica p{
+    margin-right: 0px;
+}
+} 
+
+/********** tablet ************/
+@media  (min-width: 601px) and (max-width: 991px) {
+    #fin{
+        margin: 2px;
+    }
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:20px 0;
+        width: 240px;
+    }
+
+    .container-cupcake{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 130px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .card{
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        width: 240px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .container-cupcake, footer{
+        width: 100%;
+        display: flex;
+    }
+    .cupcake{
+    margin: 0 auto;
+    text-align: center;
+    }
+    #imgCupcake{
+        width: 100px; 
+        height: auto;
+        display: flex; 
+        margin: 0 auto; 
+        transition: transform 0.3s ease;
+    }
+    #imgCupcake:hover {
+        transform: scale(1.1); 
+    }
+    .textoI{
+        display: none;
+    }
+}

@@ -38,20 +38,15 @@ header {
     background-color: var(--color-segundo);
     padding: 10px;
 }
-#logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 10px;
-}
+
 /* imagen logo */
-#logo{
-    width: 80px;
+#logoHeader{
+    width: 70px;
     height: auto;
     margin-top: 10px;
     background: none;
 }
+
 /* barra de navegacion */
 .navbar{
     display: flex;
@@ -97,139 +92,78 @@ header {
     margin-left: 10px;
     background-color: var(--color2);
 }
+
 /****************************fin del header*******************************/
 /*EMPIEZA MAIN */
-/* formulario */
+/********************************** main**********************************/
+/* contenedor form */
 
+/* INICIO formulario */
 .container-formulario {
-    margin-top: 8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     font-family: var(--letra-titulo);
-    gap: 15px;
-    
-    
 }
 
-.formulario {
-    display: flex;
-    flex-direction: column;
-    align-self: center ;
-    height: 600px;
-    width: 800px;
-    background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
-    border: 4px dashed #000; 
-    border-radius: 20px;
-    padding: 40px 20px;
-    background: linear-gradient(145deg, #e8f0ff, #ffd6f5); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    
-    
+/* subcontenedor form */
+
+.sub-container-form {
+  border: 4px dashed #000;
+  padding: 80px;
+  background: linear-gradient(145deg, #e8f0ff, #ffd6f5);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  width: 100%;
+  margin: auto;
 }
-.formulario-h2{
-    display: flex;
-    height: fit-content;
-    text-align: center;
-    align-items: center;
-    align-self: center;
-    position:relative;
-    
-}
+
+/* titulo de formulario */
 .formulario-titulo{
-    padding: 20px 20px 20px 20px; 
+    padding: 20px;
     font-size: 2rem;
     font-family: var(--letra-titulo);
-    font-weight: 300;
     font-style: normal;
     height: fit-content;
-    align-self: center;
-
-}
-
-
-.formulario-subtitulos {
-    margin-top: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 200;
-    font-style: normal;
-    padding-bottom: 20px;
-
-}
-
-/* color cosito */
-#titulo-evento{
     background: linear-gradient(to bottom right, #cfe3ff, #fbc0d3);
+    border-radius: 2rem;
 }
 
+/* boton */
+.btn-primary {
+    padding: 0.5rem 1.25rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background-color: var(--color-septimo);
+    border: none;
+    }
 
-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-/* forma de input y text area */
-input {
-    display: flex;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    width: 300px;
+.btn-primary:hover {
+    background-color: var(--color-sexto);
+    }
+
+/* checkbox */
+
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    }
+
+/* PLACEHOLDER */
+
+input::placeholder,
+textarea::placeholder {
+  text-align: center;
 }
 
+/* CENTRADO ESCRITURA FORM */
+
+input,
 textarea {
-    display: flex;
-    border-radius: 30px;
-    padding: 40px;
-    border: 1px solid #ccc;
-    width: 300px;
-    margin: 0 auto;
+  text-align: center; 
 }
 
-.checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
+/* FIN FORMULARIO */
 
-.checkbox input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    display: inline-block; 
-    margin: 0;             
-}
-
-.checkbox label {
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.enviar {
-    background: var(--color-septimo);
-    border-style: outset;
-    height: 50px;
-    width: 100px;
-
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-style: normal;
-
-    font-family: var(--letra-divertida);
-    text-shadow: none;
-        
-}
-/* fin de formulario */
+/* horarios */
 
 .horarios {
     margin-top: 3rem;
@@ -242,14 +176,28 @@ textarea {
     font-style: normal;
 }
 
+
+.horarios {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--letra-divertida);
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+    padding: 0 1rem; 
+}
+
 /* contacto */
 .container-contacto {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 80px;
+    flex-wrap: wrap; 
+    gap: 40px;
     margin-top: 20px;
-    padding-bottom: 40px;
+    padding: 0 1rem 40px;
 }
 
 .container-contacto div {
@@ -258,8 +206,9 @@ textarea {
     align-items: center;
     text-align: center;
     font-family: var(--letra-titulo);
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-letra);
+    min-width: 120px;
 }
 
 .container-contacto img {
@@ -272,8 +221,11 @@ textarea {
     margin: 0;
     font-family: var(--letra-titulo);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
+
+
+/********************************** fin main **********************************/
 
 /********************************** footer **********************************/
 footer{
@@ -284,60 +236,90 @@ footer{
     padding: 3px; 
     text-align: center;
     margin-top: 0px;
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
-  
-.contactanos, .textoFinal, .redes {
-    display: inline-block;
-    vertical-align: top;
-    width: 350px;
-    padding: 20px 5px 5px 5px; 
-    box-sizing: border-box;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px; 
-}
-  
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
 
-.logosR {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: 45px;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-  
 .redesL {
     width: 24px;
     height: 24px;
   }
   
- 
-.textoI {
+
+.textoI, .textoInfo {
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
+
   }
-  
   
 #fin {
     font-family: var(--letra-texto);
     text-align: center;
     margin-top: 110px;
     font-size: 1rem;
+    margin-bottom: 0;
   }
 
 
 
 
 
+/* media query */
+
+@media (max-width: 576px) {
+    .horarios h2 {
+        font-size: 1rem;
+    }
+
+    .container-contacto {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-contacto div {
+        font-size: 0.9rem;
+    }
+
+    .container-contacto img {
+        width: 30px;
+    }
+
+    .container-contacto p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* media query footer */
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
+    }
+}

@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+
+:root{
+    --color-fondo: rgb(249, 238, 234);
+    --color-lineas: rgb(0, 0, 0, 0.66);
+    --color-linea-invisible:rgb(0, 0, 0, 0);
+    --color-primero:rgb(182, 226, 211);
+    --color-segundo: rgb(196, 220, 253);
+    --color-tercero: rgb(235, 203, 222);
+    --color-cuarto:rgb(246, 241, 147);
+    --color-quinto:rgb(163, 255, 172);
+    --color-sexto:rgb(255, 119, 183);
+    --color-septimo: rgb(89, 86, 116);
+    --color-letra:rgb(0, 0, 0, 0.88);
+    --letra-titulo: "Viga", sans-serif;
+    --letra-subtitulo: "Montserrat", sans-serif;
+    --letra-texto: "Montserrat", sans-serif;
+    --letra-divertida: "Atma", system-ui;
+}
+
+/*Eliminacion de margenes y padding predefinidos*/
+*{
+    margin: 0;
+    padding:0;
+}
+
+/*body*/
+body{
+    background-color: var(--color-fondo);
+    color: var(--color-letra);
+}
+
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+
+/* imagen logo */
+#logoHeader{
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
+
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+
+/****************************main*******************************/
+.card{
+    margin: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    transition:  all 0.2s ease;
+}
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+
+.card img{
+    width: 100%;
+    height: 12rem;
+}
+.card .card-title{
+    padding: 5x;
+    font-family: var(--letra-divertida);
+    text-align: center;
+}
+
+.col {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.card .card-text{
+    font-family: var(--letra-divertida);
+    line-height: 1.5;
+    color: black;
+}
+
+.card .contenido{
+    font-weight:  400;
+}
+
+.card a{
+    font-family: var(--letra-titulo);
+    font-size: 1rem;
+    background-color: var(--color-sexto);
+    border-radius: 15px;
+    border-color: var(--color-septimo);
+    margin: 5px;
+}
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+.textoI, .textoInfo {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
+    }
+}

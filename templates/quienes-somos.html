@@ -1,190 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/quienes-somos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
- <!--------------------------header -------------------------->
-    <header>
-        <div id="logo-container">
-            <img id="logo" src="../assets/icons/logo.svg" alt="imagen del logo">
-        </div>
-        <div class="navbar">
-            <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="../templates/quienes-somos.html">Nosotros</a></li>
-                <li><a href="../templates/contacto.html">Contacto</a></li>
-            </ul>
-        </div>
-        <!-- Contenedor para el icono User -->
-        <div id="icon-container">
-            <a href=""><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
-        </div>
-    </header>
-<!-- se agrega estilo de portada de quienes somos -->
-    <main>
-        <section class="container-portada">
-            <div class="texto-portada figura-geometrica">
-                <h1>QUIENES <br> 
-                    <span>SOMOS</span><br>
-                </h1>
+    <link rel="stylesheet" href="../css/quienes-somos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atma:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  
+  </head>
+  <body>
+        <!--------------------------header -------------------------->
+      <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg ">
+              <div class="container-fluid position-relative d-flex align-items-center justify-content-between py-2">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  <a class="navbar-brand" href="#"></a>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../templates/catalogo.html">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../templates/quienes-somos.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../templates/contacto.html">Contacto</a>
+                    </li>
+      
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          <!-- logo -->
+            <div id="logoHeader" class="position-absolute top-50 start-50 translate-middle">
+                <img src="../assets/icons/logo.svg" alt="logo de la empresa" class="logo">
             </div>
-            <img class="cajapregunta" src="../assets/img/caja de pregunta.png" alt="Caja- de- preguntas">
-        </section>
-    </main>
-    
-    <!------------------ secciones de vision, misión y valores ------------------>
-        <section>
-            <div> <img src="../assets/img/nubecita.png" alt="" class="nube4"></div>
             
-            <div class="box">
-                <p>
-                     <strong>IDWA </strong>  🏢 <br> Nació como una iniciativa joven y creativa en respuesta a una necesidad: 
-                hacer que la organización de fiestas infantiles <br> sea más simple, rápida y divertida. 
-                Lo que comenzó como una idea entre amigos se transformó en una plataforma online 
-                <br>que conecta a familias con salones de eventos, servicios y proveedores, 
-                <br>todo desde un solo lugar.<br><br></p>
+          <!-- Contenedor para el icono User -->
+          <div id="icon-container">
+              <a href=""><img id="icono" src="../assets/icons/person-fill.svg" alt="Icono"></a>
+          </div>
+      </header> 
 
-            </div>
-       
-           
-            <div> <img src="../assets/img/nubecita.png" alt="" class="nube"></div>
-       
-        <div class="grupo-mvv"> <!-- se aplica nuevo contenedor, para correr izq/der -->
-
-            <div class="box2 mvv-der"> 
-                <div><strong>🎯 Misión</strong></div>
-                <p>
-                Facilitar la planificación de fiestas infantiles inolvidables, ofreciendo una <br> plataforma intuitiva y completa donde las familias puedan encontrar <br> salones, sumar servicios y organizar su evento sin estrés.
-                </p>
-            </div>
-
-            <div><img src="../assets/img/nubecita.png" alt="" class="nube1"></div>
-
-            <div class="box2 mvv-izq"> 
-                <div> 🌟<strong> Visión </strong></div>
-                <p>
-                Convertirnos en la plataforma líder en organización de fiestas infantiles en el <br> mundo hispanohablante, promoviendo celebraciones únicas, accesibles <br> y llenas de magia.
-                </p>
-            </div>
-
-            <div><img src="../assets/img/nubecita.png" alt="" class="nube2"></div>
-
-            <div class="box2 mvv-der"> 
-                <div><strong>❤️ Valores</strong></div>
-                <p>
-                Nos guiamos por la creatividad, la empatía, la alegría, el compromiso con la <br> infancia y el uso de la tecnología para mejorar cada experiencia.
-                </p>
-                
-            </div>
-       
+    <!-- se agrega estilo de portada de quienes somos -->
+    <main>
+      <section class="container-portada">
+        <div class="texto-portada figura-geometrica">
+          <h1>
+            QUIENES <br />
+            <span>SOMOS</span><br />
+          </h1>
         </div>
+        <img
+          class="cajapregunta"
+          src="../assets/img/caja de pregunta.png"
+          alt="Caja- de- preguntas"
+        />
+      </section>
+    </main>
 
-            <div><img src="../assets/img/nubecita.png" alt="" class="nube3"></div>
-
-            <div class="box1">
-                <p>
-                Nuestro equipo está conformado por profesionales altamente capacitados y en constante formación.<br> trabajan con pasión y compromiso.
+    <!------------------ secciones de vision, misión y valores ------------------>
+    <section>
+        <div class="contenedor-nube">
+            <!-- Nubes al fondo -->
+            <img
+              src="/assets/img/nubecita.png"
+              alt="nube"
+              class="nube nube1"
+            />
+            <img
+              src="/assets/img/nubecita.png"
+              alt="nube"
+              class="nube nube2"
+            />
+            <img
+              src="/assets/img/nubecita.png"
+              alt="nube"
+              class="nube nube3"
+            />
+          
+          <!-- Box de inicio con contenido -->
+          <section class="boxInicio">
+            <p>
+              <strong>IDWA </strong> 🏢 <br />
+              Nació como una iniciativa joven y creativa en respuesta a una
+              necesidad: hacer que la organización de fiestas infantiles <br />
+              sea más simple, rápida y divertida. Lo que comenzó como una idea
+              entre amigos se transformó en una <br />plataforma online que
+              conecta a familias con salones de eventos, servicios y
+              proveedores, desde un solo lugar. <br />Desde nuestros primeros
+              pasos, hemos crecido junto a cientos de celebraciones felices.<br />
             </p>
+          </section>
+      
+          <div class="grupo-mvv">
+            <div class="box2 mvv-izq">
+              <div><strong>🎯 Misión</strong></div>
+              <p>
+                Facilitar la planificación de fiestas infantiles inolvidables,
+                ofreciendo una <br />
+                plataforma intuitiva y completa donde las familias puedan
+                encontrar <br />
+                salones, sumar servicios y organizar su evento sin estrés.
+              </p>
             </div>
-        </section>
-
-<!------------------ cards del equipo ------------------>
+      
+            <div class="box2 mvv-der">
+              <div>🌟<strong> Visión </strong></div>
+              <p>
+                Convertirnos en la plataforma líder en organización de fiestas
+                infantiles en el <br />
+                mundo hispanohablante, promoviendo celebraciones únicas,
+                accesibles <br />
+                y llenas de magia.
+              </p>
+            </div>
+      
+            <div class="box2 mvv-izq">
+              <div><strong>❤️ Valores</strong></div>
+              <p>
+                Nos guiamos por la creatividad, la empatía, la alegría, el
+                compromiso con la <br />
+                infancia y el uso de la tecnología para mejorar cada experiencia.
+              </p>
+            </div>
+          </div>
+      
+          <section class="boxFinal">
+            <p>
+              Nuestro equipo está conformado por profesionales altamente
+              capacitados y en constante formación. <br />
+              Trabajan con pasión y compromiso.
+            </p>
+          </section>
+        </div>
+      </section>
+      
+    <!------------------ cards del equipo ------------------>
     <div class="container">
-        <div class="card">
-            <img img src="../assets/img/santiago.png" alt="persona">
-            <div class="contenido">
-                <h3>Santiago</h3>
-                <p>Área Comercial <br> Al</p>
-            </div>
+      <div class="card">
+        <img img src="../assets/img/santiago.png" alt="persona" />
+        <div class="contenido">
+          <h3>Santiago</h3>
+          <p>
+            Área Comercial <br />
+            Al
+          </p>
         </div>
+      </div>
 
-        <div class="card">
-            <img img src="../assets/img/noah.png" alt="persona">
-            <div class="contenido">
-                <h3>Noah</h3>
-                <p>Desarrollo <br>Tecnología</p>
-            </div>
+      <div class="card">
+        <img img src="../assets/img/noah.png" alt="persona" />
+        <div class="contenido">
+          <h3>Noah</h3>
+          <p>Desarrollo <br />Tecnología</p>
         </div>
+      </div>
 
-        <div class="card">
-            <img img src="../assets/img/victoria.png" alt="persona">
-            <div class="contenido">
-                <h3>Victoria</h3>
-                <p>Dirección General</p>
-            </div>
+      <div class="card">
+        <img img src="../assets/img/victoria.png" alt="persona" />
+        <div class="contenido">
+          <h3>Victoria</h3>
+          <p>Dirección General</p>
         </div>
+      </div>
 
-        <div class="card">
-            <img img src="../assets/img/estrella.png" alt="persona">
-            <div class="contenido">
-                <h3>Estrella</h3>
-                <p>Atención al Cliente <br> So</p>
-            </div>
+      <div class="card">
+        <img img src="../assets/img/estrella.png" alt="persona" />
+        <div class="contenido">
+          <h3>Estrella</h3>
+          <p>
+            Atención al Cliente <br />
+            So
+          </p>
         </div>
+      </div>
 
-        <div class="card">
-            <img src="../assets/img/gabriela.png" alt="persona">
-            <div class="contenido">
-                <h3>Gabriela</h3>
-                <p>Comunicación <br> Redes Sociales</p>
-            </div>
+      <div class="card">
+        <img src="../assets/img/gabriela.png" alt="persona" />
+        <div class="contenido">
+          <h3>Gabriela</h3>
+          <p>
+            Comunicación <br />
+            Redes Sociales
+          </p>
         </div>
-        
+      </div>
     </div>
-    
-    <div class="box"><p><strong>IDWA<br>
-        🎈 “Donde cada fiesta comienza con una idea y se convierte en un recuerdo inolvidable.”🎈</strong></p>
-    </div>
 
-<!--------------------------footer -------------------------->
-<footer> 
-        
-    <!-- contactanos -->
-        <div class="contactanos">
-            <div class="textf">
-                <p class="textoI">Contactanos</p>
-            <br>
-            </div> 
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/email.svg" alt="logo de email">
-                <p class="textoI">idwaS_A2025@gmail.com</p>
-            </div>
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/phone.svg" alt="logo">
-                <p class="textoI">1122565213</p>
-            </div>
-            <div class="logo">
-                <img class="redesL" src="../assets/icons/whatsapp.svg" alt="logo de whatsapp">
-                <p class="textoI">345154321</p>
-            </div>
-        </div>
+    <section class="boxFrase">
+      <p>
+        <strong
+          >IDWA<br />
+          🎈 “Donde cada fiesta comienza con una idea y se convierte en un
+          recuerdo inolvidable.”🎈</strong
+        >
+      </p>
+    </section>
 
-        <div class="textoFinal">
-            <p id="fin">© 2025 IDW S.A</p>
-        </div>
-
-        <!-- redes sociales -->
-        <div class="redes">
-            <div class="textf">
-                <p class="textoI">Nuestras Redes</p>
+   <!--------------------------footer -------------------------->
+   <!--------------------------footer -------------------------->
+<footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
+     <!-- contacto  -->
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="textf">
+                    <p class="textoInfo">Contactanos</p>
                 <br>
+                </div> 
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/email.svg" alt="logo de email"></a>
+                    <p class="textoI">idwaS_A2025@gmail.com</p>
+                </div>
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/phone.svg" alt="logo"></a>
+                    <p class="textoI">1122565213</p>
+                </div>
+                <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
+                    <a href=""></a><img class="redesL" src="../assets/icons/whatsapp.svg" alt="logo de whatsapp"></a>
+                    <p class="textoI">345154321</p>
+                </div>
+            </div>
+            </div>
+      <!-- texto  -->
+              <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">
+                <p id="fin">© 2025 IDW S.A</p>
+            </div>
 
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/facebook.svg" alt="logo de facebook"></a>
-            </div>
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/instagram.svg" alt="logo de instagram"></a>
-            </div>
-            <div class="logosR">
-                <a href=""><img class="redesL" src="../assets/icons/twitter.svg" alt="logo de twitter"></a>
-            </div>
-        </div> 
-   </div>
-</footer>
-</body>
+      <!-- redes sociales  -->
+            <div class="d-flex flex-column align-items-center align-items-md-start" id="redesF">
+                <p class="textoInfo">Nuestras Redes</p>
+                <br>
+                <div class="logosR d-flex justify-content-center mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/facebook.svg" alt="logo de facebook"></a>
+                </div>
+                <div class="logosR d-flex justify-content-center mb-3">
+                    <a href=""><img class="redesL" src="../assets/icons/instagram.svg" alt="logo de instagram"></a>
+                </div>
+                <div class="logosR d-flex justify-content-center mb-3">
+                  <a href=""><img class="redesL" src="../assets/icons/twitter.svg" alt="logo de twitter"></a>
+                </div>
+            </div> 
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+ </body>
+
 </html>
