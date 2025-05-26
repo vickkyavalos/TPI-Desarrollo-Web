@@ -1,0 +1,83 @@
+/*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+
+
+:root{
+    --color-fondo: rgb(249, 238, 234);
+    --color-lineas: rgb(0, 0, 0, 0.66);
+    --color-linea-invisible:rgb(0, 0, 0, 0);
+    --color-primero:rgb(182, 226, 211);
+    --color-segundo: rgb(196, 220, 253);
+    --color-tercero: rgb(235, 203, 222);
+    --color-cuarto:rgb(246, 241, 147);
+    --color-quinto:rgb(163, 255, 172);
+    --color-sexto:rgb(255, 119, 183);
+    --color-septimo: rgb(89, 86, 116);
+    --color-letra:rgb(0, 0, 0, 0.88);
+    --letra-titulo: "Viga", sans-serif;
+    --letra-subtitulo: "Montserrat", sans-serif;
+    --letra-texto: "Montserrat", sans-serif;
+    --letra-divertida: "Atma", system-ui;
+}
+/*Eliminacion de margenes y padding predefinidos*/
+*{
+    margin: 0;
+    padding:0;
+}
+/*body*/
+body{
+    background-color: var(--color-fondo);
+    color: var(--color-letra);
+}
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+.textoI, .textoInfo {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+
+  }
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
