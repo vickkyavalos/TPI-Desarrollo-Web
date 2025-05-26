@@ -103,6 +103,7 @@ header {
     height: 500px;
     border: solid 5px;
     border-color: var(--color-segundo);
+    margin-left: 0 auto;
 }
 
 
@@ -113,14 +114,15 @@ header {
     border-radius: 10px;
     border: solid 3px;
 }
-/*#tabla-visual{
-    
-     background-color: blue;
-} */
-.tabla-visualizar{
+/*
+#tabla-visual{
+    margin-left: 0 auto;
+     
+} 
+ .tabla-visualizar{
     border-radius: 10px;
     overflow: hidden;
- }   
+ }    */
 
 #form-admin{
     width: 250px;

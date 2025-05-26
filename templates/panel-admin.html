@@ -52,7 +52,7 @@
     </header>
 
 
-    <main class="d-flex flex-row align-items-center justify-content-center">
+    <main class="d-flex flex-row flex-wrap justify-content-center">
         
     <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-->
         <section class="my-3 d-flex flex-column align-items-center gap-1 pb-4 mb-4 " id="panel-admin">
@@ -63,9 +63,9 @@
                 </div>
             </div>
             <!-- SECCIONES lista-->
-            <div class=" my-5 flex-column " id="tabla-visual">
-               <table class="table table-bordered tabla-visualizar table-primary table-striped">
-                    <thead class="bg-primary">
+            <div class=" my-5 flex-column table-responsive" id="tabla-visual">
+               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped">
+                    <thead class="table-primary border-dark">
                         <tr>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descripción</th>
@@ -74,7 +74,7 @@
                         <!-- agregar disponibilidad?? -->
                         </tr>
                     </thead>
-                    <tbody class="bg-success">
+                    <tbody class="table-group-divider">
                         <tr>
                         <th scope="row">Castillo Dracula</th>
                         <td>Fiesta tematica "Dracula"</td>
@@ -94,7 +94,7 @@
         </section>
 
         <!-- SECCIONES formulario de alta-->
-        <section id="form-admin" class="container my-2 d-flex flex-column align-items-center  p-3" >
+        <section id="form-admin" class="container my-2 d-flex flex-column align-items-center p-3" >
                     <h2>Formulario</h2>
                     <div class="mb-3"> 
                         <label for="name" class="form-label">Nombre de salón</label>
