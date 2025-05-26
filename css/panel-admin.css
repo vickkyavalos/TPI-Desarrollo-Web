@@ -28,8 +28,8 @@
 
 /*body*/
 body{
-    background-color: var(--color-fondo);
-    color: var(--color-letra);
+    background-color: var(--color-fondo)  !important;
+    color: var(--color-letra)  !important;
 }
 
 /****************************header*******************************/
@@ -101,25 +101,32 @@ header {
 #panel-admin {
     width: 600px;
     height: 500px;
-    background-color: blueviolet;
+    border: solid 5px;
+    border-color: var(--color-segundo);
 }
 
 
 #alta-salon{
     width: 100px;
     height: 100px;
-    background-color: yellow;
+    background-color: var(--color-segundo);
+    border-radius: 10px;
+    border: solid 3px;
 }
-#tabla-visual{
+/*#tabla-visual{
     
-    background-color: blue;
-}
-
+     background-color: blue;
+} */
+.tabla-visualizar{
+    border-radius: 10px;
+    overflow: hidden;
+ }   
 
 #form-admin{
     width: 250px;
     height: 500px;
-    background-color: orange;
+    background-color: var(--color-segundo);
+    border-radius: 10px;
 }
 
 
