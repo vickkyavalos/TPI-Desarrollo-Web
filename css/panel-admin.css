@@ -19,16 +19,110 @@
     --letra-texto: "Montserrat", sans-serif;
     --letra-divertida: "Atma", system-ui;
 }
+
 /*Eliminacion de margenes y padding predefinidos*/
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
 }
+
 /*body*/
 body{
     background-color: var(--color-fondo);
     color: var(--color-letra);
 }
+
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+
+/* imagen logo */
+#logoHeader{
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
+
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+/****************************fin del header*******************************/
+/*---Comienza Main----*/
+
+
+#panel-admin {
+    width: 600px;
+    height: 500px;
+    background-color: blueviolet;
+}
+
+
+#alta-salon{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+#tabla-visual{
+    
+    background-color: blue;
+}
+
+
+#form-admin{
+    width: 250px;
+    height: 500px;
+    background-color: orange;
+}
+
+
 
 /********************************** footer **********************************/
 footer{
