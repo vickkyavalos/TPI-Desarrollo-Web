@@ -135,13 +135,20 @@ table{
     border-radius: 10px;
     border: solid 1px var();
 }
+.editarStyle{
+    border-radius: 5px;
+    background-color: var(--color-primero);
+    
+}
 
 #form-admin{
     width: 250px;
     height: 500px;
     background-color: var(--color-segundo);
     border-radius: 10px;
-}
+    visibility: hidden;  
+    /* display: hidden; */
+} 
 
 
 

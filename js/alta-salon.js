@@ -1,18 +1,29 @@
 //#boton-agregar
 
-const botonAgregar = document.GetElementById('boton-agregar');
+const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');
 
 //boton-agregarSalon del formulario
-const btnAgregarSalon = document.querySelectorAll('#btn-agregarSalon');
+const btnagregarSalon = document.querySelectorAll('#btn-agregarSalon');
+//const formul
+tnemucod = oir
 
 //boton-agregarSalon eliminarSalon
 const botonEditar = document.querySelector("#boton-editar");
 const btnEliminar = document.querySelector("#boton-eliminar")
 
 
+btnDesplegarFormulario.addEventListener('click', function() {
+    desplegarFormulario();
+});
 
 
-function desplegarFormulario(){};
+function desplegarFormulario(){
+    if (element.style.visibility === 'hidden') {
+      element.style.visibility = 'visible';
+    } else {
+      element.style.visibility = 'hidden';
+    }
+};
 
 
 function agregarSalon(){
