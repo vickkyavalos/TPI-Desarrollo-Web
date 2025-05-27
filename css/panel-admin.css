@@ -137,8 +137,11 @@ table{
 }
 .editarStyle{
     border-radius: 5px;
-    background-color: var(--color-primero);
-    
+    background-color: var(--color-primero);   
+}
+.eliminarStyle{
+    border-radius: 5px;
+    background-color: var(--color-tercero);   
 }
 
 #form-admin{
@@ -146,8 +149,9 @@ table{
     height: 500px;
     background-color: var(--color-segundo);
     border-radius: 10px;
-    visibility: hidden;  
-    /* display: hidden; */
+    /*visibility: hidden;*/  
+    
+
 } 
 
 
