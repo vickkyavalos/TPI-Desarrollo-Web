@@ -101,28 +101,39 @@ header {
 #panel-admin {
     width: 600px;
     height: 500px;
-    border: solid 5px;
-    border-color: var(--color-segundo);
-    margin-left: 0 auto;
+    
+}
+table{
+    overflow: visible;
 }
 
-
-#alta-salon{
-    width: 100px;
-    height: 100px;
-    background-color: var(--color-segundo);
+#alta-salon1{
+    
+    background-color: var(--color-quinto);
     border-radius: 10px;
-    border: solid 3px;
+    border: solid 1px var();
 }
-/*
-#tabla-visual{
-    margin-left: 0 auto;
-     
-} 
- .tabla-visualizar{
+.boton-agregar{
+    
+    border:none;
+    color: none;
+    padding: 10px;
+    background: none;
+    background-color: none;
+
+}
+#alta-salon2{
+    
+    background-color: var(--color-cuarto);
     border-radius: 10px;
-    overflow: hidden;
- }    */
+    border: solid 1px var();
+}
+#alta-salon3{
+    
+    background-color: var(--color-sexto);
+    border-radius: 10px;
+    border: solid 1px var();
+}
 
 #form-admin{
     width: 250px;

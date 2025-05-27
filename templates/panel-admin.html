@@ -52,25 +52,46 @@
     </header>
 
 
-    <main class="d-flex flex-row flex-wrap justify-content-center">
+    <main class="d-flex flex-row flex-wrap gap-5 justify-content-center align-items-center">
         
     <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-->
-        <section class="my-3 d-flex flex-column align-items-center gap-1 pb-4 mb-4 " id="panel-admin">
+        <section class="my-3 d-flex flex-column align-items-center justify-content-around gap-2 pb-4 mb-4 " id="panel-admin">
             <!-- SECCION alta-->
-            <div class="my-2 d-flex flex-column" id="alta-salon"> ALTA
-                <div> 
-                    <button>Log In</button>
+             <div class="d-flex gap-3 p-2">
+                <div class=" d-flex flex-column p-2"  id="alta-salon1"> 
+                <h4>Agregar Salon</h4>
+                <div class="d-flex align-self-end"> 
+                    <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
                 </div>
             </div>
+            <div class=" d-flex flex-column p-2"  id="alta-salon2"> 
+                <h4>Agregar Servicio</h4>
+                <div class="d-flex align-self-end"> 
+                    <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+                    
+                    
+                </div>
+            </div>
+            <div class=" d-flex flex-column p-2"  id="alta-salon3"> 
+                <h4>Agregar Imagen</h4>
+                <div class="d-flex align-self-end"> 
+                    <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+                    
+                    
+                </div>    
+            </div>
+            </div>
+
             <!-- SECCIONES lista-->
-            <div class=" my-5 flex-column table-responsive" id="tabla-visual">
-               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped">
+            <div class=" my-5 flex-column table-responsive " id="tabla-visual ">
+               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
                     <thead class="table-primary border-dark">
                         <tr>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Precio</th>
+                        <th scope="col" class="text-center">*</th>
                         <!-- agregar disponibilidad?? -->
                         </tr>
                     </thead>
@@ -80,13 +101,16 @@
                         <td>Fiesta tematica "Dracula"</td>
                         <td>Tucumán 785</td>
                         <td>200.000</td>
+                        <td><button><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
+                        <button><img class="mx-1" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
                         </tr>
                         <tr>
                         <th scope="row">Jurasic Park</th>
                         <td>Salón Jurasic Park</td>
                         <td>Av. Savio 1360</td>
                         <td>250.000</td>
-                 
+                        <td><button><img class="mx-2" src="/assets/icons/lapiz.svg" alt=""></button>
+                            <button><img class="mx-2" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -94,8 +118,8 @@
         </section>
 
         <!-- SECCIONES formulario de alta-->
-        <section id="form-admin" class="container my-2 d-flex flex-column align-items-center p-3" >
-                    <h2>Formulario</h2>
+        <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
+                    <h4>Formulario</h4>
                     <div class="mb-3"> 
                         <label for="name" class="form-label">Nombre de salón</label>
                         <input type="name" class="form-control" id="titulo-form" placeholder="Ingrese nombre del salón">
@@ -153,7 +177,7 @@
                 </div>
 
           <!-- redes sociales  -->
-                <div class="d-flex flex-column align-items-center align-items-md-start" id="redesF">
+                <div class="d-flex flex-column align-items-center  align-items-md-start" id="redesF">
                     <p class="textoInfo">Nuestras Redes</p>
                     <br>
                     <div class="logosR d-flex justify-content-center mb-3">
