@@ -24,8 +24,7 @@ formularioS.addEventListener('submit', function(event) {
     salones.push(salon);
 
     localStorage.setItem('salones', JSON.stringify(salones));
-    // alert("El salón " + tituloSalon + " ha sido creado exitosamente.");
-     mostrarAlertaExito();
+    mostrarAlertaExito(tituloSalon);
 
 
     // console.log(salon);
@@ -87,17 +86,30 @@ function mostrarSalones(){
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
         <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon()"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
-      }
+
   
-//eliminar
-// traemos salones
+      }
+
+//para que automaticamente muestre los datos que ya estan cargados
+document.addEventListener('DOMContentLoaded',() =>{
+  mostrarSalones()
+})
+  
+
 // al apretar eliminar el salon seleccionado en el arreglo
 // eliminar de la tabla sea recargando. o por medio de una funcion eliminar la fila correspondiente
-function eliminarSalon(){
+
+//eliminar
+function eliminarSalon(index){
+  // traemos salones
+  const salones = JSON.parse(localStorage.getItem('salones')) || [];
+  salones.splice(index, 1);
   localStorage.setItem('salones', JSON.stringify(salones));
+  mostrarSalones();
+  
 }
 
