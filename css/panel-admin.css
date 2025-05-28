@@ -149,7 +149,7 @@ table{
     height: 500px;
     background-color: var(--color-segundo);
     border-radius: 10px;
-    /*visibility: hidden;*/  
+    visibility: hidden;
     
 
 } 

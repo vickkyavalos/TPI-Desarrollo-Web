@@ -1,20 +1,15 @@
-//#boton-agregar
 
-const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');
 const formAdmin = document.getElementById('form-admin');
-
-
-//boton-agregarSalon del formulario
-const btnAgregarSalon = document.getElementById('btn-agregarSalon');
-
-
-//boton-agregarSalon eliminarSalon
-const botonEditar = document.querySelector("#boton-editar");
-const btnEliminar = document.querySelector("#boton-eliminar");
-
-
 const formularioS = document.getElementById('formulario')
 
+const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//#boton-agregar
+const btnAgregarSalon = document.getElementById('btn-agregarSalon');//boton-agregarSalon del formulario
+const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
+const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
+
+
+
+//guardar datos en el local storage
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
     // id de inputs de formulario (nombre, direccion, descripcion, precio)
@@ -29,26 +24,22 @@ formularioS.addEventListener('submit', function(event) {
     salones.push(salon);
 
     localStorage.setItem('salones', JSON.stringify(salones));
-    alert(salon);
+    // alert("El salón " + tituloSalon + " ha sido creado exitosamente.");
+     mostrarAlertaExito();
+
+
     // console.log(salon);
+    mostrarSalones();
     this.reset();
+
+    
 });
+
 
 btnAgregarSalon.addEventListener('submit', function(event) {
     event.preventDefault();
-    // id de inputs de formulario (nombre, direccion, descripcion, precio)
-    // const tituloSalon = document.getElementById('titulo-form').value;
-    // const descripcion = document.getElementById('inputDescripcionSalon').value;
-    // const direccionSalon= document.getElementById('inputDireccion').value;
-    // const precioSalon = document.getElementById('inputPrecio').value;
+    alert("Cargado exitosamente! :)"); 
 
-    // const salon = {tituloSalon, descripcion, direccionSalon, precioSalon};
-    
-    // const salones = JSON.parse(localStorage.getItem('salones')) || [];
-    // salones.push(salon);
-    // localStorare.setItem('salones', JSON.stringify(salones));
-    // alert(salon);
-    // this.reset();
 });
 
 
@@ -57,17 +48,56 @@ btnDesplegarFormulario.addEventListener('click', function(event) {
     event.preventDefault();
     desplegarFormulario()
 });
+
 //cambiar visibilidad
 function desplegarFormulario(){
-    if (formAdmin.style.visibility === 'hidden') {
+    if (formAdmin.style.visibility == 'hidden') {
       formAdmin.style.visibility = 'visible';
 
-    } else {
+    }else{
+      
       formAdmin.style.visibility = 'hidden';
     }
 };
 
+function cerrarFormulario(){
+    if (formAdmin.style.visibility == 'visible') {
+      formAdmin.style.visibility = 'hidden';
+
+    }else{
+      
+      formAdmin.style.visibility = 'visible';
+    }
+};
 
 
+//visualizar
+function mostrarSalones(){
+//busca en el html el tbody
+  const tabla = document.querySelector('#tabla-salones');
+  tabla.innerHTML = '';
 
+  //trae los salones guardados(devuelve un string) y si no hay devuelve un array vacio
+  const salones = JSON.parse(localStorage.getItem('salones')) || [];
+  salones.forEach((salon) => {
+    const fila = document.createElement('tr');
+    fila.innerHTML = `
+        <td>${salon.tituloSalon}</td>
+        <td>${salon.descripcion}</td>
+        <td>${salon.direccionSalon}</td>
+        <td>${salon.precioSalon}</td>
+        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
+            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+        `;    
+    tabla.appendChild(fila); 
+  })   
+      }
+  
+//eliminar
+// traemos salones
+// al apretar eliminar el salon seleccionado en el arreglo
+// eliminar de la tabla sea recargando. o por medio de una funcion eliminar la fila correspondiente
+function eliminarSalon(){
+  localStorage.setItem('salones', JSON.stringify(salones));
+}
 
