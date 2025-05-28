@@ -52,12 +52,14 @@ body{
 
     border: 2px solid var(--color-septimo);
     width: 100%;
+    overflow:hidden;
 }
 
 .container-form form{
     border: 2px solid var(--color-sexto);
     height: 100%;
     display: flex;
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -67,3 +69,63 @@ body{
     margin-bottom: 20px;
 }
 
+.icon-redesSociales{
+    display:flex;
+    gap:12px;
+    margin-bottom: 25px;
+}
+.icon-redesSociales ion-icon{
+    border: 1px solid var(--color-segundo);
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+
+}
+.icon-redesSociales span{
+font-size: 12px;
+margin-bottom: 15px;
+}
+.container-input{
+    width: 300px;
+    height:40px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+    padding:0 15px;
+    background-color: var(--color-fondo);
+}
+
+.container-input input{
+    border:none;
+    outline:none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+.container-form a{
+    color: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 5px;    
+}
+
+.button{
+    width: 170px;
+    height: 45px;
+    font-size:15px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    margin-top: 10px;
+    background-color:var(--color-sexto) ;
+    color: white;
+}
+/* animacion de form */
+.sign-in{
+    transform: translateX(100%);
+}
+.registrer{
+    transform: translateX(-100%);
+}
