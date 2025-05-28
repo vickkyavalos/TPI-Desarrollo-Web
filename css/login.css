@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap");
+
+:root {
+  --color-fondo: rgb(249, 238, 234);
+  --color-lineas: rgb(0, 0, 0, 0.66);
+  --color-linea-invisible: rgb(0, 0, 0, 0);
+  --color-primero: rgb(182, 226, 211);
+  --color-segundo: rgb(196, 220, 253);
+  --color-tercero: rgb(235, 203, 222);
+  --color-cuarto: rgb(246, 241, 147);
+  --color-quinto: rgb(163, 255, 172);
+  --color-sexto: rgb(255, 119, 183);
+  --color-septimo: rgb(89, 86, 116);
+  --color-letra: rgb(0, 0, 0, 0.88);
+  --letra-titulo: "Viga", sans-serif;
+  --letra-subtitulo: "Montserrat", sans-serif;
+  --letra-texto: "Montserrat", sans-serif;
+  --letra-divertida: "Atma", system-ui;
+}
+
+/* .avatar-login {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+  height: auto;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--letra-texto)
+}
+
+body{
+    border: 2px solid var(--color-fondo);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login{
+    border: 2px solid var(--color-lineas);
+    width: 800px;
+    height: 500px;
+    display: flex;
+    /* flex-direction:row; */
+}
+.container-form{
+
+    border: 2px solid var(--color-septimo);
+    width: 100%;
+}
+
+.container-form form{
+    border: 2px solid var(--color-sexto);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-form h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
