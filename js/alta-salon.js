@@ -78,7 +78,7 @@ function mostrarSalones(){
 
   //trae los salones guardados(devuelve un string) y si no hay devuelve un array vacio
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
-  salones.forEach((salon) => {
+  salones.forEach((salon,index) => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
         <td>${salon.tituloSalon}</td>
@@ -86,13 +86,12 @@ function mostrarSalones(){
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
         <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon()"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
 
-  
-      }
+ }
 
 //para que automaticamente muestre los datos que ya estan cargados
 document.addEventListener('DOMContentLoaded',() =>{
@@ -106,6 +105,7 @@ document.addEventListener('DOMContentLoaded',() =>{
 //eliminar
 function eliminarSalon(index){
   // traemos salones
+  
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   salones.splice(index, 1);
   localStorage.setItem('salones', JSON.stringify(salones));
