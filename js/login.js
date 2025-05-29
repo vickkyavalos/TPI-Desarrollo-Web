@@ -1,6 +1,13 @@
-const btn = document.getElementById("btn");
 const container = document.querySelector(".container-login");
+const btnregistra = document.getElementById("btn-registra");
+const btninicia = document.getElementById("btn-inicia");
 
-btn.addEventListener("click",()=>{
-   container.classList.toogle("toggle");
+btnregistra.addEventListener("click", () => {
+  container.classList.add("toggle");
 });
+
+btninicia.addEventListener("click", () => {
+  container.classList.remove("toggle");
+});
+
+
