@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
 
@@ -202,4 +203,233 @@ footer{
     .textoI{
         display: none;
     }
+=======
+/*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+
+
+:root{
+    --color-fondo: rgb(249, 238, 234);
+    --color-lineas: rgb(0, 0, 0, 0.66);
+    --color-linea-invisible:rgb(0, 0, 0, 0);
+    --color-primero:rgb(182, 226, 211);
+    --color-segundo: rgb(196, 220, 253);
+    --color-tercero: rgb(235, 203, 222);
+    --color-cuarto:rgb(246, 241, 147);
+    --color-quinto:rgb(163, 255, 172);
+    --color-sexto:rgb(255, 119, 183);
+    --color-septimo: rgb(89, 86, 116);
+    --color-letra:rgb(0, 0, 0, 0.88);
+    --letra-titulo: "Viga", sans-serif;
+    --letra-subtitulo: "Montserrat", sans-serif;
+    --letra-texto: "Montserrat", sans-serif;
+    --letra-divertida: "Atma", system-ui;
+}
+
+/*Eliminacion de margenes y padding predefinidos*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*body*/
+body{
+    background-color: var(--color-fondo)  !important;
+    color: var(--color-letra)  !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+
+/* imagen logo */
+#logoHeader{
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
+
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+/****************************fin del header*******************************/
+/*---Comienza Main----*/
+
+main{
+ margin-top:40px;
+ margin-bottom: 40px;
+}
+#panel-admin {
+    width: 65vw;
+    max-height: 80vh;
+    
+}
+table{
+    overflow: visible;
+}
+
+#alta-salon1{
+    
+    background-color: var(--color-quinto);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+.boton-agregar{
+    
+    border:none;
+    color: none;
+    
+    background: none;
+    background-color: none;
+
+}
+
+#alta-salon2{
+    
+    background-color: var(--color-cuarto);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+#alta-salon3{
+    
+    background-color: var(--color-sexto);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+.editarStyle{
+    border-radius: 5px;
+    background-color: var(--color-primero);   
+    
+}
+.eliminarStyle{
+    border-radius: 5px;
+    background-color: var(--color-tercero);   
+}
+
+ /* .iconos-tabla afecta ambos iconos de la tabla */
+.iconos-tabla{
+    display: flex;
+    padding: 6px;
+}
+#form-admin{
+    width: 27vw;
+    height: auto;
+    background-color: var(--color-segundo);
+    border-radius: 10px;
+    visibility: hidden;
+    text-align: center;
+    
+
+} 
+
+
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+.textoI, .textoInfo {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+
+  }
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px){
+    #form-admin{
+        width: 60%;
+    }
+>>>>>>> origin/alta-salon
 }

@@ -26,8 +26,8 @@
 
 /*body*/
 body{
-    background-color: var(--color-fondo);
-    color: var(--color-letra);
+    background-color: var(--color-fondo) !important;
+    color: var(--color-letra) !important;
 }
 
 /****************************header*******************************/
