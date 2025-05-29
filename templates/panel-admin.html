@@ -26,13 +26,13 @@
                     <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./catalogo.html">Catalogo</a>
+                    <a class="nav-link" href="../templates/catalogo.html">Catalogo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./quienes-somos.html">Nosotros</a>
+                    <a class="nav-link" href="../templates/quienes-somos.html">Nosotros</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./contacto.html">Contacto</a>
+                    <a class="nav-link" href="../templates/contacto.html">Contacto</a>
                   </li>
     
                 </ul>
@@ -124,21 +124,25 @@
                     
                         <div class="mb-3"> 
                         <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
-                        <input type="name" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
+                        <input type="name" name="titulo" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
+                        <p id="mensajeErrorSalon" style="color: red;"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="inputDireccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
+                        <input type="text" name="direccion" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
+                        <p id="mensajeErrorDireccion" style="color: red;"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="descripcionSalon" class="form-label">Descripción</label>
-                        <textarea class="form-control" id="inputDescripcionSalon" rows="3"></textarea>
+                        <textarea class="form-control" name="descripcion" id="inputDescripcionSalon" rows="3"></textarea>
+                        <p id="mensajeErrorDescripcion" style="color: red;"></p>
                     </div>
                     <div class="mb-3">
                         <label for="inputPrecio" class="form-label">Precio</label>
-                        <input type="text" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
+                        <input type="text" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
+                        <p id="mensajeErrorPrecio" style="color: red;"></p>
                     </div>
                     <div class="mb-3">
                         <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
@@ -199,6 +203,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/alerta-de-eventos.js"></script>
     <script src="../js/alta-salon.js"></script>
+    <script src="../js/validacion.js"></script>
     
 </body>
 </html>
