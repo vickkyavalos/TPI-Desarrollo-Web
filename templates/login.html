@@ -49,7 +49,7 @@
             
             <!-- Contenedor para el icono User -->
             <div id="icon-container">
-                <a href=""><img id="icono" src="../assets/icons/person-fill.svg" alt="Icono"></a>
+                <a href="../templates/login.html"><img id="icono" src="../assets/icons/person-fill.svg" alt="Icono"></a>
             </div>
         </header> 
 <!-------------------------- fin header -------------------------->
@@ -99,17 +99,17 @@
 
                     <div class="container-input">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" placeholder="Nombre" id= "inputNombreRegristro" name="name-register" />
+                        <input type="text" placeholder="Nombre" id= "inputNombreRegristro" name="name-register" required/>
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="text" placeholder="Email"  id="correoR" name="email-register" />
+                        <input type="email" placeholder="Email"  id="correoR" name="email-register" required />
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" placeholder="Contraseña" id= "inputPwRegistro" name="password-register" />
+                        <input type="password" placeholder="Contraseña" id= "inputPwRegistro" name="password-register" required minlength="8"  maxlength="16"/>
                     </div>
 
                     <button type="submit" class="button" id="btn-rg">Crear cuenta</button>
