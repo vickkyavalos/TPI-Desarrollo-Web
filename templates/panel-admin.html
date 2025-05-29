@@ -52,34 +52,32 @@
     </header>
 
 
-    <main class="d-flex flex-row flex-wrap gap-5 justify-content-center align-items-center">
+    <main class="d-flex flex-column flex-md-row gap-5 justify-content-center align-items-center">
         
     <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-->
-        <section class="my-3 d-flex flex-column align-items-center justify-content-around gap-2 pb-4 mb-4 " id="panel-admin">
+        <section class="my-3 d-flex flex-column-reverse flex-md-column align-items-center justify-content-around gap-2 pb-4 mb-4 " id="panel-admin">
             <!-- SECCION alta-->
-             <div class="d-flex gap-3 p-2">
-                <div class=" d-flex flex-column p-2"  id="alta-salon1"> 
-                <h4>Agregar Salon</h4>
-                <div class="d-flex align-self-end"> 
-                    <button id="btn-desplegarFormulario" onclick="desplegarFormulario()" class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+            <div class="d-flex gap-3 p-2">
+                <div class=" d-flex flex-column p-3"  id="alta-salon1"> 
+                    <h4>Agregar Salon</h4>
+                    <div class="d-flex align-self-end"> 
+                        <button id="btn-desplegarFormulario" onclick="desplegarFormulario()" class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+                    </div>
                 </div>
-            </div>
-            <div class=" d-flex flex-column p-2"  id="alta-salon2"> 
-                <h4>Agregar Servicio</h4>
-                <div class="d-flex align-self-end"> 
-                    <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
-                    
-                    
+                <div class=" d-flex flex-column p-3"  id="alta-salon2"> 
+                    <h4>Agregar Servicio</h4>
+                    <div class="d-flex align-self-end">  
+                        <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+                                    
+                    </div>
                 </div>
-            </div>
-            <div class=" d-flex flex-column p-2"  id="alta-salon3"> 
-                <h4>Agregar Imagen</h4>
-                <div class="d-flex align-self-end"> 
-                    <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
-                    
-                    
-                </div>    
-            </div>
+                <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
+                    <h4>Agregar Imagen</h4>
+                    <div class="d-flex align-self-end"> 
+                        <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
+                                    
+                    </div>    
+                </div>
             </div>
 
             <!-- SECCIONES lista-->
@@ -101,8 +99,8 @@
                         Listar, Crear, Visualizar, Modificar y Elimina           <td>Fiesta tematica "Dracula"</td>
                         <td>Tucumán 785</td>
                         <td>200.000</td>
-                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
                         </tr>
                         <tr>
                         <th scope="row">Jurasic Park</th>
@@ -120,31 +118,31 @@
         <!-- SECCIONES formulario de alta-->
         <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
                 <h4>Formulario</h4>
-                <form id="formulario" class="formulario my-1 d-flex flex-column align-items-center" >
+                <form id="formulario" class="my-1 d-flex flex-column align-items-center" >
                     
-                        <div class="mb-3"> 
+                        <div class="my-2"> 
                         <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
                         <input type="name" name="titulo" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
                         <p id="mensajeErrorSalon" style="color: red;"></p>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="inputDireccion" class="form-label">Dirección</label>
                         <input type="text" name="direccion" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
                         <p id="mensajeErrorDireccion" style="color: red;"></p>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="descripcionSalon" class="form-label">Descripción</label>
                         <textarea class="form-control" name="descripcion" id="inputDescripcionSalon" rows="3"></textarea>
                         <p id="mensajeErrorDescripcion" style="color: red;"></p>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="inputPrecio" class="form-label">Precio</label>
                         <input type="text" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
                         <p id="mensajeErrorPrecio" style="color: red;"></p>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
                     </div>
                 </form>

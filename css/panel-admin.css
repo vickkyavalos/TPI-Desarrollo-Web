@@ -30,6 +30,8 @@
 body{
     background-color: var(--color-fondo)  !important;
     color: var(--color-letra)  !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /****************************header*******************************/
@@ -97,10 +99,13 @@ header {
 /****************************fin del header*******************************/
 /*---Comienza Main----*/
 
-
+main{
+ margin-top:40px;
+ margin-bottom: 40px;
+}
 #panel-admin {
-    width: 600px;
-    height: 500px;
+    width: 65vw;
+    max-height: 80vh;
     
 }
 table{
@@ -117,7 +122,7 @@ table{
     
     border:none;
     color: none;
-    padding: 10px;
+    
     background: none;
     background-color: none;
 
@@ -138,18 +143,25 @@ table{
 .editarStyle{
     border-radius: 5px;
     background-color: var(--color-primero);   
+    
 }
 .eliminarStyle{
     border-radius: 5px;
     background-color: var(--color-tercero);   
 }
 
+ /* .iconos-tabla afecta ambos iconos de la tabla */
+.iconos-tabla{
+    display: flex;
+    padding: 6px;
+}
 #form-admin{
-    width: 250px;
-    height: 500px;
+    width: 27vw;
+    height: auto;
     background-color: var(--color-segundo);
     border-radius: 10px;
     visibility: hidden;
+    text-align: center;
     
 
 } 
@@ -205,5 +217,12 @@ footer{
     }
     .textoI{
         display: none;
+    }
+}
+
+
+@media (max-width: 768px){
+    #form-admin{
+        width: 60%;
     }
 }

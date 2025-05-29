@@ -85,8 +85,8 @@ function mostrarSalones(){
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
@@ -113,3 +113,23 @@ function eliminarSalon(index){
   
 }
 
+   let lastIsMdOrLarger = window.innerWidth >= 768;
+
+  window.addEventListener('resize', () => {
+    const isMdOrLarger = window.innerWidth >= 768;
+
+    if (isMdOrLarger !== lastIsMdOrLarger) {
+      const boxes = document.querySelectorAll('.transition-wrapper .box');
+
+      boxes.forEach(el => {
+        el.classList.add('slide'); // Activa animación
+
+        // Espera 1.2 segundos para quitarla (igual que en el CSS)
+        setTimeout(() => {
+          el.classList.remove('slide');
+        }, 1200);
+      });
+
+      lastIsMdOrLarger = isMdOrLarger;
+    }
+  });
