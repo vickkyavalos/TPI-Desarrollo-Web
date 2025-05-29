@@ -26,25 +26,6 @@
 }
 
 body {
-<<<<<<< HEAD
-  border: 2px solid var(--color-fondo);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.container-login {
-  width: 800px;
-  height: 500px;
-  display: flex;
-  position: relative;
-  background-color: var(--color-fondo);
-  border-radius: 15px;
-  overflow: hidden;
-=======
   background-color: var(--color-fondo) !important;
   color: var(--color-letra) !important; 
 }
@@ -129,7 +110,6 @@ header {
   /* position: relative; */
   background-color: var(--color-fondo);
   /* overflow: hidden; */
->>>>>>> origin/alta-salon
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -141,38 +121,15 @@ header {
 .container-form form {
   /* border: 2px solid var(--color-sexto); */
   height: 100%;
-<<<<<<< HEAD
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-=======
   /* display: flex;
   text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center; */
->>>>>>> origin/alta-salon
   transition: 0.5s ease-in;
 }
 
 .container-form h2 {
-<<<<<<< HEAD
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: var(--letra-texto);
-}
-.container-form h6 {
-  text-align: center;
-}
-
-.icon-redesSociales {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 10px;
-}
-=======
   font-size: 1.5rem;
   color: var(--letra-texto);
 }
@@ -184,7 +141,6 @@ header {
   gap: 20px;
   margin-bottom: 10px;
 } */
->>>>>>> origin/alta-salon
 
 .icon-redesSociales ion-icon {
   border: 1px solid var(--color-segundo);
@@ -194,32 +150,15 @@ header {
 }
 
 .txt-relleno{
-<<<<<<< HEAD
-  display: block;
-  font-size: 20px;
-  margin-bottom: 15px;
-  text-align: center;
-=======
   /* display: block; lo puse como flex */ 
   font-size: 0.5rem;
   margin-bottom: 15px;
   /* text-align: center; */
->>>>>>> origin/alta-salon
 
  /*  color: var(--letra-texto); */
 }
 
 .container-input {
-<<<<<<< HEAD
-  width: 300px;
-  height: 40px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 0 15px;
-=======
   width: 70%;
   height: 40px;
    margin-bottom: 10px;
@@ -230,44 +169,28 @@ header {
    padding: 0 15px; 
   border: 2px solid var(--color-lineas);
   border-radius: 20px;
->>>>>>> origin/alta-salon
   background-color: var(--color-fondo);
 }
 
 .container-input input {
   border: none;
   outline: none;
-<<<<<<< HEAD
-  width: 100%;
-  height: 100%;
-=======
   width: 90%;
   height: 90%;
->>>>>>> origin/alta-salon
   background-color: inherit;
 }
 
 .container-form a {
   color: black;
-<<<<<<< HEAD
-  font-size: 14px;
-=======
   font-size: 0.8rem;
->>>>>>> origin/alta-salon
   margin-bottom: 20px;
   margin-top: 5px;
 }
 
 .button {
-<<<<<<< HEAD
-  width: 170px;
-  height: 45px;
-  font-size: 15px;
-=======
   width: 9rem;
   height: 3rem;
   font-size: 1rem;
->>>>>>> origin/alta-salon
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -300,23 +223,11 @@ header {
 /* container welcome */
 
 .container-bienvenida {
-<<<<<<< HEAD
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  transform: translateX(100%);
-  background-color:var(--color-primero);
-  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
-  overflow: hidden;
-=======
   width: 50%;
   height: 100%;
   transform: translateX(100%);
   background-color:var(--color-primero);
   transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
->>>>>>> origin/alta-salon
   border-radius: 50% 0 0 50%;
 }
 
@@ -332,11 +243,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-<<<<<<< HEAD
-  padding: 0 50px;
-=======
   padding: 10px 50px;
->>>>>>> origin/alta-salon
   color:#222;
   transition: transform 0.5s ease-in-out;
 }
@@ -346,22 +253,14 @@ header {
 }
 
 .container-bienvenida h3 {
-<<<<<<< HEAD
-  font-size: 40px;
-=======
   font-size: 2rem;
->>>>>>> origin/alta-salon
   color: #222;
   text-align: center;
 
 }
 
 .container-bienvenida p {
-<<<<<<< HEAD
-  font-size: 14px;
-=======
   font-size: 0.9rem;
->>>>>>> origin/alta-salon
   text-align: center;
   color: #333;
 }
@@ -379,8 +278,6 @@ header {
 .container-login.toggle .bienvenida-registrese {
   transform: translateX(-100%);
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -485,7 +382,3 @@ footer{
     }
 
 }
-
-
-
->>>>>>> origin/alta-salon
