@@ -102,6 +102,7 @@ header {
 main{
  margin-top:40px;
  margin-bottom: 40px;
+ height: 70vh;
 }
 #panel-admin {
     width: 65vw;
@@ -165,15 +166,7 @@ table{
     
 
 } 
-.textoEror{
-    font-size: 12px !important;
-    /* color: red;*/
-    
-} 
-p[id^="error"]:not(:empty) ~ .invalid-feedback,
-p[id^="error"]:not(:empty) ~ .valid-feedback {
-  display: none !important;
-}
+
 /********************************** footer **********************************/
 footer{
     background-image: url("../assets/img/wave-celeste.svg");;

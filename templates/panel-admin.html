@@ -107,31 +107,27 @@
        
                         <div class="my-2"> 
                         <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
-                        <input type="name" name="titulo" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
-                        <p id="errorTitulo" class="textoEror text-danger"></p>
+                        <input type="name" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="mb-2">
                         <label for="inputDireccion" class="form-label">Dirección</label>
-                        <input type="text" name="direccion" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
-                        <p id="errorDireccion" class="textoEror text-danger"></p>
+                        <input type="text" name="direccion" minlength="5" maxlength="50" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="mb-2">
                         <label for="descripcionSalon" class="form-label">Descripción</label>
-                        <textarea class="form-control" name="descripcion" id="inputDescripcionSalon" rows="3"></textarea>
-                        <p id="errorDescripcion" class="textoEror text-danger"></p>
+                        <textarea class="form-control" name="descripcion" minlength="5" maxlength="80" id="inputDescripcionSalon" rows="3"></textarea>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback" >Campo inválido, vuelva a intentarlo</div>          
                     </div>
                     <div class="mb-2">
                         <label for="inputPrecio" class="form-label">Precio</label>
-                        <input type="text" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
-                        <p id="errorPrecio" class="textoEror text-danger"></p>
+                        <input type="number" name="precio" minlength="5" maxlength="50" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
                     </div>
