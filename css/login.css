@@ -116,11 +116,14 @@ header {
 .container-form {
   width: 100%;
   overflow: hidden;
+  margin-left: 60px;
+  padding-left:70px;
 }
 
 .container-form form {
   /* border: 2px solid var(--color-sexto); */
   height: 100%;
+  margin-left: 30px;
   /* display: flex;
   text-align: center;
   flex-direction: column;
