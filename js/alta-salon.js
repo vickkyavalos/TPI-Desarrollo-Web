@@ -1,3 +1,6 @@
+let modoEdicion = false;
+let indexEdicion = null;
+
 
 const formAdmin = document.getElementById('form-admin');
 const formularioS = document.getElementById('formulario')
@@ -14,36 +17,48 @@ formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
     event.stopPropagation();
 
-        if (!formularioS.checkValidity()) {
+    if (!formularioS.checkValidity()) {
         formularioS.classList.add('was-validated'); 
-        return
-      }
-    // id de inputs de formulario (nombre, direccion, descripcion, precio)
+        return;
+    }
+
     const tituloSalon = document.getElementById('inputTituloSalon').value;
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
 
-    const salon = {tituloSalon, descripcion, direccionSalon, precioSalon};
-    
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
-    salones.push(salon);
 
+    if (modoEdicion) {
+        // Actualizar salón existente
+        salones[indexEdicion] = { tituloSalon, descripcion, direccionSalon, precioSalon };
+        modoEdicion = false;
+        indexEdicion = null;
+        document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
+    } else {
+        // Agregar nuevo salón
+        salones.push({ tituloSalon, descripcion, direccionSalon, precioSalon });
+        mostrarAlertaExito(tituloSalon);
+    }
+
+    
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
-    mostrarAlertaExito(tituloSalon);
-    cerrarFormulario()
 
-    formularioS.classList.remove('was-validated');
-    this.reset();
     
+    cerrarFormulario();
+
+    formularioS.reset();
+    formularioS.classList.remove('was-validated');
 });
 
 
 //desplegar formulario
 btnDesplegarFormulario.addEventListener('click', function(event) {
     event.preventDefault();
-    desplegarFormulario(),
+    desplegarFormulario();
+    formularioS.reset();
+    document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     cerrarFormulario();
 });
 
@@ -52,9 +67,7 @@ btnDesplegarFormulario.addEventListener('click', function(event) {
 function desplegarFormulario(){
     if (formAdmin.style.visibility == 'hidden') {
       formAdmin.style.visibility = 'visible';
-
     }else{
-      
       formAdmin.style.visibility = 'hidden';
     }
 };
@@ -62,9 +75,7 @@ function desplegarFormulario(){
 function cerrarFormulario(){
     if (formAdmin.style.visibility == 'visible') {
       formAdmin.style.visibility = 'hidden';
-
     }else{
-      
       formAdmin.style.visibility = 'visible';
     }
 };
@@ -85,13 +96,14 @@ function mostrarSalones(){
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
 
  }
+
 
 
 //eliminar
@@ -104,19 +116,27 @@ function eliminarSalon(index){
 }
 
 //editar
-function editarSalon(){
-  const salones = JSON.parse(localStorage.getItem("salones")) || [];
+function editarSalon(index) {
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const salon = salones[index];
 
-  const tituloSalon = document.getElementById('inputTituloSalon').value;
-  const descripcion = document.getElementById('inputDescripcionSalon').value;
-  const direccionSalon= document.getElementById('inputDireccion').value;
-  const precioSalon = document.getElementById('inputPrecio').value;
+    // Cargar valores en el formulario
+    document.getElementById('inputTituloSalon').value = salon.tituloSalon;
+    document.getElementById('inputDescripcionSalon').value = salon.descripcion;
+    document.getElementById('inputDireccion').value = salon.direccionSalon;
+    document.getElementById('inputPrecio').value = salon.precioSalon;
 
-  
-  desplegarFormulario();
+    desplegarFormulario();
+    
+    // Cambiar estado a edición
+    modoEdicion = true;
+    indexEdicion = index;
 
+    // Cambiar texto del botón
+    document.getElementById('btn-agregarSalon').textContent = 'Guardar cambios';
+    
+    
 }
-
 
 //para que automaticamente muestre los datos que ya estan cargados
 document.addEventListener('DOMContentLoaded',() =>{
@@ -128,27 +148,3 @@ document.addEventListener('DOMContentLoaded',() =>{
 
 
 
-
-
-
-
-  //  let lastIsMdOrLarger = window.innerWidth >= 768;
-
-  // window.addEventListener('resize', () => {
-  //   const isMdOrLarger = window.innerWidth >= 768;
-
-  //   if (isMdOrLarger !== lastIsMdOrLarger) {
-  //     const boxes = document.querySelectorAll('.transition-wrapper .box');
-
-  //     boxes.forEach(el => {
-  //       el.classList.add('slide'); // Activa animación
-
-  //       // Espera 1.2 segundos para quitarla (igual que en el CSS)
-  //       setTimeout(() => {
-  //         el.classList.remove('slide');
-  //       }, 1200);
-  //     });
-
-  //     lastIsMdOrLarger = isMdOrLarger;
-  //   }
-  // });
