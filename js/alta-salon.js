@@ -12,7 +12,12 @@ const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSa
 //guardar datos en el local storage
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
+    event.stopPropagation();
 
+        if (!formularioS.checkValidity()) {
+        formularioS.classList.add('was-validated'); 
+        return
+      }
     // id de inputs de formulario (nombre, direccion, descripcion, precio)
     const tituloSalon = document.getElementById('inputTituloSalon').value;
     const descripcion = document.getElementById('inputDescripcionSalon').value;
@@ -27,19 +32,21 @@ formularioS.addEventListener('submit', function(event) {
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
     mostrarAlertaExito(tituloSalon);
-
     cerrarFormulario()
+
+    formularioS.classList.remove('was-validated');
     this.reset();
     
-    formularioS.classList.remove('was-validated');
 });
 
 
 //desplegar formulario
 btnDesplegarFormulario.addEventListener('click', function(event) {
     event.preventDefault();
-    desplegarFormulario()
+    desplegarFormulario(),
+    cerrarFormulario();
 });
+
 
 //cambiar visibilidad
 function desplegarFormulario(){
@@ -78,7 +85,7 @@ function mostrarSalones(){
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
@@ -86,43 +93,62 @@ function mostrarSalones(){
 
  }
 
-//para que automaticamente muestre los datos que ya estan cargados
-document.addEventListener('DOMContentLoaded',() =>{
-  mostrarSalones()
-})
-  
-
-// al apretar eliminar el salon seleccionado en el arreglo
-// eliminar de la tabla sea recargando. o por medio de una funcion eliminar la fila correspondiente
 
 //eliminar
 function eliminarSalon(index){
   // traemos salones
-  
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
-  salones.splice(index, 1);
+  salones.splice(index, 1);// al apretar elimina el salon seleccionado en el arreglo
   localStorage.setItem('salones', JSON.stringify(salones));
   mostrarSalones();
-  
 }
 
-   let lastIsMdOrLarger = window.innerWidth >= 768;
+//editar
+function editarSalon(){
+  const salones = JSON.parse(localStorage.getItem("salones")) || [];
 
-  window.addEventListener('resize', () => {
-    const isMdOrLarger = window.innerWidth >= 768;
+  const tituloSalon = document.getElementById('inputTituloSalon').value;
+  const descripcion = document.getElementById('inputDescripcionSalon').value;
+  const direccionSalon= document.getElementById('inputDireccion').value;
+  const precioSalon = document.getElementById('inputPrecio').value;
 
-    if (isMdOrLarger !== lastIsMdOrLarger) {
-      const boxes = document.querySelectorAll('.transition-wrapper .box');
+  
+  desplegarFormulario();
 
-      boxes.forEach(el => {
-        el.classList.add('slide'); // Activa animación
+}
 
-        // Espera 1.2 segundos para quitarla (igual que en el CSS)
-        setTimeout(() => {
-          el.classList.remove('slide');
-        }, 1200);
-      });
 
-      lastIsMdOrLarger = isMdOrLarger;
-    }
-  });
+//para que automaticamente muestre los datos que ya estan cargados
+document.addEventListener('DOMContentLoaded',() =>{
+  mostrarSalones()
+})
+
+
+
+
+
+
+
+
+
+
+  //  let lastIsMdOrLarger = window.innerWidth >= 768;
+
+  // window.addEventListener('resize', () => {
+  //   const isMdOrLarger = window.innerWidth >= 768;
+
+  //   if (isMdOrLarger !== lastIsMdOrLarger) {
+  //     const boxes = document.querySelectorAll('.transition-wrapper .box');
+
+  //     boxes.forEach(el => {
+  //       el.classList.add('slide'); // Activa animación
+
+  //       // Espera 1.2 segundos para quitarla (igual que en el CSS)
+  //       setTimeout(() => {
+  //         el.classList.remove('slide');
+  //       }, 1200);
+  //     });
+
+  //     lastIsMdOrLarger = isMdOrLarger;
+  //   }
+  // });
