@@ -165,9 +165,15 @@ table{
     
 
 } 
-
-
-
+.textoEror{
+    font-size: 12px !important;
+    /* color: red;*/
+    
+} 
+p[id^="error"]:not(:empty) ~ .invalid-feedback,
+p[id^="error"]:not(:empty) ~ .valid-feedback {
+  display: none !important;
+}
 /********************************** footer **********************************/
 footer{
     background-image: url("../assets/img/wave-celeste.svg");;

@@ -12,6 +12,16 @@ const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSa
 //guardar datos en el local storage
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
+    event.stopPropagation();
+
+    if (!formularioS.checkValidity()) {
+        formularioS.classList.add('was-validated'); 
+        return
+      }
+    if (!validacionAltaSalon()) {
+        return;
+    }
+
     // id de inputs de formulario (nombre, direccion, descripcion, precio)
     const tituloSalon = document.getElementById('inputTituloSalon').value;
     const descripcion = document.getElementById('inputDescripcionSalon').value;
@@ -24,21 +34,13 @@ formularioS.addEventListener('submit', function(event) {
     salones.push(salon);
 
     localStorage.setItem('salones', JSON.stringify(salones));
+    mostrarSalones();
     mostrarAlertaExito(tituloSalon);
 
-
-    // console.log(salon);
-    mostrarSalones();
+    cerrarFormulario()
     this.reset();
-
     
-});
-
-
-btnAgregarSalon.addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert("Cargado exitosamente! :)"); 
-
+    formularioS.classList.remove('was-validated');
 });
 
 

@@ -94,22 +94,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider" id="tabla-salones">
-                        <!-- <tr>
-                        <th scope="row">Castillo Dracula</th>
-                        Listar, Crear, Visualizar, Modificar y Elimina           <td>Fiesta tematica "Dracula"</td>
-                        <td>Tucumán 785</td>
-                        <td>200.000</td>
-                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
-                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Jurasic Park</th>
-                        <td>Salón Jurasic Park</td>
-                        <td>Av. Savio 1360</td>
-                        <td>250.000</td> 
-                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
-                        </tr> -->
+                    
                     </tbody>
                 </table>
             </div>
@@ -118,29 +103,37 @@
         <!-- SECCIONES formulario de alta-->
         <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
                 <h4>Formulario</h4>
-                <form id="formulario" class="my-1 d-flex flex-column align-items-center" >
-                    
+                <form id="formulario" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+       
                         <div class="my-2"> 
                         <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
                         <input type="name" name="titulo" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
-                        <p id="mensajeErrorSalon" style="color: red;"></p>
+                        <p id="errorTitulo" class="textoEror text-danger"></p>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="mb-2">
                         <label for="inputDireccion" class="form-label">Dirección</label>
                         <input type="text" name="direccion" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
-                        <p id="mensajeErrorDireccion" style="color: red;"></p>
+                        <p id="errorDireccion" class="textoEror text-danger"></p>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="mb-2">
                         <label for="descripcionSalon" class="form-label">Descripción</label>
                         <textarea class="form-control" name="descripcion" id="inputDescripcionSalon" rows="3"></textarea>
-                        <p id="mensajeErrorDescripcion" style="color: red;"></p>
+                        <p id="errorDescripcion" class="textoEror text-danger"></p>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback" >Campo inválido, vuelva a intentarlo</div>          
                     </div>
                     <div class="mb-2">
                         <label for="inputPrecio" class="form-label">Precio</label>
                         <input type="text" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
-                        <p id="mensajeErrorPrecio" style="color: red;"></p>
+                        <p id="errorPrecio" class="textoEror text-danger"></p>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
                     </div>
                     <div class="mb-2">
                         <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
