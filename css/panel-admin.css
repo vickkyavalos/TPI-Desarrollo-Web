@@ -90,6 +90,12 @@ header {
     background: none;
 }
 
+#panel-admin{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
 #icono {
     width: 40px; 
     height: auto;
