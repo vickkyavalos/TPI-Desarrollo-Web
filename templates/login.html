@@ -58,7 +58,7 @@
         <div class="container-login  d-flex  rounded-2 position-relative overflow-hidden" id="container">
             <!-- Formulario Iniciar Sesión -->
             <div class="container-form d-flex flex-column">
-                <form class="sign-in d-flex text-center flex-column justify-content-center align-items-center">
+                <form id="formularioLogin" class="sign-in d-flex text-center flex-column justify-content-center align-items-center">
                     <h2 class="my-2 mx-2">Iniciar sesión</h2>
                     <div class="icon-redesSociales d-flex gap-2 mb-1">
                         <ion-icon name="logo-instagram"></ion-icon>
@@ -68,15 +68,16 @@
 
                     <div class="container-input d-flex justify-content-center align-items-center px-1 gap-1">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" placeholder="Email" name="email-login" required />
+                    <input type="email" id="emailLogin" placeholder="Email" name="email-login" required />
                     </div>
 
                     <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" placeholder="Contraseña" name="password-login" required/>
+                    <input type="password" id="contrasenalogin" placeholder="Contraseña" name="password-login" required/>
                     </div>
 
                     <a href="#">¿Olvidaste tu contraseña?</a>
+                    <!--boton de iniciar sesion-->
                     <button type="submit" class="button" id="btn-is">Ingresar</button>
                 </form>
             </div>
@@ -176,7 +177,9 @@
         
   <!-- Vinculación JS -->
   <script src="../js/login.js"></script>
- <script src="../js/alerta-login.js"></script>
+  <script src="../js/alerta-login.js"></script> 
+
+  <!-- Iconos -->
   <!-- Iconos -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
