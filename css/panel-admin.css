@@ -30,6 +30,8 @@
 body{
     background-color: var(--color-fondo)  !important;
     color: var(--color-letra)  !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /****************************header*******************************/
@@ -88,6 +90,12 @@ header {
     background: none;
 }
 
+#panel-admin{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
 #icono {
     width: 40px; 
     height: auto;
@@ -97,10 +105,14 @@ header {
 /****************************fin del header*******************************/
 /*---Comienza Main----*/
 
-
+main{
+ margin-top:40px;
+ margin-bottom: 40px;
+ height: 70vh;
+}
 #panel-admin {
-    width: 600px;
-    height: 500px;
+    width: 65vw;
+    max-height: 80vh;
     
 }
 table{
@@ -117,7 +129,7 @@ table{
     
     border:none;
     color: none;
-    padding: 10px;
+    
     background: none;
     background-color: none;
 
@@ -138,27 +150,32 @@ table{
 .editarStyle{
     border-radius: 5px;
     background-color: var(--color-primero);   
+    
 }
 .eliminarStyle{
     border-radius: 5px;
     background-color: var(--color-tercero);   
 }
 
+ /* .iconos-tabla afecta ambos iconos de la tabla */
+.iconos-tabla{
+    display: flex;
+    padding: 6px;
+}
 #form-admin{
-    width: 250px;
-    height: 500px;
+    width: 27vw;
+    height: auto;
     background-color: var(--color-segundo);
     border-radius: 10px;
-    /*visibility: hidden;*/  
+    visibility: hidden;
+    text-align: center;
     
 
 } 
 
-
-
 /********************************** footer **********************************/
 footer{
-    background-image: url("../assets/img/wave-celeste.svg");;
+    /* background-image: url("../assets/img/wave-celeste.svg");  */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top; 
@@ -205,5 +222,12 @@ footer{
     }
     .textoI{
         display: none;
+    }
+}
+
+
+@media (max-width: 768px){
+    #form-admin{
+        width: 60%;
     }
 }

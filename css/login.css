@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap");
+
+:root {
+  --color-fondo: rgb(249, 238, 234);
+  --color-lineas: rgba(0, 0, 0, 0.66);
+  --color-linea-invisible: rgba(0, 0, 0, 0);
+  --color-primero: rgb(182, 226, 211);
+  --color-segundo: rgb(196, 220, 253);
+  --color-tercero: rgb(235, 203, 222);
+  --color-cuarto: rgb(246, 241, 147);
+  --color-quinto: rgb(163, 255, 172);
+  --color-sexto: rgb(255, 119, 183);
+  --color-septimo: rgb(89, 86, 116);
+  --color-letra: rgba(0, 0, 0, 0.88);
+  --letra-titulo: "Viga", sans-serif;
+  --letra-subtitulo: "Montserrat", sans-serif;
+  --letra-texto: "Montserrat", sans-serif;
+  --letra-divertida: "Atma", system-ui;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--letra-texto);
+}
+
+body {
+  background-color: var(--color-fondo) !important;
+  color: var(--color-letra) !important; 
+}
+    /* 
+    border: 2px solid var(--color-fondo);
+  width: 100%;
+  height: 100vh;
+  
+  justify-content: center;
+  align-items: center;
+    */
+
+/****************************header*******************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: var(--color-segundo);
+    padding: 10px;
+}
+
+/* imagen logo */
+#logoHeader{
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+    background: none;
+}
+
+/* barra de navegacion */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    background: none;
+}
+
+.navbar li a {
+    margin-right: 25px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-decoration-style: solid;
+    background: none;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
+.navbar li a:hover{
+    background-color: var(--color-fondo);
+    border-radius: 5px;
+    width: 100%;
+}
+/* icono user y su contenedor */
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+}
+
+#icono {
+    width: 40px; 
+    height: auto;
+    margin-left: 10px;
+    background-color: var(--color2);
+}
+
+/****************************fin del header*******************************/
+
+
+.container-login {
+  width: 60vw;
+  height: 70vh;
+  /* position: relative; */
+  background-color: var(--color-fondo);
+  /* overflow: hidden; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container-form {
+  width: 100%;
+  overflow: hidden;
+  margin-left: 60px;
+  padding-left:70px;
+}
+
+.container-form form {
+  /* border: 2px solid var(--color-sexto); */
+  height: 100%;
+  margin-left: 30px;
+  /* display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  transition: 0.5s ease-in;
+}
+
+.container-form h2 {
+  font-size: 1.5rem;
+  color: var(--letra-texto);
+}
+
+
+
+/* .icon-redesSociales {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+} */
+
+.icon-redesSociales ion-icon {
+  border: 1px solid var(--color-segundo);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.txt-relleno{
+  /* display: block; lo puse como flex */ 
+  font-size: 0.5rem;
+  margin-bottom: 15px;
+  /* text-align: center; */
+
+ /*  color: var(--letra-texto); */
+}
+
+.container-input {
+  width: 70%;
+  height: 40px;
+   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 8px;
+   padding: 0 15px; 
+  border: 2px solid var(--color-lineas);
+  border-radius: 20px;
+  background-color: var(--color-fondo);
+}
+
+.container-input input {
+  border: none;
+  outline: none;
+  width: 90%;
+  height: 90%;
+  background-color: inherit;
+}
+
+.container-form a {
+  color: black;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.button {
+  width: 9rem;
+  height: 3rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+ /*  background-color: var(--color-sexto); */
+  /* color: var(--color-letra); */
+}
+#btn-rg{
+    background-color: var(--color-tercero);
+}
+
+#btn-is{
+    background-color: var(--color-segundo);
+}
+
+/* animacion de form */
+
+.container-form .register {
+  transform: translateX(-100%);
+}
+
+.container-login.toggle .sign-in {
+  transform: translateX(100%);
+}
+
+.container-login.toggle .register {
+  transform: translateX(0);
+}
+
+/* container welcome */
+
+.container-bienvenida {
+  width: 50%;
+  height: 100%;
+  transform: translateX(100%);
+  background-color:var(--color-primero);
+  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+  border-radius: 50% 0 0 50%;
+}
+
+.container-login.toggle .container-bienvenida {
+  transform: translateX(0);
+  border-radius: 0 50% 50% 0;
+  background-color: var(--color-tercero);
+}
+
+.container-bienvenida .bienvenida {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 50px;
+  color:#222;
+  transition: transform 0.5s ease-in-out;
+}
+
+.bienvenida-iniciaSesion {
+  transform: translateX(100%);
+}
+
+.container-bienvenida h3 {
+  font-size: 2rem;
+  color: #222;
+  text-align: center;
+
+}
+
+.container-bienvenida p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #333;
+}
+
+.container-bienvenida .button {
+  border: 2px solid #222;
+  background-color: transparent;
+  color: #222;
+}
+
+.container-login.toggle .bienvenida-iniciaSesion {
+  transform: translateX(0);
+}
+
+.container-login.toggle .bienvenida-registrese {
+  transform: translateX(-100%);
+}
+
+
+
+/********************************** footer **********************************/
+footer{
+    background-image: url("../assets/img/wave-celeste.svg");;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top; 
+    padding: 3px; 
+    text-align: center;
+    margin-top: 0px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.redesL {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+.textoI, .textoInfo {
+    font-family: var(--letra-texto);
+    text-align: left;
+    margin: 0;
+
+  }
+  
+#fin {
+    font-family: var(--letra-texto);
+    text-align: center;
+    margin-top: 110px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+
+
+
+
+/* media query */
+
+@media (max-width: 576px) {
+    .horarios h2 {
+        font-size: 1rem;
+    }
+
+    .container-contacto {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-contacto div {
+        font-size: 0.9rem;
+    }
+
+    .container-contacto img {
+        width: 30px;
+    }
+
+    .container-contacto p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  #logoHeader {
+    margin-left: 50px;
+  }
+   
+}
+
+/* media query footer */
+/* mobile */
+@media (max-width: 600px){ 
+    #fin{
+        margin: 2px;
+    }
+    .logosR{
+        justify-content: center;
+    }
+    .redesL {
+        width: 18px;
+        height: 18px;
+    }
+    .textoI{
+        display: none;
+    }
+}
+@media  (min-width: 601px) and (max-width: 991px) {
+     #fin{
+        margin: 2px;
+    }
+    .textoI{
+        display: none;
+    }
+    
+    html{
+      font-size: 12px;
+    }
+
+}
+
+
+
