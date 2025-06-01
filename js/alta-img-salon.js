@@ -5,8 +5,8 @@ const formularioImagen = document.getElementById('formularioImagen')
 
 const btnDesplegarFormularioImagen = document.getElementById('btn-desplegarFormularioImagen');//boton-agregar
 const btnAgregarImagen = document.getElementById('btn-agregarImagen');//boton-agregarSalon del formulario
-// const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
-// const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
+const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
+const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
 
 
 document.addEventListener('DOMContentLoaded',() =>{
@@ -25,10 +25,11 @@ formularioImagen.addEventListener('submit', function(event) {
     event.stopPropagation();
 
     const idSalon = document.getElementById('inputIdSalon').value;
-    const rutaImagen = document.getElementById('inputFotoSalon');
+    const rutaImagen = document.getElementById('inputFotoSalon').value.trim();
    
     const imagenesSalon = JSON.parse(localStorage.getItem('imagenesSalon')) || [];
     const idImagen = modoEdicion ? imagenesSalon[indexEdicion].idImagen : obtenerNuevoIdImagen(imagenesSalon);
+
     if (modoEdicion) {
         // Actualizar imagen existente
         imagenesSalon[indexEdicion] = { idImagen,  idSalon, rutaImagen };
@@ -38,15 +39,13 @@ formularioImagen.addEventListener('submit', function(event) {
     } else {
         // Agregar nueva imagen
         imagenesSalon.push({ idImagen, idSalon, rutaImagen });
-        localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
+        // localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
         // mostrarAlertaExito(tituloSalo);
     }
     
     localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
     mostrarImagenesSalon();
     cerrarFormulario();
-
-
     formularioImagen.reset();
     formularioImagen.classList.remove('was-validated');
   
@@ -86,8 +85,8 @@ function mostrarImagenesSalon(){
         <td>${imagen.idSalon}</td>
         <td>${imagen.rutaImagen}</td>
         <td><img src="${imagen.rutaImagen}"></td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
-            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
+        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarImagen(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarImagen(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
@@ -95,23 +94,23 @@ function mostrarImagenesSalon(){
  }
 
 //eliminar
-function eliminarImagenSalon(index){
-  const imagenesSalon = JSON.parse(localStorage.getItem('')) || [];
+function eliminarImagen(index){
+  const imagenesSalon = JSON.parse(localStorage.getItem('imagenesSalon')) || [];
   imagenesSalon.splice(index, 1);// al apretar elimina la imagen seleccionada en el arreglo
-  localStorage.setItem('imagenesSalones', JSON.stringify(imagenesSalon));
+  localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
   mostrarImagenesSalon();
 }
 
 //editar
 function editarImagen(index) {
     const imagenesSalon = JSON.parse(localStorage.getItem('imagenesSalon')) || [];
-    const imagenSalon = imagenes[index];
+    const imagenSalon = imagenesSalon[index];
 
     // Cargar imagen en el formulario
-    document.getElementById('inputIdSalon').value = imagen.idSalon;
-    document.getElementById('inputRutaImagen').value = imagen.rutaImagen;
+    document.getElementById('inputIdSalon').value = imagenSalon.idSalon;
+    document.getElementById('inputFotoSalon').value = imagenSalon.rutaImagen;
 
-    desplegarFormularioImagenes();
+    desplegarFormularioImagen();
     
     // Cambiar estado a edición
     modoEdicion = true;
@@ -131,3 +130,7 @@ btnDesplegarFormularioImagen.addEventListener('click', function(event) {
     document.getElementById('btnAgregarImagen');
 
 });
+
+//para que sean accesibles desde el html
+window.eliminarImagen = eliminarImagen;
+window.editarImagen = editarImagen;

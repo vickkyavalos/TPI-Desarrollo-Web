@@ -176,17 +176,21 @@
                     <form id="formularioImagen" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
                         <div class="mb-2">
                             <label for="inputIdSalon" class="form-label">Selecciones el Id del Salón</label>
-                            <input type="number" name="InputIdSalon" minlength="5" maxlength="50" class="form-control" id="inputIdSalon" placeholder="Ingrese Precio de Salón" required>
+                            <input type="number" name="InputIdSalon" minlength="5" maxlength="50" class="form-control" id="inputIdSalon" placeholder="Ingrese ID de imagen" required>
                             <div class="valid-feedback">Campo válido</div>
                             <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
                         </div>
                         
-                        <div class="mb-2">
+                        <!-- <div class="mb-2">
                             <label for="inputFotoSalon" class="form-label"></label>
                             <input type="file" id="inputFotoSalon" name="foto" accept="image/*" required>  
+                        </div> -->
+                        <div class="mb-2">
+                            <label for="inputFotoSalon" class="form-label">URL de la imagen</label>
+                            <input type="url" id="inputFotoSalon" name="foto" class="form-control" placeholder="la URL de la imagen" required>
                         </div>
                         <div class="mb-2">
-                            <button id="btn-agregarImg" type="submit" class="btn btn-primary">Cargar Imagen</button>
+                            <button id="btn-agregarImagen" type="submit" class="btn btn-primary">Cargar Imagen</button>
                         </div>
     
             </section>

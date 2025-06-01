@@ -6,7 +6,7 @@ export const eventosExportados = [
 ];
 
 export const imgSalones = [
-    { idImagen: 1, idSalon: 1, rutaImagen: "../assets/img/evento3.jpg" },
+    { idImagen: 1, idSalon: 1, rutaImagen: "C:\Users\USUARIO\OneDrive\Desktop\TPI- DES WEB\TPI-Desarrollo-Web\assets\img" },
     { idImagen: 2, idSalon: 2, rutaImagen: "../assets/img/burbuja-kid.jpg" },
     { idImagen: 3, idSalon: 3, rutaImagen: "../assets/img/salon.jpg" }
 ];
