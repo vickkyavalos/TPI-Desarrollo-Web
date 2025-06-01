@@ -31,19 +31,20 @@ formularioS.addEventListener('submit', function(event) {
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
+    const fotoPrueba = document.getElementById('fotoSalon').value;
 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     
     const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, fotoPrueba };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, fotoPrueba });
         mostrarAlertaExito(tituloSalon);
     }
 
@@ -97,6 +98,7 @@ function mostrarSalones(){
   salones.forEach((salon,index) => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
+        <td><img src="${salon.fotoPrueba}"/></td>
         <td>${salon.tituloSalon}</td>
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>

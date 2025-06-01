@@ -87,6 +87,7 @@
                <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
                     <thead class="table-primary border-dark">
                         <tr>
+                        <th scope="col">Imagen</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Dirección</th>
@@ -132,6 +133,10 @@
                         <input type="number" name="precio" minlength="5" maxlength="50" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
+                    </div>
+                    <div class="mb-2">
+                        <label for="inputPrecio" class="form-label">Precio</label>
+                        <input type="file" id="fotoSalon" name="foto" accept="image/png, image/jpeg" >  
                     </div>
                     <div class="mb-2">
                         <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
