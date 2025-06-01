@@ -5,7 +5,7 @@ let indexEdicion = null;
 const formAdmin = document.getElementById('form-admin');
 const formularioS = document.getElementById('formulario')
 
-const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//#boton-agregar
+const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//boton-agregar
 const btnAgregarSalon = document.getElementById('btn-agregarSalon');//boton-agregarSalon del formulario
 const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
 const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
@@ -44,8 +44,6 @@ formularioS.addEventListener('submit', function(event) {
     
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
-
-    
     cerrarFormulario();
 
     formularioS.reset();
@@ -80,14 +78,15 @@ function cerrarFormulario(){
     }
 };
 
+///////////////////////////////////////funcionalidades///////////////////////////////////////
 
-//visualizar
+//visualizar tabla
 function mostrarSalones(){
 //busca en el html el tbody
   const tabla = document.querySelector('#tabla-salones');
   tabla.innerHTML = '';
 
-  //trae los salones guardados(devuelve un string) y si no hay devuelve un array vacio
+  //trae los salones guardados y si no hay devuelve un array vacio
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   salones.forEach((salon,index) => {
     const fila = document.createElement('tr');
@@ -104,11 +103,8 @@ function mostrarSalones(){
 
  }
 
-
-
 //eliminar
 function eliminarSalon(index){
-  // traemos salones
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   salones.splice(index, 1);// al apretar elimina el salon seleccionado en el arreglo
   localStorage.setItem('salones', JSON.stringify(salones));
@@ -137,6 +133,7 @@ function editarSalon(index) {
     
     
 }
+
 
 //para que automaticamente muestre los datos que ya estan cargados
 document.addEventListener('DOMContentLoaded',() =>{
