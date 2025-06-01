@@ -90,6 +90,12 @@ header {
     background: none;
 }
 
+#panel-admin{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
 #icono {
     width: 40px; 
     height: auto;
@@ -102,10 +108,11 @@ header {
 main{
  margin-top:40px;
  margin-bottom: 40px;
+ height: auto;
 }
 #panel-admin {
     width: 65vw;
-    max-height: 80vh;
+    min-height: 80vh;
     
 }
 table{
@@ -162,15 +169,27 @@ table{
     border-radius: 10px;
     visibility: hidden;
     text-align: center;
-    
-
+} 
+td img{
+    width:80%;
+}
+#form-admin-img{
+    width: 27vw;
+    height: auto;
+    background-color: var(--color-sexto);
+    border-radius: 10px;
+    text-align: center;
+    visibility: hidden;
 } 
 
-
-
+.textoTablas{
+    font-weight: 550;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
+}
 /********************************** footer **********************************/
 footer{
-    background-image: url("../assets/img/wave-celeste.svg");;
+    /* background-image: url("../assets/img/wave-celeste.svg");  */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top; 
@@ -225,4 +244,7 @@ footer{
     #form-admin{
         width: 60%;
     }
+    #form-admin-img{
+    width: 60%;
+}
 }

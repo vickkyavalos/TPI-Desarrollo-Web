@@ -34,7 +34,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="../templates/contacto.html">Contacto</a>
                   </li>
-    
+                  <li class="nav-item">
+                    <a class="nav-link" href="../templates/panel-admin.html">Panel Admin</a>
+                </li>
                 </ul>
               </div>
             </div>
@@ -44,7 +46,8 @@
           <div id="logoHeader" class="position-absolute top-50 start-50 translate-middle">
               <img src="../assets/icons/logo.svg" alt="logo de la empresa" class="logo">
           </div>
-          
+
+          <!-- <a class="nav-link " href="../templates/panel-admin.html">Panel Admin</a> -->
         <!-- Contenedor para el icono User -->
         <div id="icon-container">
             <a href="../templates/login.html"><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
@@ -53,7 +56,7 @@
 
 
     <main class="d-flex flex-column flex-md-row gap-5 justify-content-center align-items-center">
-        
+
     <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-->
         <section class="my-3 d-flex flex-column-reverse flex-md-column align-items-center justify-content-around gap-2 pb-4 mb-4 " id="panel-admin">
             <!-- SECCION alta-->
@@ -74,17 +77,21 @@
                 <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
-                        <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
-                                    
+                        <button class="boton-agregar" id="btn-desplegarFormularioImagen" >
+                            <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar">
+                        </button>
                     </div>    
                 </div>
             </div>
 
             <!-- SECCIONES lista-->
-            <div class=" my-5 flex-column table-responsive " id="tabla-visual ">
+            
+            <div class=" my-5 flex-column table-responsive" id="tabla-visual ">
+            <p class="fs-3 textoTablas">Salones</p>
                <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
                     <thead class="table-primary border-dark">
                         <tr>
+                        <th scope="col">id</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Dirección</th>
@@ -94,107 +101,112 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider" id="tabla-salones">
-                        <!-- <tr>
-                        <th scope="row">Castillo Dracula</th>
-                        Listar, Crear, Visualizar, Modificar y Elimina           <td>Fiesta tematica "Dracula"</td>
-                        <td>Tucumán 785</td>
-                        <td>200.000</td>
-                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
-                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2 " src="/assets/icons/borrarIcono.svg" alt=""></button></td>
-                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+
+            <div class=" my-5 flex-column table-responsive " id="tabla-Visual ">
+            <p class="fs-3 textoTablas">Imagenes</p>
+               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
+                    <thead class="table-primary border-dark">
                         <tr>
-                        <th scope="row">Jurasic Park</th>
-                        <td>Salón Jurasic Park</td>
-                        <td>Av. Savio 1360</td>
-                        <td>250.000</td> 
-                        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editar-salon"><img class="mx-1" src="/assets/icons/lapiz.svg" alt=""></button>
-                            <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminar-salon"><img class="mx-1 mb-2" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
-                        </tr> -->
+                        <th scope="col">idImagen</th>
+                        <th scope="col">idSalon</th>
+                        <th scope="col">ruta Imagen</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col" class="text-center">*</th>
+                        <!-- agregar disponibilidad?? -->
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tabla-imagenes">
+                    
                     </tbody>
                 </table>
             </div>
         </section>
             
         <!-- SECCIONES formulario de alta-->
-        <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
-                <h4>Formulario</h4>
-                <form id="formulario" class="my-1 d-flex flex-column align-items-center" >
-                    
-                        <div class="my-2"> 
-                        <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
-                        <input type="name" name="titulo" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
-                        <p id="mensajeErrorSalon" style="color: red;"></p>
-                    </div>
+         <!-- Formulario Salones-->
 
-                    <div class="mb-2">
-                        <label for="inputDireccion" class="form-label">Dirección</label>
-                        <input type="text" name="direccion" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
-                        <p id="mensajeErrorDireccion" style="color: red;"></p>
-                    </div>
+        <div class="d-flex flex-column align-items-center gap-1 w-100 ">
+            <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
+                    <h4>Formulario de Salón</h4>
+                    <form id="formularioSalon" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+        
+                            <div class="my-0"> 
+                            <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
+                            <input type="name" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
+                        </div>
 
-                    <div class="mb-2">
-                        <label for="descripcionSalon" class="form-label">Descripción</label>
-                        <textarea class="form-control" name="descripcion" id="inputDescripcionSalon" rows="3"></textarea>
-                        <p id="mensajeErrorDescripcion" style="color: red;"></p>
-                    </div>
-                    <div class="mb-2">
-                        <label for="inputPrecio" class="form-label">Precio</label>
-                        <input type="text" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
-                        <p id="mensajeErrorPrecio" style="color: red;"></p>
-                    </div>
-                    <div class="mb-2">
-                        <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
-                    </div>
-                </form>
-            
-        </section>
+                        <div class="mb-2">
+                            <label for="inputDireccion" class="form-label">Dirección</label>
+                            <input type="text" name="direccion" minlength="5" maxlength="50" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="descripcionSalon" class="form-label">Descripción</label>
+                            <textarea class="form-control" name="descripcion" minlength="5" maxlength="80" id="inputDescripcionSalon" rows="3"></textarea>
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback" >Campo inválido, vuelva a intentarlo</div>          
+                        </div>
+                        <div class="mb-2">
+                            <label for="inputPrecio" class="form-label">Precio</label>
+                            <input type="number" name="precio" minlength="5" maxlength="50" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
+                        </div>
+                        
+                        <div class="mb-2">
+                            <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
+                        </div>
+                    </form>
+                
+            </section>
 
 
+    
+                <!---FORMULARIO IMAGEN--->
+            <section id="form-admin-img" class="my-2 d-flex flex-column align-items-center p-3" >
+                    <h4>Formulario de Imagen</h4>
+                    <form id="formularioImagen" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+                        <div class="mb-2">
+                            <label for="inputIdSalon" class="form-label">Selecciones el Id del Salón</label>
+                            <input type="number" name="InputIdSalon" minlength="5" maxlength="50" class="form-control" id="inputIdSalon" placeholder="Ingrese ID de imagen" required>
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
+                        </div>
+                        
+                        <!-- <div class="mb-2">
+                            <label for="inputFotoSalon" class="form-label"></label>
+                            <input type="file" id="inputFotoSalon" name="foto" accept="image/*" required>  
+                        </div> -->
+                        <div class="mb-2">
+                            <label for="inputFotoSalon" class="form-label">URL de la imagen</label>
+                            <input type="url" id="inputFotoSalon" name="foto" class="form-control" placeholder="la URL de la imagen" required>
+                        </div>
+                        <div class="mb-2">
+                            <button id="btn-agregarImagen" type="submit" class="btn btn-primary">Cargar Imagen</button>
+                        </div>
+    
+            </section>
 
+        </div>
+        
         </main>
     
 
      <!--------------------------footer -------------------------->
     <footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
-        <!-- contacto  -->
-                  <div class="d-flex flex-column align-items-center align-items-md-start">
-                    <div class="textf">
-                        <p class="textoInfo">Contactanos</p>
-                    <br>
-                    </div> 
-                    <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
-                        <a href=""><img class="redesL" src="../assets/icons/email.svg" alt="logo de email"></a>
-                        <p class="textoI">idwaS_A2025@gmail.com</p>
-                    </div>
-                    <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
-                        <a href=""><img class="redesL" src="../assets/icons/phone.svg" alt="logo"></a>
-                        <p class="textoI">1122565213</p>
-                    </div>
-                    <div class="logosR d-flex justify-content-start align-items-center align-items-md-start mb-3">
-                        <a href=""><img class="redesL" src="../assets/icons/whatsapp.svg" alt="logo de whatsapp"></a>
-                        <p class="textoI">345154321</p>
-                    </div>
-                </div>
-          
-          <!-- texto  -->
+ 
                   <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">
                     <p id="fin">© 2025 IDW S.A</p>
                 </div>
 
-          <!-- redes sociales  -->
-                <div class="d-flex flex-column align-items-center  align-items-md-start" id="redesF">
-                    <p class="textoInfo">Nuestras Redes</p>
-                    <br>
-                    <div class="logosR d-flex justify-content-center mb-3">
-                        <a href=""><img class="redesL" src="../assets/icons/facebook.svg" alt="logo de facebook"></a>
-                    </div>
-                    <div class="logosR d-flex justify-content-center mb-3">
-                        <a href=""><img class="redesL" src="../assets/icons/instagram.svg" alt="logo de instagram"></a>
-                    </div>
-                    <div class="logosR d-flex justify-content-center mb-3">
-                      <a href=""><img class="redesL" src="../assets/icons/twitter.svg" alt="logo de twitter"></a>
-                    </div>
-                </div> 
         </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
@@ -202,6 +214,9 @@
     <script src="../js/alerta-de-eventos.js"></script>
     <script src="../js/alta-salon.js"></script>
     <script src="../js/validacion.js"></script>
+    
+    <script type="module" src="../js/alta-img-salon.js"></script>
+    <script type="module" src="../js/inicializar.js"></script>
     
 </body>
 </html>

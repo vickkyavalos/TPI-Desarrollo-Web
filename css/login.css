@@ -116,11 +116,13 @@ header {
 .container-form {
   width: 100%;
   overflow: hidden;
+  
 }
 
 .container-form form {
   /* border: 2px solid var(--color-sexto); */
   height: 100%;
+  margin-left: 0px;
   /* display: flex;
   text-align: center;
   flex-direction: column;
@@ -130,7 +132,7 @@ header {
 }
 
 .container-form h2 {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   color: var(--letra-texto);
 }
 
@@ -142,10 +144,12 @@ header {
   margin-bottom: 10px;
 } */
 
+
 .icon-redesSociales ion-icon {
   border: 1px solid var(--color-segundo);
   border-radius: 6px;
   padding: 10px;
+  
   cursor: pointer;
 }
 
@@ -159,14 +163,14 @@ header {
 }
 
 .container-input {
-  width: 70%;
-  height: 40px;
+  width: 80%;
+  height: 4vh;
    margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center; 
   gap: 8px;
-   padding: 0 15px; 
+   
   border: 2px solid var(--color-lineas);
   border-radius: 20px;
   background-color: var(--color-fondo);
@@ -175,26 +179,27 @@ header {
 .container-input input {
   border: none;
   outline: none;
-  width: 90%;
-  height: 90%;
+  width: 85%;
+  height: 85%;
   background-color: inherit;
 }
 
 .container-form a {
   color: black;
   font-size: 0.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 5px;
 }
 
 .button {
-  width: 9rem;
-  height: 3rem;
+  width: 85%;
+  height: auto;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  
  /*  background-color: var(--color-sexto); */
   /* color: var(--color-letra); */
 }
@@ -253,14 +258,14 @@ header {
 }
 
 .container-bienvenida h3 {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #222;
   text-align: center;
 
 }
 
 .container-bienvenida p {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   text-align: center;
   color: #333;
 }
@@ -383,5 +388,66 @@ footer{
 
 }
 
+
+@media (max-width: 770px){
+  
+  /* animacion de form */
+
+  .container-form .register {
+    transform: translateY(-100%);
+  }
+
+  .container-login.toggle .sign-in {
+    transform: translateY(100%);
+  }
+
+  .container-login.toggle .register {
+    transform: translateY(0);
+  }
+
+  
+  
+  
+  
+  
+  .container-bienvenida {
+    width: 100%;
+    height: 50%;
+    transform: translateY(100%);
+    background-color:var(--color-primero);
+    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+    border-radius:50% 50% 0 0 ;
+  }
+
+  .container-login.toggle .container-bienvenida {
+    transform: translateY(-10%);
+    border-radius: 0 0 50% 50%;
+    background-color: var(--color-tercero);
+  }
+
+  .container-bienvenida .bienvenida {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color:#222;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .bienvenida-iniciaSesion {
+    transform: translateY(120%);
+  }
+  .container-login.toggle .bienvenida-iniciaSesion {
+  transform: translateY(-10%);
+  }
+  
+.container-login.toggle .bienvenida-registrese {
+  transform: translateY(-130%);
+  }
+
+
+}
 
 
