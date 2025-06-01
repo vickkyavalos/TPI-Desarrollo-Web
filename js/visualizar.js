@@ -1,3 +1,11 @@
+import { inicializarLocalStorage } from "./inicializar.js"; 
+
+
+document.addEventListener('DOMContentLoaded',() =>{
+  visualizarSalones();
+  inicializarLocalStorage();
+})
+
 //visualizar en cards
 function visualizarSalones(){
   const salones = JSON.parse(localStorage.getItem('salones')) || [];// traemos salones
@@ -17,7 +25,7 @@ function visualizarSalones(){
                  <p class="card-text"><strong>Descripcion:</strong> $${salon.descripcion}</p>
                 <p class="card-text"><strong>Ubicación:</strong> ${salon.direccionSalon}</p>
                 <p class="card-text"><strong>Precio:</strong> $${salon.precioSalon}</p>
-                <p class="card-text">"🟢 Disponible"}</p>
+                <p class="card-text">🔴 Sin disponibilidad</p>
                 <a href="#" class="btn btn-custom">Ver más</a>
                 </div>
             </div>
@@ -27,7 +35,6 @@ function visualizarSalones(){
   }) 
 }
 
-document.addEventListener('DOMContentLoaded',() =>{
-  visualizarSalones()
-})
+
+
 /* {<img class="card-img-top" src="${salon.image}" alt="${salon.name}"> }*/

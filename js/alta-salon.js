@@ -11,6 +11,11 @@ const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
 const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
 
 
+function obtenerNuevoIdSalon(salones) {
+    if (salones.length === 0) return 1;
+    const maxId = Math.max(...salones.map(s => s.idSalon || 0));
+    return maxId + 1;
+}
 
 //guardar datos en el local storage
 formularioS.addEventListener('submit', function(event) {
@@ -21,23 +26,24 @@ formularioS.addEventListener('submit', function(event) {
         formularioS.classList.add('was-validated'); 
         return;
     }
-
+    
     const tituloSalon = document.getElementById('inputTituloSalon').value;
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
-
+    
+    const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { tituloSalon, descripcion, direccionSalon, precioSalon };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ tituloSalon, descripcion, direccionSalon, precioSalon });
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
         mostrarAlertaExito(tituloSalon);
     }
 
