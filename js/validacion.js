@@ -1,3 +1,6 @@
+const formLogin = document.getElementById('formularioLogin');
+const formRegistro = document.getElementById('registroForm');
+
 //js de boostrap para validacion de formulario
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
@@ -21,6 +24,15 @@
 })
 
 
+//preguntar quien hace la validacion de registro
+// if (!formLogin.checkValidity()) {
+//     formLogin.classList.add('was-validated'); 
+//     return;
+//     }
 
+// if (!formRegistro.checkValidity()) {
+//   formRegistro.classList.add('was-validated'); 
+//   return;
+// }
 
 

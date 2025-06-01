@@ -69,11 +69,15 @@
                     <div class="container-input d-flex justify-content-center align-items-center px-1 gap-1">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input type="email" id="emailLogin" placeholder="Email" name="email-login" required />
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input type="password" id="contrasenalogin" placeholder="Contraseña" name="password-login" required/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <a href="#">¿Olvidaste tu contraseña?</a>
@@ -84,7 +88,7 @@
 
             <!-- Formulario Registrarse -->
             <div class="container-form d-flex align-self-center   ">
-                <form class="register d-flex flex-column align-items-center align-self-center ">
+                <form id="registroForm" class="register d-flex flex-column align-items-center align-self-center">
                     <h2 class="my-2 mx-2">Registro </h2>
                     <p class="align-items-center">
                         registrate con tus redes sociales:
@@ -101,17 +105,24 @@
                     <div class="container-input">
                         <ion-icon name="person-outline"></ion-icon>
                         <input type="text" placeholder="Nombre" id= "inputNombreRegristro" name="name-register" required/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" placeholder="Email"  id="correoR" name="email-register" required />
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="password" placeholder="Contraseña" id= "inputPwRegistro" name="password-register" required minlength="8"  maxlength="16"/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
+
 
                     <button type="submit" class="button" id="btn-rg">Crear cuenta</button>
                 </form>
@@ -178,6 +189,7 @@
   <!-- Vinculación JS -->
   <script src="../js/login.js"></script>
   <script src="../js/alerta-login.js"></script> 
+  <script src="../js/validacion.js"></script>
 
   <!-- Iconos -->
   <!-- Iconos -->
