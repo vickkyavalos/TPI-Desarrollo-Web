@@ -3,7 +3,7 @@ let indexEdicion = null;
 
 
 const formAdmin = document.getElementById('form-admin');
-const formularioS = document.getElementById('formulario')
+const formularioS = document.getElementById('formularioSalon')
 
 const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//boton-agregar
 const btnAgregarSalon = document.getElementById('btn-agregarSalon');//boton-agregarSalon del formulario
@@ -17,7 +17,7 @@ function obtenerNuevoIdSalon(salones) {
     return maxId + 1;
 }
 
-//guardar datos en el local storage
+//guardar datos en el local storage formulario Salon
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -31,20 +31,20 @@ formularioS.addEventListener('submit', function(event) {
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
-    const fotoPrueba = document.getElementById('fotoSalon').value;
+
 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     
     const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, fotoPrueba };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, fotoPrueba });
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
         mostrarAlertaExito(tituloSalon);
     }
 
@@ -98,7 +98,7 @@ function mostrarSalones(){
   salones.forEach((salon,index) => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
-        <td><img src="${salon.fotoPrueba}"/></td>
+        <td>${salon.idSalon}</td>
         <td>${salon.tituloSalon}</td>
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
