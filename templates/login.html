@@ -55,25 +55,24 @@
 <!-------------------------- fin header -------------------------->
   
     <main class="d-flex  justify-content-center my-5">    
-        <div class="container-login  d-flex  rounded-2 position-relative overflow-hidden" id="container">
+        <div class="container-login  d-flex flex-column flex-md-row  rounded-2 position-relative overflow-hidden" id="container">
             <!-- Formulario Iniciar Sesión -->
-            <div class="container-form d-flex flex-column">
+            <div class="container-form d-flex flex-column justify-content-center align-items-center">
                 <form id="formularioLogin" class="sign-in d-flex text-center flex-column justify-content-center align-items-center">
                     <h2 class="my-2 mx-2">Iniciar sesión</h2>
-                    <div class="icon-redesSociales d-flex gap-2 mb-1">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                        <ion-icon name="logo-facebook"></ion-icon>
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </div>
 
                     <div class="container-input d-flex justify-content-center align-items-center px-1 gap-1">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input type="email" id="emailLogin" placeholder="Email" name="email-login" required />
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input type="password" id="contrasenalogin" placeholder="Contraseña" name="password-login" required/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <a href="#">¿Olvidaste tu contraseña?</a>
@@ -83,35 +82,35 @@
             </div>
 
             <!-- Formulario Registrarse -->
-            <div class="container-form d-flex align-self-center   ">
-                <form class="register d-flex flex-column align-items-center align-self-center ">
+            <div class="container-form d-flex align-self-center justify-content-center  align-items-md-end ">
+                <form id="registroForm" class="register d-flex flex-column align-items-center align-self-center">
                     <h2 class="my-2 mx-2">Registro </h2>
-                    <p class="align-items-center">
-                        registrate con tus redes sociales:
-                    </p>
-                    <div class="icon-redesSociales d-flex align-items-center gap-2 mb-1">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                        <ion-icon name="logo-facebook"></ion-icon>
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </div>
+                    
                 
-                    <p class="txt-relleno d-flex text-center">o<br> 
-                    rellena el formulario y empeza a planear la fiesta ideal </p>
+                    <p class="txt-relleno d-flex text-center"> 
+                    rellena el formulario <br>y empeza a planear la fiesta ideal </p>
 
                     <div class="container-input">
                         <ion-icon name="person-outline"></ion-icon>
                         <input type="text" placeholder="Nombre" id= "inputNombreRegristro" name="name-register" required/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" placeholder="Email"  id="correoR" name="email-register" required />
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
 
                     <div class="container-input">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="password" placeholder="Contraseña" id= "inputPwRegistro" name="password-register" required minlength="8"  maxlength="16"/>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
                     </div>
+
 
                     <button type="submit" class="button" id="btn-rg">Crear cuenta</button>
                 </form>
@@ -178,6 +177,7 @@
   <!-- Vinculación JS -->
   <script src="../js/login.js"></script>
   <script src="../js/alerta-login.js"></script> 
+  <script src="../js/validacion.js"></script>
 
   <!-- Iconos -->
   <!-- Iconos -->

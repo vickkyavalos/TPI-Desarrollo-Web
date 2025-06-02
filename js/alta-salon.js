@@ -3,16 +3,21 @@ let indexEdicion = null;
 
 
 const formAdmin = document.getElementById('form-admin');
-const formularioS = document.getElementById('formulario')
+const formularioS = document.getElementById('formularioSalon')
 
-const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//#boton-agregar
+const btnDesplegarFormulario = document.getElementById('btn-desplegarFormulario');//boton-agregar
 const btnAgregarSalon = document.getElementById('btn-agregarSalon');//boton-agregarSalon del formulario
 const botonEditar = document.querySelector("#boton-editar");//boton-agregarSalon
 const btnEliminar = document.querySelector("#boton-eliminar");//boton-eliminarSalon
 
 
+function obtenerNuevoIdSalon(salones) {
+    if (salones.length === 0) return 1;
+    const maxId = Math.max(...salones.map(s => s.idSalon || 0));
+    return maxId + 1;
+}
 
-//guardar datos en el local storage
+//guardar datos en el local storage formulario Salon
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -21,31 +26,31 @@ formularioS.addEventListener('submit', function(event) {
         formularioS.classList.add('was-validated'); 
         return;
     }
-
+    
     const tituloSalon = document.getElementById('inputTituloSalon').value;
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
 
-    const salones = JSON.parse(localStorage.getItem('salones')) || [];
 
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    
+    const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { tituloSalon, descripcion, direccionSalon, precioSalon };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ tituloSalon, descripcion, direccionSalon, precioSalon });
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
         mostrarAlertaExito(tituloSalon);
     }
 
     
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
-
-    
     cerrarFormulario();
 
     formularioS.reset();
@@ -80,18 +85,20 @@ function cerrarFormulario(){
     }
 };
 
+///////////////////////////////////////funcionalidades///////////////////////////////////////
 
-//visualizar
+//visualizar tabla
 function mostrarSalones(){
 //busca en el html el tbody
   const tabla = document.querySelector('#tabla-salones');
   tabla.innerHTML = '';
 
-  //trae los salones guardados(devuelve un string) y si no hay devuelve un array vacio
+  //trae los salones guardados y si no hay devuelve un array vacio
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   salones.forEach((salon,index) => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
+        <td>${salon.idSalon}</td>
         <td>${salon.tituloSalon}</td>
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
@@ -104,11 +111,8 @@ function mostrarSalones(){
 
  }
 
-
-
 //eliminar
 function eliminarSalon(index){
-  // traemos salones
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   salones.splice(index, 1);// al apretar elimina el salon seleccionado en el arreglo
   localStorage.setItem('salones', JSON.stringify(salones));
@@ -137,6 +141,7 @@ function editarSalon(index) {
     
     
 }
+
 
 //para que automaticamente muestre los datos que ya estan cargados
 document.addEventListener('DOMContentLoaded',() =>{
