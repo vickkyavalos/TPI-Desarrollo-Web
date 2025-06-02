@@ -1,4 +1,6 @@
+/*se reutiliza codigo de style, para configurar pantalla y estilo de fuente*/
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Viga&display=swap');
+
 
 :root{
     --color-fondo: rgb(249, 238, 234);
@@ -21,13 +23,15 @@
 /*Eliminacion de margenes y padding predefinidos*/
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
 }
 
 /*body*/
 body{
-    background-color: var(--color-fondo) !important;
-    color: var(--color-letra) !important;
+    background-color: var(--color-fondo)  !important;
+    color: var(--color-letra)  !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /****************************header*******************************/
@@ -86,66 +90,106 @@ header {
     background: none;
 }
 
+#panel-admin{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
 #icono {
     width: 40px; 
     height: auto;
     margin-left: 10px;
     background-color: var(--color2);
 }
+/****************************fin del header*******************************/
+/*---Comienza Main----*/
 
-/****************************main*******************************/
-.card{
-    margin: 6px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    cursor: default;
-    transition:  all 0.2s ease;
+main{
+ margin-top:40px;
+ margin-bottom: 40px;
+ height: auto;
 }
-.card:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateY(-3%);
+#panel-admin {
+    width: 65vw;
+    min-height: 80vh;
+    
 }
-
-.card img{
-    width: 100%;
-    height: 12rem;
-}
-.card .card-title{
-    padding: 5x;
-    font-family: var(--letra-divertida);
-    text-align: center;
+table{
+    overflow: visible;
 }
 
-.col {
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
+#alta-salon1{
+    
+    background-color: var(--color-quinto);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+.boton-agregar{
+    
+    border:none;
+    color: none;
+    
+    background: none;
+    background-color: none;
+
 }
 
-.card .card-text{
-    font-family: var(--letra-divertida);
-    line-height: 1.5;
-    color: black;
+#alta-salon2{
+    
+    background-color: var(--color-cuarto);
+    border-radius: 10px;
+    border: solid 1px var();
 }
-
-.card .contenido{
-    font-weight:  400;
-}
-
-.card a{
-    font-family: var(--letra-titulo);
-    font-size: 1rem;
+#alta-salon3{
+    
     background-color: var(--color-sexto);
-    border-radius: 15px;
-    border-color: var(--color-septimo);
-    margin: 5px;
+    border-radius: 10px;
+    border: solid 1px var();
+}
+.editarStyle{
+    border-radius: 5px;
+    background-color: var(--color-primero);   
+    
+}
+.eliminarStyle{
+    border-radius: 5px;
+    background-color: var(--color-tercero);   
+}
+
+ /* .iconos-tabla afecta ambos iconos de la tabla */
+.iconos-tabla{
+    display: flex;
+    padding: 6px;
+}
+#form-admin{
+    width: 27vw;
+    height: auto;
+    background-color: var(--color-segundo);
+    border-radius: 10px;
+    visibility: hidden;
+    text-align: center;
+} 
+td img{
+    width:80%;
+}
+#form-admin-img{
+    width: 27vw;
+    height: auto;
+    background-color: var(--color-sexto);
+    border-radius: 10px;
+    text-align: center;
+    visibility: hidden;
+} 
+
+.textoTablas{
+    font-weight: 550;
+    font-family: var(--letra-texto);
+    color: var(--color-letra);
 }
 /********************************** footer **********************************/
 footer{
-    background-image: url("../assets/img/wave-celeste.svg");;
+    /* background-image: url("../assets/img/wave-celeste.svg");  */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top; 
@@ -166,8 +210,8 @@ footer{
     font-family: var(--letra-texto);
     text-align: left;
     margin: 0;
+
   }
-  
   
 #fin {
     font-family: var(--letra-texto);
@@ -177,14 +221,6 @@ footer{
     margin-bottom: 0;
   }
 
-
-
-@media (min-width: 992px) and (max-width: 1100px) {
-  #logoHeader {
-    margin-left: 50px;
-  }
-   
-}
 
 /* mobile */
 @media (max-width: 600px){ 
@@ -202,11 +238,13 @@ footer{
         display: none;
     }
 }
-@media  (min-width: 601px) and (max-width: 991px) {
-     #fin{
-        margin: 2px;
+
+
+@media (max-width: 768px){
+    #form-admin{
+        width: 60%;
     }
-    .textoI{
-        display: none;
-    }
+    #form-admin-img{
+    width: 60%;
+}
 }
