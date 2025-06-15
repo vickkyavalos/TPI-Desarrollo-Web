@@ -90,11 +90,6 @@ header {
     background: none;
 }
 
-#panel-admin{
-    text-decoration: none;
-    list-style-type: none;
-}
-
 
 #icono {
     width: 40px; 
@@ -110,77 +105,19 @@ main{
  margin-bottom: 40px;
  height: auto;
 }
-#panel-admin {
-    width: 65vw;
-    min-height: 80vh;
-    
-}
+
 table{
     overflow: visible;
 }
 
-#alta-salon1{
-    
-    background-color: var(--color-quinto);
-    border-radius: 10px;
-    border: solid 1px var();
-}
-.boton-agregar{
-    
+
+.boton-volver{
     border:none;
     color: none;
-    
     background: none;
     background-color: none;
-
 }
 
-#alta-salon2{
-    
-    background-color: var(--color-cuarto);
-    border-radius: 10px;
-    border: solid 1px var();
-}
-#alta-salon3{
-    
-    background-color: var(--color-sexto);
-    border-radius: 10px;
-    border: solid 1px var();
-}
-.editarStyle{
-    border-radius: 5px;
-    background-color: var(--color-primero);   
-    
-}
-.eliminarStyle{
-    border-radius: 5px;
-    background-color: var(--color-tercero);   
-}
-
- /* .iconos-tabla afecta ambos iconos de la tabla */
-.iconos-tabla{
-    display: flex;
-    padding: 6px;
-}
-#form-admin{
-    width: 27vw;
-    height: auto;
-    background-color: var(--color-segundo);
-    border-radius: 10px;
-    visibility: hidden;
-    text-align: center;
-} 
-td img{
-    width:80%;
-}
-#form-admin-img{
-    width: 27vw;
-    height: auto;
-    background-color: var(--color-sexto);
-    border-radius: 10px;
-    text-align: center;
-    visibility: hidden;
-} 
 
 .textoTablas{
     font-weight: 550;
