@@ -191,8 +191,31 @@
                         </div>
     
             </section>
+    </div>
+            <!-------PRESUPUESTO----->
+            <section>
+                <h1>Presupuesto</h1>
 
-        </div>
+            <div class="formulario">
+                <label for="item">Seleccionar Ítem:</label>
+                    <select id="item">
+                    <option value="100">Servicio 1 - $100</option>
+                    <option value="250">Servicio 2 - $250</option>
+                    <option value="150">Servicio 3 - $150</option>
+                    </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" min="1" value="1">
+
+                <button onclick="agregarAlPresupuesto()">Agregar al Presupuesto</button>
+            </div>
+
+            <div id="presupuesto">
+                <h4>Presupuesto Actual</h4>
+                <ul id="lista"></ul>
+                <div id="total">Total: $0</div>
+            </div>
+            </section>
         
         </main>
     
@@ -211,6 +234,7 @@
     <script src="../js/alerta-de-eventos.js"></script>
     <script src="../js/alta-salon.js"></script>
     <script src="../js/validacion.js"></script>
+    <script src="../js/presupuesto.js"></script>
     
     <script type="module" src="../js/alta-img-salon.js"></script>
     <script type="module" src="../js/inicializar.js"></script>
