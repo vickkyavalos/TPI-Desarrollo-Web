@@ -124,6 +124,25 @@
                     </tbody>
                 </table>
             </div>
+                       <div class=" my-5 flex-column table-responsive" id="tabla-visual ">
+            <p class="fs-3 textoTablas">Servicios</p>
+               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
+                    <thead class="table-primary border-dark">
+                        <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col" class="text-center">*</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tabla-servicios">
+                    
+                    </tbody>
+                </table>
+            </div>
         </section>
             
         <!-- SECCIONES formulario de alta-->
@@ -189,8 +208,64 @@
                         <div class="mb-2">
                             <button id="btn-agregarImagen" type="submit" class="btn btn-primary">Cargar Imagen</button>
                         </div>
+            
     
             </section>
+             <!-- FORMULARIO DE SERVICIOS -->
+<section id="form-admin-servicios" class="my-2 d-flex flex-column align-items-center p-3">
+  <h4>Formulario de Servicio</h4>
+  <form id="formularioServicio" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+
+    <div class="mb-2">
+      <label for="inputTituloServicio" class="form-label">Nombre del Servicio</label>
+      <input type="text" name="titulo" minlength="3" maxlength="50" class="form-control" id="inputTituloServicio" placeholder="Ej: Catering, Animación" required>
+      <div class="valid-feedback">Campo válido</div>
+      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+    </div>
+
+    <div class="mb-2">
+      <label for="inputDescripcionServicio" class="form-label">Descripción</label>
+      <textarea name="descripcion" minlength="5" maxlength="100" class="form-control" id="inputDescripcionServicio" rows="3" required></textarea>
+      <div class="valid-feedback">Campo válido</div>
+      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+    </div>
+   <!-- opcion 2 desplegabe  -->
+    <div class="mb-2">
+  <label for="inputCategoria" class="form-label">Categoría</label>
+  <select name="categoria" id="inputCategoria" class="form-select" required>
+    <option value="" disabled selected>Seleccionar categoría</option>
+    <option value="Animación">Animación</option>
+    <option value="Comida">Comida</option>
+    <option value="Decoración">Decoración</option>
+    <option value="Fotografía">Fotografía</option>
+    <option value="Otros">Otros</option>
+  </select>
+  <div class="valid-feedback">Campo válido</div>
+  <div class="invalid-feedback">Por favor seleccioná una categoría</div>
+</div>
+
+     <!--opcion1/ admin escribe categoria 
+    <div class="mb-2">
+      <label for="inputCategoria" class="form-label">Categoría</label>
+      <input type="text" name="categoria" class="form-control" id="inputCategoria" placeholder="Ej: Animación, Comida, Decoración" required>
+      <div class="valid-feedback">Campo válido</div>
+      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+    </div> -->
+
+    <div class="mb-2">
+      <label for="inputPrecioServicio" class="form-label">Precio</label>
+      <input type="number" name="precio" class="form-control" id="inputPrecioServicio" placeholder="Ingrese el precio" required>
+      <div class="valid-feedback">Campo válido</div>
+      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+    </div>
+
+    <div class="mb-2">
+      <button id="btn-agregarServicio" type="submit" class="btn btn-primary">Cargar Servicio</button>
+    </div>
+
+  </form>
+</section>
+
 
         </div>
         
