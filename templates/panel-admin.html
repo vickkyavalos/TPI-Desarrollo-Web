@@ -67,13 +67,16 @@
                         <button id="btn-desplegarFormulario" onclick="desplegarFormulario()" class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
                     </div>
                 </div>
-                <div class=" d-flex flex-column p-3"  id="alta-salon2"> 
-                    <h4>Agregar Servicio</h4>
-                    <div class="d-flex align-self-end">  
-                        <button class="boton-agregar"><img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar"></button>
-                                    
-                    </div>
-                </div>
+               
+                <div class="d-flex flex-column p-3" id="alta-salon2">
+    <h4>Agregar Servicio</h4>
+    <div class="d-flex align-self-end">
+        <button id="btn-desplegarFormularioServicio" onclick="desplegarFormularioServicio()" class="boton-agregar">
+            <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar">
+        </button>
+    </div>
+</div>
+
                 <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
@@ -86,7 +89,7 @@
 
             <!-- SECCIONES lista-->
             
-            <div class=" my-5 flex-column table-responsive" id="tabla-visual ">
+            <div class=" my-5 flex-column table-responsive" id="tabla-visual">
             <p class="fs-3 textoTablas">Salones</p>
                <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
                     <thead class="table-primary border-dark">
@@ -106,7 +109,7 @@
                 </table>
             </div>
 
-            <div class=" my-5 flex-column table-responsive " id="tabla-Visual ">
+            <div class=" my-5 flex-column table-responsive " id="tabla-Visual">
             <p class="fs-3 textoTablas">Imagenes</p>
                <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
                     <thead class="table-primary border-dark">
@@ -124,26 +127,37 @@
                     </tbody>
                 </table>
             </div>
-                       <div class=" my-5 flex-column table-responsive" id="tabla-visual ">
+            
+            <div class=" my-5 flex-column table-responsive" id="tabla-visual">           
             <p class="fs-3 textoTablas">Servicios</p>
-               <table class="table table-bordered tabla-visualizar table-bordered border-dark table-striped  ">
-                    <thead class="table-primary border-dark">
+               <table class="table table-bordered tabla-visualizar border-dark table-striped">
+                     <thead class="table-primary border-dark">
                         <tr>
                         <th scope="col">id</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col" class="text-center">*</th>
-                        
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="tabla-servicios">
-                    
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                        <th scope="col">Categoría
+                <br />
+                <select id="filtroCategoria" class="form-select form-select-sm mt-1">
+                    <option value="Todas" selected>Todas</option>
+                    <option value="Animación">Animación</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Decoración">Decoración</option>
+                    <option value="Fotografía">Fotografía</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                       </th>
+                       <th scope="col">Precio</th>
+                       <th scope="col" class="text-center">*</th>
+                    </tr>
+                </thead>
+            <tbody class="table-group-divider" id="tabla-servicios" >
+
+            </tbody>
+          </table>
+        </div>
+        
+    </section>
             
         <!-- SECCIONES formulario de alta-->
          <!-- Formulario Salones-->
@@ -211,61 +225,50 @@
             
     
             </section>
-             <!-- FORMULARIO DE SERVICIOS -->
+<!-- FORMULARIO DE SERVICIOS -->
 <section id="form-admin-servicios" class="my-2 d-flex flex-column align-items-center p-3">
-  <h4>Formulario de Servicio</h4>
-  <form id="formularioServicio" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+    <h4>Formulario de Servicios</h4>
+    <form id="formularioServicio" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+        <div class="mb-3 w-100"> 
+            <label for="inputTituloServicio" class="form-label">Nombre de Servicio</label>
+            <input type="text" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloServicio" placeholder="Ingrese nombre del Servicio" required>
+            <div class="valid-feedback">Campo válido</div>
+            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
+        </div>
 
-    <div class="mb-2">
-      <label for="inputTituloServicio" class="form-label">Nombre del Servicio</label>
-      <input type="text" name="titulo" minlength="3" maxlength="50" class="form-control" id="inputTituloServicio" placeholder="Ej: Catering, Animación" required>
-      <div class="valid-feedback">Campo válido</div>
-      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
-    </div>
+        <div class="mb-3 w-100">
+            <label for="inputDescripcionServicio" class="form-label">Descripción</label>
+            <input type="text" name="descripcion" minlength="5" maxlength="50" class="form-control" id="inputDescripcionServicio" placeholder="Ingrese descripción del Servicio" required>
+            <div class="valid-feedback">Campo válido</div>
+            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
+        </div>
 
-    <div class="mb-2">
-      <label for="inputDescripcionServicio" class="form-label">Descripción</label>
-      <textarea name="descripcion" minlength="5" maxlength="100" class="form-control" id="inputDescripcionServicio" rows="3" required></textarea>
-      <div class="valid-feedback">Campo válido</div>
-      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
-    </div>
-   <!-- opcion 2 desplegabe  -->
-    <div class="mb-2">
-  <label for="inputCategoria" class="form-label">Categoría</label>
-  <select name="categoria" id="inputCategoria" class="form-select" required>
-    <option value="" disabled selected>Seleccionar categoría</option>
-    <option value="Animación">Animación</option>
-    <option value="Comida">Comida</option>
-    <option value="Decoración">Decoración</option>
-    <option value="Fotografía">Fotografía</option>
-    <option value="Otros">Otros</option>
-  </select>
-  <div class="valid-feedback">Campo válido</div>
-  <div class="invalid-feedback">Por favor seleccioná una categoría</div>
-</div>
+        <div class="mb-3 w-100">
+            <label for="inputCategoria" class="form-label">Categoría</label>
+            <select name="categoria" id="inputCategoria" class="form-select" required>
+                <option value="" disabled selected>Seleccionar categoría</option>
+                <option value="Animación">Animación</option>
+                <option value="Comida">Comida</option>
+                <option value="Decoración">Decoración</option>
+                <option value="Fotografía">Fotografía</option>
+                <option value="Otros">Otros</option>
+            </select>
+            <div class="valid-feedback">Campo válido</div>
+            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>          
+        </div>
 
-     <!--opcion1/ admin escribe categoria 
-    <div class="mb-2">
-      <label for="inputCategoria" class="form-label">Categoría</label>
-      <input type="text" name="categoria" class="form-control" id="inputCategoria" placeholder="Ej: Animación, Comida, Decoración" required>
-      <div class="valid-feedback">Campo válido</div>
-      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
-    </div> -->
-
-    <div class="mb-2">
-      <label for="inputPrecioServicio" class="form-label">Precio</label>
-      <input type="number" name="precio" class="form-control" id="inputPrecioServicio" placeholder="Ingrese el precio" required>
-      <div class="valid-feedback">Campo válido</div>
-      <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
-    </div>
-
-    <div class="mb-2">
-      <button id="btn-agregarServicio" type="submit" class="btn btn-primary">Cargar Servicio</button>
-    </div>
-
-  </form>
+        <div class="mb-3 w-100">
+            <label for="inputPrecioServicio" class="form-label">Precio</label>
+            <input type="number" name="precio" minlength="1" maxlength="50" class="form-control" id="inputPrecioServicio" placeholder="Ingrese Precio del Servicio" required>
+            <div class="valid-feedback">Campo válido</div>
+            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
+        </div>
+        
+        <div class="mb-3 w-100 d-flex justify-content-center">
+            <button id="btn-agregarServicio" type="submit" class="btn btn-primary">Cargar Servicio</button>
+        </div>
+    </form>
 </section>
-
 
         </div>
         
@@ -286,6 +289,7 @@
     <script src="../js/alerta-de-eventos.js"></script>
     <script src="../js/alta-salon.js"></script>
     <script src="../js/validacion.js"></script>
+    <script src="../js/alta-servicio.js"></script>
     
     <script type="module" src="../js/alta-img-salon.js"></script>
     <script type="module" src="../js/inicializar.js"></script>
