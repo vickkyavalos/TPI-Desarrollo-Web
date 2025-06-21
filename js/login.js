@@ -1,4 +1,4 @@
-import { loginAuth } from "./auth.js";
+import { login, obtenerUsuario} from "./auth.js";
 
 const container = document.querySelector(".container-login");
 const btnregistra = document.getElementById("btn-registra");
@@ -14,20 +14,143 @@ btninicia.addEventListener("click", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded',() =>{
+  auth()
+})
 
+// Función para verificar si el usuario está logueado y es admin
+function auth(){
+  document.getElementById("formularioLogin").addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-document.getElementById("btn-is").addEventListener("click", function(e) {
-        e.preventDefault(); 
-          falsoAuth(); 
+  const usuario = document.getElementById("usuarioLogin").value.trim();
+  const contrasena = document.getElementById("contrasenalogin").value.trim();
+  // const data = data.token; 
+
+  const data = await login(usuario, contrasena);
+  if (!data || !data.accessToken) {
+    swal.fire({
+      title: "Error",
+      text: "Credenciales inválidas",
+      icon: "error"
+    });
+    return data;
   }
- );
+
+  const traerID = await fetch(`https://dummyjson.com/users/${data.id}`)
+  const user = await traerID.json();
+  //const user = await obtenerUsuario(data.accesToken);
+  if (!user) return;
+  
+  const firstNameUser = user.firstName;
+  const lastNameUser = user.lastName;
+  const username = user.username;
+  const emailUser = user.email;
+  const phoneUser = user.phone;
+  const roleUser = user.role;
+
+  const userMostrar = {firstNameUser,lastNameUser, username, emailUser, phoneUser, roleUser};
+
+  
+
+  sessionStorage.setItem('userData', JSON.stringify(userMostrar));
+
+  let redirigir = '';
+  let mensaje = '';
+
+  if (user.role === 'admin') {
+    redirigir = '../templates/panel-admin.html';
+    mensaje = 'panel de administración';
+  } else {
+    redirigir = '../templates/catalogo.html';
+    mensaje = 'catálogo de salones';
+  }
+
+  swal.fire({
+    title: `Bienvenido ${user.firstName || user.username}`,
+    text: `Redirigiendo al ${mensaje}...`,
+    icon: 'success'
+  });
+
+   setTimeout(() => {
+     window.location.href = redirigir;
+      }, 4000);
+   });
+
+}
 
 
-// function falsoAuth(){
-//   const user = {
-//   user: "admin123@gmail.com",
-//   contrasena: "admin1234", }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function auth(){
 //   const userInput = document.getElementById("emailLogin").value;
 //   const passwordInput = document.getElementById("contrasenalogin").value;
     
@@ -58,7 +181,7 @@ document.getElementById("btn-is").addEventListener("click", function(e) {
             
 //   }
 //   if (formLogin) {
-//     formLogin.addEventListener("submit", falsoAuth);
+//     formLogin.addEventListener("submit", auth);
 //   }
 
  
