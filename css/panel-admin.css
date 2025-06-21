@@ -165,7 +165,7 @@ table{
 #form-admin{
     width: 27vw;
     height: auto;
-    background-color: var(--color-segundo);
+    background-color: var(--color-quinto);
     border-radius: 10px;
     visibility: hidden;
     text-align: center;
@@ -181,6 +181,35 @@ td img{
     text-align: center;
     visibility: hidden;
 } 
+
+#form-admin-servicios {
+    width: 27vw;
+    min-width: 300px;
+    background-color: var(--color-cuarto);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    display: none; /* oculto por defecto */
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    #form-admin-servicios {
+        width: 80%;
+    }
+}
+
+#form-admin-servicios form {
+    width: 100%;
+}
+
+#form-admin-servicios .form-control, 
+#form-admin-servicios .form-select {
+    font-size: 1rem;
+}
 
 .textoTablas{
     font-weight: 550;
