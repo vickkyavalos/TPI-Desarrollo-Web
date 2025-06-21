@@ -12,7 +12,7 @@ function obtenerNuevoIdServicio(servicios) {
     return maxId + 1;
 }
 
-// Guardar datos en el localStorage - Servicios
+// Guarda datos en el localStorage - Servicios//
 formularioServicio.addEventListener('submit', function(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -47,7 +47,7 @@ formularioServicio.addEventListener('submit', function(event) {
     formularioServicio.classList.remove('was-validated');
 });
 
-// Desplegar formulario servicio
+// DesplIEGA formulario //
 btnDesplegarFormularioServicio.addEventListener('click', function(event) {
     event.preventDefault();
     desplegarFormularioServicio();
@@ -72,7 +72,7 @@ function cerrarFormularioServicio(){
     }
 }
 
-// Visualizar tabla de servicios
+// Visualiza tabla//
 function mostrarServicios() {
     const tablaServicios = document.querySelector('#tabla-servicios');
     tablaServicios.innerHTML = '';
