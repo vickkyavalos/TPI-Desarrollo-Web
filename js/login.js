@@ -43,13 +43,10 @@ function auth(){
   if (!user) return;
   
   const firstNameUser = user.firstName;
-  const lastNameUser = user.lastName;
   const username = user.username;
-  const emailUser = user.email;
-  const phoneUser = user.phone;
   const roleUser = user.role;
 
-  const userMostrar = {firstNameUser,lastNameUser, username, emailUser, phoneUser, roleUser};
+  const userMostrar = {firstNameUser, username, roleUser};
 
   
 
@@ -67,7 +64,7 @@ function auth(){
   }
 
   swal.fire({
-    title: `Bienvenido ${user.firstName || user.username}`,
+    title: `Bienvenido ${user.firstName}`,
     text: `Redirigiendo al ${mensaje}...`,
     icon: 'success'
   });
