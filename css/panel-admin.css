@@ -156,8 +156,6 @@ table{
     border-radius: 5px;
     background-color: var(--color-tercero);   
 }
-
- /* .iconos-tabla afecta ambos iconos de la tabla */
 .iconos-tabla{
     display: flex;
     padding: 6px;
@@ -189,10 +187,11 @@ td img{
     border-radius: 10px;
     text-align: center;
     padding: 20px;
-    display: none; /* oculto por defecto */
+    display: none; 
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    visibility: hidden;
 }
 
 /* Ajustes responsive */
