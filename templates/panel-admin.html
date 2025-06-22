@@ -49,9 +49,27 @@
 
         
         <!-- Contenedor para el icono User -->
-        <div id="icon-container">
+        <!-- <div id="icon-container">
             <a href="../templates/login.html"><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono"></a>
+             <div id="user-info" class="d-flex " style="display: none;">
+                <span id="nombre-usuario" class="fw-bold text-white"></span>
+                <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+            </div>      
+
+        </div> -->
+        <div id="icon-container" class="d-flex align-items-center gap-2">
+        <!-- Ícono que por defecto redirige a login -->
+            <a id="icono-link" href="#">
+                <img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" width="32" height="32">
+            </a>
+
+        <!-- Nombre usuario y botón logout, oculto inicialmente -->
+            <div id="user-info" class="d-flex align-items-center gap-2" style="display: none;">
+                <span id="nombre-usuario" class="fw-bold text-white"></span>
+                <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+            </div>
         </div>
+       
     </header>
 
 
@@ -211,6 +229,8 @@
     <script src="../js/alerta-de-eventos.js"></script>
     <script src="../js/alta-salon.js"></script>
     <script src="../js/validacion.js"></script>
+    <script src="../js/logout.js"></script>
+
     
     <script type="module" src="../js/alta-img-salon.js"></script>
     <script type="module" src="../js/inicializar.js"></script>
