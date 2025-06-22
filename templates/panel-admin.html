@@ -96,12 +96,22 @@
                         </button>
                     </div>
                 </div>
+                <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
+                    <h4>Presupuesto</h4>
+                    <div class="d-flex align-self-end"> 
+                        <button class="boton-agregar" id="btn-desplegarFormPresupuesto" onclick="desplegarFormPresupuesto()">
+                            <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar">
+                        </button>
+                    </div>    
+                </div>
             </div>
 
             <!-- SECCIONES lista-->
+
             <div class="m-5 flex-column table-responsive" id="tabla-visual">
                 <p class="fs-3 textoTablas">Salones</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
+
                     <thead class="table-primary border-dark">
                         <tr>
                             <th scope="col">id</th>
@@ -117,9 +127,11 @@
                 </table>
             </div>
 
+
             <div class="m-5 flex-column table-responsive" id="tabla-Visual">
                 <p class="fs-3 textoTablas">Imagenes</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
+
                     <thead class="table-primary border-dark">
                         <tr>
                             <th scope="col">idImagen</th>
@@ -264,8 +276,9 @@
                     </div>
                 </form>
             </section>
+
             <!-------PRESUPUESTO----->
-            <div class="container d-flex justify-content-center">
+            <div id="tabla-presupuesto" class="container d-flex justify-content-start gap-1 w-100">
                 <div class="col-md-10 bg-success-subtle p-4 rounded shadow mt-5">
                     <h2 class="text-center mb-4">Presupuesto</h2>
                         <!-- Servicios -->
@@ -290,6 +303,7 @@
                         </div>
 
                 <!-- Salón -->
+
                   <h5>Salón</h5>
                   <select id="salonselec" class="form-select mb-4"></select>
 
@@ -315,10 +329,11 @@
                       </table>
                   </div>
 
+
                 </div>
             </div>
 
-            
+
         </div>
       
         </main>

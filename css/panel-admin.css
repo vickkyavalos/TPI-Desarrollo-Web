@@ -180,6 +180,11 @@ td img{
     visibility: hidden;
 } 
 
+
+#tabla-presupuesto{
+    visibility: hidden;
+}
+
 #form-admin-servicios {
     width: 27vw;
     min-width: 300px;
@@ -209,6 +214,7 @@ td img{
 #form-admin-servicios .form-select {
     font-size: 1rem;
 }
+
 
 .textoTablas{
     font-weight: 550;

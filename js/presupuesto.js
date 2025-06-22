@@ -101,3 +101,30 @@ async function exportarPDF(index) {
 
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
+
+//desplegar formulario presupuesto
+btnDesplegarFormulario.addEventListener('click', function(event) {
+    event.preventDefault();
+    desplegarFormPresupuesto();
+    formularioS.reset();
+    cerrarFormPresupuesto();
+});
+
+//cambiar visibilidad
+function desplegarFormPresupuesto(){
+    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+    if (tablaPresupuesto.style.visibility == 'hidden') {
+      tablaPresupuesto.style.visibility = 'visible';
+    }else{
+      tablaPresupuesto.style.visibility = 'hidden';
+    }
+};
+
+function cerrarFormPresupuesto(){
+    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+    if (tablaPresupuesto.style.visibility == 'visible') {
+      tablaPresupuesto.style.visibility = 'hidden';
+    }else{
+      tablaPresupuesto.style.visibility = 'visible';
+    }
+};
