@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nombreUsuario.textContent = `Hola, ${nombre}`;
     userInfo.style.display = "flex";
 
-    // Cambiar el link del ícono para que no redirija al login
     iconoLink.href = "#";
 
 
