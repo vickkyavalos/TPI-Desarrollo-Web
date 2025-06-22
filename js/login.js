@@ -1,3 +1,5 @@
+import { login, obtenerUsuario} from "./auth.js";
+
 const container = document.querySelector(".container-login");
 const btnregistra = document.getElementById("btn-registra");
 const btninicia = document.getElementById("btn-inicia");
@@ -12,50 +14,140 @@ btninicia.addEventListener("click", () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const tabla = document.querySelector('#tablaUsuarios tbody');
+document.addEventListener('DOMContentLoaded',() =>{
+  auth()
+})
 
-  try {
-    const response = await fetch('https://dummyjson.com/users');
-    if (response.ok) {
-      const data = await response.json();
-      const usuarios = data.users;
+// Función para verificar si el usuario está logueado y es admin
+function auth(){
+  document.getElementById("formularioLogin").addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-      usuarios.forEach((usuario) => {
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
-          <td>${usuario.firstName}</td>
-          <td>${usuario.lastName}</td>
-          <td>${usuario.email}</td>
-          <td>${usuario.phone}</td>
-        `;
-        tabla.appendChild(fila);
-      });
+  const usuario = document.getElementById("usuarioLogin").value.trim();
+  const contrasena = document.getElementById("contrasenalogin").value.trim();
+  // const data = data.token; 
 
-    } else {
-      console.error(response.status);
-      throw new Error("Error al consultar");
-    }
-
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Error con la API de usuarios");
+  const data = await login(usuario, contrasena);
+  if (!data || !data.accessToken) {
+    swal.fire({
+      title: "Error",
+      text: "Credenciales inválidas",
+      icon: "error"
+    });
+    return data;
   }
-});
+
+  const traerID = await fetch(`https://dummyjson.com/users/${data.id}`)
+  const user = await traerID.json();
+  //const user = await obtenerUsuario(data.accesToken);
+  if (!user) return;
+  
+  const firstNameUser = user.firstName;
+  const username = user.username;
+  const roleUser = user.role;
+
+  const userMostrar = {firstNameUser, username, roleUser};
+
+  
+
+  sessionStorage.setItem('userData', JSON.stringify(userMostrar));
+
+  let redirigir = '';
+  let mensaje = '';
+
+  if (user.role === 'admin') {
+    redirigir = '../templates/panel-admin.html';
+    mensaje = 'panel de administración';
+  } else {
+    redirigir = '../templates/catalogo.html';
+    mensaje = 'catálogo de salones';
+  }
+
+  swal.fire({
+    title: `Bienvenido ${user.firstName}`,
+    text: `Redirigiendo al ${mensaje}...`,
+    icon: 'success'
+  });
+
+   setTimeout(() => {
+     window.location.href = redirigir;
+      }, 4000);
+   });
+
+}
 
 
-// document.getElementById("btn-is").addEventListener("click", function(e) {
-//         e.preventDefault(); 
-//           falsoAuth(); 
-//   }
-//  );
 
 
-// function falsoAuth(){
-//   const user = {
-//   user: "admin123@gmail.com",
-//   contrasena: "admin1234", }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function auth(){
 //   const userInput = document.getElementById("emailLogin").value;
 //   const passwordInput = document.getElementById("contrasenalogin").value;
     
@@ -86,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
 //   }
 //   if (formLogin) {
-//     formLogin.addEventListener("submit", falsoAuth);
+//     formLogin.addEventListener("submit", auth);
 //   }
 
  

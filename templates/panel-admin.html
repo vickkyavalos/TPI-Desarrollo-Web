@@ -48,9 +48,20 @@
         </div>
 
         <!-- Contenedor para el icono User -->
-        <div id="icon-container">
-            <a href="../templates/login.html"><img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" /></a>
+   
+        <div id="icon-container" class="d-flex align-items-center gap-2">
+        <!-- Ícono que por defecto redirige a login -->
+            <a id="icono-link" href="#">
+                <img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" width="32" height="32">
+            </a>
+
+        <!-- Nombre usuario y botón logout, oculto inicialmente -->
+            <div id="user-info" class="d-flex align-items-center gap-2" style="display: none;">
+                <span id="nombre-usuario" class="fw-bold text-white"></span>
+                <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+            </div>
         </div>
+       
     </header>
 
     <main class="d-flex flex-column flex-md-row gap-5 justify-content-center align-items-center">
@@ -88,7 +99,7 @@
             </div>
 
             <!-- SECCIONES lista-->
-            <div class="my-5 flex-column table-responsive" id="tabla-visual">
+            <div class="m-5 flex-column table-responsive" id="tabla-visual">
                 <p class="fs-3 textoTablas">Salones</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
                     <thead class="table-primary border-dark">
@@ -106,7 +117,7 @@
                 </table>
             </div>
 
-            <div class="my-5 flex-column table-responsive" id="tabla-Visual">
+            <div class="m-5 flex-column table-responsive" id="tabla-Visual">
                 <p class="fs-3 textoTablas">Imagenes</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
                     <thead class="table-primary border-dark">
@@ -123,7 +134,7 @@
                 </table>
             </div>
 
-            <div class="my-5 flex-column table-responsive" id="tabla-visual">
+            <div class="m-5 flex-column table-responsive" id="tabla-visual">
                 <p class="fs-3 textoTablas">Servicios</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
                     <thead class="table-primary border-dark">
@@ -208,8 +219,7 @@
                     </div>
                 </form>
             </section>
-    </div>
-      
+    
          <!-- FORMULARIO DE SERVICIOS -->
             <section id="form-admin-servicios" class="my-2 d-flex flex-column align-items-center p-3">
                 <h4>Formulario de Servicios</h4>
@@ -309,6 +319,8 @@
             </div>
 
             
+        </div>
+      
         </main>
     
 
@@ -327,6 +339,8 @@
     <script src="../js/alta-servicio.js"></script>
     <script src="../js/presupuesto.js"></script>
     
+    <script src="../js/logout.js"></script>
+
 
     <script type="module" src="../js/alta-img-salon.js"></script>
     <script type="module" src="../js/inicializar.js"></script>
