@@ -1,7 +1,22 @@
 // Cargar presupuestos al iniciar
-    document.addEventListener('DOMContentLoaded', mostrarPresupuestos);
+    document.addEventListener('DOMContentLoaded', () =>{
+        mostrarPresupuestos(), traerYmostrarSalones()
+    }); 
+
+    function traerYmostrarSalones(){
+        //trae los salones guardados 
+        const salones = JSON.parse(localStorage.getItem('salones')) || [];
+        const select = document.getElementById('salonselec');
+        if (!select) return;
+
+        select.innerHTML = '<option value="">Seleccioná un salón</option>';
+        salones.forEach(salon => {
+        select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
+    });
+    }
 
     function solicitarPresupuesto() {
+
         const checkboxes = document.querySelectorAll('#listaServicios input[type="checkbox"]');
         const seleccionados = [];
         let totalServicios = 0;
@@ -13,9 +28,9 @@
             totalServicios += parseInt(precio);
         }
     });
-
-        const salonSelec = document.getElementById('salonselec').value;
-        if (!salonSelec || seleccionados.length === 0) {
+        const select = document.getElementById('salonselec');
+        const salonSelec = select.value
+        if (!salonSelec|| seleccionados.length === 0) {
         alert('Seleccioná al menos un servicio y un salón.');
         return;
     }
@@ -67,6 +82,9 @@
         mostrarPresupuestos();
     }
 
+
+
+// para descargar presupuesto en pdf 
 async function exportarPDF(index) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
