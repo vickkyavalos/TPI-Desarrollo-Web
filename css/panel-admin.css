@@ -182,6 +182,9 @@ td img{
     visibility: hidden;
 } 
 
+#tabla-presupuesto{
+    visibility: hidden;
+}
 .textoTablas{
     font-weight: 550;
     font-family: var(--letra-texto);
