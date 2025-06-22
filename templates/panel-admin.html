@@ -78,7 +78,7 @@
                 <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
-                        <button class="boton-agregar" id="btn-desplegarFormularioImagen" >
+                        <button class="boton-agregar" id="btn-desplegarFormularioImagen" onclick="desplegarFormularioImagen()">
                             <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar">
                         </button>
                     </div>    
@@ -230,7 +230,7 @@
                 </select>
 
                 <div class="text-center mb-4">
-                    <button onclick="solicitarPresupuesto()" class="btn btn-primary">Guardar Presupuesto</button>
+                    <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
                 </div>
 
                 <!-- Tabla de presupuestos -->
@@ -239,7 +239,7 @@
                     <table class="table table-bordered table-striped bg-white">
                     <thead class="table-light">
                         <tr>
-                        <th>id</th>
+                        <th>#</th>
                         <th>Servicios</th>
                         <th>Salón</th>
                         <th>Total</th>

@@ -14,13 +14,13 @@
         }
     });
 
-        const salonValue = document.getElementById('salonselec').value;
-        if (!salonValue || seleccionados.length === 0) {
+        const salonSelec = document.getElementById('salonselec').value;
+        if (!salonSelec || seleccionados.length === 0) {
         alert('Seleccioná al menos un servicio y un salón.');
         return;
     }
 
-        const [salonNombre, salonPrecio] = salonValue.split('|');
+        const [salonNombre, salonPrecio] = salonSelec.split('|');
         const total = totalServicios + parseInt(salonPrecio);
 
         const nuevoPresupuesto = {
@@ -48,11 +48,13 @@
             <td>${p.servicios.join(', ')}</td>
             <td>${p.salon}</td>
             <td>$${p.total}</td>
-            <td><button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
+            <td>
+                <button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
                 <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
-            </button></td>
-            <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
-
+                </button></td>
+                <td>
+                <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
+            </td>
         `;
         tbody.appendChild(fila);
     });
