@@ -110,7 +110,6 @@ table{
     overflow: visible;
 }
 
-
 .boton-volver{
     border:none;
     color: none;
@@ -118,11 +117,14 @@ table{
     background-color: none;
 }
 
-
 .textoTablas{
     font-weight: 550;
     font-family: var(--letra-texto);
     color: var(--color-letra);
+}
+
+.botonV-imagen{
+    width: 50px;
 }
 /********************************** footer **********************************/
 footer{
