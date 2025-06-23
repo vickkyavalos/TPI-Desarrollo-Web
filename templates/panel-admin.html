@@ -137,7 +137,6 @@
             
         <!-- SECCIONES formulario de alta-->
         <!-- Formulario Salones-->
-
         <div class="d-flex flex-column align-items-center gap-1 w-100 ">
             <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
                     <h4>Formulario de Salón</h4>
@@ -202,44 +201,27 @@
             </section>
         </div>
 
+
+        <!-- agregar boton -->
             <!-------PRESUPUESTO----->
             <div id="tabla-presupuesto" class="container d-flex justify-content-start gap-1 w-100">
                 <div class="col-md-10 bg-success-subtle p-4 rounded shadow mt-5">
 
                     <h2 class="text-center mb-4">Presupuesto</h2>
-
-                        <!-- Servicios -->
-                        <h5>Servicios</h5>
-                        <div id="listaServicios" class="mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Catering|50000" id="servicio1">
-                                <label class="form-check-label" for="servicio1">Catering - $50.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="DJ|20000" id="servicio2">
-                                <label class="form-check-label" for="servicio2">DJ - $20.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Fotografía|30000" id="servicio3">
-                                <label class="form-check-label" for="servicio3">Fotografía - $30.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Decoración|25000" id="servicio4">
-                                <label class="form-check-label" for="servicio4">Decoración - $25.000</label>
-                            </div>
-                        </div>
-
-                <!-- Salón -->
-                <h5>Salón</h5>
-                <select id="salonselec" class="form-select mb-4">
-                </select>
+                    <h5>Servicios</h5>
+                    <select id="serviciosselec" class="form-select mb-4">
+                    </select>
+                    <!-- Salón -->
+                    <h5>Salón</h5>
+                    <select id="salonselec" class="form-select mb-4">
+                    </select>
 
                 <div class="text-center mb-4">
                     <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
                 </div>
 
                 <!-- Tabla de presupuestos -->
-                <h4>Presupuestos</h4>
+                    <h4>Presupuestos</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped bg-white">
                         <thead class="table-light">
@@ -255,15 +237,13 @@
                         <tbody id="tablaPresupuestos"></tbody>
                         </table>
                     </div>
-                
                 </div>
             </div>
 
-            
     </main>
     
 
-     <!--------------------------footer -------------------------->
+        <!--------------------------footer -------------------------->
     <footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
  
                   <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">

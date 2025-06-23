@@ -109,7 +109,7 @@ function mostrarSalones(){
     tabla.appendChild(fila); 
   })   
 
- }
+}
 
 //eliminar
 function eliminarSalon(index){
