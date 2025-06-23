@@ -1,6 +1,7 @@
+
 // Cargar presupuestos al iniciar
     document.addEventListener('DOMContentLoaded', () =>{
-        mostrarPresupuestos(), traerYmostrarSalones()
+        mostrarPresupuestos(), traerYmostrarSalones(), traerYmostrarServicios()
     }); 
 
     function traerYmostrarSalones(){
@@ -15,9 +16,21 @@
     });
     }
 
+    function traerYmostrarServicios(){
+        //trae los servicios guardados 
+        const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
+        const select = document.getElementById('serviciosselec');
+        if (!select) return;
+
+        select.innerHTML = '<option value="">Seleccioná un servicio</option>';
+        servicios.forEach(servicio => {
+        select.innerHTML += `<option value="${servicio.tituloServicio}|${servicio.precioServicio}">${servicio.tituloServicio} ($${servicio.precioServicio})</option>`;
+    });
+    }
+
     function solicitarPresupuesto() {
 
-        const checkboxes = document.querySelectorAll('#listaServicios input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('#serviciosselect');
         const seleccionados = [];
         let totalServicios = 0;
 
@@ -42,8 +55,8 @@
         servicios: seleccionados,
         salon: salonNombre,
         total: total
-    };
-
+    };  
+        //guarda datos en el local storage
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
         presupuestos.push(nuevoPresupuesto);
         localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
@@ -68,6 +81,9 @@
                 <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
                 </button></td>
                 <td>
+                <button id="boton-editar" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+                </td>
+                <td>
                 <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
             </td>
         `;
@@ -75,6 +91,8 @@
     });
 }
 
+
+// boton eliminar
     function eliminarPresupuesto(index) {
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
         presupuestos.splice(index, 1);
@@ -82,6 +100,26 @@
         mostrarPresupuestos();
     }
 
+//boton editar
+//editar
+function editarPresupuesto(index) {
+    const listaPresupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const presupuestos = listaPresupuestos[index];
+
+    // Cargar imagen en el formulario
+    document.getElementById('inputI').value = presupuestos.idPresupuesto;
+
+    desplegarFormPresupuesto();
+    
+    // Cambiar estado a edición
+    modoEdicion = true;
+    indexEdicion = index;
+
+    // Cambiar texto del botón
+    document.getElementById('btn-agregarPresupuesto').textContent = 'Guardar cambios';
+    
+    
+}
 
 
 // para descargar presupuesto en pdf 
@@ -114,17 +152,17 @@ btnDesplegarFormulario.addEventListener('click', function(event) {
 function desplegarFormPresupuesto(){
     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
     if (tablaPresupuesto.style.visibility == 'hidden') {
-      tablaPresupuesto.style.visibility = 'visible';
+        tablaPresupuesto.style.visibility = 'visible';
     }else{
-      tablaPresupuesto.style.visibility = 'hidden';
+        tablaPresupuesto.style.visibility = 'hidden';
     }
 };
 
 function cerrarFormPresupuesto(){
     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
     if (tablaPresupuesto.style.visibility == 'visible') {
-      tablaPresupuesto.style.visibility = 'hidden';
+        tablaPresupuesto.style.visibility = 'hidden';
     }else{
-      tablaPresupuesto.style.visibility = 'visible';
+        tablaPresupuesto.style.visibility = 'visible';
     }
 };
