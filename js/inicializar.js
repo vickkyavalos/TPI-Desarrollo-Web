@@ -13,10 +13,10 @@ export const imgSalones = [
 ];
 
 export const servicios = [
-    {idPresupuesto: 1, tituloServicio: "Dj - Música", precioServicio: 25000},
-    {idPresupuesto: 2, tituloServicio: "Categing", precioServicio: 35000},
-    {idPresupuesto: 3, tituloServicio: "Fotografía", precioServicio: 30000},
-    {idPresupuesto: 4, tituloServicio: "Decoración", precioServicio: 15000},
+    {idServicio: 1, tituloServicio: "Dj - Música", precioServicio: 25000},
+    {idServicio: 2, tituloServicio: "Categing", precioServicio: 35000},
+    {idServicio: 3, tituloServicio: "Fotografía", precioServicio: 30000},
+    {idServicio: 4, tituloServicio: "Decoración", precioServicio: 15000},
 ];
 
 
