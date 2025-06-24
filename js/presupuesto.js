@@ -1,5 +1,7 @@
 const modalPresupuesto = document.getElementById('modalPresupuesto');
-modalPresupuesto.addEventListener('show.bs.modal', traerYmostrarServicios);
+modalPresupuesto.addEventListener('show.bs.modal', 
+    traerYmostrarServicios);
+
 
 // Cargar presupuestos al iniciar
     document.addEventListener('DOMContentLoaded', () =>{
@@ -40,8 +42,8 @@ modalPresupuesto.addEventListener('show.bs.modal', traerYmostrarServicios);
 }
 
 
-    function solicitarPresupuesto() {
-  // Selecciona todos los checkboxes dentro de #listaServicios
+function solicitarPresupuesto() {
+// Selecciona todos los checkboxes dentro de #listaServicios
   const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
   const seleccionados = [];
   let totalServicios = 0;
@@ -71,12 +73,17 @@ modalPresupuesto.addEventListener('show.bs.modal', traerYmostrarServicios);
     total: total
   };
 
+  //cerrar el modal
+   const modal = bootstrap.Modal.getInstance(document.getElementById('modalPresupuesto'));
+    if (modal) {
+        modal.hide();
+    }
   // Guarda en localStorage
   const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
   presupuestos.push(nuevoPresupuesto);
   localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
 
-  mostrarPresupuestos(); // Ya lo tenés bien definido
+  mostrarPresupuestos();
 }
 
     function mostrarPresupuestos() {
@@ -94,11 +101,10 @@ modalPresupuesto.addEventListener('show.bs.modal', traerYmostrarServicios);
             <td>
                 <button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
                 <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
-                </button></td>
-                <td>
+                </button>
                 <button id="boton-editar" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
-                </td>
-                <td>
+            </td>
+            <td>
                 <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
             </td>
         `;
@@ -155,15 +161,15 @@ async function exportarPDF(index) {
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
 
-//desplegar formulario presupuesto
-btnDesplegarFormulario.addEventListener('click', function(event) {
-    event.preventDefault();
-    // desplegarFormPresupuesto();
-    formularioS.reset();
-    // cerrarFormPresupuesto();
-});
+// desplegar formulario presupuesto
+// btnDesplegarFormulario.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     desplegarFormPresupuesto();
+//     formularioS.reset();
+//     cerrarFormPresupuesto();
+// });
 
-//cambiar visibilidad
+// //cambiar visibilidad
 // function desplegarFormPresupuesto(){
 //     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
 //     if (tablaPresupuesto.style.visibility == 'hidden') {
@@ -180,4 +186,4 @@ btnDesplegarFormulario.addEventListener('click', function(event) {
 //     }else{
 //         tablaPresupuesto.style.visibility = 'visible';
 //     }
-// };
+//  };
