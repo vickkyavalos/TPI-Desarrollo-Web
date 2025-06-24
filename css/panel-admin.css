@@ -160,24 +160,30 @@ table{
     display: flex;
     padding: 6px;
 }
+#contenedor-modal{
+    
+    display: flex;
+    justify-content: center;
+}
+
 #form-admin{
-    width: 27vw;
+    width: 30vw;
     height: auto;
     background-color: var(--color-quinto);
     border-radius: 10px;
-    visibility: hidden;
+    
     text-align: center;
 } 
 td img{
     width:80%;
 }
 #form-admin-img{
-    width: 27vw;
+    width: 30vw;
     height: auto;
     background-color: var(--color-sexto);
     border-radius: 10px;
     text-align: center;
-    visibility: hidden;
+    
 } 
 
 
@@ -187,7 +193,6 @@ td img{
 
 #form-admin-servicios {
     width: 27vw;
-    min-width: 300px;
     background-color: var(--color-cuarto);
     border-radius: 10px;
     text-align: center;
@@ -204,6 +209,8 @@ td img{
     #form-admin-servicios {
         width: 80%;
     }
+    
+
 }
 
 #form-admin-servicios form {

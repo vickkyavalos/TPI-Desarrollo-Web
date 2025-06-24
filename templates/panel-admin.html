@@ -73,7 +73,7 @@
                 <div class="d-flex flex-column p-3" id="alta-salon1">
                     <h4>Agregar Salon</h4>
                     <div class="d-flex align-self-end">
-                        <button id="btn-desplegarFormulario" onclick="desplegarFormulario()" class="boton-agregar">
+                        <button id="btn-desplegarFormulario" data-bs-toggle="modal" data-bs-target="#modalAltaSalon"  class="boton-agregar">
                             <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar" />
                         </button>
                     </div>
@@ -91,7 +91,7 @@
                 <div class="d-flex flex-column p-3" id="alta-salon3">
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
-                        <button class="boton-agregar" id="btn-desplegarFormularioImagen" onclick="desplegarFormularioImagen()">
+                        <button class="boton-agregar" id="btn-desplegarFormularioImagen" data-bs-toggle="modal" data-bs-target="#modalImagen">
                             <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar">
                         </button>
                     </div>
@@ -166,71 +166,111 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Tabla de presupuestos -->
+            <h4>Presupuestos</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped bg-white">
+                      <thead class="table-light">
+                          <tr>
+                          <th>#</th>
+                          <th>Servicios</th>
+                          <th>Salón</th>
+                          <th>Total</th>
+                          <th>Acciones</th>
+                          <th>PDF</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tablaPresupuestos"></tbody>
+                      </table>
+                  </div>
+
         </section>
 
         <!-- SECCIONES formulario de alta-->
         <!-- Formulario Salones-->
 
-        <div class="d-flex flex-column align-items-center gap-1 w-100 ">
-            <section id="form-admin" class="my-2 d-flex flex-column align-items-center p-3" >
-                    <h4>Formulario de Salón</h4>
-                    <form id="formularioSalon" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
-        
-                            <div class="my-0"> 
-                            <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
-                            <input type="name" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
-                            <div class="valid-feedback">Campo válido</div>
-                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
-                        </div>
+<div class="d-flex flex-column align-items-center gap-1 w-100 ">
+          
 
-                        <div class="mb-2">
-                            <label for="inputDireccion" class="form-label">Dirección</label>
-                            <input type="text" name="direccion" minlength="5" maxlength="50" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
-                            <div class="valid-feedback">Campo válido</div>
-                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div> 
-                        </div>
+    
+  <div class="modal fade" id="modalAltaSalon" tabindex="-1" aria-labelledby="modalAltaSalonLabel" aria-hidden="true">
+    <div id="contenedor-modal" class="modal-dialog modal-dialog-centered modal-lg">
+        <div id="form-admin" class="modal-content align-items-center p-2">
+                  
+            <h4 class="my-2">Formulario de Salón</h4>
 
-                        <div class="mb-2">
-                            <label for="descripcionSalon" class="form-label">Descripción</label>
-                            <textarea class="form-control" name="descripcion" minlength="5" maxlength="80" id="inputDescripcionSalon" rows="3"></textarea>
-                            <div class="valid-feedback">Campo válido</div>
-                            <div class="invalid-feedback" >Campo inválido, vuelva a intentarlo</div>          
-                        </div>
-                        <div class="mb-2">
-                            <label for="inputPrecio" class="form-label">Precio</label>
-                            <input type="number" name="precio" minlength="5" maxlength="50" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
-                            <div class="valid-feedback">Campo válido</div>
-                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>      
-                        </div>
-                        
-                        <div class="mb-2">
-                            <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
-                        </div>
-                    </form>
-                
+                <form id="formularioSalon" class="d-flex flex-column align-items-center needs-validation form" novalidate>
 
-            </section>
+                    <div class="mb-2 w-100">
+                        <label for="inputTituloSalon" class="form-label">Nombre de salón</label>
+                        <input type="text" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloSalon" placeholder="Ingrese nombre del salón" required>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    </div>
 
-            <!---FORMULARIO IMAGEN--->
-            <section id="form-admin-img" class="my-2 d-flex flex-column align-items-center p-3">
-                <h4>Formulario de Imagen</h4>
-                <form id="formularioImagen" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
-                    <div class="mb-2">
-                        <label for="inputIdSalon" class="form-label">Selecciones el Id del Salón</label>
-                        <input type="number" name="InputIdSalon" minlength="5" maxlength="50" class="form-control" id="inputIdSalon" placeholder="Ingrese ID de imagen" required />
+                    <div class="mb-2 w-100">
+                        <label for="inputDireccion" class="form-label">Dirección</label>
+                        <input type="text" name="direccion" minlength="5" maxlength="50" class="form-control" id="inputDireccion" placeholder="Ingrese dirección del salón" required>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    </div>
+
+                    <div class="mb-2 w-100">
+                        <label for="inputDescripcionSalon" class="form-label">Descripción</label>
+                        <textarea class="form-control" name="descripcion" minlength="5" maxlength="80" id="inputDescripcionSalon" rows="3" required></textarea>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    </div>
+
+                    <div class="mb-2 w-100">
+                        <label for="inputPrecio" class="form-label">Precio</label>
+                        <input type="number" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
 
                     <div class="mb-2">
-                        <label for="inputFotoSalon" class="form-label">URL de la imagen</label>
-                        <input type="url" id="inputFotoSalon" name="foto" class="form-control" placeholder="la URL de la imagen" required />
+                        <button id="btn-agregarSalon" type="submit" class="btn btn-primary">Cargar Salón</button>
                     </div>
-                    <div class="mb-2">
-                        <button id="btn-agregarImagen" type="submit" class="btn btn-primary">Cargar Imagen</button>
-                    </div>
+
                 </form>
-            </section>
+            
+
+            </div>
+        </div>
+    </div>
+
+
+            <!---FORMULARIO IMAGEN--->
+        <div class="modal fade" id="modalImagen" tabindex="-1" aria-labelledby="modalImagenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" id="contenedor-modal">
+                <div class="modal-content align-items-center p-2" id="form-admin-img">
+                    <h4 class="my-2">Formulario de Imagen</h4>
+                    <form id="formularioImagen" class="d-flex flex-column align-items-center needs-validation form" novalidate>
+                    
+                        <div class="mb-2 w-100">
+                            <label for="inputIdSalon" class="form-label">Seleccione el ID del Salón</label>
+                            <input type="number" name="InputIdSalon" class="form-control" id="inputIdSalon" placeholder="Ingrese ID del salón" required />
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                        </div>
+
+                        <div class="mb-2 w-100">
+                            <label for="inputFotoSalon" class="form-label">URL de la imagen</label>
+                            <input type="url" id="inputFotoSalon" name="foto" class="form-control" placeholder="Ingrese la URL de la imagen" required />
+                            <div class="valid-feedback">Campo válido</div>
+                            <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                        </div>
+
+                        <div class="mb-2">
+                            <button id="btn-agregarImagen" type="submit" class="btn btn-primary">Cargar Imagen</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     
          <!-- FORMULARIO DE SERVICIOS -->
             <section id="form-admin-servicios" class="my-2 d-flex flex-column align-items-center p-3">
@@ -311,23 +351,7 @@
                       <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
                   </div>
 
-                  <!-- Tabla de presupuestos -->
-                  <h4>Presupuestos</h4>
-                  <div class="table-responsive">
-                      <table class="table table-bordered table-striped bg-white">
-                      <thead class="table-light">
-                          <tr>
-                          <th>#</th>
-                          <th>Servicios</th>
-                          <th>Salón</th>
-                          <th>Total</th>
-                          <th>Acciones</th>
-                          <th>PDF</th>
-                          </tr>
-                      </thead>
-                      <tbody id="tablaPresupuestos"></tbody>
-                      </table>
-                  </div>
+                  
 
 
                 </div>
