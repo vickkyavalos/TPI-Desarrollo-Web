@@ -130,6 +130,7 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Dirección</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Estado</th>
                             <th scope="col" class="text-center">*</th>
                         </tr>
                     </thead>
@@ -234,6 +235,13 @@
                     <div class="mb-2 w-100">
                         <label for="inputPrecio" class="form-label">Precio</label>
                         <input type="number" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    </div>
+
+                    <div class="mb-2 w-100">
+                        <label for="inputPrecio" class="form-label">Estado</label>
+                        <input type="text" name="estado" class="form-control" id="inputEstado" placeholder="Ingrese el estado del Salón" required>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>

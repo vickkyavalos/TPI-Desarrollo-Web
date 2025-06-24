@@ -33,6 +33,7 @@ formularioS.addEventListener('submit', function(event) {
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
+    const estadoSalon = document.getElementById('inputEstado').value;
 
 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
@@ -46,7 +47,7 @@ formularioS.addEventListener('submit', function(event) {
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon,estadoSalon });
         mostrarAlertaExito(tituloSalon);
     }
 
@@ -105,6 +106,7 @@ function mostrarSalones(){
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
+        <td>${salon.estadoSalon}</td>
         <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    

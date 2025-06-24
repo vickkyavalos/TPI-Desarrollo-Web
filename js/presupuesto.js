@@ -158,26 +158,26 @@ async function exportarPDF(index) {
 //desplegar formulario presupuesto
 btnDesplegarFormulario.addEventListener('click', function(event) {
     event.preventDefault();
-    desplegarFormPresupuesto();
+    // desplegarFormPresupuesto();
     formularioS.reset();
-    cerrarFormPresupuesto();
+    // cerrarFormPresupuesto();
 });
 
 //cambiar visibilidad
-function desplegarFormPresupuesto(){
-    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-    if (tablaPresupuesto.style.visibility == 'hidden') {
-        tablaPresupuesto.style.visibility = 'visible';
-    }else{
-        tablaPresupuesto.style.visibility = 'hidden';
-    }
-};
+// function desplegarFormPresupuesto(){
+//     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+//     if (tablaPresupuesto.style.visibility == 'hidden') {
+//         tablaPresupuesto.style.visibility = 'visible';
+//     }else{
+//         tablaPresupuesto.style.visibility = 'hidden';
+//     }
+// };
 
-function cerrarFormPresupuesto(){
-    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-    if (tablaPresupuesto.style.visibility == 'visible') {
-        tablaPresupuesto.style.visibility = 'hidden';
-    }else{
-        tablaPresupuesto.style.visibility = 'visible';
-    }
-};
+// function cerrarFormPresupuesto(){
+//     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+//     if (tablaPresupuesto.style.visibility == 'visible') {
+//         tablaPresupuesto.style.visibility = 'hidden';
+//     }else{
+//         tablaPresupuesto.style.visibility = 'visible';
+//     }
+// };
