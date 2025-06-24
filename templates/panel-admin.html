@@ -82,7 +82,7 @@
                 <div class="d-flex flex-column p-3" id="alta-salon2">
                     <h4>Agregar Servicio</h4>
                     <div class="d-flex align-self-end">
-                        <button id="btn-desplegarFormularioServicio" onclick="desplegarFormularioServicio()" class="boton-agregar">
+                        <button class="boton-agregar" data-bs-toggle="modal" data-bs-target="#modalServicio">
                             <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar" />
                         </button>
                     </div>
@@ -190,7 +190,7 @@
         <!-- SECCIONES formulario de alta-->
         <!-- Formulario Salones-->
 
-<div class="d-flex flex-column align-items-center gap-1 w-100 ">
+<div class="d-flex flex-column align-items-center gap-1 w-100">
           
 
     
@@ -273,49 +273,56 @@
         </div>
     
          <!-- FORMULARIO DE SERVICIOS -->
-            <section id="form-admin-servicios" class="my-2 d-flex flex-column align-items-center p-3">
-                <h4>Formulario de Servicios</h4>
-                <form id="formularioServicio" class="my-1 d-flex flex-column align-items-center form needs-validation" novalidate>
+        <div class="modal fade" id="modalServicio" tabindex="-1" aria-labelledby="modalServicioLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" id="contenedor-modal">
+                <div class="modal-content align-items-center p-2" id="form-admin-servicios">
+                <h4 class="my-2">Formulario de Servicios</h4>
+
+                <form id="formularioServicio" class="d-flex flex-column align-items-center needs-validation form" novalidate>
+
                     <div class="mb-3 w-100">
-                        <label for="inputTituloServicio" class="form-label">Nombre de Servicio</label>
-                        <input type="text" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloServicio" placeholder="Ingrese nombre del Servicio" required />
-                        <div class="valid-feedback">Campo válido</div>
-                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    <label for="inputTituloServicio" class="form-label">Nombre de Servicio</label>
+                    <input type="text" name="titulo" minlength="5" maxlength="50" class="form-control" id="inputTituloServicio" placeholder="Ingrese nombre del Servicio" required />
+                    <div class="valid-feedback">Campo válido</div>
+                    <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
 
                     <div class="mb-3 w-100">
-                        <label for="inputDescripcionServicio" class="form-label">Descripción</label>
-                        <input type="text" name="descripcion" minlength="5" maxlength="50" class="form-control" id="inputDescripcionServicio" placeholder="Ingrese descripción del Servicio" required />
-                        <div class="valid-feedback">Campo válido</div>
-                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    <label for="inputDescripcionServicio" class="form-label">Descripción</label>
+                    <input type="text" name="descripcion" minlength="5" maxlength="50" class="form-control" id="inputDescripcionServicio" placeholder="Ingrese descripción del Servicio" required />
+                    <div class="valid-feedback">Campo válido</div>
+                    <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
 
                     <div class="mb-3 w-100">
-                        <label for="inputCategoria" class="form-label">Categoría</label>
-                        <select name="categoria" id="inputCategoria" class="form-select" required>
-                            <option value="" disabled selected>Seleccionar categoría</option>
-                            <option value="Animación">Animación</option>
-                            <option value="Comida">Comida</option>
-                            <option value="Decoración">Decoración</option>
-                            <option value="Fotografía">Fotografía</option>
-                            <option value="Otros">Otros</option>
-                        </select>
-                        <div class="valid-feedback">Campo válido</div>
-                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    <label for="inputCategoria" class="form-label">Categoría</label>
+                    <select name="categoria" id="inputCategoria" class="form-select" required>
+                        <option value="" disabled selected>Seleccionar categoría</option>
+                        <option value="Animación">Animación</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Decoración">Decoración</option>
+                        <option value="Fotografía">Fotografía</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                    <div class="valid-feedback">Campo válido</div>
+                    <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
 
                     <div class="mb-3 w-100">
-                        <label for="inputPrecioServicio" class="form-label">Precio</label>
-                        <input type="number" name="precio" minlength="1" maxlength="50" class="form-control" id="inputPrecioServicio" placeholder="Ingrese Precio del Servicio" required />
-                        <div class="valid-feedback">Campo válido</div>
-                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    <label for="inputPrecioServicio" class="form-label">Precio</label>
+                    <input type="number" name="precio" class="form-control" id="inputPrecioServicio" placeholder="Ingrese Precio del Servicio" required />
+                    <div class="valid-feedback">Campo válido</div>
+                    <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
 
                     <div class="mb-3 w-100 d-flex justify-content-center">
-                        <button id="btn-agregarServicio" type="submit" class="btn btn-primary">Cargar Servicio</button>
+                    <button id="btn-agregarServicio" type="submit" class="btn btn-primary">Cargar Servicio</button>
                     </div>
+
                 </form>
-            </section>
+                </div>
+            </div>
+        </div>
 
             <!-------PRESUPUESTO----->
             <div id="tabla-presupuesto" class="container d-flex justify-content-start gap-1 w-100">

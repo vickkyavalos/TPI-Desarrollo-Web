@@ -196,12 +196,10 @@ td img{
     background-color: var(--color-cuarto);
     border-radius: 10px;
     text-align: center;
-    padding: 20px;
-    display: none; 
+    padding: 20px; 
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    visibility: hidden;
 }
 
 /* Ajustes responsive */
