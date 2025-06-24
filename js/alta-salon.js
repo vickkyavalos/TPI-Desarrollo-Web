@@ -16,7 +16,9 @@ function obtenerNuevoIdSalon(salones) {
     const maxId = Math.max(...salones.map(s => s.idSalon || 0));
     return maxId + 1;
 }
-
+function irUsuarios(){
+    window.location.href = '../templates/panel-usuario.html';
+}
 //guardar datos en el local storage formulario Salon
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
