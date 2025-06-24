@@ -83,8 +83,6 @@ function mostrarServicios() {
         fila.innerHTML = `
             <td>${servicio.idServicio}</td>
             <td>${servicio.tituloServicio}</td>
-            <td>${servicio.descripcionServicio}</td>
-            <td>${servicio.categoriaServicio}</td>
             <td>${servicio.precioServicio}</td>
             <td>
                 <button class="editarStyle" onclick="editarServicio(${index})">
