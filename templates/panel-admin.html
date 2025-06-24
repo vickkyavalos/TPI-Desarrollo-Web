@@ -82,7 +82,7 @@
                 <div class="d-flex flex-column p-3" id="alta-salon2">
                     <h4>Agregar Servicio</h4>
                     <div class="d-flex align-self-end">
-                        <button class="boton-agregar" data-bs-toggle="modal" data-bs-target="#modalServicio">
+                        <button id="btn-desplegarFormularioServicio" class="boton-agregar" data-bs-toggle="modal" data-bs-target="#modalServicio">
                             <img src="../assets/icons/ic-agregar.svg" alt="Botón de Agregar" />
                         </button>
                     </div>
@@ -151,12 +151,8 @@
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
                     <thead class="table-primary border-dark">
                         <tr>
-                            <th scope="col">id</th>
+                            <th scope="col">id</th> 
                             <th scope="col">Titulo</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Categoría
-               
-                            </th>
                             <th scope="col">Precio</th>
                             <th scope="col" class="text-center">*</th>
                         </tr>
@@ -328,35 +324,19 @@
             <div id="tabla-presupuesto" class="container d-flex justify-content-start gap-1 w-100">
                 <div class="col-md-10 bg-success-subtle p-4 rounded shadow mt-5">
                     <h2 class="text-center mb-4">Presupuesto</h2>
-                        <!-- Servicios -->
-                        <h5>Servicios</h5>
-                        <div id="listaServicios" class="mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Catering|50000" id="servicio1">
-                                <label class="form-check-label" for="servicio1">Catering - $50.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="DJ|20000" id="servicio2">
-                                <label class="form-check-label" for="servicio2">DJ - $20.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Fotografía|30000" id="servicio3">
-                                <label class="form-check-label" for="servicio3">Fotografía - $30.000</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Decoración|25000" id="servicio4">
-                                <label class="form-check-label" for="servicio4">Decoración - $25.000</label>
-                            </div>
-                        </div>
+                    
+                    <!-- Servicios -->
+                    <h5>Servicios</h5>
+                    <select id="serviciosselec" class="form-select mb-4">
+                    </select>
+                    <!-- Salón -->
+                    <h5>Salón</h5>
+                    <select id="salonselec" class="form-select mb-4">
+                    </select>
 
-                <!-- Salón -->
-
-                  <h5>Salón</h5>
-                  <select id="salonselec" class="form-select mb-4"></select>
-
-                  <div class="text-center mb-4">
-                      <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
-                  </div>
+                    <div class="text-center mb-4">
+                        <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
+                    </div>
 
                   
 
@@ -364,12 +344,17 @@
                 </div>
             </div>
 
-
-        </div>
-      
-        </main>
+    </main>
     
 
+        <!--------------------------footer -------------------------->
+    <footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2"> 
+ 
+                  <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2 ">
+                    <p id="fin">© 2025 IDW S.A</p>
+                </div>
+
+        </footer>
     <!--------------------------footer -------------------------->
     <footer class="d-flex flex-md-row flex-column flex-wrap justify-content-around align-items-center align-items-md-start text-center py-4 px-2">
         <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start mx-2">
