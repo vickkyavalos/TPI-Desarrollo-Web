@@ -1,3 +1,5 @@
+const modalPresupuesto = document.getElementById('modalPresupuesto');
+modalPresupuesto.addEventListener('show.bs.modal', traerYmostrarServicios);
 
 // Cargar presupuestos al iniciar
     document.addEventListener('DOMContentLoaded', () =>{
@@ -16,53 +18,66 @@
     });
     }
 
-    function traerYmostrarServicios(){
-        //trae los servicios guardados 
-        const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
-        const select = document.getElementById('serviciosselec');
-        if (!select) return;
+    function traerYmostrarServicios() {
+  const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
+  const contenedor = document.getElementById('listaServicios');
+  if (!contenedor) return;
 
-        select.innerHTML = '<option value="">Seleccioná un servicio</option>';
-        servicios.forEach(servicio => {
-        select.innerHTML += `<option value="${servicio.tituloServicio}|${servicio.precioServicio}">${servicio.tituloServicio} ($${servicio.precioServicio})</option>`;
-    });
-    }
+  contenedor.innerHTML = ''; // Limpiar contenido anterior
+
+  servicios.forEach((servicio, index) => {
+    const id = `servicio${index + 1}`;
+    const valor = `${servicio.tituloServicio}|${servicio.precioServicio}`;
+    const labelTexto = `${servicio.tituloServicio} - $${servicio.precioServicio}`;
+
+    contenedor.innerHTML += `
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="${valor}" id="${id}">
+        <label class="form-check-label" for="${id}">${labelTexto}</label>
+      </div>
+    `;
+  });
+}
+
 
     function solicitarPresupuesto() {
+  // Selecciona todos los checkboxes dentro de #listaServicios
+  const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+  const seleccionados = [];
+  let totalServicios = 0;
 
-        const checkboxes = document.querySelectorAll('#serviciosselect');
-        const seleccionados = [];
-        let totalServicios = 0;
-
-        checkboxes.forEach(c => {
-        if (c.checked) {
-            const [nombre, precio] = c.value.split('|');
-            seleccionados.push(nombre);
-            totalServicios += parseInt(precio);
-        }
-    });
-        const select = document.getElementById('salonselec');
-        const salonSelec = select.value
-        if (!salonSelec|| seleccionados.length === 0) {
-        alert('Seleccioná al menos un servicio y un salón.');
-        return;
+  checkboxes.forEach(c => {
+    if (c.checked) {
+      const [nombre, precio] = c.value.split('|');
+      seleccionados.push(nombre);
+      totalServicios += parseInt(precio);
     }
+  });
 
-        const [salonNombre, salonPrecio] = salonSelec.split('|');
-        const total = totalServicios + parseInt(salonPrecio);
+  const select = document.getElementById('salonselec');
+  const salonSelec = select.value;
 
-        const nuevoPresupuesto = {
-        servicios: seleccionados,
-        salon: salonNombre,
-        total: total
-    };  
-        //guarda datos en el local storage
-        const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-        presupuestos.push(nuevoPresupuesto);
-        localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+  if (!salonSelec || seleccionados.length === 0) {
+    alert('Seleccioná al menos un servicio y un salón.');
+    return;
+  }
 
-        mostrarPresupuestos();
-    }
+  const [salonNombre, salonPrecio] = salonSelec.split('|');
+  const total = totalServicios + parseInt(salonPrecio);
+
+  const nuevoPresupuesto = {
+    servicios: seleccionados,
+    salon: salonNombre,
+    total: total
+  };
+
+  // Guarda en localStorage
+  const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+  presupuestos.push(nuevoPresupuesto);
+  localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+
+  mostrarPresupuestos(); // Ya lo tenés bien definido
+}
 
     function mostrarPresupuestos() {
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
