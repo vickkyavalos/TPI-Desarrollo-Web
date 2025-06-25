@@ -16,7 +16,9 @@ function obtenerNuevoIdSalon(salones) {
     const maxId = Math.max(...salones.map(s => s.idSalon || 0));
     return maxId + 1;
 }
-
+function irUsuarios(){
+    window.location.href = '../templates/panel-usuario.html';
+}
 //guardar datos en el local storage formulario Salon
 formularioS.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -31,6 +33,7 @@ formularioS.addEventListener('submit', function(event) {
     const descripcion = document.getElementById('inputDescripcionSalon').value;
     const direccionSalon= document.getElementById('inputDireccion').value;
     const precioSalon = document.getElementById('inputPrecio').value;
+    const estadoSalon = document.getElementById('inputEstado').value;
 
 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
@@ -38,21 +41,28 @@ formularioS.addEventListener('submit', function(event) {
     const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, estadoSalon };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon });
-        mostrarAlertaExito(tituloSalon);
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon,estadoSalon,estadoSalon });
+        //mostrarAlertaExito(tituloSalon);
     }
-
+    
     
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
-    cerrarFormulario();
 
+  const modal1 = document.getElementById('modalAltaSalon');
+  if (modal1) {
+      let modalcerrar = bootstrap.Modal.getInstance(modal1);
+      if (!modalcerrar) {
+          modalcerrar = new bootstrap.Modal(modal1);
+      }
+      modalcerrar.hide();
+  }
     formularioS.reset();
     formularioS.classList.remove('was-validated');
 });
@@ -103,13 +113,14 @@ function mostrarSalones(){
         <td>${salon.descripcion}</td>
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+        <td>${salon.estadoSalon}</td>
+        <td><button id="boton-editar" class="editarStyle align-items-center" data-bs-toggle="modal" data-bs-target="#modalAltaSalon" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
   })   
 
- }
+}
 
 //eliminar
 function eliminarSalon(index){
@@ -129,6 +140,8 @@ function editarSalon(index) {
     document.getElementById('inputDescripcionSalon').value = salon.descripcion;
     document.getElementById('inputDireccion').value = salon.direccionSalon;
     document.getElementById('inputPrecio').value = salon.precioSalon;
+    document.getElementById('inputEstado').value = salon.estadoSalon;
+    
 
     desplegarFormulario();
     

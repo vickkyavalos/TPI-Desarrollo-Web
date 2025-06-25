@@ -23,25 +23,33 @@ formularioServicio.addEventListener('submit', function(event) {
     }
 
     const tituloServicio = document.getElementById('inputTituloServicio').value;
-    const descripcionServicio = document.getElementById('inputDescripcionServicio').value;
-    const categoriaServicio = document.getElementById('inputCategoria').value;
     const precioServicio = document.getElementById('inputPrecioServicio').value;
 
     const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
 
     const idServicio = modoEdicionServicio ? servicios[indexEdicionServicio].idServicio : obtenerNuevoIdServicio(servicios);
     if (modoEdicionServicio) {
-        servicios[indexEdicionServicio] = { idServicio, tituloServicio, descripcionServicio, categoriaServicio, precioServicio };
+        servicios[indexEdicionServicio] = { idServicio, tituloServicio, precioServicio };
         modoEdicionServicio = false;
         indexEdicionServicio = null;
         document.getElementById('btn-agregarServicio').textContent = 'Cargar Servicio';
     } else {
-        servicios.push({ idServicio, tituloServicio, descripcionServicio, categoriaServicio, precioServicio });
+        servicios.push({ idServicio, tituloServicio, precioServicio });
     }
 
     localStorage.setItem('servicios', JSON.stringify(servicios));
     mostrarServicios();
-    cerrarFormularioServicio();
+
+    //cerrar modal
+    const modalServicios = document.getElementById('modalServicio');
+    if (modalServicios) {
+        let modalcerrar = bootstrap.Modal.getInstance(modalServicios);
+        if (!modalcerrar) {
+            modalcerrar = new bootstrap.Modal(modalServicios);
+        }
+        modalcerrar.hide();
+    }
+
 
     formularioServicio.reset();
     formularioServicio.classList.remove('was-validated');
@@ -50,27 +58,11 @@ formularioServicio.addEventListener('submit', function(event) {
 // DesplIEGA formulario //
 btnDesplegarFormularioServicio.addEventListener('click', function(event) {
     event.preventDefault();
-    desplegarFormularioServicio();
     formularioServicio.reset();
     document.getElementById('btn-agregarServicio').textContent = 'Cargar Servicio';
-    cerrarFormularioServicio();
+
 });
 
-function desplegarFormularioServicio(){
-    if (formAdminServicio.style.visibility == 'hidden') {
-        formAdminServicio.style.visibility = 'visible';
-    } else {
-        formAdminServicio.style.visibility = 'hidden';
-    }
-}
-
-function cerrarFormularioServicio(){
-    if (formAdminServicio.style.visibility == 'visible') {
-        formAdminServicio.style.visibility = 'hidden';
-    } else {
-        formAdminServicio.style.visibility = 'visible';
-    }
-}
 
 // Visualiza tabla//
 function mostrarServicios() {
@@ -83,11 +75,9 @@ function mostrarServicios() {
         fila.innerHTML = `
             <td>${servicio.idServicio}</td>
             <td>${servicio.tituloServicio}</td>
-            <td>${servicio.descripcionServicio}</td>
-            <td>${servicio.categoriaServicio}</td>
             <td>${servicio.precioServicio}</td>
             <td>
-                <button class="editarStyle" onclick="editarServicio(${index})">
+                <button class="editarStyle" data-bs-toggle="modal" data-bs-target="#modalServicio" onclick="editarServicio(${index})">
                     <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt="Editar">
                 </button>
                 <button class="eliminarStyle" onclick="eliminarServicio(${index})">
@@ -111,17 +101,15 @@ function editarServicio(index) {
     const servicio = servicios[index];
 
     document.getElementById('inputTituloServicio').value = servicio.tituloServicio;
-    document.getElementById('inputDescripcionServicio').value = servicio.descripcionServicio;
-    document.getElementById('inputCategoria').value = servicio.categoriaServicio;
-    document.getElementById('inputPrecio').value = servicio.precioServicio;
-
-    desplegarFormularioServicio();
+    document.getElementById('inputPrecioServicio').value = servicio.precioServicio;
 
     modoEdicionServicio = true;
     indexEdicionServicio = index;
 
     document.getElementById('btn-agregarServicio').textContent = 'Guardar cambios';
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     mostrarServicios();
