@@ -6,23 +6,23 @@ modalPresupuesto.addEventListener('show.bs.modal',
 
 
 // Cargar presupuestos al iniciar
-    document.addEventListener('DOMContentLoaded', () =>{
-        mostrarPresupuestos(), traerYmostrarSalones(), traerYmostrarServicios()
-    }); 
+  document.addEventListener('DOMContentLoaded', () =>{
+      mostrarPresupuestos(), traerYmostrarSalones(), traerYmostrarServicios()
+   }); 
 
-    function traerYmostrarSalones(){
-        //trae los salones guardados 
-        const salones = JSON.parse(localStorage.getItem('salones')) || [];
-        const select = document.getElementById('salonselec');
-        if (!select) return;
+function traerYmostrarSalones(){
+    //trae los salones guardados 
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const select = document.getElementById('salonselec');
+    if (!select) return;
 
-        select.innerHTML = '<option value="">Seleccioná un salón</option>';
-        salones.forEach(salon => {
-        select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
+    select.innerHTML = '<option value="">Seleccioná un salón</option>';
+    salones.forEach(salon => {
+    select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
     });
     }
 
-    function traerYmostrarServicios() {
+function traerYmostrarServicios() {
   const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
   const contenedor = document.getElementById('listaServicios');
   if (!contenedor) return;
@@ -39,9 +39,9 @@ modalPresupuesto.addEventListener('show.bs.modal',
         <input class="form-check-input" type="checkbox" value="${valor}" id="${id}">
         <label class="form-check-label" for="${id}">${labelTexto}</label>
       </div>
-    `;
-  });
-}
+      `;
+    });
+  }
 
 
 function solicitarPresupuesto() {
@@ -169,29 +169,3 @@ async function exportarPDF(index) {
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
 
-// desplegar formulario presupuesto
- btnDesplegarFormulario.addEventListener('click', function(event) {
-     event.preventDefault();
-     desplegarFormPresupuesto();
-     formularioS.reset();
-     cerrarFormPresupuesto();
- });
-
-//cambiar visibilidad
- function desplegarFormPresupuesto(){
-     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-     if (tablaPresupuesto.style.visibility == 'hidden') {
-         tablaPresupuesto.style.visibility = 'visible';
-     }else{
-         tablaPresupuesto.style.visibility = 'hidden';
-     }
- };
-
- function cerrarFormPresupuesto(){
-    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-     if (tablaPresupuesto.style.visibility == 'visible') {
-         tablaPresupuesto.style.visibility = 'hidden';
-     }else{
-       tablaPresupuesto.style.visibility = 'visible';
-     }
-  };
