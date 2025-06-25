@@ -1,4 +1,4 @@
-
+const formularioPresupuesto = document.getElementById("formularioPresupuesto");
 const modalPresupuesto = document.getElementById('modalPresupuesto');
 modalPresupuesto.addEventListener('show.bs.modal', 
     traerYmostrarServicios);
@@ -61,55 +61,63 @@ function traerYmostrarServicios() {
     }
 
 function solicitarPresupuesto() {
-// Selecciona todos los checkboxes dentro de #listaServicios
-  const seleccionadoTematica = document.getElementById('temaselect');
-  const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
-  const seleccionados = [];
-  let totalServicios = 0;
+    const seleccionadoTematica = document.getElementById('temaselect');
+    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+    const seleccionados = [];
+    let totalServicios = 0;
 
-  checkboxes.forEach(c => {
-    if (c.checked) {
-      const [nombre, precio] = c.value.split('|');
-      seleccionados.push(nombre);
-      totalServicios += parseInt(precio);
+    checkboxes.forEach(c => {
+        if (c.checked) {
+            const [nombre, precio] = c.value.split('|');
+            seleccionados.push(nombre);
+            totalServicios += parseInt(precio);
+        }
+    });
+
+    const select = document.getElementById('salonselec');
+    const salonSelec = select.value;
+
+    if (!salonSelec || seleccionados.length === 0) {
+        alert('Seleccioná al menos un servicio y un salón.');
+        return;
     }
-  });
 
-  const select = document.getElementById('salonselec');
-  const salonSelec = select.value;
+    const fechaInput = document.getElementById('fechaReserva');
+    const [salonNombre, salonPrecio] = salonSelec.split('|');
+    const total = totalServicios + parseInt(salonPrecio);
 
-  if (!salonSelec || seleccionados.length === 0) {
-    alert('Seleccioná al menos un servicio y un salón.');
-    return;
-  }
-  // Poner fecha
-  const fechaInput = document.getElementById('fechaReserva');
-  
+    const nuevoPresupuesto = {
+        servicios: seleccionados,
+        salon: salonNombre,
+        total: total,
+        fechaReserva: fechaInput.value,
+        tematica: seleccionadoTematica.value
+    };
 
-  const [salonNombre, salonPrecio] = salonSelec.split('|');
-  const total = totalServicios + parseInt(salonPrecio);
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
 
-  const fechaReserva = document.getElementById('fechaReserva').value;
-  const nuevoPresupuesto = {
-    servicios: seleccionados,
-    fechaReserva: fechaReserva,  
-    salon: salonNombre,
-    total: total,
-    fechaReserva: fechaInput.value,
-    tematica: seleccionadoTematica.value
-  };
+    if (modoEdicion) {
+        presupuestos[indexEdicion] = nuevoPresupuesto;
+        modoEdicion = false;
+        indexEdicion = null;
 
-  //cerrar el modal
-   const modal = bootstrap.Modal.getInstance(document.getElementById('modalPresupuesto'));
+        const btn = document.getElementById('btn-solicitarPresupuesto');
+        if (btn) {
+            btn.textContent = 'Solicitar Presupuesto';
+        }
+    } else {
+        presupuestos.push(nuevoPresupuesto);
+    }
+
+    localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalPresupuesto'));
     if (modal) {
         modal.hide();
     }
-  // Guarda en localStorage
-  const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-  presupuestos.push(nuevoPresupuesto);
-  localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
 
-  mostrarPresupuestos();
+    mostrarPresupuestos();
+    document.getElementById('form-presupuesto').reset();
 }
 
 function mostrarPresupuestos() {
@@ -155,23 +163,40 @@ function eliminarPresupuesto(index) {
 //editar 
 // 
 function editarPresupuesto(index) {
-    const listaPresupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-    const presupuesto = listaPresupuestos[index];
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const presupuesto = presupuestos[index];
 
-
-    // Cambiar estado a edición
-    
     modoEdicion = true;
-    
     indexEdicion = index;
-   
+
+    // Rellenar los campos del formulario
+    document.getElementById('fechaReserva').value = presupuesto.fechaReserva;
+    document.getElementById('temaselect').value = presupuesto.tematica;
+
+    // Seleccionar el salón correcto
+    const salonSelect = document.getElementById('salonselec');
+    for (let i = 0; i < salonSelect.options.length; i++) {
+        if (salonSelect.options[i].text.includes(presupuesto.salon)) {
+            salonSelect.selectedIndex = i;
+            break;
+        }
+    }
+
+    // Seleccionar los servicios
+    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+    checkboxes.forEach(c => {
+        const [nombre] = c.value.split('|');
+        c.checked = presupuesto.servicios.includes(nombre);
+    });
 
     // Cambiar texto del botón
-    document.getElementById('btn-agregarPresupuesto').textContent = 'Guardar cambios';
-    
-    
-}
+    const btn = document.getElementById('btn-solicitarPresupuesto');
+    if (btn) {
+        btn.textContent = 'Guardar Cambios';
+    }
+    formularioPresupuesto.reset();
 
+}
 
 
 // para descargar presupuesto en pdf 
