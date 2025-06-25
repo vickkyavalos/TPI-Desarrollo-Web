@@ -7,10 +7,12 @@ modalPresupuesto.addEventListener('show.bs.modal',
 
 
 // Cargar presupuestos al iniciar
-  document.addEventListener('DOMContentLoaded', () =>{
-      mostrarPresupuestos(), traerYmostrarSalones(), traerYmostrarServicios(), traerYmostrarTematica()
-
-
+  document.addEventListener('DOMContentLoaded', async () =>{
+      mostrarPresupuestos(), 
+      traerYmostrarSalones(), 
+      traerYmostrarServicios(), 
+      traerYmostrarTematica(),
+      await obtenerUsuarios();
 
    }); 
 
@@ -90,7 +92,8 @@ function solicitarPresupuesto() {
         salon: salonNombre,
         total: total,
         fechaReserva: fechaInput.value,
-        tematica: seleccionadoTematica.value
+        tematica: seleccionadoTematica.value,
+        idUsuario: usuarioActual ? usuarioActual.id : null
     };
 
     const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
@@ -119,23 +122,30 @@ function solicitarPresupuesto() {
     formularioPresupuesto.reset();
 }
 
-function mostrarPresupuestos() {
+async function mostrarPresupuestos() {
     const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+    const usuarios = await obtenerUsuarios();
     const tbody = document.getElementById('tablaPresupuestos');
     tbody.innerHTML = '';
-
+      
     presupuestos.forEach((p, index) => {
-        const fila = document.createElement('tr');
+      const salon = salones.find(s => s.idSalon === p.idSalon);
+      const tematica = tematicas.find(t => t.idTematica === p.idTematica);
+      const usuario = usuarios.find(u => u.id === p.idUsuario) || {};
+      const nombreCompleto = `${usuario.nombre || ''} ${usuario.apellido || ''}`;  
+      const fila = document.createElement('tr');
         fila.innerHTML = `
             <td>${index + 1}</td>
-            <td>${p.servicios.join(', ')}</td>
-            <td>${p.salon}</td>
+            <td>${Array.isArray(p.servicios) ? p.servicios.join(', ') : ''}</td>
+            <td>${salon ? salon.tituloSalon : ''}</td>
             <td>$${p.total}</td>
             <td>${p.fechaReserva}</td>
-            <td>${p.tematica}</td>
-            <td>${p.idCliente || ''}</td>
-            <td>${p.nombreCliente || ''}</td>
-            <td>${p.apellidoCliente || ''}</td>
+            <td>${tematica ? tematica.tituloTematica : ''}</td>
+            <td>${usuario ? usuario.id : ''}</td>
+            <td>${usuario ? usuario.firstName : ''}</td>
+            <td>${usuario ? usuario.lastName : ''}</td>
             <td>
                 <button id="boton-editar" data-bs-toggle="modal" data-bs-target="#modalPresupuesto" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})">
                   <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
@@ -219,3 +229,15 @@ async function exportarPDF(index) {
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
 
+
+
+async function obtenerUsuarios() {
+    try {
+        const response = await fetch('https://dummyjson.com/users');
+        const data = await response.json();
+        return data.users; // solo nos interesan los usuarios
+    } catch (error) {
+        console.error('Error al obtener usuarios:', error);
+        return [];
+    }
+}
