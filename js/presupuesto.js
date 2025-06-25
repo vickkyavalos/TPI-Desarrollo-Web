@@ -89,8 +89,10 @@ function solicitarPresupuesto() {
   const [salonNombre, salonPrecio] = salonSelec.split('|');
   const total = totalServicios + parseInt(salonPrecio);
 
+  const fechaReserva = document.getElementById('fechaReserva').value;
   const nuevoPresupuesto = {
     servicios: seleccionados,
+    fechaReserva: fechaReserva,  
     salon: salonNombre,
     total: total,
     fechaReserva: fechaInput.value,
@@ -150,16 +152,19 @@ function eliminarPresupuesto(index) {
     }
 
 //boton editar
-//editar
+//editar 
+// 
 function editarPresupuesto(index) {
     const listaPresupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
     const presupuesto = listaPresupuestos[index];
+
 
     // Cambiar estado a edición
     
     modoEdicion = true;
     
     indexEdicion = index;
+   
 
     // Cambiar texto del botón
     document.getElementById('btn-agregarPresupuesto').textContent = 'Guardar cambios';
@@ -182,7 +187,8 @@ async function exportarPDF(index) {
     doc.setFontSize(12);
     doc.text(`Servicios: ${p.servicios.join(', ')}`, 20, 35);
     doc.text(`Salón: ${p.salon}`, 20, 45);
-    doc.text(`Total: $${p.total}`, 20, 55);
+    doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
+    doc.text(`Total: $${p.total}`, 20, 65);
 
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
