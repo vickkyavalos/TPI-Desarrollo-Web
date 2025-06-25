@@ -62,6 +62,10 @@ function traerYmostrarServicios() {
     }
 
 function solicitarPresupuesto() {
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+
+    // ...resto de tu código...
     const seleccionadoTematica = document.getElementById('temaselect');
     const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
     const seleccionados = [];
@@ -86,19 +90,39 @@ function solicitarPresupuesto() {
     const fechaInput = document.getElementById('fechaReserva');
     const [salonNombre, salonPrecio] = salonSelec.split('|');
     const total = totalServicios + parseInt(salonPrecio);
+    const usuarioIdInput = document.getElementById('usuarioId');
+    const idUsuario = usuarioIdInput ? parseInt(usuarioIdInput.value) : null;
+
+    //usuario válido
+    if (!idUsuario || idUsuario < 1 || idUsuario > 30) {
+        alert('Seleccioná un ID de usuario válido (1 a 30).');
+        return;
+    }
+    
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const salonObj = salones.find(s => s.tituloSalon === salonNombre);
+    const tematicaObj = tematicas.find(t => t.tituloTematica === seleccionadoTematica.value);
 
     const nuevoPresupuesto = {
-        servicios: seleccionados,
-        salon: salonNombre,
-        total: total,
-        fechaReserva: fechaInput.value,
-        tematica: seleccionadoTematica.value,
-        idUsuario: usuarioActual ? usuarioActual.id : null
+       idPresupuesto: modoEdicion ? presupuestos[indexEdicion].idPresupuesto : generarIdPresupuesto(presupuestos),
+       idUsuario: idUsuario,
+       servicios: seleccionados,
+       salon: salonNombre,
+       idSalon: salonObj ? salonObj.idSalon : null,
+       total: total,
+       fechaReserva: fechaInput.value,
+       tematica: seleccionadoTematica.value,
+       idTematica: tematicaObj ? tematicaObj.idTematica : null
     };
 
-    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    
 
+    
+
+
+    
     if (modoEdicion) {
+        nuevoPresupuesto.idUsuario = presupuestos[indexEdicion].idUsuario;
         presupuestos[indexEdicion] = nuevoPresupuesto;
         modoEdicion = false;
         indexEdicion = null;
@@ -122,10 +146,17 @@ function solicitarPresupuesto() {
     formularioPresupuesto.reset();
 }
 
+function generarIdPresupuesto(lista) {
+    if (lista.length === 0) return 1;
+    return Math.max(...lista.map(p => p.idPresupuesto)) + 1;
+    }
+
+
 async function mostrarPresupuestos() {
     const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+
     const usuarios = await obtenerUsuarios();
     const tbody = document.getElementById('tablaPresupuestos');
     tbody.innerHTML = '';
@@ -137,9 +168,9 @@ async function mostrarPresupuestos() {
       const nombreCompleto = `${usuario.nombre || ''} ${usuario.apellido || ''}`;  
       const fila = document.createElement('tr');
         fila.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${Array.isArray(p.servicios) ? p.servicios.join(', ') : ''}</td>
+            <td>${p.idPresupuesto}</td>
             <td>${salon ? salon.tituloSalon : ''}</td>
+            <td>${Array.isArray(p.servicios) ? p.servicios.join(', ') : ''}</td>
             <td>$${p.total}</td>
             <td>${p.fechaReserva}</td>
             <td>${tematica ? tematica.tituloTematica : ''}</td>
@@ -173,41 +204,41 @@ function eliminarPresupuesto(index) {
 //boton editar
 //editar 
 // 
-function editarPresupuesto(index) {
-    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-    const presupuesto = presupuestos[index];
+    function editarPresupuesto(index) {
+        const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+        const presupuesto = presupuestos[index];
 
-    modoEdicion = true;
-    indexEdicion = index;
+        modoEdicion = true;
+        indexEdicion = index;
 
-    // Rellenar los campos del formulario
-    document.getElementById('fechaReserva').value = presupuesto.fechaReserva;
-    document.getElementById('temaselect').value = presupuesto.tematica;
+        // Rellenar los campos del formulario
+        document.getElementById('fechaReserva').value = presupuesto.fechaReserva;
+        document.getElementById('temaselect').value = presupuesto.tematica;
 
-    // Seleccionar el salón correcto
-    const salonSelect = document.getElementById('salonselec');
-    for (let i = 0; i < salonSelect.options.length; i++) {
-        if (salonSelect.options[i].text.includes(presupuesto.salon)) {
-            salonSelect.selectedIndex = i;
-            break;
+        // Seleccionar el salón correcto
+        const salonSelect = document.getElementById('salonselec');
+        for (let i = 0; i < salonSelect.options.length; i++) {
+            if (salonSelect.options[i].text.includes(presupuesto.salon)) {
+                salonSelect.selectedIndex = i;
+                break;
+            }
         }
+
+        // Seleccionar los servicios
+        const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+        checkboxes.forEach(c => {
+            const [nombre] = c.value.split('|');
+            c.checked = presupuesto.servicios.includes(nombre);
+        });
+
+        // Cambiar texto del botón
+        const btn = document.getElementById('btn-solicitarPresupuesto');
+        if (btn) {
+            btn.textContent = 'Guardar Cambios';
+        }
+        formularioPresupuesto.reset();
+
     }
-
-    // Seleccionar los servicios
-    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
-    checkboxes.forEach(c => {
-        const [nombre] = c.value.split('|');
-        c.checked = presupuesto.servicios.includes(nombre);
-    });
-
-    // Cambiar texto del botón
-    const btn = document.getElementById('btn-solicitarPresupuesto');
-    if (btn) {
-        btn.textContent = 'Guardar Cambios';
-    }
-    formularioPresupuesto.reset();
-
-}
 
 
 // para descargar presupuesto en pdf 
