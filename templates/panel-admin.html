@@ -333,32 +333,32 @@
                     <div class="modal-content p-4 bg-success-subtle rounded shadow">
 
                     <h2 class="text-center mb-4">Presupuesto</h2>
+                    <form id="formularioPresupuesto" action="sumbit">        
+                            <!-- Servicios -->
+                            <h4>Servicios</h4>
+                            <div id="listaServicios" class="mb-4">
+                            </div>
 
-                    <!-- Servicios -->
-                    <h4>Servicios</h4>
-                    <div id="listaServicios" class="mb-4">
-                    </div>
-                    
-                    <!-- Salón -->
-                    <h5>Salón</h5>
-                    <select id="salonselec" class="form-select mb-4">
-                        <!-- Las opciones se cargan dinámicamente -->
-                    </select>
+                            <!-- Salón -->
+                            <h5>Salón</h5>
+                            <select id="salonselec" class="form-select mb-4">
+                                <!-- Las opciones se cargan dinámicamente -->
+                            </select>
 
-                    <!-- Tematica -->
-                    <h5>Temática</h5>
-                    <select id="temaselect" class="form-select mb-4">
-                        <!-- Las opciones se cargan dinámicamente -->
-                    </select>
-                    <div class="mb-3">
-                        <label for="fechaReserva" class="form-label">Fecha de reserva:</label>
-                        <input type="date" id="fechaReserva" class="form-control" required>
-                    </div>
+                            <!-- Tematica -->
+                            <h5>Temática</h5>
+                            <select id="temaselect" class="form-select mb-4">
+                                <!-- Las opciones se cargan dinámicamente -->
+                            </select>
+                            <div class="mb-3">
+                                <label for="fechaReserva" class="form-label">Fecha de reserva:</label>
+                                <input type="date" id="fechaReserva" class="form-control" required>
+                            </div>
 
-                    <div class="text-center mb-2">
-                        <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
-                    </div>
-
+                            <div class="text-center mb-2">
+                                <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
+                            </div>
+                    </form>       
                     </div>
                 </div>
             </div>
