@@ -19,6 +19,13 @@ export const servicios = [
     {idServicio: 4, tituloServicio: "Decoración", precioServicio: 15000},
 ];
 
+export const presupuestos = [
+    { idPresupuesto: 1, idUsuario: 1, idSalon: 1, idServicios: [1, 2], idTematica: 1 },
+    { idPresupuesto: 2, idUsuario: 2, idSalon: 2, idServicios: [2, 3], idTematica: 2 },
+    { idPresupuesto: 3, idUsuario: 3, idSalon: 3, idServicios: [1, 3, 4], idTematica: 3 },
+    { idPresupuesto: 4, idUsuario: 4, idSalon: 1, idServicios: [3], idTematica: 4 }
+];
+
 export const tematicas = [
     {idTematica: 1, tituloTematica: "Spiderman"},
     {idTematica: 2, tituloTematica: "Kuromi"},
@@ -44,5 +51,9 @@ export const inicializarLocalStorage = () => {
     if (!localStorage.getItem("tematicas")) {
         localStorage.setItem("tematicas", JSON.stringify(tematicas));
         console.log(tematicas);;
+}
+    if (!localStorage.getItem("presupuestos")) {
+        localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
+        console.log(presupuestos);;
 }
 };

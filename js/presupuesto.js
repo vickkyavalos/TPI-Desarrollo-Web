@@ -1,3 +1,5 @@
+
+
 const formularioPresupuesto = document.getElementById("formularioPresupuesto");
 const modalPresupuesto = document.getElementById('modalPresupuesto');
 modalPresupuesto.addEventListener('show.bs.modal', 
@@ -7,9 +9,6 @@ modalPresupuesto.addEventListener('show.bs.modal',
 // Cargar presupuestos al iniciar
   document.addEventListener('DOMContentLoaded', () =>{
       mostrarPresupuestos(), traerYmostrarSalones(), traerYmostrarServicios(), traerYmostrarTematica()
-
-
-
 
 
 
@@ -117,7 +116,7 @@ function solicitarPresupuesto() {
     }
 
     mostrarPresupuestos();
-    document.getElementById('form-presupuesto').reset();
+    formularioPresupuesto.reset();
 }
 
 function mostrarPresupuestos() {
