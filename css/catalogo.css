@@ -136,14 +136,21 @@ header {
     font-weight:  400;
 }
 
-.card a{
-    font-family: var(--letra-titulo);
-    font-size: 1rem;
-    background-color: var(--color-sexto);
-    border-radius: 15px;
-    border-color: var(--color-septimo);
+.card a, .btn-custom{
+    font-family: var(--letra-titulo)!important;
+    font-size: 1rem !important;
+    background-color: var(--color-sexto)!important;
+    border-radius: 15px !important;
+    border-color: var(--color-septimo)!important; 
     margin: 5px;
 }
+
+.btn-custom:hover, .card a:hover{
+    background-color: var(--color-septimo);
+    border-color: var(--color-sexto);
+    transform: translateY(-2px);
+}
+
 /********************************** footer **********************************/
 footer{
     background-image: url("../assets/img/wave-celeste.svg");;
