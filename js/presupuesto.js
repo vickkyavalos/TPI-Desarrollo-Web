@@ -1,29 +1,35 @@
-const modalPresupuesto = document.getElementById("modalPresupuesto");
-if (modalPresupuesto) {
-  modalPresupuesto.addEventListener("show.bs.modal", traerYmostrarServicios);
-}
 
-// Cargar datos al iniciar
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarPresupuestos();
-  traerYmostrarSalones();
-  traerYmostrarServicios();
-});
+const formularioPresupuesto = document.getElementById("formularioPresupuesto");
+const modalPresupuesto = document.getElementById('modalPresupuesto');
+modalPresupuesto.addEventListener('show.bs.modal', 
+    traerYmostrarServicios);
 
-function traerYmostrarSalones() {
-  const salones = JSON.parse(localStorage.getItem("salones")) || [];
-  const select = document.getElementById("salonselec");
-  if (!select) return;
 
-  select.innerHTML = '<option value="">Seleccioná un salón</option>';
-  salones.forEach((salon) => {
+// Cargar presupuestos al iniciar
+  document.addEventListener('DOMContentLoaded', async () =>{
+      mostrarPresupuestos(), 
+      traerYmostrarSalones(), 
+      traerYmostrarServicios(), 
+      traerYmostrarTematica(),
+      await obtenerUsuarios();
+
+   }); 
+
+function traerYmostrarSalones(){
+    //trae los salones guardados 
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const select = document.getElementById('salonselec');
+    if (!select) return;
+
+    select.innerHTML = '<option value="">Seleccioná un salón</option>';
+    salones.forEach(salon => {
     select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
-  });
-}
+    });
+    }
 
 function traerYmostrarServicios() {
-  const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
-  const contenedor = document.getElementById("listaServicios");
+  const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
+  const contenedor = document.getElementById('listaServicios');
   if (!contenedor) return;
 
   contenedor.innerHTML = ""; // Limpia antes
@@ -34,80 +40,142 @@ function traerYmostrarServicios() {
     const labelTexto = `${servicio.tituloServicio} - $${servicio.precioServicio}`;
 
     contenedor.innerHTML += `
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="${valor}" id="${id}">
-            <label class="form-check-label" for="${id}">${labelTexto}</label>
-          </div>
-        `;
-  });
-}
-
-function solicitarPresupuesto() {
-  const checkboxes = document.querySelectorAll(
-    "#listaServicios .form-check-input"
-  );
-  const seleccionados = [];
-  let totalServicios = 0;
-
-  checkboxes.forEach((c) => {
-    if (c.checked) {
-      const [nombre, precio] = c.value.split("|");
-      seleccionados.push(nombre);
-      totalServicios += parseInt(precio);
-    }
-  });
-
-  const select = document.getElementById("salonselec");
-  const salonSelec = select.value;
-
-  if (!salonSelec || seleccionados.length === 0) {
-    alert("Seleccioná al menos un servicio y un salón.");
-    return;
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="${valor}" id="${id}">
+        <label class="form-check-label" for="${id}">${labelTexto}</label>
+      </div>
+      `;
+    });
   }
 
-  const [salonNombre, salonPrecio] = salonSelec.split("|");
-  const total = totalServicios + parseInt(salonPrecio);
+  function traerYmostrarTematica(){
+    //trae los tematica guardados 
+    const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+    const seleccionadoTematica = document.getElementById('temaselect');
+    if (!seleccionadoTematica) return;
 
-  // Obtener usuario actual de sessionStorage
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-  const usuarioActual = userData?.username || "Anónimo";
+    seleccionadoTematica.innerHTML = '<option value="">Seleccioná una temática</option>';
+    tematicas.forEach(tematicas => {
+    seleccionadoTematica.innerHTML += `<option value="${tematicas.tituloTematica}">${tematicas.tituloTematica}</option>`;
+    });
+    }
 
-  const nuevoPresupuesto = {
-    servicios: seleccionados,
-    salon: salonNombre,
-    total: total,
-    usuario: usuarioActual,
-  };
+function solicitarPresupuesto() {
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
 
-  // Guardar en localStorage
-  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
-  presupuestos.push(nuevoPresupuesto);
-  localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
+    // ...resto de tu código...
+    const seleccionadoTematica = document.getElementById('temaselect');
+    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+    const seleccionados = [];
+    let totalServicios = 0;
 
-  mostrarPresupuestos();
+    checkboxes.forEach(c => {
+        if (c.checked) {
+            const [nombre, precio] = c.value.split('|');
+            seleccionados.push(nombre);
+            totalServicios += parseInt(precio);
+        }
+    });
+
+    const select = document.getElementById('salonselec');
+    const salonSelec = select.value;
+
+    if (!salonSelec || seleccionados.length === 0) {
+        alert('Seleccioná al menos un servicio y un salón.');
+        return;
+    }
+
+    const fechaInput = document.getElementById('fechaReserva');
+    const [salonNombre, salonPrecio] = salonSelec.split('|');
+    const total = totalServicios + parseInt(salonPrecio);
+    const usuarioIdInput = document.getElementById('usuarioId');
+    const idUsuario = usuarioIdInput ? parseInt(usuarioIdInput.value) : null;
+
+    //usuario válido
+    if (!idUsuario || idUsuario < 1 || idUsuario > 30) {
+        alert('Seleccioná un ID de usuario válido (1 a 30).');
+        return;
+    }
+    
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const salonObj = salones.find(s => s.tituloSalon === salonNombre);
+    const tematicaObj = tematicas.find(t => t.tituloTematica === seleccionadoTematica.value);
+
+    const nuevoPresupuesto = {
+       idPresupuesto: modoEdicion ? presupuestos[indexEdicion].idPresupuesto : generarIdPresupuesto(presupuestos),
+       idUsuario: idUsuario,
+       servicios: seleccionados,
+       salon: salonNombre,
+       idSalon: salonObj ? salonObj.idSalon : null,
+       total: total,
+       fechaReserva: fechaInput.value,
+       tematica: seleccionadoTematica.value,
+       idTematica: tematicaObj ? tematicaObj.idTematica : null
+    };
+
+    
+    if (modoEdicion) {
+        nuevoPresupuesto.idUsuario = presupuestos[indexEdicion].idUsuario;
+        presupuestos[indexEdicion] = nuevoPresupuesto;
+        modoEdicion = false;
+        indexEdicion = null;
+
+        const btn = document.getElementById('btn-solicitarPresupuesto');
+        if (btn) {
+            btn.textContent = 'Solicitar Presupuesto';
+        }
+    } else {
+        presupuestos.push(nuevoPresupuesto);
+    }
+
+    localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalPresupuesto'));
+    if (modal) {
+        modal.hide();
+    }
+
+    mostrarPresupuestos();
+    formularioPresupuesto.reset();
 }
 
-function mostrarPresupuestos() {
-  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
-  const tbody = document.getElementById("tablaPresupuestos");
-  if (!tbody) return;
-  tbody.innerHTML = "";
+function generarIdPresupuesto(lista) {
+    if (lista.length === 0) return 1;
+    return Math.max(...lista.map(p => p.idPresupuesto)) + 1;
+    }
 
-  presupuestos.forEach((p, index) => {
-    const fila = document.createElement("tr");
-    fila.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${p.servicios.join(", ")}</td>
-            <td>${p.salon}</td>
+
+async function mostrarPresupuestos() {
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+
+    const usuarios = await obtenerUsuarios();
+    const tbody = document.getElementById('tablaPresupuestos');
+    tbody.innerHTML = '';
+      
+    presupuestos.forEach((p, index) => {
+      const salon = salones.find(s => s.idSalon === p.idSalon);
+      const tematica = tematicas.find(t => t.idTematica === p.idTematica);
+      const usuario = usuarios.find(u => u.id === p.idUsuario) || {};
+      const nombreCompleto = `${usuario.nombre || ''} ${usuario.apellido || ''}`;  
+      const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${p.idPresupuesto}</td>
+            <td>${salon ? salon.tituloSalon : ''}</td>
+            <td>${Array.isArray(p.servicios) ? p.servicios.join(', ') : ''}</td>
             <td>$${p.total}</td>
+            <td>${p.fechaReserva}</td>
+            <td>${tematica ? tematica.tituloTematica : ''}</td>
+            <td>${usuario ? usuario.id : ''}</td>
+            <td>${usuario ? usuario.firstName : ''}</td>
+            <td>${usuario ? usuario.lastName : ''}</td>
             <td>
+                <button id="boton-editar" data-bs-toggle="modal" data-bs-target="#modalPresupuesto" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})">
+                  <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
                 <button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
-                    <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
-                </button>
-            </td>
-            <td>
-                <button id="boton-editar" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})">
-                    <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt="">
+                  <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
                 </button>
             </td>
             <td>
@@ -125,14 +193,51 @@ function eliminarPresupuesto(index) {
   mostrarPresupuestos();
 }
 
-function editarPresupuesto(index) {
-  const listaPresupuestos =
-    JSON.parse(localStorage.getItem("presupuestos")) || [];
-  const presupuesto = listaPresupuestos[index];
 
-  document.getElementById("inputI").value = presupuesto.idPresupuesto || "";
+// boton eliminar
+function eliminarPresupuesto(index) {
+        const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+        presupuestos.splice(index, 1);
+        localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
+        mostrarPresupuestos();
+    }
 
-  desplegarFormPresupuesto();
+//boton editar
+    function editarPresupuesto(index) {
+        const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+        const presupuesto = presupuestos[index];
+
+        modoEdicion = true;
+        indexEdicion = index;
+
+        // Rellenar los campos del formulario
+        document.getElementById('fechaReserva').value = presupuesto.fechaReserva;
+        document.getElementById('temaselect').value = presupuesto.tematica;
+
+        // Seleccionar el salón correcto
+        const salonSelect = document.getElementById('salonselec');
+        for (let i = 0; i < salonSelect.options.length; i++) {
+            if (salonSelect.options[i].text.includes(presupuesto.salon)) {
+                salonSelect.selectedIndex = i;
+                break;
+            }
+        }
+
+        // Seleccionar los servicios
+        const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+        checkboxes.forEach(c => {
+            const [nombre] = c.value.split('|');
+            c.checked = presupuesto.servicios.includes(nombre);
+        });
+
+        // Cambiar texto del botón
+        const btn = document.getElementById('btn-solicitarPresupuesto');
+        if (btn) {
+            btn.textContent = 'Guardar Cambios';
+        }
+        formularioPresupuesto.reset();
+    }
+
 
   modoEdicion = true;
   indexEdicion = index;
@@ -147,52 +252,26 @@ async function exportarPDF(index) {
 
   const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
   const p = presupuestos[index];
+    doc.setFontSize(14);
+    doc.text("Presupuesto", 20, 20);
+    doc.setFontSize(12);
+    doc.text(`Servicios: ${p.servicios.join(', ')}`, 20, 35);
+    doc.text(`Salón: ${p.salon}`, 20, 45);
+    doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
+    doc.text(`Total: $${p.total}`, 20, 65);
 
-  doc.setFontSize(14);
-  doc.text("Presupuesto", 20, 20);
-  doc.setFontSize(12);
-  doc.text(`Servicios: ${p.servicios.join(", ")}`, 20, 35);
-  doc.text(`Salón: ${p.salon}`, 20, 45);
-  doc.text(`Total: $${p.total}`, 20, 55);
 
   doc.save(`presupuesto_${index + 1}.pdf`);
 }
 
-const btnDesplegarFormulario = document.getElementById(
-  "btnDesplegarFormulario"
-);
-const formularioS = document.getElementById("formularioS");
 
-if (btnDesplegarFormulario) {
-  btnDesplegarFormulario.addEventListener("click", function (event) {
-    event.preventDefault();
-    desplegarFormPresupuesto();
-    if (formularioS) formularioS.reset();
-    cerrarFormPresupuesto();
-  });
-}
-
-function desplegarFormPresupuesto() {
-  const tablaPresupuesto = document.getElementById("tabla-presupuesto");
-  if (!tablaPresupuesto) return;
-
-  if (
-    tablaPresupuesto.style.visibility === "hidden" ||
-    tablaPresupuesto.style.visibility === ""
-  ) {
-    tablaPresupuesto.style.visibility = "visible";
-  } else {
-    tablaPresupuesto.style.visibility = "hidden";
-  }
-}
-
-function cerrarFormPresupuesto() {
-  const tablaPresupuesto = document.getElementById("tabla-presupuesto");
-  if (!tablaPresupuesto) return;
-
-  if (tablaPresupuesto.style.visibility === "visible") {
-    tablaPresupuesto.style.visibility = "hidden";
-  } else {
-    tablaPresupuesto.style.visibility = "visible";
-  }
+async function obtenerUsuarios() {
+    try {
+        const response = await fetch('https://dummyjson.com/users');
+        const data = await response.json();
+        return data.users; // solo nos interesan los usuarios
+    } catch (error) {
+        console.error('Error al obtener usuarios:', error);
+        return [];
+    }
 }

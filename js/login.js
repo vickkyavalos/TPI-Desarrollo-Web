@@ -71,7 +71,7 @@ function auth(){
 
    setTimeout(() => {
      window.location.href = redirigir;
-      }, 4000);
+      }, 2000);
    });
 
 }

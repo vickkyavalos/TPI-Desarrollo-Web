@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("btn-logout")
   const adminNavItem = document.getElementById("admin-nav-item") 
 
-  console.log("Script iniciado")
-  console.log("userData:", userData)
+  // console.log("Script iniciado")
+  // console.log("userData:", userData)
 
   if (userData) {
     const user = JSON.parse(userData)
     const nombre = user.firstNameUser
     const rol = user.roleUser
 
-    console.log("Usuario logueado:", user)
+    //console.log("Usuario logueado:", user)
 
     
   if (rol === "admin") {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault() 
 
-    console.log("Cerrar sesión clickeado")
+    //console.log("Cerrar sesión clickeado")
 
     sessionStorage.removeItem("accessToken")
     sessionStorage.removeItem("userData")
