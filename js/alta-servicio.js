@@ -101,15 +101,15 @@ function editarServicio(index) {
     const servicio = servicios[index];
 
     document.getElementById('inputTituloServicio').value = servicio.tituloServicio;
-    document.getElementById('inputPrecio').value = servicio.precioServicio;
-
-    desplegarFormularioServicio();
+    document.getElementById('inputPrecioServicio').value = servicio.precioServicio;
 
     modoEdicionServicio = true;
     indexEdicionServicio = index;
 
     document.getElementById('btn-agregarServicio').textContent = 'Guardar cambios';
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     mostrarServicios();

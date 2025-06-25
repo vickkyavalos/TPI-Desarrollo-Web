@@ -44,6 +44,7 @@ formularioImagen.addEventListener('submit', function(event) {
     }
     
     localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
+    mostrarImagenesSalon();
 
     //cerrar modal
     const modalImg = document.getElementById('modalImagen');
@@ -94,25 +95,18 @@ function eliminarImagen(index){
   mostrarImagenesSalon();
 }
 
-//editar
+
 function editarImagen(index) {
     const imagenesSalon = JSON.parse(localStorage.getItem('imagenesSalon')) || [];
     const imagenSalon = imagenesSalon[index];
 
-    // Cargar imagen en el formulario
     document.getElementById('inputIdSalon').value = imagenSalon.idSalon;
     document.getElementById('inputFotoSalon').value = imagenSalon.rutaImagen;
-
-    desplegarFormularioImagen();
     
-    // Cambiar estado a edición
     modoEdicion = true;
     indexEdicion = index;
 
-    // Cambiar texto del botón
     document.getElementById('btn-agregarImagen').textContent = 'Guardar cambios';
-    
-    
 }
 
 

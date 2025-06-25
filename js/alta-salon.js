@@ -50,9 +50,10 @@ formularioS.addEventListener('submit', function(event) {
         salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon,estadoSalon,estadoSalon });
         //mostrarAlertaExito(tituloSalon);
     }
-
+    
     
     localStorage.setItem('salones', JSON.stringify(salones));
+    mostrarSalones();
 
   const modal1 = document.getElementById('modalAltaSalon');
   if (modal1) {

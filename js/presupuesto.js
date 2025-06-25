@@ -126,8 +126,10 @@ function mostrarPresupuestos() {
             <td>$${p.total}</td>
             <td>${p.fechaReserva}</td>
             <td>${p.tematica}</td>
+            <td>${p.idCliente || ''}</td>
+            <td>${p.nombreCliente || ''}</td>
+            <td>${p.apellidoCliente || ''}</td>
             <td>
-                
                 <button id="boton-editar" data-bs-toggle="modal" data-bs-target="#modalPresupuesto" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})">
                   <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
                 <button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
