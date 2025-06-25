@@ -156,40 +156,47 @@ table{
     border-radius: 5px;
     background-color: var(--color-tercero);   
 }
-
- /* .iconos-tabla afecta ambos iconos de la tabla */
 .iconos-tabla{
     display: flex;
     padding: 6px;
 }
+#contenedor-modal{
+    
+    display: flex;
+    justify-content: center;
+}
+
 #form-admin{
-    width: 27vw;
+    width: 30vw;
     height: auto;
     background-color: var(--color-quinto);
     border-radius: 10px;
-    visibility: hidden;
+    
     text-align: center;
 } 
 td img{
     width:80%;
 }
 #form-admin-img{
-    width: 27vw;
+    width: 30vw;
     height: auto;
     background-color: var(--color-sexto);
     border-radius: 10px;
     text-align: center;
-    visibility: hidden;
+    
 } 
+
+
+#tabla-presupuesto{
+    visibility: hidden;
+}
 
 #form-admin-servicios {
     width: 27vw;
-    min-width: 300px;
     background-color: var(--color-cuarto);
     border-radius: 10px;
     text-align: center;
-    padding: 20px;
-    display: none; /* oculto por defecto */
+    padding: 20px; 
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -200,6 +207,8 @@ td img{
     #form-admin-servicios {
         width: 80%;
     }
+    
+
 }
 
 #form-admin-servicios form {
@@ -210,6 +219,7 @@ td img{
 #form-admin-servicios .form-select {
     font-size: 1rem;
 }
+
 
 .textoTablas{
     font-weight: 550;

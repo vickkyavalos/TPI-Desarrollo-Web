@@ -23,20 +23,18 @@ formularioServicio.addEventListener('submit', function(event) {
     }
 
     const tituloServicio = document.getElementById('inputTituloServicio').value;
-    const descripcionServicio = document.getElementById('inputDescripcionServicio').value;
-    const categoriaServicio = document.getElementById('inputCategoria').value;
     const precioServicio = document.getElementById('inputPrecioServicio').value;
 
     const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
 
     const idServicio = modoEdicionServicio ? servicios[indexEdicionServicio].idServicio : obtenerNuevoIdServicio(servicios);
     if (modoEdicionServicio) {
-        servicios[indexEdicionServicio] = { idServicio, tituloServicio, descripcionServicio, categoriaServicio, precioServicio };
+        servicios[indexEdicionServicio] = { idServicio, tituloServicio, precioServicio };
         modoEdicionServicio = false;
         indexEdicionServicio = null;
         document.getElementById('btn-agregarServicio').textContent = 'Cargar Servicio';
     } else {
-        servicios.push({ idServicio, tituloServicio, descripcionServicio, categoriaServicio, precioServicio });
+        servicios.push({ idServicio, tituloServicio, precioServicio });
     }
 
     localStorage.setItem('servicios', JSON.stringify(servicios));
@@ -83,8 +81,6 @@ function mostrarServicios() {
         fila.innerHTML = `
             <td>${servicio.idServicio}</td>
             <td>${servicio.tituloServicio}</td>
-            <td>${servicio.descripcionServicio}</td>
-            <td>${servicio.categoriaServicio}</td>
             <td>${servicio.precioServicio}</td>
             <td>
                 <button class="editarStyle" onclick="editarServicio(${index})">
@@ -111,8 +107,6 @@ function editarServicio(index) {
     const servicio = servicios[index];
 
     document.getElementById('inputTituloServicio').value = servicio.tituloServicio;
-    document.getElementById('inputDescripcionServicio').value = servicio.descripcionServicio;
-    document.getElementById('inputCategoria').value = servicio.categoriaServicio;
     document.getElementById('inputPrecio').value = servicio.precioServicio;
 
     desplegarFormularioServicio();

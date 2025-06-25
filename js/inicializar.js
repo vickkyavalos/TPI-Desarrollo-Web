@@ -8,8 +8,17 @@ export const eventosExportados = [
 export const imgSalones = [
     { idImagen: 1, idSalon: 1, rutaImagen: "../assets/img/evento3.jpg" },
     { idImagen: 2, idSalon: 2, rutaImagen: "../assets/img/burbuja-kid.jpg" },
-    { idImagen: 3, idSalon: 3, rutaImagen: "../assets/img/salon.jpg" }
+    { idImagen: 3, idSalon: 3, rutaImagen: "../assets/img/salon.jpg" },
+
 ];
+
+export const servicios = [
+    {idServicio: 1, tituloServicio: "Dj - Música", precioServicio: 25000},
+    {idServicio: 2, tituloServicio: "Categing", precioServicio: 35000},
+    {idServicio: 3, tituloServicio: "Fotografía", precioServicio: 30000},
+    {idServicio: 4, tituloServicio: "Decoración", precioServicio: 15000},
+];
+
 
 export const inicializarLocalStorage = () => {
     if (!localStorage.getItem("salones")) {
@@ -20,7 +29,9 @@ export const inicializarLocalStorage = () => {
         localStorage.setItem("imagenesSalon", JSON.stringify(imgSalones));
         console.log(imgSalones);
     }
+    if (!localStorage.getItem("servicios")) {
+        localStorage.setItem("servicios", JSON.stringify(servicios));
+        console.log(servicios);
 };
-
-
+}
 
