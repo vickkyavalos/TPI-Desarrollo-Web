@@ -54,16 +54,16 @@ formularioImagen.addEventListener('submit', function(event) {
 
 //cambiar visibilidad
 function desplegarFormularioImagen(){
-    if (formularioAdminImg.style.visibility == 'hidden') {
+    if (formularioAdminImg.style.visibility == 'block') {
       formularioAdminImg.style.visibility = 'visible';
     }else{
-      formularioAdminImg.style.visibility = 'hidden';
+      formularioAdminImg.style.visibility = 'block';
     }
 };
 
 function cerrarFormulario(){
     if (formularioAdminImg.style.visibility == 'visible') {
-      formularioAdminImg.style.visibility = 'hidden';
+      formularioAdminImg.style.visibility = 'none';
     }else{
       formularioAdminImg.style.visibility = 'visible';
     }

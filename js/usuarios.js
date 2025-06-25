@@ -1,6 +1,6 @@
-
-
-
+function volverHaciaAtras(){
+    window.history.back();
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
   const tabla = document.querySelector('#tablaUsuarios tbody');
