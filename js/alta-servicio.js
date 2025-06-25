@@ -39,7 +39,17 @@ formularioServicio.addEventListener('submit', function(event) {
 
     localStorage.setItem('servicios', JSON.stringify(servicios));
     mostrarServicios();
-    cerrarFormularioServicio();
+
+    //cerrar modal
+    const modalServicios = document.getElementById('modalServicio');
+    if (modalServicios) {
+        let modalcerrar = bootstrap.Modal.getInstance(modalServicios);
+        if (!modalcerrar) {
+            modalcerrar = new bootstrap.Modal(modalServicios);
+        }
+        modalcerrar.hide();
+    }
+
 
     formularioServicio.reset();
     formularioServicio.classList.remove('was-validated');
@@ -48,27 +58,11 @@ formularioServicio.addEventListener('submit', function(event) {
 // DesplIEGA formulario //
 btnDesplegarFormularioServicio.addEventListener('click', function(event) {
     event.preventDefault();
-    desplegarFormularioServicio();
     formularioServicio.reset();
     document.getElementById('btn-agregarServicio').textContent = 'Cargar Servicio';
-    cerrarFormularioServicio();
+
 });
 
-function desplegarFormularioServicio(){
-    if (formAdminServicio.style.visibility == 'hidden') {
-        formAdminServicio.style.visibility = 'visible';
-    } else {
-        formAdminServicio.style.visibility = 'hidden';
-    }
-}
-
-function cerrarFormularioServicio(){
-    if (formAdminServicio.style.visibility == 'visible') {
-        formAdminServicio.style.visibility = 'hidden';
-    } else {
-        formAdminServicio.style.visibility = 'visible';
-    }
-}
 
 // Visualiza tabla//
 function mostrarServicios() {
@@ -83,7 +77,7 @@ function mostrarServicios() {
             <td>${servicio.tituloServicio}</td>
             <td>${servicio.precioServicio}</td>
             <td>
-                <button class="editarStyle" onclick="editarServicio(${index})">
+                <button class="editarStyle" data-bs-toggle="modal" data-bs-target="#modalServicio" onclick="editarServicio(${index})">
                     <img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt="Editar">
                 </button>
                 <button class="eliminarStyle" onclick="eliminarServicio(${index})">

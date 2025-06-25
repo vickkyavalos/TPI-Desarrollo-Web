@@ -41,21 +41,27 @@ formularioS.addEventListener('submit', function(event) {
     const idSalon = modoEdicion ? salones[indexEdicion].idSalon : obtenerNuevoIdSalon(salones);
     if (modoEdicion) {
         // Actualizar salón existente
-        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon };
+        salones[indexEdicion] = { idSalon, tituloSalon, descripcion, direccionSalon, precioSalon, estadoSalon };
         modoEdicion = false;
         indexEdicion = null;
         document.getElementById('btn-agregarSalon').textContent = 'Cargar Salón';
     } else {
         // Agregar nuevo salón
-        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon,estadoSalon });
-        mostrarAlertaExito(tituloSalon);
+        salones.push({ idSalon, tituloSalon, descripcion, direccionSalon, precioSalon,estadoSalon,estadoSalon });
+        //mostrarAlertaExito(tituloSalon);
     }
 
     
     localStorage.setItem('salones', JSON.stringify(salones));
-    mostrarSalones();
-    cerrarFormulario();
 
+  const modal1 = document.getElementById('modalAltaSalon');
+  if (modal1) {
+      let modalcerrar = bootstrap.Modal.getInstance(modal1);
+      if (!modalcerrar) {
+          modalcerrar = new bootstrap.Modal(modal1);
+      }
+      modalcerrar.hide();
+  }
     formularioS.reset();
     formularioS.classList.remove('was-validated');
 });
@@ -107,7 +113,7 @@ function mostrarSalones(){
         <td>${salon.direccionSalon}</td>
         <td>${salon.precioSalon}</td>
         <td>${salon.estadoSalon}</td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+        <td><button id="boton-editar" class="editarStyle align-items-center" data-bs-toggle="modal" data-bs-target="#modalAltaSalon" onclick="editarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarSalon(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 
@@ -133,6 +139,8 @@ function editarSalon(index) {
     document.getElementById('inputDescripcionSalon').value = salon.descripcion;
     document.getElementById('inputDireccion').value = salon.direccionSalon;
     document.getElementById('inputPrecio').value = salon.precioSalon;
+    document.getElementById('inputEstado').value = salon.estadoSalon;
+    
 
     desplegarFormulario();
     

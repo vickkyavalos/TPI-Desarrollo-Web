@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const nombreUsuario = document.getElementById("nombre-usuario")
   const logoutBtn = document.getElementById("btn-logout")
 
-  console.log("Script iniciado")
-  console.log("userData:", userData)
+  // console.log("Script iniciado")
+  // console.log("userData:", userData)
 
   if (userData) {
     const user = JSON.parse(userData)
     const nombre = user.firstNameUser
     const rol = user.roleUser
 
-    console.log("Usuario logueado:", user)
+    //console.log("Usuario logueado:", user)
 
 
     nombreUsuario.textContent = `Hola, ${nombre}`
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault() 
 
-    console.log("Cerrar sesión clickeado")
+    //console.log("Cerrar sesión clickeado")
 
     sessionStorage.removeItem("accessToken")
     sessionStorage.removeItem("userData")

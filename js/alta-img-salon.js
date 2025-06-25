@@ -44,30 +44,23 @@ formularioImagen.addEventListener('submit', function(event) {
     }
     
     localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
+
+    //cerrar modal
+    const modalImg = document.getElementById('modalImagen');
+    if (modalImg) {
+        let modalcerrar = bootstrap.Modal.getInstance(modalImg);
+        if (!modalcerrar) {
+            modalcerrar = new bootstrap.Modal(modalImg);
+        }
+        modalcerrar.hide();
+    }
     mostrarImagenesSalon();
-    cerrarFormulario();
     formularioImagen.reset();
     formularioImagen.classList.remove('was-validated');
   
 });
 
 
-//cambiar visibilidad
-// function desplegarFormularioImagen(){
-//     if (formularioAdminImg.style.visibility == 'block') {
-//       formularioAdminImg.style.visibility = 'visible';
-//     }else{
-//       formularioAdminImg.style.visibility = 'block';
-//     }
-// };
-
-// function cerrarFormulario(){
-//     if (formularioAdminImg.style.visibility == 'visible') {
-//       formularioAdminImg.style.visibility = 'none';
-//     }else{
-//       formularioAdminImg.style.visibility = 'visible';
-//     }
-// };
 ///////////////////////////////////////funcionalidades///////////////////////////////////////
 
 //visualizar tabla imagenes
@@ -85,7 +78,7 @@ function mostrarImagenesSalon(){
         <td>${imagen.idSalon}</td>
         <td>${imagen.rutaImagen}</td>
         <td><img src="${imagen.rutaImagen}" class="tamanioImg"></td>
-        <td><button id="boton-editar" class="editarStyle align-items-center" onclick="editarImagen(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+        <td><button id="boton-editar" class="editarStyle align-items-center" data-bs-toggle="modal" data-bs-target="#modalImagen" onclick="editarImagen(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             <button id="boton-eliminar" class="eliminarStyle align-items-center" onclick="eliminarImagen(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt=""></button></td>
         `;    
     tabla.appendChild(fila); 

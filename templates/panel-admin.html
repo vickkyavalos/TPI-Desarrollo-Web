@@ -186,6 +186,8 @@
                             <th>Servicios</th>
                             <th>Salón</th>
                             <th>Total</th>
+                            <th>fecha</th>
+                            <th>Temática</th>
                             <th>Acciones</th>
                             <th>PDF</th>
                             </tr>
@@ -241,7 +243,10 @@
 
                     <div class="mb-2 w-100">
                         <label for="inputPrecio" class="form-label">Estado</label>
-                        <input type="text" name="estado" class="form-control" id="inputEstado" placeholder="Ingrese el estado del Salón" required>
+                        <select id="inputEstado" class="form-select mb-4">
+                            <option value="Disponible">Disponible</option>
+                            <option value="Reservado">Reservado</option>
+                        </select>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
@@ -329,15 +334,17 @@
                     <!-- Servicios -->
                     <h4>Servicios</h4>
                     <div id="listaServicios" class="mb-4">
-                        <div class="form-check"> <!-- ejemplo -->
-                            <input class="form-check-input" type="checkbox" value="Catering|50000" id="servicio1">
-                            <label class="form-check-label" for="servicio1">Catering - $50.000</label>
-                        </div>
                     </div>
 
                     <!-- Salón -->
                     <h5>Salón</h5>
                     <select id="salonselec" class="form-select mb-4">
+                        <!-- Las opciones se cargan dinámicamente -->
+                    </select>
+
+                    <!-- Tematica -->
+                    <h5>Temática</h5>
+                    <select id="temaselect" class="form-select mb-4">
                         <!-- Las opciones se cargan dinámicamente -->
                     </select>
                     <div class="mb-3">

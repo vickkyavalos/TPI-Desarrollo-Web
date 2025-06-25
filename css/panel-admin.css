@@ -226,6 +226,10 @@ td img{
     font-family: var(--letra-texto);
     color: var(--color-letra);
 }
+
+.tamanioImg{
+    height:70px !important;
+}
 /********************************** footer **********************************/
 footer{
     /* background-image: url("../assets/img/wave-celeste.svg");  */

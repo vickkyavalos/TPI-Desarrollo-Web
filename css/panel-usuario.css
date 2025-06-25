@@ -126,9 +126,7 @@ table{
 .botonV-imagen{
     width: 50px;
 }
-.tamanioImg{
-    height:70px !important;
-}
+
 /********************************** footer **********************************/
 footer{
     /* background-image: url("../assets/img/wave-celeste.svg");  */
