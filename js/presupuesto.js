@@ -1,3 +1,5 @@
+
+
 const modalPresupuesto = document.getElementById('modalPresupuesto');
 modalPresupuesto.addEventListener('show.bs.modal', 
     traerYmostrarServicios);
@@ -125,14 +127,11 @@ function solicitarPresupuesto() {
 //editar
 function editarPresupuesto(index) {
     const listaPresupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-    const presupuestos = listaPresupuestos[index];
+    const presupuesto = listaPresupuestos[index];
 
-    // Cargar imagen en el formulario
-    document.getElementById('inputI').value = presupuestos.idPresupuesto;
-
-    desplegarFormPresupuesto();
     
     // Cambiar estado a edición
+    
     modoEdicion = true;
     indexEdicion = index;
 
@@ -142,6 +141,9 @@ function editarPresupuesto(index) {
     
 }
 
+// Poner fecha
+  const fechaInput = document.getElementById('fechaReserva');
+  if (fechaInput) fechaInput.value = presupuesto.fechaReserva || '';
 
 // para descargar presupuesto en pdf 
 async function exportarPDF(index) {
@@ -162,28 +164,28 @@ async function exportarPDF(index) {
 }
 
 // desplegar formulario presupuesto
-// btnDesplegarFormulario.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     desplegarFormPresupuesto();
-//     formularioS.reset();
-//     cerrarFormPresupuesto();
-// });
+ btnDesplegarFormulario.addEventListener('click', function(event) {
+     event.preventDefault();
+     desplegarFormPresupuesto();
+     formularioS.reset();
+     cerrarFormPresupuesto();
+ });
 
-// //cambiar visibilidad
-// function desplegarFormPresupuesto(){
-//     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-//     if (tablaPresupuesto.style.visibility == 'hidden') {
-//         tablaPresupuesto.style.visibility = 'visible';
-//     }else{
-//         tablaPresupuesto.style.visibility = 'hidden';
-//     }
-// };
+//cambiar visibilidad
+ function desplegarFormPresupuesto(){
+     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+     if (tablaPresupuesto.style.visibility == 'hidden') {
+         tablaPresupuesto.style.visibility = 'visible';
+     }else{
+         tablaPresupuesto.style.visibility = 'hidden';
+     }
+ };
 
-// function cerrarFormPresupuesto(){
-//     const tablaPresupuesto = document.getElementById('tabla-presupuesto')
-//     if (tablaPresupuesto.style.visibility == 'visible') {
-//         tablaPresupuesto.style.visibility = 'hidden';
-//     }else{
-//         tablaPresupuesto.style.visibility = 'visible';
-//     }
-//  };
+ function cerrarFormPresupuesto(){
+    const tablaPresupuesto = document.getElementById('tabla-presupuesto')
+     if (tablaPresupuesto.style.visibility == 'visible') {
+         tablaPresupuesto.style.visibility = 'hidden';
+     }else{
+       tablaPresupuesto.style.visibility = 'visible';
+     }
+  };
