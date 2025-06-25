@@ -66,11 +66,14 @@ function solicitarPresupuesto() {
     return;
   }
 
+  
   const [salonNombre, salonPrecio] = salonSelec.split('|');
   const total = totalServicios + parseInt(salonPrecio);
 
+  const fechaReserva = document.getElementById('fechaReserva').value;
   const nuevoPresupuesto = {
     servicios: seleccionados,
+    fechaReserva: fechaReserva,  
     salon: salonNombre,
     total: total
   };
@@ -104,7 +107,7 @@ function solicitarPresupuesto() {
                 <button class="eliminarStyle" onclick="eliminarPresupuesto(${index})">
                 <img class="mx-1 iconos-tabla" src="/assets/icons/borrarIcono.svg" alt="Eliminar">
                 </button>
-                <button id="boton-editar" class="editarStyle align-items-center" onclick="editarPresupuesto(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
+                <button class="editarStyle align-items-center" onclick="editarPresupuesto(${index})"><img class="mx-1 iconos-tabla" src="/assets/icons/lapiz.svg" alt=""></button>
             </td>
             <td>
                 <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
@@ -124,16 +127,17 @@ function solicitarPresupuesto() {
     }
 
 //boton editar
-//editar
+//editar 
+// 
 function editarPresupuesto(index) {
     const listaPresupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
     const presupuesto = listaPresupuestos[index];
 
-    
     // Cambiar estado a edición
     
     modoEdicion = true;
     indexEdicion = index;
+   
 
     // Cambiar texto del botón
     document.getElementById('btn-agregarPresupuesto').textContent = 'Guardar cambios';
@@ -142,8 +146,9 @@ function editarPresupuesto(index) {
 }
 
 // Poner fecha
-  const fechaInput = document.getElementById('fechaReserva');
-  if (fechaInput) fechaInput.value = presupuesto.fechaReserva || '';
+const fechaReserva = document.getElementById('fechaReserva').value;
+const fechaInput = document.getElementById('fechaReserva');
+    if (fechaInput) fechaInput.value = presupuesto.fechaReserva || '';
 
 // para descargar presupuesto en pdf 
 async function exportarPDF(index) {
@@ -158,7 +163,8 @@ async function exportarPDF(index) {
     doc.setFontSize(12);
     doc.text(`Servicios: ${p.servicios.join(', ')}`, 20, 35);
     doc.text(`Salón: ${p.salon}`, 20, 45);
-    doc.text(`Total: $${p.total}`, 20, 55);
+    doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
+    doc.text(`Total: $${p.total}`, 20, 65);
 
     doc.save(`presupuesto_${index + 1}.pdf`);
 }
