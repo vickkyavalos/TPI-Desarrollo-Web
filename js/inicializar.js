@@ -20,10 +20,10 @@ export const servicios = [
 ];
 
 export const presupuestos = [
-    { idPresupuesto: 1, idUsuario: 16, idSalon: 1, idServicios: [1, 2], servicios: ["Dj - Música", "Catering"], idTematica: 1, fechaReserva: "2025-07-01", total: 135000 },
-    { idPresupuesto: 2, idUsuario: 17, idSalon: 2, idServicios: [2, 3], servicios: ["Catering", "Fotografía"], idTematica: 2, fechaReserva: "2025-07-02", total: 235000 },
-    { idPresupuesto: 3, idUsuario: 18, idSalon: 3, idServicios: [1, 3, 4], servicios: ["Dj - Música", "Fotografía", "Decoración"], idTematica: 3, fechaReserva: "2025-07-03", total: 110000 },
-    { idPresupuesto: 4, idUsuario: 19, idSalon: 1, idServicios: [3], servicios: ["Fotografía"], idTematica: 4, fechaReserva: "2025-07-04", total: 130000 }
+    { idPresupuesto: 1, idUsuario: 16, idSalon: 1, idServicios: [1, 2],  idTematica: 1, fechaReserva: "2025-07-01", total: 135000 },
+    { idPresupuesto: 2, idUsuario: 17, idSalon: 2, idServicios: [2, 3],  idTematica: 2, fechaReserva: "2025-07-02", total: 235000 },
+    { idPresupuesto: 3, idUsuario: 18, idSalon: 3, idServicios: [1, 3, 4], idTematica: 3, fechaReserva: "2025-07-03", total: 110000 },
+    { idPresupuesto: 4, idUsuario: 19, idSalon: 1, idServicios: [3],  idTematica: 4, fechaReserva: "2025-07-04", total: 130000 }
 ];
 
 export const tematicas = [
@@ -37,23 +37,23 @@ export const tematicas = [
 export const inicializarLocalStorage = () => {
     if (!localStorage.getItem("salones")) {
         localStorage.setItem("salones", JSON.stringify(eventosExportados));
-        console.log(eventosExportados);
+        //console.log(eventosExportados);
     }
     if (!localStorage.getItem("imagenesSalon")) {
         localStorage.setItem("imagenesSalon", JSON.stringify(imgSalones));
-        console.log(imgSalones);
+        //console.log(imgSalones);
     }
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(servicios));
-        console.log(servicios);
+        //console.log(servicios);
     
 }
     if (!localStorage.getItem("tematicas")) {
         localStorage.setItem("tematicas", JSON.stringify(tematicas));
-        console.log(tematicas);;
+        //console.log(tematicas);;
 }
     if (!localStorage.getItem("presupuestos")) {
         localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
-        console.log(presupuestos);;
+        //console.log(presupuestos);;
 }
 };
