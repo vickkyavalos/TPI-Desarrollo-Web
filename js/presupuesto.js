@@ -1,4 +1,3 @@
-
 const formularioPresupuesto = document.getElementById("formularioPresupuesto");
 const modalPresupuesto = document.getElementById('modalPresupuesto');
 modalPresupuesto.addEventListener('show.bs.modal', 
@@ -15,6 +14,7 @@ modalPresupuesto.addEventListener('show.bs.modal',
 
    }); 
 
+
 function traerYmostrarSalones(){
     //trae los salones guardados 
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
@@ -25,7 +25,7 @@ function traerYmostrarSalones(){
     salones.forEach(salon => {
     select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
     });
-    }
+}
 
 function traerYmostrarServicios() {
   const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
@@ -35,8 +35,8 @@ function traerYmostrarServicios() {
   contenedor.innerHTML = ""; // Limpia antes
 
   servicios.forEach((servicio, index) => {
-    const id = `servicio${index + 1}`;
-    const valor = `${servicio.tituloServicio}|${servicio.precioServicio}`;
+    const id = `servicio${idServicio}`;
+    const valor = `${servicio.idServicio}|${servicio.precioServicio}`;
     const labelTexto = `${servicio.tituloServicio} - $${servicio.precioServicio}`;
 
     contenedor.innerHTML += `
@@ -64,7 +64,7 @@ function solicitarPresupuesto() {
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
 
-    // ...resto de tu código...
+    
     const seleccionadoTematica = document.getElementById('temaselect');
     const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
     const seleccionados = [];
@@ -72,8 +72,8 @@ function solicitarPresupuesto() {
 
     checkboxes.forEach(c => {
         if (c.checked) {
-            const [nombre, precio] = c.value.split('|');
-            seleccionados.push(nombre);
+            const [idServicio, precio] = c.value.split('|');
+            seleccionados.push(idServicio);
             totalServicios += parseInt(precio);
         }
     });
@@ -186,14 +186,6 @@ async function mostrarPresupuestos() {
   });
 }
 
-function eliminarPresupuesto(index) {
-  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
-  presupuestos.splice(index, 1);
-  localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
-  mostrarPresupuestos();
-}
-
-
 // boton eliminar
 function eliminarPresupuesto(index) {
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
@@ -203,7 +195,7 @@ function eliminarPresupuesto(index) {
     }
 
 //boton editar
-    function editarPresupuesto(index) {
+ function editarPresupuesto(index) {
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
         const presupuesto = presupuestos[index];
 
@@ -236,15 +228,10 @@ function eliminarPresupuesto(index) {
             btn.textContent = 'Guardar Cambios';
         }
         formularioPresupuesto.reset();
+
     }
 
 
-  modoEdicion = true;
-  indexEdicion = index;
-
-  document.getElementById("btn-agregarPresupuesto").textContent =
-    "Guardar cambios";
-}
 
 async function exportarPDF(index) {
   const { jsPDF } = window.jspdf;
@@ -260,7 +247,6 @@ async function exportarPDF(index) {
     doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
     doc.text(`Total: $${p.total}`, 20, 65);
 
-
   doc.save(`presupuesto_${index + 1}.pdf`);
 }
 
@@ -269,7 +255,7 @@ async function obtenerUsuarios() {
     try {
         const response = await fetch('https://dummyjson.com/users');
         const data = await response.json();
-        return data.users; // solo nos interesan los usuarios
+        return data.users; 
     } catch (error) {
         console.error('Error al obtener usuarios:', error);
         return [];

@@ -24,15 +24,4 @@ const formRegistro = document.getElementById('registroForm');
 })
 
 
-//preguntar quien hace la validacion de registro
-// if (!formLogin.checkValidity()) {
-//     formLogin.classList.add('was-validated'); 
-//     return;
-//     }
-
-// if (!formRegistro.checkValidity()) {
-//   formRegistro.classList.add('was-validated'); 
-//   return;
-// }
-
 

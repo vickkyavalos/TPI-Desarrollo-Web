@@ -1,34 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const tabla = document.getElementById("tablaReservas");
+  mostrarReservasUsuarioEnTabla();
+});
 
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-
+async function mostrarReservasUsuarioEnTabla(){
+  const tabla = document.getElementById("tablaReserva");
+  const salones = JSON.parse(sessionStorage.getItem("salones"))|| [];
+  const userData = JSON.parse(sessionStorage.getItem("userData"))|| [];
+  const tematicas = JSON.parse(sessionStorage.getItem("tematica"))|| [];
+  const servicios = JSON.parse(sessionStorage.getItem("servicios"))|| [];
+  
   if (!userData || !userData.username) {
     alert("No se encontró información del usuario. Redirigiendo al login.");
     window.location.href = "../templates/login.html";
     return;
   }
 
-  const usernameActual = userData.username;
-
-  // Mostrar nombre en el header y mostrar info usuario
-  document.getElementById("nombre-usuario").textContent = usernameActual;
-  document.getElementById("user-info").style.display = "flex";
-
-  // Mostrar botón logout
-  const btnLogout = document.getElementById("btn-logout");
-  btnLogout.addEventListener("click", () => {
-    sessionStorage.clear();
-    window.location.href = "../templates/login.html";
-  });
+  const idUsuario = await obtenerIdUsuarioDesdeToken();
+  if (!idUsuario) {
+    alert('desconocido');
+    return;
+  }
 
   // Obtener presupuestos desde localStorage
   const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
 
   // Filtrar presupuestos del usuario actual
   const reservasUsuario = presupuestos.filter(
-    (p) => p.usuario === usernameActual
+    (p) => p.idUsuario === idUsuario
   );
+  
+
 
   // Mostrar las reservas en la tabla
   if (reservasUsuario.length === 0) {
@@ -36,14 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  reservasUsuario.forEach((reserva, index) => {
+  reservasUsuario.forEach((reserva,index) => {
     const fila = document.createElement("tr");
+    const salon = salones.find(s => s.idSalon === reserva.idSalon);
+    const tematica = tematicas.find(t => t.idTematica === reserva.idTematica);
+    //const servicio = servicios.find(serv => serv.idServicio === reserva.idServicio);
+    let serviciosTexto = '';
+      if (Array.isArray(reserva.idServicio)) {
+        serviciosTexto = reserva.idServicio
+          .map(idServicio => {
+            const servicio = servicios.find(s => s.idServicio === reserva.idServicio);
+            return servicio ? servicio.tituloServicio : '';
+          })
+          .filter(Boolean)
+          .join(', ');
+      } 
+
     fila.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${reserva.servicios.join(", ")}</td>
-      <td>${reserva.salon}</td>
-      <td>$${reserva.total}</td>
+            <td>${reserva.idPresupuesto}</td>
+            <td>${serviciosTexto}</td>
+            <td>${salon ? salon.tituloSalon : 'desconocido'}</td>
+            <td>${tematica ? tematica.tituloTematica : 'desconocido'}</td>
+            <td>${reserva.fechaReserva}</td>
+            <td>$${reserva.total}</td>
+            
     `;
     tabla.appendChild(fila);
   });
-});
+}
+
+async function obtenerIdUsuarioDesdeToken() {
+  const token = sessionStorage.getItem('accessToken');
+  if (!token) return null;
+
+  try {
+    const response = await fetch('https://dummyjson.com/auth/me', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if (response.ok) {
+      const usuario = await response.json();
+      return usuario.id;
+    }
+  } catch (e) {
+    console.error("Error al obtener ID de usuario:", e);
+  }
+
+  return null;
+}
