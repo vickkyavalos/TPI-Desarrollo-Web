@@ -1,5 +1,4 @@
 
-
 const formularioPresupuesto = document.getElementById("formularioPresupuesto");
 const modalPresupuesto = document.getElementById('modalPresupuesto');
 modalPresupuesto.addEventListener('show.bs.modal', 
@@ -33,7 +32,7 @@ function traerYmostrarServicios() {
   const contenedor = document.getElementById('listaServicios');
   if (!contenedor) return;
 
-  contenedor.innerHTML = ''; // Limpiar contenido anterior
+  contenedor.innerHTML = ""; // Limpia antes
 
   servicios.forEach((servicio, index) => {
     const id = `servicio${index + 1}`;
@@ -116,11 +115,6 @@ function solicitarPresupuesto() {
     };
 
     
-
-    
-
-
-    
     if (modoEdicion) {
         nuevoPresupuesto.idUsuario = presupuestos[indexEdicion].idUsuario;
         presupuestos[indexEdicion] = nuevoPresupuesto;
@@ -188,8 +182,15 @@ async function mostrarPresupuestos() {
                 <button class="btn btn-primary" onclick="exportarPDF(${index})">Descarga</button>
             </td>
         `;
-        tbody.appendChild(fila);
-    });
+    tbody.appendChild(fila);
+  });
+}
+
+function eliminarPresupuesto(index) {
+  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
+  presupuestos.splice(index, 1);
+  localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
+  mostrarPresupuestos();
 }
 
 
@@ -202,8 +203,6 @@ function eliminarPresupuesto(index) {
     }
 
 //boton editar
-//editar 
-// 
     function editarPresupuesto(index) {
         const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
         const presupuesto = presupuestos[index];
@@ -237,18 +236,22 @@ function eliminarPresupuesto(index) {
             btn.textContent = 'Guardar Cambios';
         }
         formularioPresupuesto.reset();
-
     }
 
 
-// para descargar presupuesto en pdf 
+  modoEdicion = true;
+  indexEdicion = index;
+
+  document.getElementById("btn-agregarPresupuesto").textContent =
+    "Guardar cambios";
+}
+
 async function exportarPDF(index) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-    const p = presupuestos[index];
-
+  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
+  const p = presupuestos[index];
     doc.setFontSize(14);
     doc.text("Presupuesto", 20, 20);
     doc.setFontSize(12);
@@ -257,9 +260,9 @@ async function exportarPDF(index) {
     doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
     doc.text(`Total: $${p.total}`, 20, 65);
 
-    doc.save(`presupuesto_${index + 1}.pdf`);
-}
 
+  doc.save(`presupuesto_${index + 1}.pdf`);
+}
 
 
 async function obtenerUsuarios() {

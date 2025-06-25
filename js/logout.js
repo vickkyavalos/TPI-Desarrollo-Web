@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInfo = document.getElementById("user-info")
   const nombreUsuario = document.getElementById("nombre-usuario")
   const logoutBtn = document.getElementById("btn-logout")
+  const adminNavItem = document.getElementById("admin-nav-item") 
 
   // console.log("Script iniciado")
   // console.log("userData:", userData)
@@ -14,6 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const rol = user.roleUser
 
     //console.log("Usuario logueado:", user)
+
+    
+  if (rol === "admin") {
+    if (adminNavItem) {
+      adminNavItem.style.display = "block"
+      adminNavItem.setAttribute("style", "display: block !important;")
+    }
+  } else {
+    if (adminNavItem) {
+      adminNavItem.style.display = "none"
+      adminNavItem.setAttribute("style", "display: none !important;")
+    }
+  }
 
 
     nombreUsuario.textContent = `Hola, ${nombre}`
@@ -33,7 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     userInfo.style.display = "none"
     userInfo.setAttribute("style", "display: none !important;") 
-    nombreUsuario.textContent = "" 
+    nombreUsuario.textContent = ""
+  
+    if (adminNavItem) {
+      adminNavItem.style.display = "none"
+      adminNavItem.setAttribute("style", "display: none !important;")
+    }
 
     iconoLink.href = "../templates/login.html"
 
