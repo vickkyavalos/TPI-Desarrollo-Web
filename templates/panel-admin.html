@@ -15,7 +15,7 @@
 <body>
     <!--------------------------header -------------------------->
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-xl">
             <div class="container-fluid position-relative d-flex align-items-center justify-content-between py-2">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../templates/panel-admin.html">Panel Admin</a>
                         </li>
+                        <li class="nav-item" id="nav-reservas" style="display: none;">
+                            <a class="nav-link" href="../templates/reserva.html">Reservas</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +56,7 @@
             <img src="../assets/icons/logo.svg" alt="logo de la empresa" class="logo" />
         </div>
 
-        <!-- Contenedor para el icono User -->
+        <!-- contenedor icono User -->
    
         <div id="icon-container" class="d-flex align-items-center gap-2">
 
@@ -61,7 +64,7 @@
                 <img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" width="32" height="32">
             </a>
 
-        <!-- Nombre usuario y botón logout, oculto inicialmente -->
+        <!-- nombre usuario y botón logout, oculto inicialmente -->
             <div id="user-info" class="d-flex align-items-center gap-2" style="display: none;">
                 <span id="nombre-usuario" class="fw-bold text-white"></span>
                 <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
@@ -74,8 +77,8 @@
 
         <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-ALTA IMAGEN -ALTA PRESUPUESTO-->
         <section class="my-3 d-flex flex-column-reverse flex-md-column align-items-center justify-content-around gap-2 pb-4 mb-4" id="panel-admin">
-            <!-- SECCION alta-->
-             <!-- desplegar formulario salon-->
+           
+             <!-- despliega formulario salon-->
             <div class="d-flex gap-3 p-2">
                 <div class="d-flex flex-column p-3" id="alta-salon1">
                     <h4>Agregar Salon</h4>
@@ -85,8 +88,8 @@
                         </button>
                     </div>
                 </div>
-            <!-- desplegar formulario servicio-->
-                <div class="d-flex flex-column p-3" id="alta-salon2">
+            <!-- despliega formulario servicio-->
+                <div class="d-flex flex-column p-3" id="alta-servicio">
                     <h4>Agregar Servicio</h4>
                     <div class="d-flex align-self-end">
                         <button id="btn-desplegarFormularioServicio" class="boton-agregar" data-bs-toggle="modal" data-bs-target="#modalServicio">
@@ -94,8 +97,8 @@
                         </button>
                     </div>
                 </div>
-            <!-- desplegar formulario imagenes-->        
-                <div class="d-flex flex-column p-3" id="alta-salon3">
+            <!-- despliega formulario imagenes-->        
+                <div class="d-flex flex-column p-3" id="alta-imagen">
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
                         <button class="boton-agregar" id="btn-desplegarFormularioImagen" data-bs-toggle="modal" data-bs-target="#modalImagen">
@@ -103,8 +106,8 @@
                         </button>
                     </div>
                 </div>
-                <!-- desplegar formulario presupuesto-->
-                <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
+                <!-- despliega formulario presupuesto-->
+                <div class=" d-flex flex-column p-3"  id="alta-presupuesto"> 
                     <h4>Presupuesto</h4>
                     <div class="d-flex align-self-end"> 
                         <button class="boton-agregar" data-bs-toggle="modal" data-bs-target="#modalPresupuesto">
@@ -112,10 +115,22 @@
                         </button>
                     </div>    
                 </div>
+                     <!-- redirige panel usuario-->
+                <div class=" d-flex flex-column p-3"  id="alta-usuario"> 
+                    <h4>Usuarios</h4>
+                    <div class="d-flex align-self-end"> 
+                        <button class="boton-agregar" onclick="irUsuarios()">
+                            <img src="../assets/icons/ic-agregar.svg" alt="Botón que redirige a usuarios">
+                        </button>
+                    </div>    
+                </div>
             </div>
 
-            <!-- SECCIONES lista (o tablas mejor dicho)-->
+            <!-- Seccion Tablas-->
+
             <div class="d-flex flex-wrap">
+            
+                <!-- Tabla salones -->
             <div class="m-5 flex-column table-responsive" id="tabla-visual">
                 <p class="fs-3 textoTablas">Salones</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
@@ -127,6 +142,7 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Dirección</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Estado</th>
                             <th scope="col" class="text-center">*</th>
                         </tr>
                     </thead>
@@ -135,7 +151,7 @@
                 </table>
             </div>
 
-
+             <!-- Tabla imagenes  -->
             <div class="m-5 flex-column table-responsive" id="tabla-Visual">
                 <p class="fs-3 textoTablas">Imagenes</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
@@ -179,9 +195,14 @@
                         <thead class="table-primary border-dark">
                             <tr>
                             <th>#</th>
-                            <th>Servicios</th>
                             <th>Salón</th>
+                            <th>Servicios</th>
                             <th>Total</th>
+                            <th>fecha</th>
+                            <th>Temática</th>
+                            <th>ID Cliente</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
                             <th>Acciones</th>
                             <th>PDF</th>
                             </tr>
@@ -196,9 +217,6 @@
         <!-- Formulario Salones-->
 
 
-          
-
-    
   <div class="modal fade" id="modalAltaSalon" tabindex="-1" aria-labelledby="modalAltaSalonLabel" aria-hidden="true">
     <div id="contenedor-modal" class="modal-dialog modal-dialog-centered modal-lg">
         <div id="form-admin" class="modal-content align-items-center p-2">
@@ -231,6 +249,16 @@
                     <div class="mb-2 w-100">
                         <label for="inputPrecio" class="form-label">Precio</label>
                         <input type="number" name="precio" class="form-control" id="inputPrecio" placeholder="Ingrese Precio de Salón" required>
+                        <div class="valid-feedback">Campo válido</div>
+                        <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
+                    </div>
+
+                    <div class="mb-2 w-100">
+                        <label for="inputPrecio" class="form-label">Estado</label>
+                        <select id="inputEstado" class="form-select mb-4">
+                            <option value="Disponible">Disponible</option>
+                            <option value="Reservado">Reservado</option>
+                        </select>
                         <div class="valid-feedback">Campo válido</div>
                         <div class="invalid-feedback">Campo inválido, vuelva a intentarlo</div>
                     </div>
@@ -314,26 +342,37 @@
                     <div class="modal-content p-4 bg-success-subtle rounded shadow">
 
                     <h2 class="text-center mb-4">Presupuesto</h2>
+                    <form id="formularioPresupuesto" action="sumbit">        
+                            <!-- Servicios -->
+                            <h4>Servicios</h4>
+                            <div id="listaServicios" class="mb-4">
+                            </div>
+                            <!-- ¡ID Usuario -->
+                            <div class="mb-3">
+                                <label for="usuarioId" class="form-label">ID de Usuario (1 a 30):</label>
+                                <input type="number" id="usuarioId" class="form-control" min="1" max="30" required>
+                            </div>
 
-                    <!-- Servicios -->
-                    <h4>Servicios</h4>
-                    <div id="listaServicios" class="mb-4">
-                        <div class="form-check"> <!-- ejemplo -->
-                            <input class="form-check-input" type="checkbox" value="Catering|50000" id="servicio1">
-                            <label class="form-check-label" for="servicio1">Catering - $50.000</label>
-                        </div>
-                    </div>
+                            <!-- Salón -->
+                            <h5>Salón</h5>
+                            <select id="salonselec" class="form-select mb-4">
+                                
+                            </select>
 
-                    <!-- Salón -->
-                    <h5>Salón</h5>
-                    <select id="salonselec" class="form-select mb-4">
-                        <!-- Las opciones se cargan dinámicamente -->
-                    </select>
+                            <!-- Tematica -->
+                            <h5>Temática</h5>
+                            <select id="temaselect" class="form-select mb-4">
+                               
+                            </select>
+                            <div class="mb-3">
+                                <label for="fechaReserva" class="form-label">Fecha de reserva:</label>
+                                <input type="date" id="fechaReserva" class="form-control" required>
+                            </div>
 
-                    <div class="text-center mb-2">
-                        <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
-                    </div>
-
+                            <div class="text-center mb-2">
+                                <button type="button" onclick="solicitarPresupuesto()" class="btn btn-primary">Solicitar Presupuesto</button>
+                            </div>
+                    </form>       
                     </div>
                 </div>
             </div>

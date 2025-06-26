@@ -4,18 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInfo = document.getElementById("user-info")
   const nombreUsuario = document.getElementById("nombre-usuario")
   const logoutBtn = document.getElementById("btn-logout")
-  const adminNavItem = document.getElementById("admin-nav-item") 
+  const adminNavItem = document.getElementById("admin-nav-item")
+  const navReservas = document.getElementById("nav-reservas")
 
-  console.log("Script iniciado")
-  console.log("userData:", userData)
 
   if (userData) {
     const user = JSON.parse(userData)
     const nombre = user.firstNameUser
     const rol = user.roleUser
 
-    console.log("Usuario logueado:", user)
 
+  if (navReservas) {
+      navReservas.style.display = "block"
+      navReservas.setAttribute("style", "display: block !important;")
+    }
     
   if (rol === "admin") {
     if (adminNavItem) {
@@ -64,12 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault() 
 
-    console.log("Cerrar sesión clickeado")
-
     sessionStorage.removeItem("accessToken")
     sessionStorage.removeItem("userData")
 
-  
     userInfo.style.display = "none"
     userInfo.setAttribute("style", "display: none !important;")
     nombreUsuario.textContent = ""

@@ -18,14 +18,13 @@ document.addEventListener('DOMContentLoaded',() =>{
   auth()
 })
 
-// Función para verificar si el usuario está logueado y es admin
+// verifica si el usuario está logueado y es admin
 function auth(){
   document.getElementById("formularioLogin").addEventListener('submit', async function(e) {
   e.preventDefault();
 
   const usuario = document.getElementById("usuarioLogin").value.trim();
   const contrasena = document.getElementById("contrasenalogin").value.trim();
-  // const data = data.token; 
 
   const data = await login(usuario, contrasena);
   if (!data || !data.accessToken) {
@@ -39,7 +38,6 @@ function auth(){
 
   const traerID = await fetch(`https://dummyjson.com/users/${data.id}`)
   const user = await traerID.json();
-  //const user = await obtenerUsuario(data.accesToken);
   if (!user) return;
   
   const firstNameUser = user.firstName;
@@ -71,7 +69,7 @@ function auth(){
 
    setTimeout(() => {
      window.location.href = redirigir;
-      }, 4000);
+      }, 2000);
    });
 
 }
@@ -88,100 +86,4 @@ function auth(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function auth(){
-//   const userInput = document.getElementById("emailLogin").value;
-//   const passwordInput = document.getElementById("contrasenalogin").value;
-    
-//   if (userInput === user.user && passwordInput === user.contrasena) {
-//             {
-//                  swal.fire(
-//                      title="Bienvenido",
-//                      text="Inicio de sesión exitoso. Redirigiendo a la página...",
-//                      icon="success",
-//                    );
-//                  setTimeout(function() {
-//                      window.location.href = "../templates/panel-admin.html";
-//                  }, 4000);
-//              }
-//   } else {
-//              if(userInput != user.user || passwordInput != user.contrasena){
-//                  swal.fire({
-//                  title:"¡Datos Incorrectos!",
-//                  icon:"error",
-//              });}
-//              if(userInput == "" && passwordInput == ""){
-//                  {swal.fire({
-//                          title:"¡No se registraron datos!",
-//                          icon:"warning",
-//                      });
-        
-//                  };
-            
-//   }
-//   if (formLogin) {
-//     formLogin.addEventListener("submit", auth);
-//   }
-
- 
-// }
-// }
 

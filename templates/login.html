@@ -17,7 +17,7 @@
 
         <!--------------------------header -------------------------->
         <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg ">
+            <nav class="navbar navbar-expand-xl">
                 <div class="container-fluid position-relative d-flex align-items-center justify-content-between py-2">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,6 @@
                     <img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" width="32" height="32">
                 </a>
 
-            <!-- Nombre usuario y botón logout, oculto inicialmente -->
                 <div id="user-info" class="d-flex align-items-center gap-2" style="display: none;">
                     <span id="nombre-usuario" class="fw-bold text-white"></span>
                     <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
@@ -67,6 +66,7 @@
   
     <main class="d-flex  justify-content-center my-5">    
         <div class="container-login  d-flex flex-column flex-md-row  rounded-2 position-relative overflow-hidden" id="container">
+            
             <!-- Formulario Iniciar Sesión -->
             <div class="container-form d-flex flex-column justify-content-center align-items-center">
                 <form id="formularioLogin" class="sign-in d-flex text-center flex-column justify-content-center align-items-center">
@@ -87,7 +87,6 @@
                     </div>
 
                     <a href="#">¿Olvidaste tu contraseña?</a>
-                    <!--boton de iniciar sesion-->
                     <button type="submit" class="button" id="btn-is">Ingresar</button>
                 </form>
             </div>

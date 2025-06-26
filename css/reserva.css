@@ -20,7 +20,7 @@
     --letra-divertida: "Atma", system-ui;
 }
 
-
+/*Eliminacion de margenes y padding predefinidos*/
 *{
     margin: 0;
     padding: 0;
@@ -110,12 +110,7 @@ table{
     overflow: visible;
 }
 
-.boton-volver{
-    border:none;
-    color: none;
-    background: none;
-    background-color: none;
-}
+
 
 .textoTablas{
     font-weight: 550;
@@ -129,7 +124,7 @@ table{
 
 /********************************** footer **********************************/
 footer{
-    /* background-image: url("../assets/img/wave-celeste.svg");  */
+   
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top; 
