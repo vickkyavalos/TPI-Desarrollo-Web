@@ -21,17 +21,17 @@ async function mostrarReservasUsuarioEnTabla(){
     return;
   }
 
-  // Obtener presupuestos desde localStorage
+  // obtener presupuestos desde localStorage
   const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
 
-  // Filtrar presupuestos del usuario actual
+  // filtrar presupuestos del usuario actual
   const reservasUsuario = presupuestos.filter(
     (p) => p.idUsuario === idUsuario
   );
   
 
 
-  // Mostrar las reservas en la tabla
+  // mostrar las reservas en la tabla
   if (reservasUsuario.length === 0) {
     tabla.innerHTML = `<tr><td colspan="4" class="text-center">No tenés reservas registradas.</td></tr>`;
     return;
@@ -41,7 +41,7 @@ async function mostrarReservasUsuarioEnTabla(){
     const fila = document.createElement("tr");
     const salon = salones.find(s => s.idSalon === reserva.idSalon);
     const tematica = tematicas.find(t => t.idTematica === reserva.idTematica);
-    //const servicio = servicios.find(serv => serv.idServicio === reserva.idServicio);
+   
     let serviciosTexto = '';
       if (Array.isArray(reserva.idServicio)) {
         serviciosTexto = reserva.idServicio

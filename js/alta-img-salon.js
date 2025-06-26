@@ -39,8 +39,6 @@ formularioImagen.addEventListener('submit', function(event) {
     } else {
         // Agregar nueva imagen
         imagenesSalon.push({ idImagen, idSalon, rutaImagen });
-        // localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));
-        // mostrarAlertaExito(tituloSalo);
     }
     
     localStorage.setItem('imagenesSalon', JSON.stringify(imagenesSalon));

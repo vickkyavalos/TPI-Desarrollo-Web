@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const adminNavItem = document.getElementById("admin-nav-item")
   const navReservas = document.getElementById("nav-reservas")
 
-  // console.log("Script iniciado")
-  // console.log("userData:", userData)
 
   if (userData) {
     const user = JSON.parse(userData)
@@ -68,12 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault() 
 
-    //console.log("Cerrar sesión clickeado")
-
     sessionStorage.removeItem("accessToken")
     sessionStorage.removeItem("userData")
 
-  
     userInfo.style.display = "none"
     userInfo.setAttribute("style", "display: none !important;")
     nombreUsuario.textContent = ""

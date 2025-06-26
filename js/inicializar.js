@@ -37,23 +37,18 @@ export const tematicas = [
 export const inicializarLocalStorage = () => {
     if (!localStorage.getItem("salones")) {
         localStorage.setItem("salones", JSON.stringify(eventosExportados));
-        //console.log(eventosExportados);
     }
     if (!localStorage.getItem("imagenesSalon")) {
         localStorage.setItem("imagenesSalon", JSON.stringify(imgSalones));
-        //console.log(imgSalones);
     }
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(servicios));
-        //console.log(servicios);
     
 }
     if (!localStorage.getItem("tematicas")) {
         localStorage.setItem("tematicas", JSON.stringify(tematicas));
-        //console.log(tematicas);;
 }
     if (!localStorage.getItem("presupuestos")) {
         localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
-        //console.log(presupuestos);;
 }
 };

@@ -7,16 +7,13 @@ export async function login(usuario, contrasena) {
         username: usuario,
         password: contrasena,
       }),
-      // credentials: 'include'
+      
     });
 
     if (response.ok) {
       const data = await response.json();
       sessionStorage.setItem("accessToken", data.accessToken);
-      console.log(
-        "Token guardado en sessionStorage:",
-        sessionStorage.getItem("accessToken")
-      );
+     
       console.log("Login correcto");
       return data;
     } else {
@@ -48,14 +45,4 @@ export async function obtenerUsuario(token) {
   }
 }
 
-// fetch('https://dummyjson.com/auth/refresh', {
-//   method: 'POST',
-//   headers: { 'Content-Type': 'application/json' },
-//   body: JSON.stringify({
-//     refreshToken: '/* YOUR_REFRESH_TOKEN_HERE */', // Optional, if not provided, the server will use the cookie
-//     expiresInMins: 30, // optional (FOR ACCESS TOKEN), defaults to 60
-//   }),
-//   credentials: 'include' // Include cookies (e.g., accessToken) in the request
-// })
-// .then(res => res.json())
-// .then(console.log);
+

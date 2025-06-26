@@ -93,7 +93,7 @@ header {
 
 /****************************fin del header*******************************/
 
-/* se usa configuracion de portada de index, para poder centrar imagenes */
+
 .container-portada {
   display: flex;
   justify-content: space-around;
@@ -519,7 +519,7 @@ footer{
 @media (min-width: 1025px) {
 
   .nube {
-    display: block; /* Muestra la nubecita en pantallas grandes (PC) */
+    display: block;
   }
 }
 
@@ -568,7 +568,7 @@ footer{
     margin: 10px;
   }
   .nube {
-    display: none; /* Oculta la nubecita  */
+    display: none;
   }
 }
 

@@ -1,6 +1,5 @@
 import { inicializarLocalStorage } from "./inicializar.js"; 
 
-
 document.addEventListener('DOMContentLoaded',() =>{
   visualizarSalones();
   visualizarSalonesIndex()
@@ -56,17 +55,17 @@ function visualizarSalonesIndex() {
   const contenedorCardIndex = document.getElementById('containerIndexSalones');
   if (!contenedorCardIndex) return;
 
-  //Detecta el tamaño
+  //detecta el tamaño
   const esCelular = window.innerWidth < 768;
   const itemsPorSlide = esCelular ? 1 : 2;
 
-  // Agrupar salones por slide
+  // agrupar salones por slide
   let slides = [];
   for (let i = 0; i < salones.length; i += itemsPorSlide) {
     slides.push(salones.slice(i, i + itemsPorSlide));
   }
 
-  // Generar HTML
+  // generar HTML
   let inner = slides.map((grupo, idx) => `
     <div class="carousel-item${idx === 0 ? ' active' : ''} ">
       <div class="row justify-content-center">
@@ -132,7 +131,7 @@ function traerYmostrarServicios() {
   const contenedor = document.getElementById('listaServicios');
   if (!contenedor) return;
 
-  contenedor.innerHTML = ""; // Limpia antes
+  contenedor.innerHTML = ""; // limpia antes
 
   servicios.forEach((servicio, index) => {
     const id = `servicio${servicio.idServicio}`;
@@ -169,7 +168,7 @@ async function reserva() {
   const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
   const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
 
-  // Servicios seleccionados
+  // servicios seleccionados
   const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
   const serviciosSeleccionados = [];
   let totalServicios = 0;
@@ -181,7 +180,7 @@ async function reserva() {
     }
   });
 
-  // Salón seleccionado
+  // salón seleccionado
   const selectSalon = document.getElementById('salonselec');
   const salonSeleccionado = selectSalon.value;
   if (!salonSeleccionado || serviciosSeleccionados.length === 0) {
@@ -192,19 +191,19 @@ async function reserva() {
   const [salonId, salonPrecio] = salonSeleccionado.split('|');
   const salon = salones.find(s => String(s.idSalon) === salonId);
 
-  // Temática seleccionada
+  // temática seleccionada
   const seleccionadoTematica = document.getElementById('temaselect');
   const tematicaId = seleccionadoTematica.value;
   const tematica = tematicas.find(t => String(t.idTematica) === tematicaId);
 
-  // Fecha
+  // fecha
   const fechaInput = document.getElementById('fechaReserva');
   if (!fechaInput.value) {
     alert('Seleccioná una fecha.');
     return;
   }
 
-  // Usuario
+  // usuario
   const idUsuario = await obtenerIdUsuarioDesdeToken();
   if (!idUsuario) {
     alert('No se pudo identificar al usuario. Iniciá sesión nuevamente.');

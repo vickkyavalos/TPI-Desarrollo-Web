@@ -56,7 +56,7 @@
             <img src="../assets/icons/logo.svg" alt="logo de la empresa" class="logo" />
         </div>
 
-        <!-- Contenedor para el icono User -->
+        <!-- contenedor icono User -->
    
         <div id="icon-container" class="d-flex align-items-center gap-2">
 
@@ -64,7 +64,7 @@
                 <img id="icono" src="/assets/icons/person-fill.svg" alt="Icono" width="32" height="32">
             </a>
 
-        <!-- Nombre usuario y botón logout, oculto inicialmente -->
+        <!-- nombre usuario y botón logout, oculto inicialmente -->
             <div id="user-info" class="d-flex align-items-center gap-2" style="display: none;">
                 <span id="nombre-usuario" class="fw-bold text-white"></span>
                 <button id="btn-logout" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
@@ -77,8 +77,8 @@
 
         <!-- SECCIONES DE ALTA SALON - ALTA SERVICIO-ALTA IMAGEN -ALTA PRESUPUESTO-->
         <section class="my-3 d-flex flex-column-reverse flex-md-column align-items-center justify-content-around gap-2 pb-4 mb-4" id="panel-admin">
-            <!-- SECCION alta-->
-             <!-- desplegar formulario salon-->
+           
+             <!-- despliega formulario salon-->
             <div class="d-flex gap-3 p-2">
                 <div class="d-flex flex-column p-3" id="alta-salon1">
                     <h4>Agregar Salon</h4>
@@ -88,7 +88,7 @@
                         </button>
                     </div>
                 </div>
-            <!-- desplegar formulario servicio-->
+            <!-- despliega formulario servicio-->
                 <div class="d-flex flex-column p-3" id="alta-salon2">
                     <h4>Agregar Servicio</h4>
                     <div class="d-flex align-self-end">
@@ -97,7 +97,7 @@
                         </button>
                     </div>
                 </div>
-            <!-- desplegar formulario imagenes-->        
+            <!-- despliega formulario imagenes-->        
                 <div class="d-flex flex-column p-3" id="alta-salon3">
                     <h4>Agregar Imagen</h4>
                     <div class="d-flex align-self-end"> 
@@ -106,7 +106,7 @@
                         </button>
                     </div>
                 </div>
-                <!-- desplegar formulario presupuesto-->
+                <!-- despliega formulario presupuesto-->
                 <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
                     <h4>Presupuesto</h4>
                     <div class="d-flex align-self-end"> 
@@ -115,7 +115,7 @@
                         </button>
                     </div>    
                 </div>
-                     <!-- te redirige a panel usuario-->
+                     <!-- redirige panel usuario-->
                 <div class=" d-flex flex-column p-3"  id="alta-salon3"> 
                     <h4>Usuarios</h4>
                     <div class="d-flex align-self-end"> 
@@ -126,8 +126,11 @@
                 </div>
             </div>
 
-            <!-- SECCIONES lista (o tablas mejor dicho)-->
+            <!-- Seccion Tablas-->
+
             <div class="d-flex flex-wrap">
+            
+                <!-- Tabla salones -->
             <div class="m-5 flex-column table-responsive" id="tabla-visual">
                 <p class="fs-3 textoTablas">Salones</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
@@ -148,7 +151,7 @@
                 </table>
             </div>
 
-
+             <!-- Tabla imagenes  -->
             <div class="m-5 flex-column table-responsive" id="tabla-Visual">
                 <p class="fs-3 textoTablas">Imagenes</p>
                 <table class="table table-bordered tabla-visualizar border-dark table-striped">
@@ -214,9 +217,6 @@
         <!-- Formulario Salones-->
 
 
-          
-
-    
   <div class="modal fade" id="modalAltaSalon" tabindex="-1" aria-labelledby="modalAltaSalonLabel" aria-hidden="true">
     <div id="contenedor-modal" class="modal-dialog modal-dialog-centered modal-lg">
         <div id="form-admin" class="modal-content align-items-center p-2">
@@ -347,7 +347,7 @@
                             <h4>Servicios</h4>
                             <div id="listaServicios" class="mb-4">
                             </div>
-
+                            <!-- ¡ID Usuario -->
                             <div class="mb-3">
                                 <label for="usuarioId" class="form-label">ID de Usuario (1 a 30):</label>
                                 <input type="number" id="usuarioId" class="form-control" min="1" max="30" required>
@@ -356,13 +356,13 @@
                             <!-- Salón -->
                             <h5>Salón</h5>
                             <select id="salonselec" class="form-select mb-4">
-                                <!-- Las opciones se cargan dinámicamente -->
+                                
                             </select>
 
                             <!-- Tematica -->
                             <h5>Temática</h5>
                             <select id="temaselect" class="form-select mb-4">
-                                <!-- Las opciones se cargan dinámicamente -->
+                               
                             </select>
                             <div class="mb-3">
                                 <label for="fechaReserva" class="form-label">Fecha de reserva:</label>

@@ -155,7 +155,6 @@ function editarSalon(index) {
     
 }
 
-
 //para que automaticamente muestre los datos que ya estan cargados
 document.addEventListener('DOMContentLoaded',() =>{
   mostrarSalones()

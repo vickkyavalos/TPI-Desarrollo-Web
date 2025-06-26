@@ -29,14 +29,6 @@ body {
   background-color: var(--color-fondo) !important;
   color: var(--color-letra) !important; 
 }
-    /* 
-    border: 2px solid var(--color-fondo);
-  width: 100%;
-  height: 100vh;
-  
-  justify-content: center;
-  align-items: center;
-    */
 
 /****************************header*******************************/
 header {
@@ -107,9 +99,7 @@ header {
 .container-login {
   width: 60vw;
   height: 70vh;
-  /* position: relative; */
   background-color: var(--color-fondo);
-  /* overflow: hidden; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -120,14 +110,8 @@ header {
 }
 
 .container-form form {
-  /* border: 2px solid var(--color-sexto); */
   height: 100%;
   margin-left: 0px;
-  /* display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   transition: 0.5s ease-in;
 }
 
@@ -138,11 +122,6 @@ header {
 
 
 
-/* .icon-redesSociales {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 10px;
-} */
 
 
 .icon-redesSociales ion-icon {
@@ -154,12 +133,8 @@ header {
 }
 
 .txt-relleno{
-  /* display: block; lo puse como flex */ 
   font-size: 0.5rem;
   margin-bottom: 15px;
-  /* text-align: center; */
-
- /*  color: var(--letra-texto); */
 }
 
 .container-input {
@@ -200,8 +175,7 @@ header {
   cursor: pointer;
   margin-top: 10px;
   
- /*  background-color: var(--color-sexto); */
-  /* color: var(--color-letra); */
+
 }
 #btn-rg{
     background-color: var(--color-tercero);

@@ -20,7 +20,7 @@
     --letra-divertida: "Atma", system-ui;
 }
 
-/*Eliminacion de margenes y padding predefinidos*/
+
 *{
     margin: 0;
     padding: 0;
