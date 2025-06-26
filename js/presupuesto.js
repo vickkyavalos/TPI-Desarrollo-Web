@@ -72,7 +72,7 @@ function solicitarPresupuesto() {
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
     const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
-    
+    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
 
     const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
     const serviciosSeleccionados = [];
@@ -90,18 +90,36 @@ function solicitarPresupuesto() {
   const selectSalon = document.getElementById('salonselec');
   const salonSeleccionado = selectSalon.value;
   if (!salonSeleccionado || serviciosSeleccionados.length === 0) {
-    alert('Seleccioná al menos un servicio y un salón.');
+    swal.fire({
+      title: "Error",
+      text: "Seleccioná al menos un servicio y un salón.",
+      icon: "error"
+    });
     return;
   }
    
-    const [salonId, salonPrecio] = salonSeleccionado.split('|');
-    const salon = salones.find(s => String(s.idSalon) === salonId);
+  const [salonId, salonPrecio] = salonSeleccionado.split('|');
+  const salon = salones.find(s => String(s.idSalon) === salonId);
 
-    const fechaInput = document.getElementById('fechaReserva');
-    if (!fechaInput.value) {
-        alert('Seleccioná una fecha.');
-     return;
-     }
+  const fechaInput = document.getElementById('fechaReserva');
+  if (!fechaInput.value) {
+    swal.fire({
+      title: "Error",
+      text: "Seleccioná una fecha.",
+      icon: "error"
+    });
+    return;
+    }
+
+  const existeReserva = presupuestos.some(p => p.idSalon === parseInt(salonId) && p.fechaReserva === fechaInput.value);
+  if (existeReserva) {
+    swal.fire({
+      title: "Error",
+      text: "La fecha elegida ya se encuentra reservada para este salón.",
+      icon: "error"
+    });
+    return;
+  }
     const total = totalServicios + parseInt(salonPrecio);
     const usuarioIdInput = document.getElementById('usuarioId');
     const idUsuario = usuarioIdInput ? parseInt(usuarioIdInput.value) : null;
@@ -117,7 +135,7 @@ function solicitarPresupuesto() {
     const tematica = tematicas.find(t => String(t.idTematica) === tematicaId);
     
     
-    const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
+    
     
 
     const nuevoPresupuesto = {

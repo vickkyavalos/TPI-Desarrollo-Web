@@ -135,18 +135,31 @@ table{
 
 }
 
-#alta-salon2{
+#alta-servicio{
     
     background-color: var(--color-cuarto);
     border-radius: 10px;
     border: solid 1px var();
 }
-#alta-salon3{
+#alta-imagen{
     
     background-color: var(--color-sexto);
     border-radius: 10px;
     border: solid 1px var();
 }
+#alta-presupuesto{
+    
+    background-color: var(--color-primero);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+#alta-usuario{
+    
+    background-color: var(--color-segundo);
+    border-radius: 10px;
+    border: solid 1px var();
+}
+
 .editarStyle{
     border-radius: 5px;
     background-color: var(--color-primero);   

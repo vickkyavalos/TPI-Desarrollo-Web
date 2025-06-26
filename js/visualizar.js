@@ -167,7 +167,7 @@ async function reserva() {
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
   const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
-
+  const reservas = JSON.parse(localStorage.getItem('presupuestos')) || [];
   // servicios seleccionados
   const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
   const serviciosSeleccionados = [];
@@ -184,7 +184,11 @@ async function reserva() {
   const selectSalon = document.getElementById('salonselec');
   const salonSeleccionado = selectSalon.value;
   if (!salonSeleccionado || serviciosSeleccionados.length === 0) {
-    alert('Seleccioná al menos un servicio y un salón.');
+    swal.fire({
+      title: "Error",
+      text: "Seleccioná al menos un servicio y un salón.",
+      icon: "error"
+    });
     return;
   }
 
@@ -198,10 +202,26 @@ async function reserva() {
 
   // fecha
   const fechaInput = document.getElementById('fechaReserva');
-  if (!fechaInput.value) {
-    alert('Seleccioná una fecha.');
-    return;
-  }
+if (!fechaInput.value) {
+  
+  swal.fire({
+      title: "Error",
+      text: "Seleccioná una fecha.",
+      icon: "error"
+    });
+  return;
+}
+
+const existeReserva = reservas.some(r => r.idSalon === parseInt(salonId) && r.fechaReserva === fechaInput.value);
+if (existeReserva) {
+  swal.fire({
+      title: "Error",
+      text: "La fecha elegida ya se encuentra reservada para este salón.",
+      icon: "error"
+    });
+ 
+  return;
+}
 
   // usuario
   const idUsuario = await obtenerIdUsuarioDesdeToken();
@@ -211,8 +231,7 @@ async function reserva() {
   }
 
   const total = totalServicios + parseInt(salonPrecio);
-
-  const reservas = JSON.parse(localStorage.getItem('presupuestos')) || [];
+  
   const nuevaReserva = {
     idPresupuesto: generarIdPresupuesto(reservas),
     idUsuario: idUsuario,
