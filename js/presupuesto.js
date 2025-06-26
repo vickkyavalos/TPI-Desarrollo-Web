@@ -162,10 +162,12 @@ function generarIdPresupuesto(lista) {
     }
 
 
+
 async function mostrarPresupuestos() {
     const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+    const serviciosTodos = JSON.parse(localStorage.getItem('servicios')) || [];
 
     const usuarios = await obtenerUsuarios();
     const tbody = document.getElementById('tablaPresupuestos');
@@ -175,12 +177,24 @@ async function mostrarPresupuestos() {
       const salon = salones.find(s => s.idSalon === p.idSalon);
       const tematica = tematicas.find(t => t.idTematica === p.idTematica);
       const usuario = usuarios.find(u => u.id === p.idUsuario) || {};
-      const nombreCompleto = `${usuario.nombre || ''} ${usuario.apellido || ''}`;  
+      const nombreCompleto = `${usuario.nombre || ''} ${usuario.apellido || ''}`;
+      const servicios = JSON.parse(localStorage.getItem('servicios')) || []  
+      
+      let serviciosTexto = '';
+      if (Array.isArray(p.idServicio)) {
+        serviciosTexto = p.idServicio
+          .map(idServicio => {
+            const servicio = servicios.find(s => String(s.idServicio) === String(idServicio));
+            return servicio ? servicio.tituloServicio : '';
+          })
+          .filter(Boolean)
+          .join(', ');
+      } 
       const fila = document.createElement('tr');
         fila.innerHTML = `
             <td>${p.idPresupuesto}</td>
             <td>${salon ? salon.tituloSalon : ''}</td>
-            <td>${Array.isArray(p.servicios) ? p.servicios.join(', ') : ''}</td>
+            <td>${serviciosTexto}</td>
             <td>$${p.total}</td>
             <td>${p.fechaReserva}</td>
             <td>${tematica ? tematica.tituloTematica : ''}</td>
@@ -235,7 +249,7 @@ function eliminarPresupuesto(index) {
         const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
         checkboxes.forEach(c => {
             const [nombre] = c.value.split('|');
-            c.checked = presupuesto.servicios.includes(nombre);
+            c.checked = presupuesto.idServicio.includes(nombre);
         });
 
         // Cambiar texto del botón
