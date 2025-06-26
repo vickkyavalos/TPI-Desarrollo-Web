@@ -22,10 +22,14 @@ function traerYmostrarSalones(){
     if (!select) return;
 
     select.innerHTML = '<option value="">Seleccioná un salón</option>';
-    salones.forEach(salon => {
-    select.innerHTML += `<option value="${salon.tituloSalon}|${salon.precioSalon}">${salon.tituloSalon} ($${salon.precioSalon})</option>`;
+    salones.forEach((salon,index) => {
+      const tituloSalon= `${salon.tituloSalon}`;
+      const valor = `${salon.idSalon}| ${salon.precioSalon}`;
+      const precio = `${salon.precioSalon}`;
+    select.innerHTML += `<option value="${valor} ">${tituloSalon} ($${precio})</option>`;
     });
 }
+
 
 function traerYmostrarServicios() {
   const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
@@ -35,7 +39,7 @@ function traerYmostrarServicios() {
   contenedor.innerHTML = ""; // Limpia antes
 
   servicios.forEach((servicio, index) => {
-    const id = `servicio${idServicio}`;
+    const id = `servicio${servicio.idServicio}`;
     const valor = `${servicio.idServicio}|${servicio.precioServicio}`;
     const labelTexto = `${servicio.tituloServicio} - $${servicio.precioServicio}`;
 
@@ -48,6 +52,7 @@ function traerYmostrarServicios() {
     });
   }
 
+
   function traerYmostrarTematica(){
     //trae los tematica guardados 
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
@@ -55,39 +60,48 @@ function traerYmostrarServicios() {
     if (!seleccionadoTematica) return;
 
     seleccionadoTematica.innerHTML = '<option value="">Seleccioná una temática</option>';
-    tematicas.forEach(tematicas => {
-    seleccionadoTematica.innerHTML += `<option value="${tematicas.tituloTematica}">${tematicas.tituloTematica}</option>`;
+    tematicas.forEach((tematica,index) => {
+    const id = `tematica${tematica.idTematica}`;
+    const tituloTematica = `${tematica.tituloTematica}`
+    const valor = `${tematica.idTematica}`;
+    seleccionadoTematica.innerHTML += `<option id="${id}"value="${valor}">${tituloTematica}</option>`;
     });
     }
 
 function solicitarPresupuesto() {
     const salones = JSON.parse(localStorage.getItem('salones')) || [];
     const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
-
+    const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
     
-    const seleccionadoTematica = document.getElementById('temaselect');
-    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
-    const seleccionados = [];
-    let totalServicios = 0;
 
+    const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
+    const serviciosSeleccionados = [];
+    let totalServicios = 0;
     checkboxes.forEach(c => {
         if (c.checked) {
-            const [idServicio, precio] = c.value.split('|');
-            seleccionados.push(idServicio);
-            totalServicios += parseInt(precio);
+        const [idServicio, precio] = c.value.split('|');
+        serviciosSeleccionados.push(idServicio);
+        totalServicios += parseInt(precio);
         }
     });
 
-    const select = document.getElementById('salonselec');
-    const salonSelec = select.value;
-
-    if (!salonSelec || seleccionados.length === 0) {
-        alert('Seleccioná al menos un servicio y un salón.');
-        return;
-    }
+    
+  // Salón seleccionado
+  const selectSalon = document.getElementById('salonselec');
+  const salonSeleccionado = selectSalon.value;
+  if (!salonSeleccionado || serviciosSeleccionados.length === 0) {
+    alert('Seleccioná al menos un servicio y un salón.');
+    return;
+  }
+   
+    const [salonId, salonPrecio] = salonSeleccionado.split('|');
+    const salon = salones.find(s => String(s.idSalon) === salonId);
 
     const fechaInput = document.getElementById('fechaReserva');
-    const [salonNombre, salonPrecio] = salonSelec.split('|');
+    if (!fechaInput.value) {
+        alert('Seleccioná una fecha.');
+     return;
+     }
     const total = totalServicios + parseInt(salonPrecio);
     const usuarioIdInput = document.getElementById('usuarioId');
     const idUsuario = usuarioIdInput ? parseInt(usuarioIdInput.value) : null;
@@ -97,21 +111,23 @@ function solicitarPresupuesto() {
         alert('Seleccioná un ID de usuario válido (1 a 30).');
         return;
     }
+    // Temática seleccionada
+    const seleccionadoTematica = document.getElementById('temaselect');
+    const tematicaId = seleccionadoTematica.value;
+    const tematica = tematicas.find(t => String(t.idTematica) === tematicaId);
+    
     
     const presupuestos = JSON.parse(localStorage.getItem('presupuestos')) || [];
-    const salonObj = salones.find(s => s.tituloSalon === salonNombre);
-    const tematicaObj = tematicas.find(t => t.tituloTematica === seleccionadoTematica.value);
+    
 
     const nuevoPresupuesto = {
        idPresupuesto: modoEdicion ? presupuestos[indexEdicion].idPresupuesto : generarIdPresupuesto(presupuestos),
        idUsuario: idUsuario,
-       servicios: seleccionados,
-       salon: salonNombre,
-       idSalon: salonObj ? salonObj.idSalon : null,
+       idSalon: salon.idSalon ? salon.idSalon : null,
+       idServicio: serviciosSeleccionados,
        total: total,
        fechaReserva: fechaInput.value,
-       tematica: seleccionadoTematica.value,
-       idTematica: tematicaObj ? tematicaObj.idTematica : null
+       idTematica: tematica.idTematica ? tematica.idTematica : null,
     };
 
     

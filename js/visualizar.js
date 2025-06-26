@@ -167,6 +167,7 @@ function traerYmostrarServicios() {
 async function reserva() {
   const salones = JSON.parse(localStorage.getItem('salones')) || [];
   const tematicas = JSON.parse(localStorage.getItem('tematicas')) || [];
+  const servicios = JSON.parse(localStorage.getItem('servicios')) || [];
 
   // Servicios seleccionados
   const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
@@ -217,6 +218,7 @@ async function reserva() {
     idPresupuesto: generarIdPresupuesto(reservas),
     idUsuario: idUsuario,
     idSalon: salon.idSalon ? salon.idSalon : null,
+    idServicio: serviciosSeleccionados,
     total: total,
     fechaReserva: fechaInput.value,
     idTematica: tematica.idTematica ? tematica.idTematica : null,

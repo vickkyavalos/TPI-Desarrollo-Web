@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function mostrarReservasUsuarioEnTabla(){
   const tabla = document.getElementById("tablaReserva");
-  const salones = JSON.parse(sessionStorage.getItem("salones"))|| [];
   const userData = JSON.parse(sessionStorage.getItem("userData"))|| [];
-  const tematicas = JSON.parse(sessionStorage.getItem("tematica"))|| [];
-  const servicios = JSON.parse(sessionStorage.getItem("servicios"))|| [];
+  const salones = JSON.parse(localStorage.getItem("salones")) || [];
+  const tematicas = JSON.parse(localStorage.getItem("tematicas")) || [];
+  const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
   
   if (!userData || !userData.username) {
     alert("No se encontró información del usuario. Redirigiendo al login.");
@@ -46,7 +46,7 @@ async function mostrarReservasUsuarioEnTabla(){
       if (Array.isArray(reserva.idServicio)) {
         serviciosTexto = reserva.idServicio
           .map(idServicio => {
-            const servicio = servicios.find(s => s.idServicio === reserva.idServicio);
+            const servicio = servicios.find(s => String(s.idServicio) === String(idServicio));
             return servicio ? servicio.tituloServicio : '';
           })
           .filter(Boolean)
