@@ -4,7 +4,7 @@ modalPresupuesto.addEventListener('show.bs.modal',
     traerYmostrarServicios);
 
 
-// Cargar presupuestos al iniciar
+// cargar presupuestos al iniciar
   document.addEventListener('DOMContentLoaded', async () =>{
       mostrarPresupuestos(), 
       traerYmostrarSalones(), 
@@ -36,7 +36,7 @@ function traerYmostrarServicios() {
   const contenedor = document.getElementById('listaServicios');
   if (!contenedor) return;
 
-  contenedor.innerHTML = ""; // Limpia antes
+  contenedor.innerHTML = ""; // limpia antes
 
   servicios.forEach((servicio, index) => {
     const id = `servicio${servicio.idServicio}`;
@@ -86,7 +86,7 @@ function solicitarPresupuesto() {
     });
 
     
-  // Salón seleccionado
+  // salón seleccionado
   const selectSalon = document.getElementById('salonselec');
   const salonSeleccionado = selectSalon.value;
   if (!salonSeleccionado || serviciosSeleccionados.length === 0) {
@@ -111,7 +111,7 @@ function solicitarPresupuesto() {
         alert('Seleccioná un ID de usuario válido (1 a 30).');
         return;
     }
-    // Temática seleccionada
+    // temática seleccionada
     const seleccionadoTematica = document.getElementById('temaselect');
     const tematicaId = seleccionadoTematica.value;
     const tematica = tematicas.find(t => String(t.idTematica) === tematicaId);
@@ -232,11 +232,11 @@ function eliminarPresupuesto(index) {
         modoEdicion = true;
         indexEdicion = index;
 
-        // Rellenar los campos del formulario
+        // rellenar los campos del formulario
         document.getElementById('fechaReserva').value = presupuesto.fechaReserva;
         document.getElementById('temaselect').value = presupuesto.tematica;
 
-        // Seleccionar el salón correcto
+        // seleccionar el salón correcto
         const salonSelect = document.getElementById('salonselec');
         for (let i = 0; i < salonSelect.options.length; i++) {
             if (salonSelect.options[i].text.includes(presupuesto.salon)) {
@@ -245,14 +245,14 @@ function eliminarPresupuesto(index) {
             }
         }
 
-        // Seleccionar los servicios
+        // seleccionar los servicios
         const checkboxes = document.querySelectorAll('#listaServicios .form-check-input');
         checkboxes.forEach(c => {
             const [nombre] = c.value.split('|');
             c.checked = presupuesto.idServicio.includes(nombre);
         });
 
-        // Cambiar texto del botón
+        // cambiar texto del botón
         const btn = document.getElementById('btn-solicitarPresupuesto');
         if (btn) {
             btn.textContent = 'Guardar Cambios';
@@ -261,25 +261,48 @@ function eliminarPresupuesto(index) {
 
     }
 
-
-
 async function exportarPDF(index) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
   const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
+  const salones = JSON.parse(localStorage.getItem("salones")) || [];
+  const tematicas = JSON.parse(localStorage.getItem("tematicas")) || [];
+  const serviciosTodos = JSON.parse(localStorage.getItem("servicios")) || [];
+  const usuarios = await obtenerUsuarios();
+
   const p = presupuestos[index];
-    doc.setFontSize(14);
-    doc.text("Presupuesto", 20, 20);
-    doc.setFontSize(12);
-    doc.text(`Servicios: ${p.servicios.join(', ')}`, 20, 35);
-    doc.text(`Salón: ${p.salon}`, 20, 45);
-    doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 55);
-    doc.text(`Total: $${p.total}`, 20, 65);
+
+  //busca el usuario
+  const usuario = usuarios.find(u => u.id === p.idUsuario) || {};
+  const nombreCompleto = `${usuario.firstName || ''} ${usuario.lastName || ''}`;
+
+  const serviciosTexto = Array.isArray(p.idServicio)
+    ? p.idServicio
+        .map(id => {
+          const serv = serviciosTodos.find(s => String(s.idServicio) === String(id));
+          return serv ? serv.tituloServicio : '';
+        })
+        .filter(Boolean)
+        .join(', ')
+    : '';
+
+ 
+  const salon = salones.find(s => s.idSalon === p.idSalon);
+  const tematica = tematicas.find(t => t.idTematica === p.idTematica);
+
+  doc.setFontSize(14);
+  doc.text("Presupuesto", 20, 20);
+  doc.setFontSize(12);
+  doc.text(`Nombre: ${nombreCompleto}`, 20, 30);
+  doc.text(`Servicios: ${serviciosTexto}`, 20, 40);
+  doc.text(`Salón: ${salon ? salon.tituloSalon : ''}`, 20, 50);
+  doc.text(`Temática: ${tematica ? tematica.tituloTematica : ''}`, 20, 60);
+  doc.text(`Fecha de Reserva: ${p.fechaReserva}`, 20, 70);
+  doc.text(`Total: $${p.total}`, 20, 80);
 
   doc.save(`presupuesto_${index + 1}.pdf`);
 }
-
 
 async function obtenerUsuarios() {
     try {
